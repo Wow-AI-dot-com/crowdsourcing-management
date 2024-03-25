@@ -1,0 +1,40 @@
+.c-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 50px;
+  flex-wrap: wrap;
+
+  &__page {
+    &--prev,
+    &--next,
+    &--number {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: normal;
+      color: #4e4b66;
+      border: none;
+      box-shadow: unset;
+      outline: unset;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    &--number {
+      display: flex;
+      width: 44px;
+      height: 44px;
+      justify-content: center;
+      align-items: center;
+      border-radius: 16px;
+      background: transparent;
+      border: 1px solid #4e4b66;
+    }
+
+    &--active {
+      color: #fff;
+      background: #2a46ff;
+    }
+  }
+}

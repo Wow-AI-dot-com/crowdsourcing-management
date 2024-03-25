@@ -1,0 +1,60 @@
+// Breadcrumbs
+
+.c-navbar {
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+
+    &-items {
+      padding: 0;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    &-item {
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 34px;
+      letter-spacing: 0.75px;
+      list-style: none;
+      cursor: pointer;
+      position: relative;
+    }
+  }
+
+  &__icon {
+    flex-direction: row-reverse;
+    box-shadow: 0px 1px 2px -1px rgba(17, 12, 34, 0.08);
+    padding: 8px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    min-width: auto;
+    border-width: 1px;
+    color: #fff;
+
+    &.default {
+      color: #14142a;
+      border-color: #dedeec;
+    }
+
+    &.danger {
+      border-color: #F2415A;
+      background: #F2415A;
+    }
+
+    &.success {
+      border-color: #27BE69;
+      background: #27BE69;
+    }
+
+    &.warning {
+      border-color: #FFBF0F;
+      background: #FFBF0F;
+    }
+  }
+}
