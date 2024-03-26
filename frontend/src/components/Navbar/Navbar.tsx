@@ -1,8 +1,21 @@
-import React, { Dispatch, SetStateAction, useState, useRef, useCallback, useMemo } from "react";
+import React, {
+  Dispatch,
+  SetStateAction,
+  useState,
+  useRef,
+  useCallback,
+  useMemo,
+} from "react";
 import useOnClickOutside from "../../hooks/useOnClickOutside";
 import { TUserModel } from "../../models/user";
 import "./Navbar.scss";
-import { IconUnExpand, IconExpand, IconBook, IconEdit, IconClose } from "../../assets/icons/Index";
+import {
+  IconUnExpand,
+  IconExpand,
+  IconBook,
+  IconEdit,
+  IconClose,
+} from "../../assets/icons/Index";
 // import { any } from "../../layouts/UserLayout";
 import Breadcrumbs from "../Breadcrumbs/Breadcrumbs";
 import { useNavigate } from "react-router-dom";
@@ -20,7 +33,7 @@ export type TNavbarBreadcrumb = {
 export type TNavbarProjectData = {
   name: string | undefined;
   desc: string | undefined;
-}
+};
 
 export type TProps = {
   actions?: TNavbarBreadcrumb[] | null;
@@ -35,10 +48,16 @@ export type TProps = {
 };
 
 const MemoizedNavbar = (props: TProps) => {
-  const { sideBarData, isSetupPage, isLayoutEmpty, navProjectData, closeCallBackUrl, onExpandSideBar } = props;
+  const {
+    sideBarData,
+    isSetupPage,
+    isLayoutEmpty,
+    navProjectData,
+    closeCallBackUrl,
+    onExpandSideBar,
+  } = props;
   const [isShowListNotification, setIsShowListNotification] = useState(false);
   const [isShowMenu, setMenuShow] = useState(false);
-  const [isShowSwitchOrganizationModal, setIsShowSwitchOrganizationModal] = useState(false);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
   const dropdownNotificationRef = useRef<HTMLDivElement | null>(null);
   const navigate = useNavigate();
@@ -91,79 +110,109 @@ const MemoizedNavbar = (props: TProps) => {
   // };
 
   const handleClickOutsideListNotification = useCallback(() => {
-    if (!dropdownNotificationRef.current || !isShowListNotification) return false;
+    if (!dropdownNotificationRef.current || !isShowListNotification)
+      return false;
     setIsShowListNotification(false);
   }, [isShowListNotification]);
-  useOnClickOutside(dropdownNotificationRef, handleClickOutsideListNotification);
-  
+  useOnClickOutside(
+    dropdownNotificationRef,
+    handleClickOutsideListNotification
+  );
+
   return (
     <div className="c-navbar">
       <div className="c-navbar__wrapper">
         <div className="c-navbar__left">
           <div className="c-navbar__logo">
-            <img className="c-navbar__logo-image" src={require("../../assets/images/logo.png")} height={30} alt="Logo" />
+            <img
+              className="c-navbar__logo-image"
+              src={require("../../assets/images/logo.png")}
+              height={30}
+              alt="Logo"
+            />
             <div className="c-navbar__logo-info">
-              <div className={`c-navbar__user-info ${isSetupPage ? "settings" : ""}`}>
-                <span>{(navProjectData && isSetupPage) ? navProjectData.name : getUserRole}</span>
-                <strong>{(navProjectData && isSetupPage) ? navProjectData.desc : props.user?.email}</strong>
+              <div
+                className={`c-navbar__user-info ${
+                  isSetupPage ? "settings" : ""
+                }`}
+              >
+                <span>
+                  {navProjectData && isSetupPage
+                    ? navProjectData.name
+                    : getUserRole}
+                </span>
+                <strong>
+                  {navProjectData && isSetupPage
+                    ? navProjectData.desc
+                    : props.user?.email}
+                </strong>
               </div>
-              {!isSetupPage &&
+              {!isSetupPage && (
                 <button
                   className="c-navbar__icon-hamburger"
                   onClick={() => handleExpandSideBar()}
                 >
-                  {sideBarData.isExpand ? <IconExpand color={'#5050FF'} /> : <IconUnExpand />}
+                  {sideBarData.isExpand ? (
+                    <IconExpand color={"#5050FF"} />
+                  ) : (
+                    <IconUnExpand />
+                  )}
                 </button>
-              }
-              {isSetupPage && 
+              )}
+              {isSetupPage && (
                 <button
                   className="c-navbar__icon-settings-edit"
                   onClick={() => handleExpandSideBar()}
                 >
                   <IconEdit width={16} height={16} />
                 </button>
-              }
+              )}
             </div>
           </div>
-          {!isLayoutEmpty && !isSetupPage &&
+          {!isLayoutEmpty && !isSetupPage && (
             <>
-              <div className="line"/>
+              <div className="line" />
               <div className="c-navbar__breadcrumbs">
                 <ul className="c-navbar__breadcrumbs-items">
                   <Breadcrumbs data={props.breadcrumbs} />
                 </ul>
               </div>
             </>
-          }
+          )}
         </div>
         <div className="c-navbar__right">
-        {!isLayoutEmpty && 
-          <div className="c-navbar__actions">
-            <Button className="c-navbar__icon-book" type="secondary" icon={<IconBook />} onClick={() => navigate("/document")}>
-              Tutorial
-            </Button>
-            {props.actions && props.actions.length > 0 &&
-              <ul className="c-navbar__actions-items">
-                <NavbarActions data={props.actions}/>
-              </ul>
-            }
-            {closeCallBackUrl &&
-              <>
-                <div className="line"/>
-                <button 
-                  className="c-navbar__icon-close-callback" 
-                  onClick={() => navigate(closeCallBackUrl)}
-                >
-                  <IconClose />
-                </button>
-              </>
-            }
-          </div>
-        }
+          {!isLayoutEmpty && (
+            <div className="c-navbar__actions">
+              <Button
+                className="c-navbar__icon-book"
+                type="secondary"
+                icon={<IconBook />}
+                onClick={() => navigate("/document")}
+              >
+                Tutorial
+              </Button>
+              {props.actions && props.actions.length > 0 && (
+                <ul className="c-navbar__actions-items">
+                  <NavbarActions data={props.actions} />
+                </ul>
+              )}
+              {closeCallBackUrl && (
+                <>
+                  <div className="line" />
+                  <button
+                    className="c-navbar__icon-close-callback"
+                    onClick={() => navigate(closeCallBackUrl)}
+                  >
+                    <IconClose />
+                  </button>
+                </>
+              )}
+            </div>
+          )}
         </div>
       </div>
     </div>
   );
-}
+};
 
 export const Navbar = React.memo(MemoizedNavbar);

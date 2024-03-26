@@ -5,6 +5,7 @@ import {
   Outlet,
   Route,
   useMatches,
+  Link,
 } from "react-router-dom";
 import PageLogin from "./pages/Login";
 import NotFound from "./pages/NotFound";
@@ -13,6 +14,9 @@ import { AuthProvider } from "./providers/AuthProvider";
 import composeProviders from "./utils/composeProviders";
 import LoaderProvider from "./providers/LoaderProvider";
 import Signup from "./pages/Signup";
+import GuestLayout from "./layouts/GuestLayout";
+import UserLayout from "./layouts/UserLayout";
+import ProjectsList from "./pages/Project/List";
 
 const Providers = composeProviders([
   { provider: LoaderProvider },
@@ -58,24 +62,43 @@ function RootElement() {
   );
 }
 
+const TempHomeRedirect = () => {
+  return (
+    <div>
+      <h1>Test</h1>
+      <Link to="/projects">Go login</Link>
+    </div>
+  );
+};
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route element={<RootElement />}>
-      <Route
-        path="/user/login"
-        element={<PageLogin />}
-        handle={{ title: "Login" }}
-      />
-      <Route
-        path="/user/signup"
-        element={<Signup />}
-        handle={{ title: "Sign Up" }}
-      />
-      <Route
-        path="*"
-        element={<NotFound />}
-        handle={{ title: "Page not found" }}
-      />
+      <Route path="/" element={<TempHomeRedirect />} />
+      <Route element={<GuestLayout />}>
+        <Route
+          path="/user/login"
+          element={<PageLogin />}
+          handle={{ title: "Login" }}
+        />
+        <Route
+          path="/user/signup"
+          element={<Signup />}
+          handle={{ title: "Sign Up" }}
+        />
+        <Route
+          path="*"
+          element={<NotFound />}
+          handle={{ title: "Page not found" }}
+        />
+      </Route>
+      <Route element={<UserLayout />}>
+        <Route
+          path="/projects"
+          element={<ProjectsList />}
+          handle={{ title: "Projects" }}
+        />
+      </Route>
     </Route>
   )
 );
