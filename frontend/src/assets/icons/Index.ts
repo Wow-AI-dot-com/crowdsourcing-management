@@ -87,6 +87,9 @@ import IconTypeSolid from "./IconTypeSolid";
 import IconApple from "./IconApple";
 import IconWindows from "./IconWindows";
 import IconLinux from "./IconLinux";
+import IconDeleteAnnotation from "./IconDeleteAnnotation";
+import IconLongTerm from "./IconLongTerm";
+import IconPrice from "./IconPrice";
 
 export {
   IconClear,
@@ -177,4 +180,7 @@ export {
   IconApple,
   IconWindows,
   IconLinux,
+  IconDeleteAnnotation,
+  IconLongTerm,
+  IconPrice,
 };

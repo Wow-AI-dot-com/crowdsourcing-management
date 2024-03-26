@@ -17,6 +17,8 @@ import Signup from "./pages/Signup";
 import GuestLayout from "./layouts/GuestLayout";
 import UserLayout from "./layouts/UserLayout";
 import ProjectsList from "./pages/Project/List";
+import { ProjectType } from "./pages/Project/Filter/ProjectType";
+import { ProjectAttribute } from "./pages/Project/Filter/ProjectAttribute";
 
 const Providers = composeProviders([
   { provider: LoaderProvider },
@@ -65,8 +67,8 @@ function RootElement() {
 const TempHomeRedirect = () => {
   return (
     <div>
-      <h1>Test</h1>
-      <Link to="/projects">Go login</Link>
+      <ProjectType />
+      <ProjectAttribute />
     </div>
   );
 };

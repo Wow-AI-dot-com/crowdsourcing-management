@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+.projectTypeItem {
+  color: #40405b;
+  padding: 7px 20px;
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 500;
+  border-radius: 27px;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+}
+.active {
+  color: #5050ff;
+  border: 1.5px solid #5050ff;
+}
