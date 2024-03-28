@@ -1,7 +1,7 @@
 import {
   IconLineSubMenu,
   IconLineSubMenuLast,
-} from "../../../assets/icons/IconSubMenu";
+} from "@Assets/icons/IconSubMenu";
 import { SelectOption } from "../Select";
 import { SelectedGroup } from "../SelectContent/SelectContent";
 

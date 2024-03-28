@@ -25,7 +25,7 @@
   }
 
   &__text {
-    font-weight: 700;
+    font-weight: var(--font-bold);
     margin-top: 16px;
   }
 }

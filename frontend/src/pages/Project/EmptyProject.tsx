@@ -1,5 +1,5 @@
-import { IconPlus } from "../../assets/icons/Index";
-import Button from "../../components/Button/Button";
+import { IconPlus } from "@Assets/icons/Index";
+import Button from "@Components/Button/Button";
 import { useNavigate } from "react-router-dom";
 
 const EmptyProject = () => {

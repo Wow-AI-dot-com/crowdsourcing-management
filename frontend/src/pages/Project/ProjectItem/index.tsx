@@ -7,14 +7,14 @@ import {
   IconLightBulb,
   IconMinus,
   IconThreeDot,
-} from "../../../assets/icons/Index";
-import { formatDateTime } from "../../../utils/formatDate";
-import Dropdown from "../../../components/Dropdown/Dropdown";
+} from "@Assets/icons/Index";
+import { formatDateTime } from "@Utils/formatDate";
 import { useCallback } from "react";
 import DropdownItem, {
   TDropdownItem,
-} from "../../../components/DropdownItem/DropdownItem";
-import { confirmDialog } from "../../../components/Dialog";
+} from "@Components/DropdownItem/DropdownItem";
+import { confirmDialog } from "@Components/Dialog";
+import Dropdown from "@Components/Dropdown/Dropdown";
 
 type TProjectItemProps = {
   data: TProjectModel;

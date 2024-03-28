@@ -15,9 +15,9 @@
     }
 
     &-item {
-      font-size: 16px;
+      font-size: var(--text-base);
       font-style: normal;
-      font-weight: 700;
+      font-weight: var(--font-bold);
       line-height: 34px;
       letter-spacing: 0.75px;
       list-style: none;
@@ -31,30 +31,30 @@
     box-shadow: 0px 1px 2px -1px rgba(17, 12, 34, 0.08);
     padding: 8px 10px;
     border-radius: 8px;
-    font-size: 12px;
-    font-weight: 500;
+    font-size: var(--text-xs);
+    font-weight: var(--font-medium);
     min-width: auto;
     border-width: 1px;
-    color: #fff;
+    color: var(--main-bg);
 
     &.default {
-      color: #14142a;
-      border-color: #dedeec;
+      color: var(--main-title);
+      border-color: var(--main-line);
     }
 
     &.danger {
-      border-color: #F2415A;
-      background: #F2415A;
+      border-color: var(--color-base-dangerous);
+      background: var(--color-base-dangerous);
     }
 
     &.success {
-      border-color: #27BE69;
-      background: #27BE69;
+      border-color: var(--color-base-green);
+      background: var(--color-base-green);
     }
 
     &.warning {
-      border-color: #FFBF0F;
-      background: #FFBF0F;
+      border-color: #ffbf0f;
+      background: #ffbf0f;
     }
   }
 }

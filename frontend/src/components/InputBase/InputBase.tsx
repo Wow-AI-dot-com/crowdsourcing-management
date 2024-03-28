@@ -1,5 +1,5 @@
 import React, { CSSProperties, ReactNode, useMemo, useState } from "react";
-import IconClear from "../../assets/icons/IconClear";
+import IconClear from "@Assets/icons/IconClear";
 import "./InputBase.scss";
 
 export type TInputBaseProps = {

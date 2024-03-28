@@ -1,5 +1,5 @@
 import React from "react";
-import Loader, {TLoaderRef} from "../components/Loader/Loader";
+import Loader, {TLoaderRef} from "@Components/Loader/Loader";
 import {useLocation} from "react-router-dom";
 
 export type TLoaderProvider = {

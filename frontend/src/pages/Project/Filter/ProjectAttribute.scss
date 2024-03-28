@@ -9,8 +9,8 @@
 }
 .projectTitle {
   color: #434345;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
   line-height: 24px;
 }
 .itemDropdown {

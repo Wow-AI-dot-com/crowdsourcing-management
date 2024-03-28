@@ -1,5 +1,5 @@
-import {JSONSchemaType} from "ajv";
-import createAjvValidator from "../utils/createAjvValidator";
+import { JSONSchemaType } from "ajv";
+import createAjvValidator from "@Utils/createAjvValidator";
 
 export type TLoginDTO = {
   email: string,
@@ -22,8 +22,8 @@ export type TLoginResponseDTO = {
 const loginResponseSchema: JSONSchemaType<TLoginResponseDTO> = {
   type: "object",
   properties: {
-    status: {type: "number"},
-    redirect: {type: "string", minLength: 1},
+    status: { type: "number" },
+    redirect: { type: "string", minLength: 1 },
   },
   required: ["status", "redirect"],
   additionalProperties: false,

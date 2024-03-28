@@ -4,9 +4,9 @@
   outline: unset;
   box-shadow: unset;
   padding: 0 20px;
-  font-size: 16px;
+  font-size: var(--text-base);
   font-style: normal;
-  font-weight: 600;
+  font-weight: var(--font-semibold);
   line-height: 28px;
   letter-spacing: 0.75px;
   cursor: pointer;
@@ -19,36 +19,36 @@
   &-primary {
     border: none;
     background: #2a46ff;
-    color: #fff;
+    color: var(--main-bg);
   }
 
   &-secondary {
     border: 2px solid #2a46ff;
-    background: #fff;
+    background: var(--main-bg);
     color: #2a46ff;
   }
 
   &-dark {
-    border: 2px solid #1E2031;
-    background: #1E2031;
-    color: #ffffff;
+    border: 2px solid #1e2031;
+    background: #1e2031;
+    color: var(--main-bg);
   }
 
   &-hot {
     border: 2px solid #d41060;
     background: #d41060;
-    color: #ffffff;
+    color: var(--main-bg);
   }
 
   &-gradient {
     background: linear-gradient(89.94deg, #ff71e8 0.03%, #3838ff 99.8%);
     border: none;
-    color: #ffffff;
+    color: var(--main-bg);
   }
 
   &-white {
-    border: solid 1px #dedeec;
-    color: #14142a;
+    border: solid 1px var(--main-line);
+    color: var(--main-title);
   }
 
   // Size
@@ -88,7 +88,7 @@
   &-signup,
   &-social {
     border-radius: 16px;
-    font-size: 16px;
+    font-size: var(--text-base);
     line-height: normal;
     padding: 10px;
   }
@@ -96,7 +96,7 @@
   // Btn Social
 
   &-social {
-    font-weight: 700;
+    font-weight: var(--font-bold);
     width: 100%;
     letter-spacing: -0.24px;
     border-color: #111;
@@ -107,7 +107,7 @@
 
   &-signin {
     background: linear-gradient(90deg, #ff71e8 0.03%, #3838ff 99.8%);
-    font-weight: 600;
+    font-weight: var(--font-semibold);
   }
 
   // Btn Sign Up
@@ -115,11 +115,11 @@
   &-signup {
     background: #252525;
     font-weight: 400;
-    font-family: 'Satoshi-Regular';
+    font-family: "Satoshi-Regular";
   }
 
   &-social,
   &-signin {
-    font-family: 'Satoshi-Bold';
+    font-family: "Satoshi-Bold";
   }
 }

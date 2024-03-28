@@ -1,5 +1,5 @@
-import Alert from "../components/Alert/Alert";
-import React, {CSSProperties, ReactNode} from "react";
+import Alert from "@Components/Alert/Alert";
+import { CSSProperties, ReactNode } from "react";
 
 export function createAlert(
   error: ReactNode | string | null,

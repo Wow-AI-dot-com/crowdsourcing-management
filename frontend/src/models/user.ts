@@ -1,5 +1,5 @@
 import {JSONSchemaType} from "ajv";
-import createAjvValidator from "../utils/createAjvValidator";
+import createAjvValidator from "@Utils/createAjvValidator";
 import dayjs from "dayjs";
 
 export const newUser: TUserModel = {

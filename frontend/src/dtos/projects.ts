@@ -1,6 +1,6 @@
 import { JSONSchemaType } from "ajv";
-import createAjvValidator from "../utils/createAjvValidator";
-import { projectModelSchema, TProjectModel } from "../models/project";
+import createAjvValidator from "@Utils/createAjvValidator";
+import { projectModelSchema, TProjectModel } from "@Models/project";
 
 export type TProjectsResponseDTO = {
   count: number;

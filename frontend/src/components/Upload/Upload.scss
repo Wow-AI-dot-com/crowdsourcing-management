@@ -34,7 +34,7 @@
 	&__label {
 		align-self: stretch;
 		flex-grow: 0;
-		font-size: 14px;
+		font-size: var(--text-sm);
 		font-weight: normal;
 		font-stretch: normal;
 		font-style: normal;
@@ -51,7 +51,7 @@
 	&__describe {
 		align-self: stretch;
 		flex-grow: 0;
-		font-size: 12px;
+		font-size: var(--text-xs);
 		font-weight: normal;
 		font-stretch: normal;
 		font-style: normal;

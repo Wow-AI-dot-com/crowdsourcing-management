@@ -2,12 +2,12 @@
   color: #111111;
 
   button {
-    font-size: 14px;
+    font-size: var(--text-sm);
     width: 100%;
     border: none;
     background: transparent;
     padding: 8px 24px;
-    font-weight: 500;
+    font-weight: var(--font-medium);
     cursor: pointer;
     text-align: left;
   }
@@ -21,10 +21,10 @@
   }
 
   &:not(&__disabled):hover {
-    background-color: #3c56ff;
+    background-color: var(--blue-light);
 
     button {
-      color: #ffffff;
+      color: var(--main-bg);
     }
   }
 

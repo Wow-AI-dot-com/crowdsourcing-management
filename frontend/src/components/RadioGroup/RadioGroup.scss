@@ -1,74 +1,74 @@
 .c-radio-group-base {
-	&__label {
-		span {
-			font-size: 12px;
-			font-weight: 500;
-			line-height: 16px;
-			color: #40405B;
-		}
+  &__label {
+    span {
+      font-size: var(--text-xs);
+      font-weight: var(--font-medium);
+      line-height: 16px;
+      color: var(--main-label);
+    }
 
-		span.required {
-			color: red;
-		}
-	}
+    span.required {
+      color: red;
+    }
+  }
 
-	&__field {
-		display: flex;
-		flex-direction: column;
-		gap: 4px;
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
 
-		&.disabled {
-			opacity: 0.2;
-			pointer-events: none;
-		}
-	}
+    &.disabled {
+      opacity: 0.2;
+      pointer-events: none;
+    }
+  }
 
-	&__control {
-		position: relative;
-		border-radius: 8px;
-		border: 1px solid #DEDEEC;
-		background-color: #FFF;
-		width: 100%;
-		box-sizing: border-box;
-		font-size: 14px;
-		font-weight: 400;
-		line-height: 24px;
-		letter-spacing: 0.75px;
-		color: #111;
+  &__control {
+    position: relative;
+    border-radius: 8px;
+    border: 1px solid var(--main-line);
+    background-color: var(--main-bg);
+    width: 100%;
+    box-sizing: border-box;
+    font-size: var(--text-sm);
+    font-weight: var(--font-normal);
+    line-height: 24px;
+    letter-spacing: 0.75px;
+    color: #111;
 
-		> button {
-			height: 31px;
-			padding: 8px 12px;
-			border-radius: 8px;
-			background-color: #FFFFFF;
-			color: #333350;
-			border: none;
-			cursor: pointer;
-			
-			&.active {
-				background-color: #5050FF;
-				color: #F4F5F9;
-			}
-		}
-	}
+    > button {
+      height: 31px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      background-color: var(--main-bg);
+      color: #333350;
+      border: none;
+      cursor: pointer;
 
-	// Message
-	&__error,
-	&__success {
-		font-size: 14px;
-		font-style: normal;
-		font-weight: 500;
-		line-height: 24px;
-		letter-spacing: 0.75px;
-		text-transform: capitalize;
-		margin: 8px 0 0;
-	}
+      &.active {
+        background-color: var(--button-normal);
+        color: #f4f5f9;
+      }
+    }
+  }
 
-	&__error {
-		color: #c30052;
-	}
+  // Message
+  &__error,
+  &__success {
+    font-size: var(--text-sm);
+    font-style: normal;
+    font-weight: var(--font-medium);
+    line-height: 24px;
+    letter-spacing: 0.75px;
+    text-transform: capitalize;
+    margin: 8px 0 0;
+  }
 
-	&__success {
-		color: #00966d;
-	}
+  &__error {
+    color: #c30052;
+  }
+
+  &__success {
+    color: #00966d;
+  }
 }

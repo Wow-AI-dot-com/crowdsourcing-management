@@ -1,10 +1,10 @@
 import React from "react";
 import "./Table.scss";
-import IconDelete from "../../assets/icons/IconDelete";
-import IconEdit from "../../assets/icons/IconEdit";
-import IconExport from "../../assets/icons/IconExport";
+import IconDelete from "@Assets/icons/IconDelete";
+import IconEdit from "@Assets/icons/IconEdit";
+import IconExport from "@Assets/icons/IconExport";
 import SkeletonBox from "../SkeletonBox/SkeletonBox";
-import IconPlusSquare from "../../assets/icons/IconPlusSquare";
+import IconPlusSquare from "@Assets/icons/IconPlusSquare";
 
 export type TTableActions = {
   actions: {

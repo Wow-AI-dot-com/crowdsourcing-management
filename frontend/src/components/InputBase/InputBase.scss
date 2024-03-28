@@ -1,10 +1,10 @@
 .c-input-base {
   &__label {
     span {
-      font-size: 12px;
-      font-weight: 500;
+      font-size: var(--text-xs);
+      font-weight: var(--font-medium);
       line-height: 16px;
-      color: #40405B;
+      color: var(--main-label);
     }
     span.required {
       color: red;
@@ -44,13 +44,13 @@
     input {
       padding: 7px 40px 7px 12px;
       border-radius: 8px;
-      border: 1px solid #DEDEEC;
+      border: 1px solid var(--main-line);
       opacity: 0.5;
-      background-color: #FFF;
+      background-color: var(--main-bg);
       width: 100%;
       box-sizing: border-box;
-      font-size: 14px;
-      font-weight: 400;
+      font-size: var(--text-sm);
+      font-weight: var(--font-normal);
       line-height: 24px;
       letter-spacing: 0.75px;
       color: #111;
@@ -58,11 +58,11 @@
       &::-ms-input-placeholder,
       /* Edge 12-18 */
       &::placeholder {
-        font-size: 14px;
+        font-size: var(--text-sm);
         font-style: normal;
-        font-weight: 500;
-        line-height: 24PX;
-        color: #D4D4DA;
+        font-weight: var(--font-medium);
+        line-height: 24px;
+        color: #d4d4da;
       }
 
       &:active,
@@ -70,7 +70,7 @@
         border-color: #111;
         outline-color: #111;
         outline: unset;
-        background: #fff;
+        background: var(--main-bg);
         opacity: 1;
       }
     }
@@ -105,14 +105,14 @@
     }
   }
 
-	&__right{
-		width: 12px;
+  &__right {
+    width: 12px;
     height: 12px;
     position: absolute;
     top: auto;
     bottom: 50%;
     right: 12px;
-	}
+  }
 
   // Status
 
@@ -165,9 +165,9 @@
   // Message
   &__error,
   &__success {
-    font-size: 14px;
+    font-size: var(--text-sm);
     font-style: normal;
-    font-weight: 500;
+    font-weight: var(--font-medium);
     line-height: 24px;
     letter-spacing: 0.75px;
     text-transform: capitalize;

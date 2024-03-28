@@ -1,8 +1,8 @@
 import React from "react";
-import { TProjectModel } from "../../models/project";
-import { useApi } from "../../providers/ApiProvider";
-import { randomString } from "../../utils/random";
-import { validateProjectsResponse } from "../../dtos/projects";
+import { TProjectModel } from "@Models/project";
+import { useApi } from "@Providers/ApiProvider";
+import { randomString } from "@Utils/random";
+import { validateProjectsResponse } from "@Dtos/projects";
 
 export type TProps = {
   page?: number;
@@ -62,11 +62,11 @@ export default function useProjectsHook(
       props.getAll
         ? {}
         : {
-            query: new URLSearchParams({
-              page: page.toString(),
-              page_size: pageSize.toString(),
-            }),
-          }
+          query: new URLSearchParams({
+            page: page.toString(),
+            page_size: pageSize.toString(),
+          }),
+        }
     );
 
     ar.promise

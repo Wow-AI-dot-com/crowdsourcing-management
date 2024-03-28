@@ -1,9 +1,9 @@
 import React, { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import { IconClear } from "../../assets/icons/Index";
+import { IconClear } from "@Assets/icons/Index";
 import Button, { TButtonProps } from "../Button/Button";
 import "./Modal.scss";
-import { debounce } from "../../utils/debounce";
+import { debounce } from "@Utils/debounce";
 
 type TModalProps = {
   children?: React.ReactNode;

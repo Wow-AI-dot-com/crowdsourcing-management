@@ -13,8 +13,8 @@
 
   &__content {
     border-radius: 50%;
-    border: 3px solid #DEDEEC;
-    border-top-color: #40405B;
+    border: 3px solid var(--main-line);
+    border-top-color: var(--main-label);
     animation: loading 1s linear infinite;
     &.lg {
       width: 35px;

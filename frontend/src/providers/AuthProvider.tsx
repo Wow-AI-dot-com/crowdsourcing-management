@@ -3,7 +3,7 @@ import { TLoginDTO, TSignupDTO, validateLoginResponse } from "../dtos/auth";
 import validateUserModel, { TUserModel } from "../models/user";
 import { useApi } from "./ApiProvider";
 import { useLoader } from "./LoaderProvider";
-import { confirmDialog } from "../components/Dialog";
+import { confirmDialog } from "@Components/Dialog";
 
 export type TAuthProvider = {
   error: string | null;

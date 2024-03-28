@@ -1,16 +1,15 @@
 import React, { useRef } from "react";
 import { Outlet } from "react-router-dom";
-import { useAuth } from "../providers/AuthProvider";
+import { useAuth } from "@Providers/AuthProvider";
 import "./UserLayout.scss";
 import {
   Navbar,
   TNavbarBreadcrumb,
   TNavbarProjectData,
-} from "../components/Navbar/Navbar";
-import { Sidebar } from "../components/Sidebar/Sidebar";
-// import { AccountSettingProvider } from "../providers/AccountSettingProvider";
-import { useLoader } from "../providers/LoaderProvider";
-import { useScrollbarVisibility } from "../hooks/useScrollbarVisibility";
+} from "@Components/Navbar/Navbar";
+import { Sidebar } from "@Components/Sidebar/Sidebar";
+import { useLoader } from "@Providers/LoaderProvider";
+import { useScrollbarVisibility } from "@Hooks/useScrollbarVisibility";
 
 export type TUserLayoutHook = {
   clearActions: () => void;
@@ -72,7 +71,6 @@ export default function UserLayout() {
   const isScrollbarVisible = useScrollbarVisibility(contentRef, outletRef);
 
   const { user } = useAuth();
-  // const navigate = useNavigate();
 
   const clearActions = React.useCallback(() => {
     setActionsState(null);
@@ -160,15 +158,6 @@ export default function UserLayout() {
     loaderFitContent,
     loaderFullWidth,
   ]);
-
-  //todo: uncomment this code
-  // React.useEffect(() => {
-  //   if (!user) navigate("/user/login");
-  // }, [navigate, user]);
-
-  // if (!user) {
-  //   return null;
-  // }
 
   return (
     <UserLayoutContext.Provider value={providerValue}>

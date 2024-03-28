@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
-import { IconArrowLeft } from "../../assets/icons/Index";
-import useOnClickOutside from "../../hooks/useOnClickOutside";
+import { IconArrowLeft } from "@Assets/icons/Index";
+import useOnClickOutside from "@Hooks/useOnClickOutside";
 import "./Select.scss";
 import ListOptions from "./SelectContent/SelectContent";
 import Spin from "../Spin/Spin";

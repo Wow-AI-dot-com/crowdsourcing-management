@@ -2,6 +2,7 @@ const fs = require("fs");
 const evalSourceMap = require("react-dev-utils/evalSourceMapMiddleware");
 const redirectServedPath = require("react-dev-utils/redirectServedPathMiddleware");
 const noopServiceWorker = require("react-dev-utils/noopServiceWorkerMiddleware");
+const path = require("path");
 
 module.exports = {
   devServer: (devServerConfig, { env, paths }) => {
@@ -31,5 +32,18 @@ module.exports = {
       },
     };
     return devServerConfig;
+  },
+  webpack: {
+    alias: {
+      '@': path.resolve(__dirname, 'src/'),
+      '@Components': path.resolve(__dirname, 'src/components'),
+      "@Hooks": path.resolve(__dirname, 'src/hooks'),
+      "@Assets": path.resolve(__dirname, 'src/assets'),
+      "@Providers": path.resolve(__dirname, 'src/providers'),
+      "@Utils": path.resolve(__dirname, 'src/utils'),
+      "@Dtos": path.resolve(__dirname, 'src/dtos'),
+      "@Models": path.resolve(__dirname, 'src/models'),
+      "@Pages": path.resolve(__dirname, 'src/pages'),
+    }
   },
 };

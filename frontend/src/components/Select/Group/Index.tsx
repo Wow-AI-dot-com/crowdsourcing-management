@@ -1,5 +1,5 @@
 import { memo, useState } from "react";
-import IconArrowLeft from "../../../assets/icons/IconArrowLeft";
+import IconArrowLeft from "@Assets/icons/IconArrowLeft";
 import { DataSelect, SelectOption } from "../Select";
 import { SelectedGroup } from "../SelectContent/SelectContent";
 import Option from "../Option/Index";

@@ -11,8 +11,8 @@
 
     &__text {
       text-transform: capitalize;
-      font-size: 16px;
-      font-weight: 500;
+      font-size: var(--text-base);
+      font-weight: var(--font-medium);
       line-height: normal;
       color: #4e4b66;
     }
@@ -33,7 +33,7 @@
   &-list {
     position: absolute;
     border-radius: 16px;
-    background: #ffffff;
+    background: var(--main-bg);
     margin-top: 11px;
     z-index: 998;
     width: max-content;
@@ -57,7 +57,7 @@
 
     &__item {
       list-style: none;
-      font-size: 18px;
+      font-size: var(--text-lg);
       font-weight: 400;
       line-height: 34px;
       letter-spacing: 0.75px;

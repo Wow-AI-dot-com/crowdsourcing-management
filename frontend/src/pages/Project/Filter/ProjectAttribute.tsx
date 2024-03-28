@@ -1,9 +1,9 @@
 import React from "react";
-import Dropdown from "../../../components/Dropdown/Dropdown";
+import Dropdown from "@Components/Dropdown/Dropdown";
 import "./ProjectAttribute.scss";
-import IconDeleteAnnotation from "../../../assets/icons/IconDeleteAnnotation";
-import IconLongTerm from "../../../assets/icons/IconLongTerm";
-import IconPrice from "../../../assets/icons/IconPrice";
+import IconDeleteAnnotation from "@Assets/icons/IconDeleteAnnotation";
+import IconLongTerm from "@Assets/icons/IconLongTerm";
+import IconPrice from "@Assets/icons/IconPrice";
 const ListAttribute = [
   { id: 1, name: "Annotation", icon: <IconDeleteAnnotation /> },
   { id: 2, name: "Long Term", icon: <IconLongTerm /> },

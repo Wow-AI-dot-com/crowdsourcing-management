@@ -1,5 +1,5 @@
 import { ChangeEvent, memo, useEffect, useState } from "react";
-import { IconClear, IconUploadFileSm } from "../../assets/icons/Index";
+import { IconClear, IconUploadFileSm } from "@Assets/icons/Index";
 import "./Upload.scss";
 
 type TUploadProps = {

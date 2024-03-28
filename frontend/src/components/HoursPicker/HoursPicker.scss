@@ -26,8 +26,8 @@
 
     &-start,
     &-end {
-      font-size: 14px;
-      font-weight: 500;
+      font-size: var(--text-sm);
+      font-weight: var(--font-medium);
     }
 
     button {
@@ -59,7 +59,7 @@
 
     label {
       color: #252525;
-      font-size: 14px;
+      font-size: var(--text-sm);
       font-style: normal;
       line-height: normal;
     }

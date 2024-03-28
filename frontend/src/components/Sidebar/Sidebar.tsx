@@ -1,6 +1,6 @@
-import { IconBook, IconLogout } from "../../assets/icons/Index";
+import { IconBook, IconLogout } from "@Assets/icons/Index";
 import { SIDEBAR_ITEM_LABELS } from "../../constants/projectConstants";
-import { useAuth } from "../../providers/AuthProvider";
+import { useAuth } from "@Providers/AuthProvider";
 import "./Sidebar.scss";
 import ItemSidebar from "./SidebarItem/Index";
 

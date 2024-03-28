@@ -1,7 +1,7 @@
 import React from "react";
 import "./Loader.scss";
 import {createPortal} from "react-dom";
-import {IconLoading} from "../../assets/icons/Index";
+import {IconLoading} from "@Assets/icons/Index";
 
 export type TLoaderRef = {
   show: () => void,

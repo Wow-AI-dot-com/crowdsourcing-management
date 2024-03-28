@@ -7,18 +7,18 @@ import {
   useMatches,
   Link,
 } from "react-router-dom";
-import PageLogin from "./pages/Login";
-import NotFound from "./pages/NotFound";
-import ApiProvider from "./providers/ApiProvider";
-import { AuthProvider } from "./providers/AuthProvider";
-import composeProviders from "./utils/composeProviders";
-import LoaderProvider from "./providers/LoaderProvider";
-import Signup from "./pages/Signup";
+import PageLogin from "@Pages/Login/Login";
+import NotFound from "@Pages/NotFound/NotFound";
+import ApiProvider from "@Providers/ApiProvider";
+import { AuthProvider } from "@Providers/AuthProvider";
+import composeProviders from "@Utils/composeProviders";
+import LoaderProvider from "@Providers/LoaderProvider";
+import Signup from "@Pages/Signup/Signup";
 import GuestLayout from "./layouts/GuestLayout";
 import UserLayout from "./layouts/UserLayout";
-import ProjectsList from "./pages/Project/List";
-import { ProjectType } from "./pages/Project/Filter/ProjectType";
-import { ProjectAttribute } from "./pages/Project/Filter/ProjectAttribute";
+import ProjectsList from "@Pages/Project/List";
+import { ProjectType } from "@Pages/Project/Filter/ProjectType";
+import { ProjectAttribute } from "@Pages/Project/Filter/ProjectAttribute";
 
 const Providers = composeProviders([
   { provider: LoaderProvider },

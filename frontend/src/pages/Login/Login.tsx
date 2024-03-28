@@ -1,17 +1,17 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import Button from "../components/Button/Button";
-import { useApi } from "../providers/ApiProvider";
-import { useAuth } from "../providers/AuthProvider";
-import "./Signup.scss";
-import {createAlert} from "../utils/createAlert";
+import Button from "@Components/Button/Button";
+import { useApi } from "@Providers/ApiProvider";
+import { useAuth } from "@Providers/AuthProvider";
+import "@/pages/Signup/Signup.scss";
+import { createAlert } from "@Utils/createAlert";
 
 export default function Login() {
   const api = useApi();
   const auth = useAuth();
   const navigate = useNavigate();
   const [isSubmit, setSubmit] = React.useState(false);
-  const [form] = React.useState<{[k: string]: string}>({
+  const [form] = React.useState<{ [k: string]: string }>({
     email: "",
     password: "",
   });
@@ -21,11 +21,10 @@ export default function Login() {
   }
 
   const handleGoogleLogin = () => {
-    auth.loginWithGoogle()
-      .then(() => {
-        // redirect after auth
-      });
-  }
+    auth.loginWithGoogle().then(() => {
+      // redirect after auth
+    });
+  };
 
   React.useEffect(() => {
     if (!isSubmit) {
@@ -59,7 +58,7 @@ export default function Login() {
   }, [isSubmit]);
 
   const errorNode = React.useMemo(() => {
-    return createAlert(auth.error, undefined, false, {marginBottom: 16});
+    return createAlert(auth.error, undefined, false, { marginBottom: 16 });
   }, [auth.error]);
 
   const errorValidationNode = React.useMemo(() => {
@@ -67,14 +66,16 @@ export default function Login() {
       return null;
     }
 
-    return createAlert(auth.errors["__all__"][0], undefined, false, {marginBottom: 16});
+    return createAlert(auth.errors["__all__"][0], undefined, false, {
+      marginBottom: 16,
+    });
   }, [auth.errors]);
 
   return (
     <div className="sign-up">
       <div className="sign-up-left">
         <div className="sign-up-left-content">
-          <img src={require("../assets/images/logo.png")} alt="Logo" />
+          <img src={require("../../assets/images/logo.png")} alt="Logo" />
           <span className="sign-up-left-text">
             An End-to-End AI Platform that integrates with Decentralized
             Computing Resources
@@ -102,7 +103,7 @@ export default function Login() {
             />
           </div>
           <div className="sign-up-content__group-btn">
-          <Button type="white" onClick={() => navigate("/user/signup")}>
+            <Button type="white" onClick={() => navigate("/user/signup")}>
               Sign Up
             </Button>
             <Button
@@ -120,7 +121,7 @@ export default function Login() {
             onClick={handleGoogleLogin}
           >
             <img
-              src={require("../assets/images/icon_google.png")}
+              src={require("../../assets/images/icon_google.png")}
               alt="icon google"
             />
             Sign In With Google

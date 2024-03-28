@@ -7,8 +7,8 @@ import {
   useState,
 } from "react";
 import "./Dropdown.scss";
-import { IconPolygon, IconThinArrowDown } from "../../assets/icons/Index";
-import useOnClickOutside from "../../hooks/useOnClickOutside";
+import { IconPolygon, IconThinArrowDown } from "@Assets/icons/Index";
+import useOnClickOutside from "@Hooks/useOnClickOutside";
 
 type TDropdownProps = {
   label?: string;

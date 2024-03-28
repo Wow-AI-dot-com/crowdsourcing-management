@@ -4,8 +4,8 @@ import {
   IconArrowLeft,
   IconLineSubMenu,
   IconLineSubMenuLast,
-} from "../../../assets/icons/Index";
-import { openNewTab } from "../../../utils/openNewTab";
+} from "@Assets/icons/Index";
+import { openNewTab } from "@Utils/openNewTab";
 import { SidebarItem } from "../Sidebar";
 
 interface ISidebarItemProps {

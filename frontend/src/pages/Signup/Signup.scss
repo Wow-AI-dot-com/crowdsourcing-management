@@ -5,7 +5,7 @@
     width: 60%;
     height: 100%;
     position: relative;
-    background-image: url("../assets/images/bg_login.png");
+    background-image: url("../../assets/images/bg_login.png");
     background-position: center;
     background-size: cover;
     &-content {
@@ -20,16 +20,16 @@
       width: 90%;
     }
     &-text {
-      color: #14142a;
+      color: var(--main-title);
       font-size: 32px;
-      font-weight: 500;
+      font-weight: var(--font-medium);
       padding: 0 50px;
       text-align: center;
       margin-top: 20px;
     }
     &::before {
       content: "";
-      background-image: url("../assets/images/bg_login_rainbow.png");
+      background-image: url("../../assets/images/bg_login_rainbow.png");
       background-position: center;
       background-size: cover;
       position: absolute;
@@ -38,7 +38,7 @@
     }
     &::after {
       content: "";
-      background-image: url("../assets/images/bg_login_dots_purple.png");
+      background-image: url("../../assets/images/bg_login_dots_purple.png");
       background-position: center;
       background-size: contain;
       position: absolute;
@@ -58,23 +58,23 @@
     position: relative;
     //sign up roles
     &-item {
-      border: 1px solid #dedeec;
+      border: 1px solid var(--main-line);
       border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #14142a;
+      color: var(--main-title);
       font-size: 23px;
-      font-weight: 500;
+      font-weight: var(--font-medium);
       height: 30%;
       cursor: pointer;
       padding: 10px;
       &.selected {
-        background-image: url("../assets/images/bg_login.png");
+        background-image: url("../../assets/images/bg_login.png");
         background-position: center;
         background-size: cover;
-        color: #5050ff;
-        font-weight: 600;
+        color: var(--button-normal);
+        font-weight: var(--font-semibold);
       }
     }
     &-btn {
@@ -87,8 +87,8 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 14px;
-        font-weight: 400;
+        font-size: var(--text-sm);
+        font-weight: var(--font-normal);
         cursor: pointer;
         svg {
           width: 20px;
@@ -96,17 +96,17 @@
       }
       &-back {
         width: 80px;
-        background-color: #fff;
+        background-color: var(--main-bg);
         svg {
           margin-right: 10px;
         }
       }
       &-next {
         width: 121px;
-        background-color: #14142a;
-        color: #fff;
+        background-color: var(--main-title);
+        color: var(--main-bg);
         border-radius: 8px;
-        box-shadow: 0 1px 2px -1px #110c22;
+        box-shadow: 0 1px 2px -1px var(--color-theme_light-high_em);
         svg {
           margin-left: 10px;
           transform: rotate(180deg);
@@ -124,20 +124,20 @@
       &__title {
         color: #0d0d0d;
         font-size: 40px;
-        font-weight: 500;
+        font-weight: var(--font-medium);
         margin-bottom: 16px;
       }
       &__input {
         margin: 30px 0 20px;
         input {
-          font-size: 14px;
-          font-weight: 400;
-          color: #40405b;
+          font-size: var(--text-sm);
+          font-weight: var(--font-normal);
+          color: var(--main-label);
           height: 56px;
           padding: 0 15px;
           width: calc(100% - 32px);
           outline: none;
-          border: 1px solid #dedeec;
+          border: 1px solid var(--main-line);
           &.email {
             border-radius: 12px 12px 0 0;
           }
@@ -154,17 +154,17 @@
           margin-top: 10px;
           color: #c30052;
           font-size: 13px;
-          font-weight: 400;
+          font-weight: var(--font-normal);
           min-height: 16px;
           text-transform: capitalize;
           line-height: 18px;
         }
       }
       &__or {
-        color: #dedeec;
+        color: var(--main-line);
         margin: 30px 0;
-        font-size: 14px;
-        font-weight: 500;
+        font-size: var(--text-sm);
+        font-weight: var(--font-medium);
         position: relative;
         &::before {
           content: "";
@@ -173,7 +173,7 @@
           top: 8px;
           width: 88px;
           height: 1px;
-          background-color: #dedeec;
+          background-color: var(--main-line);
         }
         &::after {
           content: "";
@@ -182,17 +182,17 @@
           top: 8px;
           width: 88px;
           height: 1px;
-          background-color: #dedeec;
+          background-color: var(--main-line);
         }
       }
       .signup-google {
-        background-color: #fff;
-        border: 1px solid #dedeec;
+        background-color: var(--main-bg);
+        border: 1px solid var(--main-line);
         width: 100%;
         border-radius: 8px;
-        color: #14142a;
-        font-size: 14px;
-        font-weight: 500;
+        color: var(--main-title);
+        font-size: var(--text-sm);
+        font-weight: var(--font-medium);
         letter-spacing: 0;
         height: 40px;
         img {
@@ -204,12 +204,12 @@
         gap: 10px;
         button {
           height: 40px;
-          font-size: 14px;
-          font-weight: 500;
+          font-size: var(--text-sm);
+          font-weight: var(--font-medium);
           border-radius: 8px;
           letter-spacing: 0;
           width: calc(50% - 5px);
-          background-color: #fff;
+          background-color: var(--main-bg);
           box-shadow: 0 1px 2px -1px rgba(17, 12, 34, 0.08);
         }
       }

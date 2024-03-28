@@ -3,7 +3,7 @@ import { HOURS } from "../../constants/projectConstants";
 import Button from "../Button/Button";
 import Select, { DataSelect } from "../Select/Select";
 import "./HoursPicker.scss";
-import IconDelete from "../../assets/icons/IconDelete";
+import IconDelete from "@Assets/icons/IconDelete";
 import { infoDialog } from "../Dialog";
 
 interface Hours {

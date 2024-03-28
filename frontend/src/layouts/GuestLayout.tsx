@@ -1,5 +1,5 @@
 import {Outlet} from "react-router-dom";
-import {useAuth} from "../providers/AuthProvider";
+import {useAuth} from "@Providers/AuthProvider";
 
 export default function GuestLayout() {
   const {user} = useAuth();

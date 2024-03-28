@@ -1,8 +1,8 @@
 .c-alert {
   background-color: white;
-  border: solid 2px #DEDEEC;
+  border: solid 2px var(--main-line);
   border-radius: 16px;
-  box-shadow: 0 16px 20px -8px #110C221A;
+  box-shadow: 0 16px 20px -8px var(--color-theme_light-high_em);
   padding: 24px 24px 24px 56px;
   position: relative;
   text-align: left;
@@ -57,14 +57,14 @@
   }
 
   &__title {
-    font-size: 16px;
-    font-weight: 300;
+    font-size: var(--text-base);
+    font-weight: var(--font-light);
     margin-bottom: 8px;
   }
 
   &__message {
-    font-size: 14px;
-    font-weight: 500;
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
   }
 
   &__actions {
@@ -77,8 +77,8 @@
       align-items: center;
       cursor: pointer;
       display: inline-flex;
-      font-size: 14px;
-      font-weight: 600;
+      font-size: var(--text-sm);
+      font-weight: var(--font-semibold);
       gap: 8px;
     }
   }

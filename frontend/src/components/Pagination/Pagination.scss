@@ -10,8 +10,8 @@
     &--prev,
     &--next,
     &--number {
-      font-size: 16px;
-      font-weight: 700;
+      font-size: var(--text-base);
+      font-weight: var(--font-bold);
       line-height: normal;
       color: #4e4b66;
       border: none;
@@ -33,7 +33,7 @@
     }
 
     &--active {
-      color: #fff;
+      color: var(--main-bg);
       background: #2a46ff;
     }
   }

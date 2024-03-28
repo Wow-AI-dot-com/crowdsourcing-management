@@ -1,15 +1,15 @@
 import React from "react";
-import Pagination from "../../components/Pagination/Pagination";
+import Pagination from "@Components/Pagination/Pagination";
 import "./List.scss";
 import { useUserLayout } from "../../layouts/UserLayout";
 import EmptyProject from "./EmptyProject";
 import ProjectItem from "./ProjectItem";
-import Button from "../../components/Button/Button";
-import IconArrowRight from "../../assets/icons/IconArrowRight";
-import { useApi } from "../../providers/ApiProvider";
+import Button from "@Components/Button/Button";
+import IconArrowRight from "@Assets/icons/IconArrowRight";
+import { useApi } from "@Providers/ApiProvider";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { useBooleanLoader } from "../../providers/LoaderProvider";
-import useProjectsHook from "../../hooks/projects/useProjectsHook";
+import { useBooleanLoader } from "@Providers/LoaderProvider";
+import useProjectsHook from "@Hooks/projects/useProjectsHook";
 
 export default function List() {
   const [searchParams] = useSearchParams();

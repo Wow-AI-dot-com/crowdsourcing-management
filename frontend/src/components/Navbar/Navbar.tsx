@@ -6,8 +6,8 @@ import React, {
   useCallback,
   useMemo,
 } from "react";
-import useOnClickOutside from "../../hooks/useOnClickOutside";
-import { TUserModel } from "../../models/user";
+import useOnClickOutside from "@Hooks/useOnClickOutside";
+import { TUserModel } from "@Models/user";
 import "./Navbar.scss";
 import {
   IconUnExpand,
@@ -15,7 +15,7 @@ import {
   IconBook,
   IconEdit,
   IconClose,
-} from "../../assets/icons/Index";
+} from "@Assets/icons/Index";
 // import { any } from "../../layouts/UserLayout";
 import Breadcrumbs from "../Breadcrumbs/Breadcrumbs";
 import { useNavigate } from "react-router-dom";

@@ -57,7 +57,7 @@
       position: absolute;
       content: "";
       bottom: 2px;
-      background-color: #fff;
+      background-color: var(--main-bg);
       -webkit-transition: 0.4s;
       transition: 0.4s;
       border-radius: 50%;
@@ -65,7 +65,7 @@
   }
 
   input:checked + .slider {
-    background-color: #14142A;
+    background-color: var(--main-title);
   }
 
   &__wrapper {
@@ -82,15 +82,15 @@
   &__title,
   &__desc {
     color: #111;
-    font-size: 14px;
+    font-size: var(--text-sm);
   }
 
   &__title {
-    font-weight: 500;
+    font-weight: var(--font-medium);
   }
 
   &__desc {
     color: #8b8f93;
-    font-weight: 500;
+    font-weight: var(--font-medium);
   }
 }
