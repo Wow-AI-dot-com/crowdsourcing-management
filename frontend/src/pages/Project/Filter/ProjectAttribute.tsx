@@ -11,12 +11,12 @@ const ListAttribute = [
 ];
 export const ProjectAttribute = () => {
   return (
-    <div className="container">
+    <div className="containerProjectAttribute">
       {ListAttribute.map((m) => {
         return (
           <div className="box">
             {m.icon}
-            <div className="projectTitle">{m.name}</div>
+            <div className="title">{m.name}</div>
             <Dropdown>
               {ListAttribute.map((m) => {
                 return <div className="itemDropdown">{m.name}</div>;

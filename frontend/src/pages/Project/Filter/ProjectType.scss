@@ -1,19 +1,19 @@
-.container {
+.containerProjectType {
   display: flex;
   gap: 15px;
   align-items: center;
-}
-.projectTypeItem {
-  color: var(--main-label);
-  padding: 7px 20px;
-  font-size: var(--text-sm);
-  line-height: 24px;
-  font-weight: var(--font-medium);
-  border-radius: 27px;
-  border: 1.5px solid transparent;
-  cursor: pointer;
-}
-.active {
-  color: var(--color-gray-200);
-  border: 1.5px solid var(--color-gray-200);
+  .projectTypeItem {
+    color: var(--main-label);
+    padding: 7px 20px;
+    font-size: var(--text-sm);
+    line-height: 24px;
+    font-weight: var(--font-medium);
+    border-radius: 27px;
+    border: 1.5px solid transparent;
+    cursor: pointer;
+    &.active {
+      color: var(--color-gray-200);
+      border: 1.5px solid var(--color-gray-200);
+    }
+  }
 }

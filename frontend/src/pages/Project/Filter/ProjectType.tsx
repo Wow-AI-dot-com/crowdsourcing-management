@@ -1,11 +1,7 @@
 import React from "react";
 import "./ProjectType.scss";
 
-interface TypeListNameProject {
-  id: number;
-  name: string;
-}
-const ListNameItemProject: TypeListNameProject[] = [
+const ListNameItemProject = [
   { id: 1, name: "Available" },
   { id: 2, name: "Applied" },
   { id: 3, name: "My Projects" },
@@ -16,7 +12,7 @@ export const ProjectType = () => {
     setIsActive(number);
   };
   return (
-    <div className="container">
+    <div className="containerProjectType">
       {ListNameItemProject.map((m) => {
         return (
           <div

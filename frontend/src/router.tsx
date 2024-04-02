@@ -16,7 +16,7 @@ import LoaderProvider from "@Providers/LoaderProvider";
 import Signup from "@Pages/Signup/Signup";
 import GuestLayout from "./layouts/GuestLayout";
 import UserLayout from "./layouts/UserLayout";
-import ProjectsList from "@Pages/Project/List";
+import ProjectsList from "@/pages/Project/ListTemple";
 import { ProjectType } from "@Pages/Project/Filter/ProjectType";
 import { ProjectAttribute } from "@Pages/Project/Filter/ProjectAttribute";
 
@@ -64,19 +64,14 @@ function RootElement() {
   );
 }
 
-const TempHomeRedirect = () => {
-  return (
-    <div>
-      <ProjectType />
-      <ProjectAttribute />
-    </div>
-  );
+const PageHome = () => {
+  return <div>Home</div>;
 };
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route element={<RootElement />}>
-      <Route path="/" element={<TempHomeRedirect />} />
+      <Route path="/" element={<PageHome />} />
       <Route element={<GuestLayout />}>
         <Route
           path="/user/login"

@@ -1,22 +1,22 @@
-.container {
+.containerProjectAttribute {
   display: flex;
   gap: 32px;
-}
-.box {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-}
-.projectTitle {
-  color: #434345;
-  font-size: var(--text-sm);
-  font-weight: var(--font-medium);
-  line-height: 24px;
-}
-.itemDropdown {
-  padding: 5px 10px;
-  border-bottom: 1.5px solid;
-}
-.itemDropdown:last-child {
-  border: 0px;
+  .box {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    &.title {
+      color: #434345;
+      font-size: var(--text-sm);
+      font-weight: var(--font-medium);
+      line-height: 24px;
+    }
+    .itemDropdown {
+      padding: 5px 10px;
+      border-bottom: 1.5px solid;
+    }
+    .itemDropdown:last-child {
+      border: 0px;
+    }
+  }
 }
