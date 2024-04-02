@@ -5,12 +5,12 @@ import {
   Outlet,
   Route,
   useMatches,
-  Link,
+  // Link,
 } from "react-router-dom";
 import PageLogin from "@Pages/Login/Login";
 import NotFound from "@Pages/NotFound/NotFound";
-import ApiProvider from "@Providers/ApiProvider";
-import { AuthProvider } from "@Providers/AuthProvider";
+// import ApiProvider from "@Providers/ApiProvider";
+// import { AuthProvider } from "@Providers/AuthProvider";
 import composeProviders from "@Utils/composeProviders";
 import LoaderProvider from "@Providers/LoaderProvider";
 import Signup from "@Pages/Signup/Signup";
@@ -22,8 +22,8 @@ import { ProjectAttribute } from "@Pages/Project/Filter/ProjectAttribute";
 
 const Providers = composeProviders([
   { provider: LoaderProvider },
-  { provider: ApiProvider },
-  { provider: AuthProvider },
+  // { provider: ApiProvider },
+  // { provider: AuthProvider },
 ]).provider;
 
 function TitleChanger() {
