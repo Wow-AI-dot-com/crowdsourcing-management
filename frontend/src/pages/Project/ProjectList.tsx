@@ -3,8 +3,8 @@ import React from "react";
 import { ProjectAttribute } from "./Filter/ProjectAttribute";
 import { ProjectType } from "./Filter/ProjectType";
 import "./ProjectList.scss";
-import Index from "./ProjectItem/indexProjectItem";
-const arr = [
+import ProjectItem from "./ProjectItem";
+const FAKE_PROJECTS = [
   {
     id: 1,
     status: false,
@@ -63,10 +63,10 @@ const ProjectList = () => {
         <ProjectAttribute />
       </div>
       <div className="listItemProject">
-        {arr.map((m) => {
+        {FAKE_PROJECTS.map((m) => {
           return (
             <div className="ItemProject" key={m.id}>
-              <Index
+              <ProjectItem
                 key={m.id}
                 isOneTime={m.status}
                 title={m.title}
