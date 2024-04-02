@@ -17,6 +17,7 @@ import Signup from "@Pages/Signup/Signup";
 import GuestLayout from "./layouts/GuestLayout";
 import UserLayout from "./layouts/UserLayout";
 import ProjectsList from "@/pages/Project/ListTemple";
+import ProjectList from "./pages/Project/ProjectList";
 import { ProjectType } from "@Pages/Project/Filter/ProjectType";
 import { ProjectAttribute } from "@Pages/Project/Filter/ProjectAttribute";
 
@@ -92,7 +93,7 @@ const router = createBrowserRouter(
       <Route element={<UserLayout />}>
         <Route
           path="/projects"
-          element={<ProjectsList />}
+          element={<ProjectList />}
           handle={{ title: "Projects" }}
         />
       </Route>

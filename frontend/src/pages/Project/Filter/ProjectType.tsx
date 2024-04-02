@@ -18,6 +18,7 @@ export const ProjectType = () => {
           <div
             className={`projectTypeItem ${isActive === m.id ? "active" : ""}`}
             onClick={() => ClickActive(m.id)}
+            key={m.id}
           >
             {m.name}
           </div>
