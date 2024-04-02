@@ -1,5 +1,5 @@
 import React from "react";
-import { TProjectModel } from "../../../models/project";
+import { TProjectModel } from "@Models/project";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import "./index.scss";
 import {

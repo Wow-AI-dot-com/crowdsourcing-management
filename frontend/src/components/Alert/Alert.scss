@@ -2,7 +2,6 @@
   background-color: var(--main-bg);
   border: solid 2px var(--main-line);
   border-radius: var(--radius-rounded-xxl);
-  box-shadow: 0 16px 20px -8px var(--color-theme_light-high_em);
   padding: 24px 24px 24px 56px;
   position: relative;
   text-align: left;
@@ -46,7 +45,7 @@
   &__icon {
     left: 20px;
     position: absolute;
-    top: 24px;
+    top: 22px;
   }
 
   &__dismiss {
@@ -63,7 +62,7 @@
 
   &__message {
     font-size: var(--text-sm);
-    font-weight: var(--font-medium);
+    font-weight: var(--font-bold);
   }
 
   &__actions {
