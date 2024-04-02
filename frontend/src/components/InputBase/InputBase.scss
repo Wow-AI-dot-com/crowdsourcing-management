@@ -3,11 +3,11 @@
     span {
       font-size: var(--text-xs);
       font-weight: var(--font-medium);
-      line-height: 16px;
+      line-height: var(--leading-4);
       color: var(--main-label);
     }
     span.required {
-      color: red;
+      color: var(--color-alert-danger);
     }
   }
 
@@ -43,15 +43,14 @@
     textarea,
     input {
       padding: 7px 40px 7px 12px;
-      border-radius: 8px;
+      border-radius: var(--radius-rounded-lg);
       border: 1px solid var(--main-line);
       opacity: 0.5;
       background-color: var(--main-bg);
       width: 100%;
       box-sizing: border-box;
       font-size: var(--text-sm);
-      font-weight: var(--font-normal);
-      line-height: 24px;
+      line-height: var(--leading-6);
       letter-spacing: 0.75px;
       color: #111;
 
@@ -59,9 +58,8 @@
       /* Edge 12-18 */
       &::placeholder {
         font-size: var(--text-sm);
-        font-style: normal;
         font-weight: var(--font-medium);
-        line-height: 24px;
+        line-height: var(--leading-6);
         color: #d4d4da;
       }
 
@@ -119,13 +117,13 @@
   &--success {
     .c-input-base__control {
       input {
-        border-color: #00ba88;
+        border-color: var(--color-alert-success);
         background-color: #f3fdfa;
 
         &:active,
         &:focus,
         &:hover {
-          border-color: #00ba88;
+          border-color: var(--color-alert-success);
           background-color: #f3fdfa;
           outline: unset;
         }
@@ -134,7 +132,7 @@
 
     .c-action {
       button {
-        color: #00ba88;
+        color: var(--color-alert-success);
       }
     }
   }
@@ -142,13 +140,13 @@
   &--error {
     .c-input-base__control {
       input {
-        border-color: #ed2e7e;
+        border-color: var(--color-alert-danger);
         background-color: #fff2f7;
 
         &:active,
         &:focus,
         &:hover {
-          border-color: #ed2e7e;
+          border-color: var(--color-alert-danger);
           background-color: #fff2f7;
           outline: unset;
         }
@@ -157,7 +155,7 @@
 
     .c-input-base__action {
       button {
-        color: #ed2e7e;
+        color: var(--color-alert-danger);
       }
     }
   }
@@ -166,19 +164,18 @@
   &__error,
   &__success {
     font-size: var(--text-sm);
-    font-style: normal;
     font-weight: var(--font-medium);
-    line-height: 24px;
+    line-height: var(--leading-6);
     letter-spacing: 0.75px;
     text-transform: capitalize;
     margin: 8px 0 0;
   }
 
   &__error {
-    color: #c30052;
+    color: var(--color-alert-danger);
   }
 
   &__success {
-    color: #00966d;
+    color: var(--color-alert-success);
   }
 }

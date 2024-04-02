@@ -5,9 +5,9 @@
 }
 .projectTypeItem {
   color: var(--main-label);
-  padding: 7px 20px;
+  padding: 7px var(--padding-p-5);
   font-size: var(--text-sm);
-  line-height: 24px;
+  line-height: var(--leading-4);
   font-weight: var(--font-medium);
   border-radius: 27px;
   border: 1.5px solid transparent;

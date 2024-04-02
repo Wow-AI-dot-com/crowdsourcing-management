@@ -6,21 +6,20 @@
   gap: 19px;
 
   &.info {
-    color: #ed2e7e;
+    color: var(--color-alert-info);
   }
 
   &.success {
-    color: #00ba88;
+    color: var(--color-alert-success);
   }
 
   &.warning {
-    color: #f4b740;
+    color: var(--color-alert-warning);
   }
 
   &__title {
     font-size: 22px;
     font-weight: var(--font-semibold);
-    line-height: normal;
     margin: 0;
   }
 }

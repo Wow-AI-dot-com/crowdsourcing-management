@@ -11,13 +11,13 @@
     flex-direction: row;
     flex-wrap: wrap;
     gap: 8px;
-    margin-top: 16px;
+    margin-top: var(--margin-m-4);
   }
 
   &__item {
     background-color: #EBEFFB;
     border: solid 1px #10284817;
-    border-radius: 8px;
+    border-radius: var(--radius-rounded-lg);
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -60,8 +60,6 @@
     label {
       color: #252525;
       font-size: var(--text-sm);
-      font-style: normal;
-      line-height: normal;
     }
 
     &-select {
@@ -69,7 +67,7 @@
         height: 44px;
       }
       .c-select__item {
-        padding: 0 20px;
+        padding: 0 var(--padding-p-5);
       }
       .c-select__item.last {
         margin-bottom: 0;

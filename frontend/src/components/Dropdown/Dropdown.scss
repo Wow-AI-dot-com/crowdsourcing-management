@@ -11,9 +11,7 @@
 
     &__text {
       text-transform: capitalize;
-      font-size: var(--text-base);
       font-weight: var(--font-medium);
-      line-height: normal;
       color: #4e4b66;
     }
 
@@ -32,7 +30,7 @@
 
   &-list {
     position: absolute;
-    border-radius: 16px;
+    border-radius: var(--radius-rounded-xxl);
     background: var(--main-bg);
     margin-top: 11px;
     z-index: 998;

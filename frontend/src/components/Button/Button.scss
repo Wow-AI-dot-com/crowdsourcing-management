@@ -4,10 +4,8 @@
   outline: unset;
   box-shadow: unset;
   padding: 0 20px;
-  font-size: var(--text-base);
-  font-style: normal;
   font-weight: var(--font-semibold);
-  line-height: 28px;
+  line-height: var(--leading-7);
   letter-spacing: 0.75px;
   cursor: pointer;
   display: inline-flex;
@@ -18,14 +16,14 @@
   // Type
   &-primary {
     border: none;
-    background: #2a46ff;
+    background: var(--color-base-blue);
     color: var(--main-bg);
   }
 
   &-secondary {
-    border: 2px solid #2a46ff;
+    border: 2px solid var(--color-base-blue);
     background: var(--main-bg);
-    color: #2a46ff;
+    color: var(--color-base-blue);
   }
 
   &-dark {
@@ -87,9 +85,7 @@
   &-signin,
   &-signup,
   &-social {
-    border-radius: 16px;
-    font-size: var(--text-base);
-    line-height: normal;
+    border-radius: var(--radius-rounded-xxl);
     padding: 10px;
   }
 
