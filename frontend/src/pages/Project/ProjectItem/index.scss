@@ -6,9 +6,6 @@
   &:hover {
     border: 1px solid var(--color-blue);
   }
-  &:hover .button {
-    background-color: var(--color-blue);
-  }
   .header {
     display: flex;
     align-items: center;
@@ -45,21 +42,5 @@
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     margin-bottom: 16px;
-  }
-  .button {
-    display: flex;
-    width: 100%;
-    gap: 5px;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    color: var(--main-bg);
-    font-size: var(--text-sm);
-    font-weight: var(--font-medium);
-    line-height: 24px;
-    background-color: var(--color-neutral-600);
-    border: none;
-    border-radius: 8px;
-    padding: var(--padding-p-3);
   }
 }

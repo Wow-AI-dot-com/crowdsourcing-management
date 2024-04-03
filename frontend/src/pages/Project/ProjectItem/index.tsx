@@ -4,6 +4,8 @@ import IconImageProject from "@/assets/icons/IconImageProject";
 import IconPrice from "@/assets/icons/IconPrice";
 import "./index.scss";
 import IconCalendarProject from "@/assets/icons/IconCalendarProject";
+import Button from "@/components/Button/Button";
+
 interface TypeItemProject {
   isOneTime: boolean;
   title: string;
@@ -42,10 +44,15 @@ function ProjectItem(props: TypeItemProject) {
         </div>
         <div className="text">{information}</div>
       </div>
-      <button className="button" onClick={handleOnclick}>
-        <IconPrice />
+      <Button
+        type="gray"
+        onClick={handleOnclick}
+        icon={<IconPrice />}
+        iconPosition="left"
+        isBlock
+      >
         {price}
-      </button>
+      </Button>
     </div>
   );
 }
