@@ -1,6 +1,9 @@
 export const SIDEBAR_ITEM_LABELS = {
   // top sidebar
   YOUR_PROJECTS: "Your projects",
+  PROFILE: "Profile",
+  NETWORK: "Network",
+  SUPPORT: "Support",
   ORGANIZATIONS: "Organizations",
   COMPUTES: "Computes",
   COMPUTES_SUPPLIER: "Computes Supplier",

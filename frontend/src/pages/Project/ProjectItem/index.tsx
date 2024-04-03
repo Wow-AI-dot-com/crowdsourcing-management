@@ -12,7 +12,7 @@ interface TypeItemProject {
   price: string;
 }
 
-function Index(props: TypeItemProject) {
+function ProjectItem(props: TypeItemProject) {
   const { isOneTime, title, information, handleOnclick, price } = props;
   return (
     <div className="containerProjectItem">
@@ -43,11 +43,11 @@ function Index(props: TypeItemProject) {
         <div className="text">{information}</div>
       </div>
       <button className="button" onClick={handleOnclick}>
-        <IconPrice isWhite />
+        <IconPrice />
         {price}
       </button>
     </div>
   );
 }
 
-export default Index;
+export default ProjectItem;

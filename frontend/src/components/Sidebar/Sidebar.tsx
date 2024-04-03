@@ -1,4 +1,10 @@
-import { IconBook, IconLogout } from "@Assets/icons/Index";
+import {
+  IconBook,
+  IconLogout,
+  IconHeadPhone,
+  IconGlobal,
+  IconProfile,
+} from "@Assets/icons/Index";
 import { SIDEBAR_ITEM_LABELS } from "../../constants/projectConstants";
 import { useAuth } from "@Providers/AuthProvider";
 import "./Sidebar.scss";
@@ -28,7 +34,21 @@ const sidebarItems: SidebarItem[] = [
       return path.startsWith("/projects") || path.startsWith("/create-project");
     },
   },
-  // { path: "/organization/", icon: <IconUser />, label: SIDEBAR_ITEM_LABELS.ORGANIZATIONS  },
+  {
+    path: "/profile",
+    icon: <IconProfile />,
+    label: SIDEBAR_ITEM_LABELS.PROFILE,
+  },
+  {
+    path: "/network",
+    icon: <IconGlobal />,
+    label: SIDEBAR_ITEM_LABELS.NETWORK,
+  },
+  {
+    path: "/support",
+    icon: <IconHeadPhone />,
+    label: SIDEBAR_ITEM_LABELS.SUPPORT,
+  },
   // { path: "/computes/", icon: <IconYourCompute />, label: SIDEBAR_ITEM_LABELS.COMPUTES },
   // { path: "/computes-supplier/", icon: <IconYourCompute />, label: SIDEBAR_ITEM_LABELS.COMPUTES_SUPPLIER },
   // { path: "/models-seller", icon: <IconModelSeller />, label: SIDEBAR_ITEM_LABELS.MODELS_SELLER },
