@@ -1,6 +1,6 @@
 import React from "react";
-import { TLoginDTO, TSignupDTO, validateLoginResponse } from "../dtos/auth";
-import validateUserModel, { TUserModel } from "../models/user";
+import { TLoginDTO, TSignupDTO, validateLoginResponse } from "@Dtos/auth";
+import validateUserModel, { TUserModel } from "@Models/user";
 import { useApi } from "./ApiProvider";
 import { useLoader } from "./LoaderProvider";
 import { confirmDialog } from "@Components/Dialog";

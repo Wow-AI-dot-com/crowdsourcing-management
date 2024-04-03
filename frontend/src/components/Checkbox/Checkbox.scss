@@ -15,7 +15,7 @@
       &-lg {
         width: 24px;
         height: 24px;
-        border-radius: 8px;
+        border-radius: var(--radius-rounded-lg);
         &::before {
           width: 13px;
           height: 13px;
@@ -73,7 +73,6 @@
     display: flex;
     align-items: center;
     gap: 16px;
-    font-size: var(--text-base);
     font-weight: var(--font-semibold);
     letter-spacing: -0.16px;
     color: #111;

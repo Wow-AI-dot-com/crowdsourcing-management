@@ -50,7 +50,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #D4D4DA;
+    background-color: var(--color-prymary-600);
     transition: 0.4s;
     border-radius: 34px;
     &::before {
@@ -90,7 +90,7 @@
   }
 
   &__desc {
-    color: #8b8f93;
+    color: var(--color-primary-400);
     font-weight: var(--font-medium);
   }
 }

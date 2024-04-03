@@ -16,13 +16,12 @@
     &:hover,
     &:active,
     &:focus {
-      border-color: #2a46ff;
+      border-color: var(--color-base-blue);
       background: var(--main-bg);
       box-shadow: 0 0 32px 0 rgba(17, 17, 17, 0.05);
     }
 
     &-title {
-      font-size: var(--text-base);
       font-weight: var(--font-semibold);
       line-height: 1.5em;
       letter-spacing: 0.75px;
@@ -37,7 +36,6 @@
 
     &-created {
       font-size: var(--text-sm);
-      font-weight: var(--font-normal);
       line-height: 1.25em;
       letter-spacing: 0.75px;
       color: #111;
@@ -68,15 +66,15 @@
         align-items: center;
         gap: 12px;
         .green {
-          color: #00ba88;
+          color: var(--color-base-green);
         }
 
         .blue {
-          color: #2a46ff;
+          color: var(--color-base-blue);
         }
 
         .pink {
-          color: #ed2e7e;
+          color: var(--color-base-pink);
         }
       }
     }

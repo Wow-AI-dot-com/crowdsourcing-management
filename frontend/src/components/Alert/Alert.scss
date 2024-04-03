@@ -1,8 +1,7 @@
 .c-alert {
-  background-color: white;
+  background-color: var(--main-bg);
   border: solid 2px var(--main-line);
-  border-radius: 16px;
-  box-shadow: 0 16px 20px -8px var(--color-theme_light-high_em);
+  border-radius: var(--radius-rounded-xxl);
   padding: 24px 24px 24px 56px;
   position: relative;
   text-align: left;
@@ -12,41 +11,41 @@
   }
 
   &--info {
-    border-color: #A0D2FF;
+    border-color: var(--color-alert-info);
   }
 
   &--info &__icon {
-    color: #0084FF;
+    color: var(--color-alert-info-icon);
   }
 
   &--danger {
-    border-color: #FFC7C7;
+    border-color: var(--color-alert-danger);
   }
 
   &--danger &__icon {
-    color: #F03D3D;
+    color: var(--color-alert-danger-icon);
   }
 
   &--success {
-    border-color: #A6E9C8;
+    border-color: var(--color-alert-success);
   }
 
   &--success &__icon {
-    color: #0BAA60;
+    color: var(--color-alert-success-icon);
   }
 
   &--warning {
-    border-color: #FFDD86;
+    border-color: var(--color-alert-warning);
   }
 
   &--warning &__icon {
-    color: #E09400;
+    color: var(--color-alert-warning-icon);
   }
 
   &__icon {
     left: 20px;
     position: absolute;
-    top: 24px;
+    top: 22px;
   }
 
   &__dismiss {
@@ -57,21 +56,20 @@
   }
 
   &__title {
-    font-size: var(--text-base);
     font-weight: var(--font-light);
     margin-bottom: 8px;
   }
 
   &__message {
     font-size: var(--text-sm);
-    font-weight: var(--font-medium);
+    font-weight: var(--font-bold);
   }
 
   &__actions {
     display: flex;
     flex-wrap: wrap;
     gap: 24px;
-    margin-top: 16px;
+    margin-top: var(--margin-m-4);
 
     &-item {
       align-items: center;
@@ -84,18 +82,18 @@
   }
 
   &--info &__actions-item--context {
-    color: #0084FF;
+    color: var(--color-alert-info-icon);
   }
 
   &--danger &__actions-item--context {
-    color: #F03D3D;
+    color: var(--color-alert-danger-icon);
   }
 
   &--success &__actions-item--context {
-    color: #0BAA60;
+    color: var(--color-alert-success-icon);
   }
 
   &--warning &__actions-item--context {
-    color: #E09400;
+    color: var(--color-alert-warning-icon);
   }
 }

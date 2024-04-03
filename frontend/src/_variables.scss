@@ -1,5 +1,9 @@
 :root {
   // Color
+  --color-base-black: #000;
+  --color-base-blue: #2a46ff;
+  --color-blue-light: #3c56ff;
+
   --main-bg: #fff;
   --main-title: #14142a;
   --main-line: #dedeec;
@@ -12,9 +16,11 @@
 
   --color-primary-50: #eef;
   --color-primary-100: #c9c9ff;
+  --color-primary-200: #f0f0f0;
+  --color-primary-300: #dddbdd;
+  --color-primary-400: #8b8f93;
   --color-primary-500: #7357ff;
-
-  --blue-light: #3c56ff;
+  --color-prymary-600: #d4d4da;
 
   --color-base-green: #27be69;
 
@@ -30,6 +36,16 @@
   --color-theme_light-low_em: #8d8a95;
   --color-theme_light-success_on_accentLight: #0a9c55;
   --color-blue: #5050ff;
+
+  // Alert color
+  --color-alert-info: #a0d2ff;
+  --color-alert-info-icon: #0084ff;
+  --color-alert-danger: #ffc7c7;
+  --color-alert-danger-icon: #f03d3d;
+  --color-alert-success: #a6e9c8;
+  --color-alert-success-icon: #0baa60;
+  --color-alert-warning: #ffdd86;
+  --color-alert-warning-icon: #e09400;
 
   // Font-size
 
@@ -49,21 +65,34 @@
   --font-bold: 700;
 
   // Radius
-  --radius-rounded-lg: 8px;
+  --radius-rounded-xxl: 16px;
   --radius-rounded-xl: 12px;
+  --radius-rounded-lg: 8px;
   --radius-rounded-base: 4px;
 
   // Padding
   --padding-p-6: 24px;
   --padding-p-5: 20px;
-  --padding-p-4: 15px;
+  --padding-p-4: 16px;
   --padding-p-3: 12px;
   --padding-p-2: 8px;
 
   // Margin
   --margin-m-6: 24px;
   --margin-m-5: 20px;
-  --margin-m-4: 15px;
+  --margin-m-4: 16px;
   --margin-m-3: 12px;
   --margin-m-2: 8px;
+
+  // LineHieght
+
+  --leading-base: nomal;
+  --leading-3: 12px;
+  --leading-4: 16px;
+  --leading-5: 20px;
+  --leading-6: 24px;
+  --leading-7: 28px;
+  --leading-8: 32px;
+  --leading-9: 36px;
+  --leading-10: 40px;
 }

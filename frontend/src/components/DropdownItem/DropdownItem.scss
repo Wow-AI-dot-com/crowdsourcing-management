@@ -21,7 +21,7 @@
   }
 
   &:not(&__disabled):hover {
-    background-color: var(--blue-light);
+    background-color: var(--color-blue-light);
 
     button {
       color: var(--main-bg);

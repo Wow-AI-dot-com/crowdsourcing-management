@@ -15,7 +15,7 @@
     .c-sidebar {
       &__item {
         &:first-child {
-          padding-top: 24px;
+          padding-top: var(--padding-p-6);
         }
       }
       &::before {
@@ -71,7 +71,6 @@
       }
 
       strong {
-        font-weight: var(--font-normal);
         color: var(--button-normal);
         font-size: var(--text-xs);
       }
@@ -91,7 +90,6 @@
       font-weight: var(--font-bold);
     }
     strong {
-      font-size: var(--text-base);
       font-weight: var(--font-semibold);
       color: var(--main-title);
       letter-spacing: -0.16px;
@@ -132,9 +130,7 @@
     background: none;
     border: none;
     text-transform: capitalize;
-    font-size: var(--text-base);
     font-weight: var(--font-medium);
-    line-height: normal;
     color: #4e4b66;
     padding: 12px 16px;
     width: 100%;
@@ -154,13 +150,13 @@
 
   &__dropdown-item:hover {
     cursor: pointer;
-    background-color: #2a46ff;
+    background-color: var(--color-base-blue);
     color: var(--main-bg);
   }
 
   &__active {
     cursor: pointer;
-    background-color: #2a46ff;
+    background-color: var(--color-base-blue);
     color: var(--main-bg);
   }
 
@@ -210,7 +206,7 @@
 
     &-edit {
       justify-content: center;
-      border-radius: 8px;
+      border-radius: var(--radius-rounded-lg);
       width: 32px;
       height: 32px;
     }
@@ -229,7 +225,7 @@
       flex-direction: row-reverse;
       box-shadow: 0px 1px 2px -1px rgba(17, 12, 34, 0.08);
       padding: 8px 10px;
-      border-radius: 8px;
+      border-radius: var(--radius-rounded-lg);
       font-size: var(--text-xs);
       font-weight: var(--font-medium);
       min-width: auto;
@@ -242,7 +238,7 @@
     }
 
     &-settings-edit {
-      border-radius: 8px;
+      border-radius: var(--radius-rounded-lg);
       border: 1px solid var(--main-line);
       display: flex;
       width: 32px;

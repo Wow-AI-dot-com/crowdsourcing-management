@@ -2,6 +2,7 @@
   display: flex;
   gap: 15px;
   align-items: center;
+<<<<<<< HEAD
   .projectTypeItem {
     color: var(--main-label);
     padding: 7px 20px;
@@ -17,4 +18,20 @@
       border: 1.5px solid var(--color-blue);
     }
   }
+=======
+}
+.projectTypeItem {
+  color: var(--main-label);
+  padding: 7px var(--padding-p-5);
+  font-size: var(--text-sm);
+  line-height: var(--leading-4);
+  font-weight: var(--font-medium);
+  border-radius: 27px;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+}
+.active {
+  color: var(--color-gray-200);
+  border: 1.5px solid var(--color-gray-200);
+>>>>>>> main
 }

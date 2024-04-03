@@ -12,10 +12,10 @@
   transform: translate(50%, 50%);
   overscroll-behavior-y: none;
   border: 1px solid var(--main-line);
-  border-radius: 12px;
+  border-radius: var(--radius-rounded-xl);
   background: var(--main-bg);
   min-width: 500px;
-  padding: 24px;
+  padding: var(--padding-p-6);
   max-height: 91vh;
   box-sizing: border-box;
   box-shadow: 0 8px 28px 4px rgba(37, 37, 37, 0.33);
@@ -38,8 +38,6 @@
   &__title {
     font-size: var(--text-lg);
     font-weight: var(--font-semibold);
-    font-stretch: normal;
-    font-style: normal;
     line-height: 1.78;
     letter-spacing: -0.36px;
     text-align: left;
@@ -51,8 +49,6 @@
     flex-grow: 0;
     font-size: var(--text-sm);
     font-weight: var(--font-medium);
-    font-stretch: normal;
-    font-style: normal;
     line-height: 1.71;
     letter-spacing: 0.28px;
     text-align: left;
@@ -87,12 +83,10 @@
     button {
       font-size: var(--text-sm);
       font-weight: var(--font-medium);
-      font-stretch: normal;
-      font-style: normal;
       line-height: 1.71;
       letter-spacing: 0.28px;
       text-align: left;
-      padding: 0 16px;
+      padding: 0 var(--padding-p-4);
       border-radius: 6px;
       box-shadow: 0 1px 2px 0 rgba(27, 36, 44, 0.12);
     }
@@ -103,6 +97,6 @@
   }
 
   * + &__body {
-    margin-top: 16px;
+    margin-top: var(--margin-m-4);
   }
 }

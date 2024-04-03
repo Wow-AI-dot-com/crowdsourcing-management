@@ -10,6 +10,7 @@ import { useApi } from "@Providers/ApiProvider";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useBooleanLoader } from "@Providers/LoaderProvider";
 import useProjectsHook from "@Hooks/projects/useProjectsHook";
+import { createAlert } from "@/utils/createAlert";
 
 export default function List() {
   const [searchParams] = useSearchParams();
@@ -60,12 +61,10 @@ export default function List() {
     };
   }, [userLayout]);
 
-  if (projects.loading) {
-    return <>Loading...</>;
-  }
-
   if (projects.loadingError) {
-    return <>{projects.loadingError}</>;
+    return createAlert(projects.loadingError, undefined, false, {
+      margin: 16,
+    });
   }
 
   if (Array.isArray(projects.list) && projects?.list.length === 0) {
@@ -74,8 +73,6 @@ export default function List() {
 
   return (
     <div className="page-projects">
-      {projects.loadingError && <div>{projects.loadingError}</div>}
-      {projects.loading && <div>Loading...</div>}
       <div className="page-projects--create">
         <Button
           size="medium"

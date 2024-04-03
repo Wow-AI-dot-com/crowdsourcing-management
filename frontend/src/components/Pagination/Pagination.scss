@@ -10,9 +10,7 @@
     &--prev,
     &--next,
     &--number {
-      font-size: var(--text-base);
       font-weight: var(--font-bold);
-      line-height: normal;
       color: #4e4b66;
       border: none;
       box-shadow: unset;
@@ -27,14 +25,14 @@
       height: 44px;
       justify-content: center;
       align-items: center;
-      border-radius: 16px;
+      border-radius: var(--radius-rounded-xxl);
       background: transparent;
       border: 1px solid #4e4b66;
     }
 
     &--active {
       color: var(--main-bg);
-      background: #2a46ff;
+      background: var(--color-base-blue);
     }
   }
 }

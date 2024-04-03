@@ -12,7 +12,7 @@
   }
 
   &__content {
-    border-radius: 8px;
+    border-radius: var(--radius-rounded-lg);
     background: var(--main-bg);
     display: flex;
     align-items: center;
@@ -42,7 +42,7 @@
     justify-content: space-between;
     width: 100%;
     color: #111;
-    padding: 0 12px;
+    padding: 0 var(--padding-p-3);
   }
 
   &__label {
@@ -53,7 +53,7 @@
   &__list {
     position: absolute;
     margin: 0;
-    border-radius: 8px;
+    border-radius: var(--radius-rounded-lg);
     border: 0.5px solid var(--main-line);
     background: var(--main-bg);
     box-shadow: 0px 12px 24px 0px rgba(37, 37, 37, 0.1);
@@ -61,7 +61,7 @@
     z-index: 999;
 
     &-content {
-      padding: 0 12px;
+      padding: 0 var(--padding-p-3);
     }
 
     .select-scroll {
@@ -74,7 +74,6 @@
 
   &__placeholder {
     font-size: var(--text-sm);
-    font-weight: var(--font-normal);
     color: var(--main-title);
     text-overflow: ellipsis;
     overflow: hidden;
@@ -107,8 +106,8 @@
 
     &.active {
       .c-select__item-value {
-        padding: 16px;
-        border-radius: 8px;
+        padding: var(--padding-p-4);
+        border-radius: var(--radius-rounded-lg);
         background: rgba(42, 70, 255, 0.05);
         margin-bottom: 11px;
         display: flex;
@@ -127,7 +126,7 @@
     display: flex;
     flex-direction: column;
     gap: 16px;
-    margin-bottom: 12px;
+    margin-bottom: var(--margin-m-3);
     cursor: pointer;
 
     &:last-child {
@@ -147,7 +146,7 @@
       font-size: var(--text-sm);
       font-weight: var(--font-medium);
       color: var(--main-label);
-      padding: 12px;
+      padding: var(--padding-p-3);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -157,7 +156,7 @@
       .c-select__group-label {
         color: var(--button-normal);
         background: #eef;
-        border-radius: 8px;
+        border-radius: var(--radius-rounded-lg);
         svg {
           transform: rotate(-90deg);
         }
@@ -167,9 +166,8 @@
 
   &__error {
     font-size: var(--text-sm);
-    font-style: normal;
     font-weight: var(--font-medium);
-    line-height: 24px;
+    line-height: var(--leading-6);
     letter-spacing: 0.75px;
     text-transform: capitalize;
     margin: 8px 0 0;

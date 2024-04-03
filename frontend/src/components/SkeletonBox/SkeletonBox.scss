@@ -3,7 +3,7 @@
   height: 1em;
   position: relative;
   overflow: hidden;
-  background-color: #DDDBDD;
+  background-color: var(--color-primary-300);
   width: 100%;
 
   &::after {

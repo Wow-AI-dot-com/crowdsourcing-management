@@ -1,4 +1,4 @@
-const IconMinus = () => {
+const IconMinus = ({ ...props }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -6,6 +6,7 @@ const IconMinus = () => {
       height="24"
       viewBox="0 0 25 24"
       fill="none"
+      {...props}
     >
       <path
         d="M18.0361 12H6.03613"

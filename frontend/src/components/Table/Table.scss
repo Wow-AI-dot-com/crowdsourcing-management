@@ -42,7 +42,7 @@
   }
 
   &__action + &__action {
-    margin-left: 16px;
+    margin-left: var(--margin-m-4);
   }
 
   th {
@@ -77,13 +77,13 @@
     font-weight: var(--font-medium);
     letter-spacing: 0.5px;
     line-height: 1.25em;
-    padding: 12px 12px;
+    padding: var(--padding-p-3);
   }
 
   a {
     font-size: var(--text-sm);
     font-weight: var(--font-bold);
-    line-height: 24px;
+    line-height: var(--leading-4);
     letter-spacing: 0.75px;
     text-decoration-line: underline;
   }
