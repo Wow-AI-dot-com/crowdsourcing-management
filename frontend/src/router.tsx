@@ -16,10 +16,8 @@ import LoaderProvider from "@Providers/LoaderProvider";
 import Signup from "@Pages/Signup/Signup";
 import GuestLayout from "./layouts/GuestLayout";
 import UserLayout from "./layouts/UserLayout";
-import ProjectsList from "@/pages/Project/ListTemple";
 import ProjectList from "./pages/Project/ProjectList";
-import { ProjectType } from "@Pages/Project/Filter/ProjectType";
-import { ProjectAttribute } from "@Pages/Project/Filter/ProjectAttribute";
+import Button from "@Components/Button/Button";
 
 const Providers = composeProviders([
   { provider: LoaderProvider },
