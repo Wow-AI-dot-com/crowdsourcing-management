@@ -7,7 +7,13 @@ export interface typeArrayOption {
   id: number;
   name: string;
 }
-export default function Apply() {
+
+export interface ApplyProps {
+  open: boolean;
+  onClose: () => void;
+}
+
+export default function Apply({ open, onClose }: ApplyProps) {
   const click = () => {
     console.log("object");
   };
@@ -17,7 +23,13 @@ export default function Apply() {
     { id: 3, name: "America" },
   ];
   return (
-    <Modal open title="Registration Form" onSubmit={click} submitText="Send">
+    <Modal
+      open={open}
+      onClose={onClose}
+      title="Registration Form"
+      onSubmit={click}
+      submitText="Send"
+    >
       <div className="container--apply">
         <div className="container--apply__header">
           <InputBase label="First Name" placeholder="First Name" />
@@ -33,13 +45,11 @@ export default function Apply() {
           <InputBase
             label="Nationality"
             placeholder="Nationality"
-            isSelect
             listOption={arrayOption}
           />
           <InputBase
             label="Language"
             placeholder="Language"
-            isSelect
             listOption={arrayOption}
           />
         </div>

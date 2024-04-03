@@ -16,7 +16,7 @@ type TSidebarProps = {
 
 type BaseItem = {
   path: string;
-  icon: JSX.Element;
+  icon?: JSX.Element;
   label: string;
   activeChecker?: (path: string) => boolean;
 };
@@ -27,12 +27,26 @@ export type SidebarItem = BaseItem & {
 
 const sidebarItems: SidebarItem[] = [
   {
-    path: "/projects?page=1",
+    path: "",
     icon: <IconBook />,
     label: SIDEBAR_ITEM_LABELS.YOUR_PROJECTS,
     activeChecker: (path: string) => {
       return path.startsWith("/projects") || path.startsWith("/create-project");
     },
+    children: [
+      {
+        path: "/projects/available",
+        label: SIDEBAR_ITEM_LABELS.PROJECT_AVAILABLE,
+      },
+      {
+        path: "/projects/my-project",
+        label: SIDEBAR_ITEM_LABELS.PROJECT_MY_PROJECT,
+      },
+      {
+        path: "/projects/applied",
+        label: SIDEBAR_ITEM_LABELS.PROJECT_APPLIED,
+      },
+    ],
   },
   {
     path: "/profile",

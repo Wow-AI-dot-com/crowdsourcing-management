@@ -46,7 +46,6 @@ const MemoizedInputBase: React.FC<TInputBaseProps> = ({
   isMultipleLine = false,
   readonly = false,
   customRightItem,
-  isSelect,
   listOption,
 }) => {
   const [query, setQuery] = useState(() => {
@@ -129,7 +128,7 @@ const MemoizedInputBase: React.FC<TInputBaseProps> = ({
           >
             {query}
           </textarea>
-        ) : isSelect ? (
+        ) : listOption ? (
           <select className="select">
             {listOption?.map((m) => {
               return (

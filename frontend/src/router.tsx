@@ -70,7 +70,6 @@ const PageHome = () => {
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route element={<RootElement />}>
-      <Route path="/" element={<PageHome />} />
       <Route element={<GuestLayout />}>
         <Route
           path="/user/login"
@@ -89,13 +88,14 @@ const router = createBrowserRouter(
         />
       </Route>
       <Route element={<UserLayout />}>
+        <Route path="/" element={<PageHome />} />
         <Route
-          path="/projects"
+          path="/projects/:type"
           element={<ProjectList />}
           handle={{ title: "Projects" }}
         />
         <Route
-          path="/projects/:projectId"
+          path="/projects/:type/:projectId"
           element={<ProjectDetail />}
           handle={{ title: "Projects" }}
         />

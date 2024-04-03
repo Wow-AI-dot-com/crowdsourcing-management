@@ -31,7 +31,7 @@ const MemoizedSidebarItem = (props: ISidebarItemProps) => {
     if (activeChecker && activeChecker(location.pathname)) {
       return "active";
     }
-    
+
     return location.pathname.startsWith(path) ? "active" : "";
   };
 
@@ -82,25 +82,30 @@ const MemoizedSidebarItem = (props: ISidebarItemProps) => {
           ) : null}
         </div>
       </li>
-      {isShowSidebarItems &&
-        item?.children?.map((child, index) => (
-          <Fragment key={`key-${child.label}`}>
-            {isExpand && (
-              <li
-                key={`key-${child.label}`}
-                className={`c-sidebar__item child ${isActive(child.path) || ""}`}
-                onClick={(e) => onChildItemClick(child, e)}
-              >
-                {item.children && item.children?.length - 1 !== index ? (
-                  <IconLineSubMenu />
-                ) : (
-                  <IconLineSubMenuLast />
-                )}
-                <p>{child.label}</p>
-              </li>
-            )}
-          </Fragment>
-        ))}
+      {isShowSidebarItems && (
+        <div className="menu-child">
+          {item?.children?.map((child, index) => (
+            <Fragment key={`key-${child.label}`}>
+              {isExpand && (
+                <li
+                  key={`key-${child.label}`}
+                  className={`c-sidebar__item child ${
+                    isActive(child.path) || ""
+                  }`}
+                  onClick={(e) => onChildItemClick(child, e)}
+                >
+                  {item.children && item.children?.length - 1 !== index ? (
+                    <IconLineSubMenu />
+                  ) : (
+                    <IconLineSubMenuLast />
+                  )}
+                  <p>{child.label}</p>
+                </li>
+              )}
+            </Fragment>
+          ))}
+        </div>
+      )}
     </>
   );
 };

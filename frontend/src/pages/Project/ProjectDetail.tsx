@@ -5,13 +5,14 @@ import Button from "@/components/Button/Button";
 import Apply from "@Pages//Project/FormApply/apply";
 export default function ProjectDetail() {
   const [formApply, setFormApply] = useState(false);
+
   const clickBtnApply = () => {
-    console.log("object");
     setFormApply(true);
   };
+
   return (
     <div className="containerProjectDetail">
-      {formApply ? <Apply /> : null}
+      <Apply open={formApply} onClose={() => setFormApply(false)} />
       <div className="containerProjectDetail--box">
         <div className="header">
           <div className="header__project-name">Project Name</div>

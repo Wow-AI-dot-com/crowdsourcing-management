@@ -4,7 +4,7 @@ import { ProjectAttribute } from "./Filter/ProjectAttribute";
 import { ProjectType } from "./Filter/ProjectType";
 import "./ProjectList.scss";
 import ProjectItem from "./ProjectItem";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 const FAKE_PROJECTS = [
   {
     id: 1,
@@ -13,6 +13,7 @@ const FAKE_PROJECTS = [
     information:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam facilisis hendrerit ex ac convallis Lorem ipsum dolor ...",
     price: "0.01 per task",
+    type: "available",
   },
   {
     id: 2,
@@ -21,6 +22,7 @@ const FAKE_PROJECTS = [
     information:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam facilisis hendrerit ex ac convallis Lorem ipsum dolor ...",
     price: "0.01 per task",
+    type: "my-project",
   },
   {
     id: 3,
@@ -29,6 +31,7 @@ const FAKE_PROJECTS = [
     information:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam facilisis hendrerit ex ac convallis Lorem ipsum dolor ...",
     price: "0.01 per task",
+    type: "applied",
   },
   {
     id: 4,
@@ -50,6 +53,7 @@ const FAKE_PROJECTS = [
 const ProjectList = () => {
   const userLayout = useUserLayout();
   const navigate = useNavigate();
+  const params = useParams();
   React.useEffect(() => {
     userLayout.setBreadcrumbs([{ label: "Projects" }]);
 
@@ -58,7 +62,7 @@ const ProjectList = () => {
     };
   }, [userLayout]);
   const handleOnclick = (id: number) => {
-    navigate(`/projects/${id}`);
+    navigate(`/projects/${params.type}/${id}`);
   };
 
   return (
