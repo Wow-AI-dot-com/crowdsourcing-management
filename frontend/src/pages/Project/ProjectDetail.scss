@@ -1,0 +1,40 @@
+.containerProjectDetail {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 39px;
+  &--box {
+    width: 100%;
+    max-width: 990px;
+  }
+  .header {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 32px;
+    border-bottom: 1.6px solid var(--main-selected);
+    &__project-name {
+      color: var(--main-title);
+      font-size: 28px;
+      line-height: 34px;
+      font-weight: var(--font-medium);
+    }
+    &__price {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    &__price-information {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      font-size: var(--text-base);
+      font-weight: var(--font-semibold);
+      line-height: var(--leading-6);
+      padding: var(--padding-p-2);
+    }
+    &__btn {
+      border: 1px solid;
+      border-radius: var(--radius-rounded-lg);
+    }
+  }
+}

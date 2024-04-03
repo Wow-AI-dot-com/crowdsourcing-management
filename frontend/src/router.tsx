@@ -18,8 +18,7 @@ import GuestLayout from "./layouts/GuestLayout";
 import UserLayout from "./layouts/UserLayout";
 import ProjectsList from "@/pages/Project/ListTemple";
 import ProjectList from "./pages/Project/ProjectList";
-import { ProjectType } from "@Pages/Project/Filter/ProjectType";
-import { ProjectAttribute } from "@Pages/Project/Filter/ProjectAttribute";
+import ProjectDetail from "@Pages/Project/ProjectDetail";
 
 const Providers = composeProviders([
   { provider: LoaderProvider },
@@ -94,6 +93,11 @@ const router = createBrowserRouter(
         <Route
           path="/projects"
           element={<ProjectList />}
+          handle={{ title: "Projects" }}
+        />
+        <Route
+          path="/projects/:projectId"
+          element={<ProjectDetail />}
           handle={{ title: "Projects" }}
         />
       </Route>

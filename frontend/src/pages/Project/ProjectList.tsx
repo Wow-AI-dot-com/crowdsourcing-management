@@ -4,6 +4,7 @@ import { ProjectAttribute } from "./Filter/ProjectAttribute";
 import { ProjectType } from "./Filter/ProjectType";
 import "./ProjectList.scss";
 import ProjectItem from "./ProjectItem";
+import { useNavigate } from "react-router-dom";
 const FAKE_PROJECTS = [
   {
     id: 1,
@@ -48,6 +49,7 @@ const FAKE_PROJECTS = [
 ];
 const ProjectList = () => {
   const userLayout = useUserLayout();
+  const navigate = useNavigate();
   React.useEffect(() => {
     userLayout.setBreadcrumbs([{ label: "Projects" }]);
 
@@ -56,6 +58,9 @@ const ProjectList = () => {
     };
   }, [userLayout]);
   const handleOnclick = () => {};
+  const handleClickNextPage = (id: number) => {
+    navigate(`/projects/${id}`);
+  };
   return (
     <div className="containerProjectList">
       <div className="headerProject">
@@ -73,6 +78,7 @@ const ProjectList = () => {
                 information={m.information}
                 handleOnclick={handleOnclick}
                 price={m.price}
+                clickNextPage={() => handleClickNextPage(m.id)}
               />
             </div>
           );

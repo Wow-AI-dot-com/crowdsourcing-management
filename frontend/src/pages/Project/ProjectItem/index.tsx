@@ -10,12 +10,14 @@ interface TypeItemProject {
   information: string;
   handleOnclick: () => void;
   price: string;
+  clickNextPage: () => void;
 }
 
 function Index(props: TypeItemProject) {
-  const { isOneTime, title, information, handleOnclick, price } = props;
+  const { isOneTime, title, information, handleOnclick, price, clickNextPage } =
+    props;
   return (
-    <div className="containerProjectItem">
+    <div className="containerProjectItem" onClick={clickNextPage}>
       <div>
         <div className="header">
           <div className="svgHeader">
