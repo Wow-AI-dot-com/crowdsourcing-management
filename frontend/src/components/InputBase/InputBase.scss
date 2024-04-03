@@ -5,6 +5,11 @@
       font-weight: var(--font-medium);
       line-height: var(--leading-4);
       color: var(--main-label);
+      display: flex;
+      padding: 0px 0px 4px 4px;
+      align-items: center;
+      gap: 4px;
+      align-self: stretch;
     }
     span.required {
       color: var(--color-alert-danger);
@@ -13,8 +18,8 @@
 
   &__field {
     display: flex;
+    width: 100%;
     flex-direction: column;
-    gap: 4px;
 
     &.disabled {
       opacity: 0.2;
@@ -41,8 +46,9 @@
     }
 
     textarea,
-    input {
-      padding: 7px 40px 7px 12px;
+    input,
+    select {
+      padding: 8px 40px 8px 12px;
       border-radius: var(--radius-rounded-lg);
       border: 1px solid var(--main-line);
       opacity: 0.5;
@@ -50,7 +56,7 @@
       width: 100%;
       box-sizing: border-box;
       font-size: var(--text-sm);
-      line-height: var(--leading-6);
+      line-height: var(--leading-5);
       letter-spacing: 0.75px;
       color: #111;
 

@@ -16,7 +16,6 @@ import LoaderProvider from "@Providers/LoaderProvider";
 import Signup from "@Pages/Signup/Signup";
 import GuestLayout from "./layouts/GuestLayout";
 import UserLayout from "./layouts/UserLayout";
-import ProjectsList from "@/pages/Project/ListTemple";
 import ProjectList from "./pages/Project/ProjectList";
 import ProjectDetail from "@Pages/Project/ProjectDetail";
 

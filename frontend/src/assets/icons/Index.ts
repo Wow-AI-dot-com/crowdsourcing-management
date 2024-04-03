@@ -31,6 +31,10 @@ import IconPrice from "./IconPrice";
 import IconImageProject from "./IconImageProject";
 import IconClockProject from "./IconClockProject";
 import IconCalendarProject from "./IconCalendarProject";
+import IconHeadPhone from "./IconHeadPhone";
+import IconGlobal from "./IconGlobal";
+import IconProfile from "./IconProfile";
+import IconAttackFile from "./IconAttackFile";
 
 export {
   IconClear,
@@ -67,4 +71,8 @@ export {
   IconImageProject,
   IconClockProject,
   IconCalendarProject,
+  IconHeadPhone,
+  IconGlobal,
+  IconProfile,
+  IconAttackFile,
 };

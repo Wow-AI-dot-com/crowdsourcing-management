@@ -4,20 +4,21 @@ import IconImageProject from "@/assets/icons/IconImageProject";
 import IconPrice from "@/assets/icons/IconPrice";
 import "./index.scss";
 import IconCalendarProject from "@/assets/icons/IconCalendarProject";
+import Button from "@/components/Button/Button";
+
 interface TypeItemProject {
   isOneTime: boolean;
   title: string;
   information: string;
-  handleOnclick: () => void;
+  onclickButton: (id: number) => void;
   price: string;
-  clickNextPage: () => void;
+  id: number;
 }
 
-function Index(props: TypeItemProject) {
-  const { isOneTime, title, information, handleOnclick, price, clickNextPage } =
-    props;
+function ProjectItem(props: TypeItemProject) {
+  const { isOneTime, title, information, onclickButton, price, id } = props;
   return (
-    <div className="containerProjectItem" onClick={clickNextPage}>
+    <div className="containerProjectItem">
       <div>
         <div className="header">
           <div className="svgHeader">
@@ -44,12 +45,17 @@ function Index(props: TypeItemProject) {
         </div>
         <div className="text">{information}</div>
       </div>
-      <button className="button" onClick={handleOnclick}>
-        <IconPrice isWhite />
+      <Button
+        type="gray"
+        onClick={() => onclickButton(id)}
+        icon={<IconPrice />}
+        iconPosition="left"
+        isBlock
+      >
         {price}
-      </button>
+      </Button>
     </div>
   );
 }
 
-export default Index;
+export default ProjectItem;

@@ -1,0 +1,49 @@
+.container--apply {
+  display: flex;
+  min-width: 612px;
+
+  flex-direction: column;
+  &__header {
+    display: flex;
+    gap: 16px;
+    justify-content: space-between;
+    margin-bottom: var(--margin-m-4);
+  }
+  &__phone,
+  &__email,
+  &__information,
+  &__question,
+  &__label {
+    margin-bottom: var(--margin-m-4);
+  }
+  &__information {
+    display: flex;
+    gap: var(--margin-m-4);
+    justify-content: space-between;
+  }
+  &__file {
+    display: flex;
+    flex-direction: column;
+    span {
+      font-size: var(--text-xs);
+      font-weight: var(--font-medium);
+      line-height: var(--leading-4);
+      color: var(--main-label);
+      padding: 0px 0px 4px 4px;
+    }
+    label {
+      display: flex;
+      gap: 5px;
+      align-items: center;
+      color: #434345;
+      font-size: var(--text-base);
+      font-style: normal;
+      font-weight: var(--font-normal);
+      line-height: var(--leading-6); /* 150% */
+      cursor: pointer;
+    }
+    input {
+      display: none;
+    }
+  }
+}

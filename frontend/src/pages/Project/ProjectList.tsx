@@ -57,10 +57,10 @@ const ProjectList = () => {
       userLayout.clearBreadcrumbs();
     };
   }, [userLayout]);
-  const handleOnclick = () => {};
-  const handleClickNextPage = (id: number) => {
+  const handleOnclick = (id: number) => {
     navigate(`/projects/${id}`);
   };
+
   return (
     <div className="containerProjectList">
       <div className="headerProject">
@@ -76,9 +76,9 @@ const ProjectList = () => {
                 isOneTime={m.status}
                 title={m.title}
                 information={m.information}
-                handleOnclick={handleOnclick}
+                onclickButton={handleOnclick}
                 price={m.price}
-                clickNextPage={() => handleClickNextPage(m.id)}
+                id={m.id}
               />
             </div>
           );
