@@ -2,8 +2,7 @@ import IconClockProject from "@/assets/icons/IconClockProject";
 import IconDeleteAnnotation from "@/assets/icons/IconDeleteAnnotation";
 import IconImageProject from "@/assets/icons/IconImageProject";
 import IconPrice from "@/assets/icons/IconPrice";
-import React from "react";
-import "./indexProjectItem.scss";
+import "./index.scss";
 import IconCalendarProject from "@/assets/icons/IconCalendarProject";
 interface TypeItemProject {
   isOneTime: boolean;
