@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function IconCancelModal() {
+export default function IconWarningModal() {
   return (
     <div>
       <svg

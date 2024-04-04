@@ -2,7 +2,7 @@ import React from "react";
 import Modal from "./Modal";
 import Button from "../Button/Button";
 import "./ConfirmModal.scss";
-import IconCancelModal from "@/assets/icons/IconCancelModal";
+import IconWarningModal from "@/assets/icons/IconWarningModal";
 
 export interface TypeConfirmModal {
   open: boolean;
@@ -21,7 +21,7 @@ export default function ConfirmModal({
     <Modal
       open={open}
       onClose={onClose}
-      iconTitle={<IconCancelModal />}
+      iconTitle={<IconWarningModal />}
       className="container-confirm-modal"
       title="Are you certain you want to cancel this project?"
     >
