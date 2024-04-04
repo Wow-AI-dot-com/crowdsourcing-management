@@ -18,6 +18,7 @@ import GuestLayout from "./layouts/GuestLayout";
 import UserLayout from "./layouts/UserLayout";
 import ProjectList from "./pages/Project/ProjectList";
 import ProjectDetail from "@Pages/Project/ProjectDetail";
+import Payment from "@Pages/Payment";
 
 const Providers = composeProviders([
   { provider: LoaderProvider },
@@ -89,6 +90,11 @@ const router = createBrowserRouter(
       </Route>
       <Route element={<UserLayout />}>
         <Route path="/" element={<PageHome />} />
+        <Route
+          path="/projects/payment"
+          element={<Payment />}
+          handle={{ title: "Payment" }}
+        />
         <Route
           path="/projects/:type"
           element={<ProjectList />}
