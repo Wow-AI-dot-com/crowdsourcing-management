@@ -1,0 +1,31 @@
+.container--addpayment {
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--margin-m-4);
+    &-box-radio {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      input {
+        width: 20px;
+        height: 20px;
+        padding: 2px;
+        margin: 0px;
+      }
+      label {
+        color: var(--main-label, #40405b);
+        text-align: justify;
+        font-size: var(--text-sm);
+        font-style: normal;
+        font-weight: var(--font-medium);
+        line-height: var(--leading-6);
+      }
+    }
+  }
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+}

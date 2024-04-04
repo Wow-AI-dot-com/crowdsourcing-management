@@ -35,6 +35,8 @@ import IconHeadPhone from "./IconHeadPhone";
 import IconGlobal from "./IconGlobal";
 import IconProfile from "./IconProfile";
 import IconAttackFile from "./IconAttackFile";
+import IconCancelModal from "./IconCancelModal";
+import IconAlertSuccessful from "./IconAlertSuccessful";
 
 export {
   IconClear,
@@ -75,4 +77,6 @@ export {
   IconGlobal,
   IconProfile,
   IconAttackFile,
+  IconCancelModal,
+  IconAlertSuccessful,
 };

@@ -3,16 +3,63 @@ import "./ProjectDetail.scss";
 import IconPrice from "@/assets/icons/IconPrice";
 import Button from "@/components/Button/Button";
 import Apply from "@Pages//Project/FormApply/apply";
+import SignConsent from "./FormSignConsent/SignConsent";
+import { useParams } from "react-router-dom";
+import ConfirmModal from "@/components/Modal/ConfirmModal";
+import AlertSuccessful from "./AlertSuccessful";
+import AssetLabel from "./AssetLabel";
+import AddPayment from "./FormAddPayment/AddPayment";
+
 export default function ProjectDetail() {
   const [formApply, setFormApply] = useState(false);
+  const [formSignConsent, setFormSignConsent] = useState(false);
+  const [confirmModal, setConfirmModal] = useState(false);
+  const [alertSuccessful, setAlertSuccessful] = useState(false);
+  const [addPayment, setAddPayment] = useState(true);
+  const param = useParams();
 
   const clickBtnApply = () => {
     setFormApply(true);
   };
+  const onClickSendApply = () => {
+    setFormApply(false);
+    setFormSignConsent(true);
+  };
+  const onSubmitSignConsent = () => {
+    console.log("object");
+  };
+
+  const clickBtnCancel = () => {
+    setConfirmModal(true);
+  };
+
+  const confirmRemove = () => {
+    setConfirmModal(false);
+    setAlertSuccessful(true);
+  };
+
+  const addPaymentSubmit = () => {
+    console.log("object");
+  };
 
   return (
     <div className="containerProjectDetail">
-      <Apply open={formApply} onClose={() => setFormApply(false)} />
+      <Apply
+        open={formApply}
+        onClose={() => setFormApply(false)}
+        onSubmit={onClickSendApply}
+      />
+      <SignConsent
+        open={formSignConsent}
+        onClose={() => setFormSignConsent(false)}
+        onSubmit={onSubmitSignConsent}
+      />
+      <ConfirmModal
+        open={confirmModal}
+        onClose={() => setConfirmModal(false)}
+        onClickCancel={() => setConfirmModal(false)}
+        onClickRemove={confirmRemove}
+      />
       <div className="containerProjectDetail--box">
         <div className="header">
           <div className="header__project-name">Project Name</div>
@@ -21,14 +68,25 @@ export default function ProjectDetail() {
               <IconPrice />
               36.15 cents/task
             </div>
-            <Button
-              type="secondary"
-              size="small"
-              className="header__btn"
-              onClick={clickBtnApply}
-            >
-              Apply
-            </Button>
+            {param.type === "available" ? (
+              <Button
+                type="secondary"
+                size="small"
+                className="header__btn--apply"
+                onClick={clickBtnApply}
+              >
+                Apply
+              </Button>
+            ) : param.type === "applied" ? (
+              <Button
+                type="secondary"
+                size="small"
+                className="header__btn--cancel"
+                onClick={clickBtnCancel}
+              >
+                Cancel
+              </Button>
+            ) : param.type === "my-project" ? null : null}
           </div>
         </div>
         <div>
@@ -42,7 +100,13 @@ export default function ProjectDetail() {
           more recently with desktop publishing software like Aldus PageMaker
           including versions of Lorem Ipsum.
         </div>
+        <AlertSuccessful open={alertSuccessful} />
       </div>
+      <AddPayment
+        open={addPayment}
+        onClose={() => setAddPayment(false)}
+        onSubmit={addPaymentSubmit}
+      />
     </div>
   );
 }

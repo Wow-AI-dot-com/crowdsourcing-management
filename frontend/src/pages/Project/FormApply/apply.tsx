@@ -10,13 +10,11 @@ export interface typeArrayOption {
 
 export interface ApplyProps {
   open: boolean;
-  onClose: () => void;
+  onClose?: () => void;
+  onSubmit?: () => void;
 }
 
-export default function Apply({ open, onClose }: ApplyProps) {
-  const click = () => {
-    console.log("object");
-  };
+export default function Apply({ open, onClose, onSubmit }: ApplyProps) {
   const arrayOption = [
     { id: 1, name: "France" },
     { id: 2, name: "Australia" },
@@ -27,7 +25,7 @@ export default function Apply({ open, onClose }: ApplyProps) {
       open={open}
       onClose={onClose}
       title="Registration Form"
-      onSubmit={click}
+      onSubmit={onSubmit}
       submitText="Send"
     >
       <div className="container--apply">
