@@ -1,0 +1,28 @@
+.container-confirm-modal {
+  max-width: 450px;
+  .confirm-title {
+    color: #555f6d;
+    font-size: var(--text-sm);
+    font-style: normal;
+    font-weight: 450;
+    line-height: var(--leading-6); /* 171.429% */
+    letter-spacing: 0.28px;
+    margin-bottom: var(--margin-m-6);
+  }
+  .confirm__btn {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 16px;
+    &-cancel,
+    &-remove {
+      min-width: 87px;
+      padding: var(--padding-p-2) var(--padding-p-4);
+    }
+
+    &-cancel {
+      border: 1px solid;
+      color: #4a545e;
+    }
+  }
+}

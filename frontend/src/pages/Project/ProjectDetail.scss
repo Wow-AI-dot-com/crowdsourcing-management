@@ -1,0 +1,56 @@
+.containerProjectDetail {
+  display: flex;
+  justify-content: center;
+  padding: var(--padding-p-6);
+  &--box {
+    width: 100%;
+  }
+  &--box {
+    position: relative;
+    .header {
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 32px;
+      border-bottom: 1.6px solid var(--main-selected);
+      margin-bottom: 32px;
+      &__project-name {
+        color: var(--main-title);
+        font-size: 28px;
+        line-height: 34px;
+        font-weight: var(--font-medium);
+      }
+      &__price {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+      }
+      &__price-information {
+        display: flex;
+        gap: 6px;
+        align-items: center;
+        font-size: var(--text-base);
+        font-weight: var(--font-semibold);
+        line-height: var(--leading-6);
+        padding: var(--padding-p-2);
+      }
+      &__btn--apply,
+      &__btn--cancel {
+        border: 1px solid;
+        box-shadow: 0px 1px 2px -1px rgba(17, 12, 34, 0.08);
+        font-size: var(--text-sm);
+        font-style: normal;
+        font-weight: var(--font-semibold);
+        line-height: var(--leading-6);
+      }
+      &__btn--apply {
+        color: var(--Button-normal, #5050ff);
+      }
+      &__btn--cancel {
+        color: red;
+      }
+      .alert {
+        top: 10px;
+      }
+    }
+  }
+}

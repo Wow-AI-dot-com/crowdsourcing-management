@@ -1,27 +1,27 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "./ProjectType.scss";
 
-interface TypeListNameProject {
-  id: number;
-  name: string;
-}
-const ListNameItemProject: TypeListNameProject[] = [
-  { id: 1, name: "Available" },
-  { id: 2, name: "Applied" },
-  { id: 3, name: "My Projects" },
+const ListNameItemProject = [
+  { id: "available", name: "Available" },
+  { id: "my-project", name: "Applied" },
+  { id: "applied", name: "My Projects" },
 ];
 export const ProjectType = () => {
-  const [isActive, setIsActive] = React.useState<number>(1);
-  const ClickActive = (number: number) => {
-    setIsActive(number);
+  const navigate = useNavigate();
+  const [isActive, setIsActive] = React.useState("available");
+  const ClickActive = (type: string) => {
+    setIsActive(type);
+    navigate("/projects/" + type);
   };
   return (
-    <div className="container">
+    <div className="containerProjectType">
       {ListNameItemProject.map((m) => {
         return (
           <div
             className={`projectTypeItem ${isActive === m.id ? "active" : ""}`}
             onClick={() => ClickActive(m.id)}
+            key={m.id}
           >
             {m.name}
           </div>

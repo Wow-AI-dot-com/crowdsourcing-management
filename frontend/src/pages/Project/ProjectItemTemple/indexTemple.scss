@@ -1,0 +1,82 @@
+// Project Item
+
+.projects {
+  &__item {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    padding: 32px;
+    gap: 32px;
+    border-radius: 24px;
+    border: 2px solid #d6d8e7;
+    background: #fdfdfd;
+    transition: 250ms linear;
+    transition-property: background-color, border-color, box-shadow;
+
+    &:hover,
+    &:active,
+    &:focus {
+      border-color: var(--color-base-blue);
+      background: var(--main-bg);
+      box-shadow: 0 0 32px 0 rgba(17, 17, 17, 0.05);
+    }
+
+    &-title {
+      font-weight: var(--font-semibold);
+      line-height: 1.5em;
+      letter-spacing: 0.75px;
+      color: #111;
+      word-break: break-word;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      line-clamp: 1;
+      -webkit-box-orient: vertical;
+    }
+
+    &-created {
+      font-size: var(--text-sm);
+      line-height: 1.25em;
+      letter-spacing: 0.75px;
+      color: #111;
+    }
+
+    &-top {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    &-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      position: relative;
+      font-size: var(--text-xs);
+
+      &__right {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 30px;
+      }
+      &__icon {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        .green {
+          color: var(--color-base-green);
+        }
+
+        .blue {
+          color: var(--color-base-blue);
+        }
+
+        .pink {
+          color: var(--color-base-pink);
+        }
+      }
+    }
+  }
+}

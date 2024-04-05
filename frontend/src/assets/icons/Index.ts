@@ -14,9 +14,7 @@ import IconMinus from "./IconMinus";
 import IconThinArrowDown from "./IconThinArrowDown";
 import IconPlus from "./IconPlus";
 import IconPolygon from "./IconPolygon";
-import {
-  IconUploadFileSm
-} from "./IconUploadFile";
+import { IconUploadFileSm } from "./IconUploadFile";
 import IconEdit from "./IconEdit";
 import IconDelete from "./IconDelete";
 import IconWallet from "./IconWallet";
@@ -30,6 +28,15 @@ import IconModelSeller from "./IconModelSeller";
 import IconDeleteAnnotation from "./IconDeleteAnnotation";
 import IconLongTerm from "./IconLongTerm";
 import IconPrice from "./IconPrice";
+import IconImageProject from "./IconImageProject";
+import IconClockProject from "./IconClockProject";
+import IconCalendarProject from "./IconCalendarProject";
+import IconHeadPhone from "./IconHeadPhone";
+import IconGlobal from "./IconGlobal";
+import IconProfile from "./IconProfile";
+import IconAttackFile from "./IconAttackFile";
+import IconWarningModal from "./IconWarningModal";
+import IconAlertSuccessful from "./IconAlertSuccessful";
 
 export {
   IconClear,
@@ -63,4 +70,13 @@ export {
   IconDeleteAnnotation,
   IconLongTerm,
   IconPrice,
+  IconImageProject,
+  IconClockProject,
+  IconCalendarProject,
+  IconHeadPhone,
+  IconGlobal,
+  IconProfile,
+  IconAttackFile,
+  IconWarningModal,
+  IconAlertSuccessful,
 };

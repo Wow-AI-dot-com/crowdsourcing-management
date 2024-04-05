@@ -1,4 +1,10 @@
-import { IconBook, IconLogout } from "@Assets/icons/Index";
+import {
+  IconBook,
+  IconLogout,
+  IconHeadPhone,
+  IconGlobal,
+  IconProfile,
+} from "@Assets/icons/Index";
 import { SIDEBAR_ITEM_LABELS } from "../../constants/projectConstants";
 import { useAuth } from "@Providers/AuthProvider";
 import "./Sidebar.scss";
@@ -10,7 +16,7 @@ type TSidebarProps = {
 
 type BaseItem = {
   path: string;
-  icon: JSX.Element;
+  icon?: JSX.Element;
   label: string;
   activeChecker?: (path: string) => boolean;
 };
@@ -21,14 +27,42 @@ export type SidebarItem = BaseItem & {
 
 const sidebarItems: SidebarItem[] = [
   {
-    path: "/projects?page=1",
+    path: "",
     icon: <IconBook />,
     label: SIDEBAR_ITEM_LABELS.YOUR_PROJECTS,
     activeChecker: (path: string) => {
       return path.startsWith("/projects") || path.startsWith("/create-project");
     },
+    children: [
+      {
+        path: "/projects/available",
+        label: SIDEBAR_ITEM_LABELS.PROJECT_AVAILABLE,
+      },
+      {
+        path: "/projects/my-project",
+        label: SIDEBAR_ITEM_LABELS.PROJECT_MY_PROJECT,
+      },
+      {
+        path: "/projects/applied",
+        label: SIDEBAR_ITEM_LABELS.PROJECT_APPLIED,
+      },
+    ],
   },
-  // { path: "/organization/", icon: <IconUser />, label: SIDEBAR_ITEM_LABELS.ORGANIZATIONS  },
+  {
+    path: "/profile",
+    icon: <IconProfile />,
+    label: SIDEBAR_ITEM_LABELS.PROFILE,
+  },
+  {
+    path: "/network",
+    icon: <IconGlobal />,
+    label: SIDEBAR_ITEM_LABELS.NETWORK,
+  },
+  {
+    path: "/support",
+    icon: <IconHeadPhone />,
+    label: SIDEBAR_ITEM_LABELS.SUPPORT,
+  },
   // { path: "/computes/", icon: <IconYourCompute />, label: SIDEBAR_ITEM_LABELS.COMPUTES },
   // { path: "/computes-supplier/", icon: <IconYourCompute />, label: SIDEBAR_ITEM_LABELS.COMPUTES_SUPPLIER },
   // { path: "/models-seller", icon: <IconModelSeller />, label: SIDEBAR_ITEM_LABELS.MODELS_SELLER },

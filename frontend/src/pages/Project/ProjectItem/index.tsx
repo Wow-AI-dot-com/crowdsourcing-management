@@ -1,129 +1,61 @@
-import React from "react";
-import { TProjectModel } from "@Models/project";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import IconClockProject from "@/assets/icons/IconClockProject";
+import IconDeleteAnnotation from "@/assets/icons/IconDeleteAnnotation";
+import IconImageProject from "@/assets/icons/IconImageProject";
+import IconPrice from "@/assets/icons/IconPrice";
 import "./index.scss";
-import {
-  IconChecked,
-  IconLightBulb,
-  IconMinus,
-  IconThreeDot,
-} from "@Assets/icons/Index";
-import { formatDateTime } from "@Utils/formatDate";
-import { useCallback } from "react";
-import DropdownItem, {
-  TDropdownItem,
-} from "@Components/DropdownItem/DropdownItem";
-import { confirmDialog } from "@Components/Dialog";
-import Dropdown from "@Components/Dropdown/Dropdown";
+import IconCalendarProject from "@/assets/icons/IconCalendarProject";
+import Button from "@/components/Button/Button";
 
-type TProjectItemProps = {
-  data: TProjectModel;
-  deleteProject: (projectID: number) => void;
-};
+interface TypeItemProject {
+  isOneTime: boolean;
+  title: string;
+  information: string;
+  onclickButton: (id: number) => void;
+  price: string;
+  id: number;
+}
 
-const ProjectItem = (props: TProjectItemProps) => {
-  const { data } = props;
-  const navigate = useNavigate();
-  const [searchParams] = useSearchParams();
-
-  const currentPage = { state: { currentPage: searchParams.get("page") } };
-
-  const handleDropdownClick = useCallback(
-    (e: React.MouseEvent<HTMLElement, MouseEvent>, handler: () => void) => {
-      e.stopPropagation();
-      handler();
-    },
-    []
-  );
-
-  const dataProjectItem: TDropdownItem[] = [
-    {
-      label: "Demo Environment",
-      handler: (e: React.MouseEvent<HTMLElement, MouseEvent>) =>
-        handleDropdownClick(e, () =>
-          navigate(`/projects/${data.id}/demo`, currentPage)
-        ),
-    },
-    {
-      label: "Settings",
-      handler: (e: React.MouseEvent<HTMLElement, MouseEvent>) =>
-        handleDropdownClick(e, () =>
-          navigate(`/projects/${data.id}/settings/general`, currentPage)
-        ),
-    },
-    {
-      label: "Labels",
-      handler: (e: React.MouseEvent<HTMLElement, MouseEvent>) =>
-        handleDropdownClick(e, () =>
-          navigate(`/projects/${data.id}/settings/labels`, currentPage)
-        ),
-    },
-    {
-      label: "Delete",
-      handler: (e: React.MouseEvent<HTMLElement, MouseEvent>) =>
-        handleDropdownClick(e, () => {
-          confirmDialog({
-            message: "Are you sure you want to delete this project?",
-            onSubmit() {
-              props.deleteProject(props.data.id);
-            },
-          });
-        }),
-    },
-  ];
-
+function ProjectItem(props: TypeItemProject) {
+  const { isOneTime, title, information, onclickButton, price, id } = props;
   return (
-    <div
-      className="projects__item"
-      key={"project-" + data.id}
-      onClick={() => navigate(`/projects/${data.id}/data`, currentPage)}
-      style={data.color ? { borderColor: data.color } : {}}
-    >
-      <div className="projects__item-top">
-        <div className="projects__item-content">
-          <span className="projects__item-title">{data.title}</span>
-          <Dropdown
-            icon={<IconThreeDot />}
-            placement="right"
-            arrow={true}
-            style={{ right: 0, top: "30px" }}
-          >
-            <DropdownItem data={dataProjectItem} />
-          </Dropdown>
-        </div>
-        <div className="projects__item-content">
-          <span>
-            {props.data.finished_task_number} / {props.data.task_number}
-          </span>
-          <div className="projects__item-content__right">
-            <div className="projects__item-content__icon">
-              <span className="green">
-                <IconChecked />
-              </span>
-              <span>{props.data.total_annotations_number}</span>
-            </div>
-            <div className="projects__item-content__icon">
-              <span className="pink">
-                <IconMinus />
-              </span>
-              <span>{props.data.skipped_annotations_number}</span>
-            </div>
-            <div className="projects__item-content__icon">
-              <span className="blue">
-                <IconLightBulb />
-              </span>
-              <span>{props.data.total_predictions_number}</span>
-            </div>
+    <div className="containerProjectItem">
+      <div>
+        <div className="header">
+          <div className="svgHeader">
+            <IconImageProject />
           </div>
+          <div className="title">{title}</div>
         </div>
+        <div className="status">
+          <div className="statusItem">
+            <IconDeleteAnnotation />
+            Annotation
+          </div>
+          {isOneTime ? (
+            <div className="statusItem">
+              <IconClockProject />
+              One-time Task
+            </div>
+          ) : (
+            <div className="statusItem">
+              <IconCalendarProject />
+              Long term Task
+            </div>
+          )}
+        </div>
+        <div className="text">{information}</div>
       </div>
-      <div className="projects__item-bot">
-        <span className="projects__item-created">
-          {formatDateTime(data.created_at)}
-        </span>
-      </div>
+      <Button
+        type="gray"
+        onClick={() => onclickButton(id)}
+        icon={<IconPrice />}
+        iconPosition="left"
+        isBlock
+      >
+        {price}
+      </Button>
     </div>
   );
-};
+}
 
 export default ProjectItem;

@@ -47,7 +47,6 @@
       font-size: var(--text-sm);
       padding: 11px 6px;
       &.active {
-        margin-bottom: var(--margin-m-4);
         > svg {
           transform: rotate(-90deg);
         }
@@ -75,6 +74,7 @@
         font-weight: var(--font-medium);
         line-height: var(--leading-4);
         color: var(--main-label);
+        margin-left: 12px;
       }
     }
 
@@ -121,6 +121,11 @@
   hr {
     margin: 17px;
     border: none;
+  }
+  .menu-child {
+    .c-sidebar__item:first-child {
+      margin-top: 0;
+    }
   }
 }
 

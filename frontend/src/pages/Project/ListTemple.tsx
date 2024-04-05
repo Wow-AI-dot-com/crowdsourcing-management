@@ -1,9 +1,9 @@
 import React from "react";
 import Pagination from "@Components/Pagination/Pagination";
-import "./List.scss";
+import "./ListTemple.scss";
 import { useUserLayout } from "../../layouts/UserLayout";
 import EmptyProject from "./EmptyProject";
-import ProjectItem from "./ProjectItem";
+import ProjectItem from "./ProjectItemTemple/indexTemple";
 import Button from "@Components/Button/Button";
 import IconArrowRight from "@Assets/icons/IconArrowRight";
 import { useApi } from "@Providers/ApiProvider";

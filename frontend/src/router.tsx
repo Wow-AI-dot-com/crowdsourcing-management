@@ -16,9 +16,9 @@ import LoaderProvider from "@Providers/LoaderProvider";
 import Signup from "@Pages/Signup/Signup";
 import GuestLayout from "./layouts/GuestLayout";
 import UserLayout from "./layouts/UserLayout";
-import ProjectsList from "@Pages/Project/List";
-import { ProjectType } from "@Pages/Project/Filter/ProjectType";
-import { ProjectAttribute } from "@Pages/Project/Filter/ProjectAttribute";
+import ProjectList from "./pages/Project/ProjectList";
+import ProjectDetail from "@Pages/Project/ProjectDetail";
+import Payment from "@Pages/Payment";
 
 const Providers = composeProviders([
   { provider: LoaderProvider },
@@ -64,19 +64,13 @@ function RootElement() {
   );
 }
 
-const TempHomeRedirect = () => {
-  return (
-    <div>
-      <ProjectType />
-      <ProjectAttribute />
-    </div>
-  );
+const PageHome = () => {
+  return <div>Home</div>;
 };
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route element={<RootElement />}>
-      <Route path="/" element={<TempHomeRedirect />} />
       <Route element={<GuestLayout />}>
         <Route
           path="/user/login"
@@ -95,9 +89,20 @@ const router = createBrowserRouter(
         />
       </Route>
       <Route element={<UserLayout />}>
+        <Route path="/" element={<PageHome />} />
         <Route
-          path="/projects"
-          element={<ProjectsList />}
+          path="/projects/payment"
+          element={<Payment />}
+          handle={{ title: "Payment" }}
+        />
+        <Route
+          path="/projects/:type"
+          element={<ProjectList />}
+          handle={{ title: "Projects" }}
+        />
+        <Route
+          path="/projects/:type/:projectId"
+          element={<ProjectDetail />}
           handle={{ title: "Projects" }}
         />
       </Route>

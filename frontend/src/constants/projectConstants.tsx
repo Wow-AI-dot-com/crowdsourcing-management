@@ -1,12 +1,18 @@
 export const SIDEBAR_ITEM_LABELS = {
   // top sidebar
-  YOUR_PROJECTS: "Your projects",
+  YOUR_PROJECTS: "Project list",
+  PROFILE: "Profile",
+  NETWORK: "Network",
+  SUPPORT: "Support",
   ORGANIZATIONS: "Organizations",
   COMPUTES: "Computes",
   COMPUTES_SUPPLIER: "Computes Supplier",
   MODELS_SELLER: "Models Seller",
   NOTEBOOK: "Notebook",
   WALLET: "Wallet",
+  PROJECT_AVAILABLE: "Available projects",
+  PROJECT_MY_PROJECT: "My Projects",
+  PROJECT_APPLIED: "Applied",
 
   // bot sidebar
   ADMIN: "Admin",

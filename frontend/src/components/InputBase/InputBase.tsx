@@ -1,6 +1,8 @@
 import React, { CSSProperties, ReactNode, useMemo, useState } from "react";
 import IconClear from "@Assets/icons/IconClear";
 import "./InputBase.scss";
+import { typeOptions } from "@testing-library/user-event/dist/type/typeImplementation";
+import { typeArrayOption } from "@/pages/Project/FormApply/apply";
 
 export type TInputBaseProps = {
   autoFocus?: boolean;
@@ -21,6 +23,8 @@ export type TInputBaseProps = {
   isMultipleLine?: boolean;
   readonly?: boolean;
   customRightItem?: ReactNode;
+  isSelect?: boolean;
+  listOption?: typeArrayOption[];
 };
 
 const MemoizedInputBase: React.FC<TInputBaseProps> = ({
@@ -42,6 +46,7 @@ const MemoizedInputBase: React.FC<TInputBaseProps> = ({
   isMultipleLine = false,
   readonly = false,
   customRightItem,
+  listOption,
 }) => {
   const [query, setQuery] = useState(() => {
     return value ? value : "";
@@ -123,6 +128,16 @@ const MemoizedInputBase: React.FC<TInputBaseProps> = ({
           >
             {query}
           </textarea>
+        ) : listOption ? (
+          <select className="select">
+            {listOption?.map((m) => {
+              return (
+                <option value={m.name} key={m.id}>
+                  {m.name}
+                </option>
+              );
+            })}
+          </select>
         ) : (
           <input
             autoFocus={autoFocus}

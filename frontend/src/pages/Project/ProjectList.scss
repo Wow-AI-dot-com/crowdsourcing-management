@@ -1,0 +1,17 @@
+.containerProjectList {
+  padding: var(--padding-p-6);
+  .headerProject {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--margin-m-6);
+  }
+  .listItemProject {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    .ItemProject {
+      max-width: 350px;
+      width: 100%;
+    }
+  }
+}

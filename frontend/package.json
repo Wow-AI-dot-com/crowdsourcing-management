@@ -32,7 +32,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "BROWSER=none craco start",
+    "start": "craco start",
     "winstart": "set BROWSER=none && craco start",
     "build": "craco build",
     "test": "craco test",

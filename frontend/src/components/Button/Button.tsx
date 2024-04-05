@@ -4,7 +4,7 @@ import "./Button.scss";
 export type TButtonProps = {
   className?: string;
   htmlType?: "button" | "submit" | "reset";
-  type?: "primary" | "secondary" | "dark" | "hot" | "gradient" | "white";
+  type?: "primary" | "secondary" | "dark" | "hot" | "gradient" | "white" | "success" | "gray";
   children?: ReactNode;
   size?: "small" | "medium" | "large";
   iconPosition?: "left" | "right";
@@ -51,6 +51,12 @@ const Button: React.FC<TButtonProps> = ({
       break;
     case "white":
       customClass += " btn-white";
+      break;
+    case "success":
+      customClass += " btn-success";
+      break;
+    case "gray":
+      customClass += " btn-gray";
       break;
     default:
       break;
