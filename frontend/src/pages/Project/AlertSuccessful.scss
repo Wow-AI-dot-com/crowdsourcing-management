@@ -1,6 +1,7 @@
 .container--alert-successful {
   position: absolute;
-  top: -10px;
+  z-index: 30;
+  top: 70px;
   right: 0px;
   height: 24px;
   max-width: 361px;

@@ -61,8 +61,14 @@ const ProjectList = () => {
       userLayout.clearBreadcrumbs();
     };
   }, [userLayout]);
+
   const handleOnclick = (id: number) => {
     navigate(`/projects/${params.type}/${id}`);
+  };
+
+  const handleOnClickButton = (id: number, e: any) => {
+    e.stopPropagation();
+    navigate(`/projects/${params.type}/${id}/payment`);
   };
 
   return (
@@ -76,11 +82,12 @@ const ProjectList = () => {
           return (
             <div className="ItemProject" key={m.id}>
               <ProjectItem
+                onClick={handleOnclick}
                 key={m.id}
                 isOneTime={m.status}
                 title={m.title}
                 information={m.information}
-                onclickButton={handleOnclick}
+                onclickButton={handleOnClickButton}
                 price={m.price}
                 id={m.id}
               />

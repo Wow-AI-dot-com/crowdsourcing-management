@@ -6,6 +6,10 @@
 
     .left {
       width: calc(100% - 330px);
+      .asset-label {
+        display: flex;
+        gap: 12px;
+      }
       .asset-list {
         margin-top: 24px;
         border-radius: var(--radius-rounded-xxl);
@@ -15,6 +19,133 @@
     .right {
       width: 330px;
       flex-shrink: 0;
+      .right__title {
+        color: #202020;
+        font-size: var(--text-xl);
+        font-style: normal;
+        font-weight: var(--font-semibold);
+        line-height: var(--leading-base);
+        letter-spacing: -0.2px;
+        margin-bottom: var(--margin-m-3);
+      }
+      .right__list-item-payment {
+        margin-bottom: var(--margin-m-3);
+      }
+      .right__add-payment {
+        height: 42px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 24px;
+        padding: 10px;
+        margin-bottom: 32px;
+        border-radius: var(--Radius-rounded-lg, 8px);
+        border: 1px dashed var(--Button-normal, #5050ff);
+        cursor: pointer;
+        span {
+          color: var(--Button-normal, #5050ff);
+          font-size: var(--text-sm);
+          font-style: normal;
+          font-weight: var(--font-medium);
+          line-height: var(--leading-6); /* 171.429% */
+        }
+      }
+      .right__withdraw {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        .right__withdraw-title {
+          color: #202020;
+          font-size: var(--text-xl);
+          font-style: normal;
+          font-weight: var(--font-semibold);
+          line-height: var(--leading-base);
+          letter-spacing: -0.2px;
+        }
+        .right__withdraw-debit {
+          height: 25px;
+          display: flex;
+          align-items: center;
+          gap: 107px;
+          padding: var(--padding-p-4) 22px;
+          border-radius: var(--radius-rounded-lg, 8px);
+          border: 1px solid var(--Grayscale-Line, #d6d8e7);
+          box-shadow: 0px 3px 5px 0px rgba(9, 30, 66, 0.06);
+          background: var(--color-4, #fff);
+          .right__withdraw-debit-title {
+            display: flex;
+            align-items: center;
+            gap: 17px;
+            span {
+              color: #434345;
+              font-size: var(--text-sm);
+              font-style: normal;
+              font-weight: var(--font-medium);
+              line-height: var(--leading-base);
+            }
+          }
+          .right__withdraw-debit-money {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            .right__withdraw-debit-money-label {
+              min-width: 60px;
+              color: #434345;
+              font-size: var(--text-sm);
+              font-style: normal;
+              font-weight: var(--font-semibold);
+              line-height: var(--leading-base);
+            }
+          }
+        }
+        .right__withdraw-amount {
+          display: flex;
+          flex-direction: column;
+          flex-shrink: 0;
+          padding: var(--padding-p-5) 30px;
+          border-radius: var(--Radius-rounded-lg, 8px);
+          border: 1px solid var(--Grayscale-Line, #d6d8e7);
+          background: var(--color-4, #fff);
+          box-shadow: 0px 3px 5px 0px rgba(9, 30, 66, 0.06);
+          .right__withdraw-amount-information {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: var(--margin-m-2);
+            img {
+              height: 17px;
+              width: 17px;
+              object-fit: cover;
+              border-radius: 50px;
+            }
+            span {
+              color: #434345;
+              font-size: var(--text-sm);
+              font-style: normal;
+              font-weight: var(--font-medium);
+              line-height: var(--leading-base);
+            }
+          }
+          .right__withdraw-amount-money {
+            color: #434345;
+            text-align: right;
+            font-size: 26px;
+            font-style: normal;
+            font-weight: var(--font-semibold);
+            line-height: var(--leading-base);
+          }
+        }
+        .right-btn {
+          flex-shrink: 0;
+          color: var(--main-bg);
+          text-align: center;
+          font-size: var(--text-sm);
+          font-style: normal;
+          padding-top: 5px;
+          font-weight: var(--font-medium);
+          line-height: var(--leading-6); /* 171.429% */
+        }
+      }
     }
   }
 }

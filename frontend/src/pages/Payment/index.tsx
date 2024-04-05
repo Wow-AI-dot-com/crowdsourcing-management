@@ -1,6 +1,15 @@
 import React, { useState } from "react";
 import "./index.scss";
 import Table from "@Components/Table/Table";
+import AssetLabel from "../Project/AssetLabel";
+import ItemPaymentMethod from "./ItemPaymentMethod";
+import IconPlus from "@/assets/icons/IconPlus";
+import IconDebit from "@/assets/icons/IconDebit";
+import Dropdown from "@/components/Dropdown/Dropdown";
+import Button from "@/components/Button/Button";
+import AddPayment from "../Project/FormAddPayment/AddPayment";
+import ConfirmModal from "@/components/Modal/ConfirmModal";
+import Notification from "./Notification";
 
 const FAKE_DATA = [
   {
@@ -59,12 +68,54 @@ const columns = [
 
 const Payment = () => {
   const [selectedRow, setSelectedRow] = useState<string[]>([]);
+  const [isAddPayment, setIsAddPayment] = useState(false);
+  const [isConfirm, setIsConfirm] = useState(false);
+  const [isNotification, setNotification] = useState(false);
+
+  const onClickNote = () => {
+    console.log("object");
+  };
+  const onClickTrash = () => {
+    setIsConfirm(true);
+  };
+  const onClickAddPayment = () => {
+    setIsAddPayment(true);
+  };
+  const submitAddPayment = () => {
+    console.log("object");
+  };
+  const removeConfirm = () => {
+    console.log("object");
+  };
+  const ClickWithDraw = () => {
+    setNotification(true);
+  };
 
   return (
     <div id="project-payment">
+      <Notification
+        price={"asd"}
+        open={isNotification}
+        onClickClose={() => setNotification(false)}
+      />
+      <ConfirmModal
+        open={isConfirm}
+        onClose={() => setIsConfirm(false)}
+        onClickCancel={() => setIsConfirm(false)}
+        onClickRemove={removeConfirm}
+      />
+      <AddPayment
+        open={isAddPayment}
+        onClose={() => setIsAddPayment(false)}
+        onSubmit={submitAddPayment}
+      />
       <div className="project-payment-container">
         <div className="left">
-          <div>asset Labels</div>
+          <div className="asset-label">
+            <AssetLabel name="Total Earning" value="$ 16,500" color="blue" />
+            <AssetLabel name="Invoices" value="$ 16,500" color="pink" />
+            <AssetLabel name="Balence" value="$ 16,500" color="purple" />
+          </div>
           <div className="asset-list">
             <Table
               columns={columns as any}
@@ -75,7 +126,47 @@ const Payment = () => {
           </div>
         </div>
         <div className="right">
-          <div>Payment method</div>
+          <div className="right__title">Payment method</div>
+          <div className="right__list-item-payment">
+            <ItemPaymentMethod
+              bankName="CHASE"
+              bankNumber={12049828300}
+              onClickNote={onClickNote}
+              onClickTrash={onClickTrash}
+            />
+          </div>
+          <div className="right__add-payment" onClick={onClickAddPayment}>
+            <IconPlus />
+            <span>Add new payment</span>
+          </div>
+          <div className="right__withdraw">
+            <div className="right__withdraw-title">Withdraw</div>
+            <div className="right__withdraw-debit">
+              <div className="right__withdraw-debit-title">
+                <IconDebit />
+                <span>Debit</span>
+              </div>
+              <div className="right__withdraw-debit-money">
+                <span className="right__withdraw-debit-money-label">
+                  $ 10,680
+                </span>
+                <Dropdown></Dropdown>
+              </div>
+            </div>
+            <div className="right__withdraw-amount">
+              <div className="right__withdraw-amount-information">
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPfO37MK81JIyR1ptwqr_vYO3w4VR-iC2wqQ&s"
+                  alt=""
+                />
+                <span>Enter the amount</span>
+              </div>
+              <div className="right__withdraw-amount-money">$ 800.00</div>
+            </div>
+            <Button onClick={ClickWithDraw}>
+              <div className="right-btn">WithDraw</div>
+            </Button>
+          </div>
         </div>
       </div>
     </div>

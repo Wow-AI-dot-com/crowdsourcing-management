@@ -91,11 +91,6 @@ const router = createBrowserRouter(
       <Route element={<UserLayout />}>
         <Route path="/" element={<PageHome />} />
         <Route
-          path="/projects/payment"
-          element={<Payment />}
-          handle={{ title: "Payment" }}
-        />
-        <Route
           path="/projects/:type"
           element={<ProjectList />}
           handle={{ title: "Projects" }}
@@ -104,6 +99,11 @@ const router = createBrowserRouter(
           path="/projects/:type/:projectId"
           element={<ProjectDetail />}
           handle={{ title: "Projects" }}
+        />
+        <Route
+          path="/projects/:type/:projectId/payment"
+          element={<Payment />}
+          handle={{ title: "Payment" }}
         />
       </Route>
     </Route>
