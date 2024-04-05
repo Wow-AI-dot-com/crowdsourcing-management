@@ -1,0 +1,38 @@
+.item-payment {
+  height: 73px;
+  display: flex;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 101px;
+  border-radius: var(--Radius-rounded-lg, 8px);
+  border: 1px solid var(--Grayscale-Line, #d6d8e7);
+  background: #fff;
+  box-shadow: 0px 3px 5px 0px rgba(9, 30, 66, 0.06);
+  &__bank {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    &-name {
+      font-size: 20px;
+      font-weight: 600;
+    }
+    &-number {
+      color: #434345;
+      font-size: var(--text-base);
+      font-feature-settings: "clig" off, "liga" off;
+      font-family: Montserrat;
+      font-style: normal;
+      font-weight: var(--font-normal);
+      line-height: var(--leading-6); /* 150% */
+    }
+  }
+  &__icons {
+    display: flex;
+    gap: 9px;
+    margin-right: 10px;
+    div {
+      cursor: pointer;
+    }
+  }
+}

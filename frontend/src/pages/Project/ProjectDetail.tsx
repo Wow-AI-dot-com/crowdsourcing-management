@@ -100,13 +100,13 @@ export default function ProjectDetail() {
           more recently with desktop publishing software like Aldus PageMaker
           including versions of Lorem Ipsum.
         </div>
-        <AlertSuccessful open={alertSuccessful} />
+        {/* <AlertSuccessful open={alertSuccessful} /> */}
       </div>
-      <AddPayment
+      {/* <AddPayment
         open={addPayment}
         onClose={() => setAddPayment(false)}
         onSubmit={addPaymentSubmit}
-      />
+      /> */}
     </div>
   );
 }

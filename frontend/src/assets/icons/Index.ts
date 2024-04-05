@@ -37,6 +37,11 @@ import IconProfile from "./IconProfile";
 import IconAttackFile from "./IconAttackFile";
 import IconWarningModal from "./IconWarningModal";
 import IconAlertSuccessful from "./IconAlertSuccessful";
+import IconNotePayment from "./IconNotePayment";
+import IconTrash from "./IconTrash";
+import IconDebit from "./IconDebit";
+import IconNotification from "./IconNotification";
+import IconArrowLearnMore from "./IconArrowLearnMore";
 
 export {
   IconClear,
@@ -79,4 +84,9 @@ export {
   IconAttackFile,
   IconWarningModal,
   IconAlertSuccessful,
+  IconNotePayment,
+  IconTrash,
+  IconDebit,
+  IconNotification,
+  IconArrowLearnMore,
 };
