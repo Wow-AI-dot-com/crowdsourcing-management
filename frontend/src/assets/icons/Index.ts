@@ -42,6 +42,9 @@ import IconTrash from "./IconTrash";
 import IconDebit from "./IconDebit";
 import IconNotification from "./IconNotification";
 import IconArrowLearnMore from "./IconArrowLearnMore";
+import IconCameraProfile from "./IconCameraProfile";
+import IconEarthProfile from "./IconEarthProfile";
+import IconLanguagesProfile from "./IconLanguagesProfile";
 
 export {
   IconClear,
@@ -89,4 +92,7 @@ export {
   IconDebit,
   IconNotification,
   IconArrowLearnMore,
+  IconCameraProfile,
+  IconEarthProfile,
+  IconLanguagesProfile,
 };

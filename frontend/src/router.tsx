@@ -19,6 +19,7 @@ import UserLayout from "./layouts/UserLayout";
 import ProjectList from "./pages/Project/ProjectList";
 import ProjectDetail from "@Pages/Project/ProjectDetail";
 import Payment from "@Pages/Payment";
+import Profile from "./pages/Profile/Profile";
 
 const Providers = composeProviders([
   { provider: LoaderProvider },
@@ -94,6 +95,11 @@ const router = createBrowserRouter(
           path="/projects/:type"
           element={<ProjectList />}
           handle={{ title: "Projects" }}
+        />
+        <Route
+          path="/profile"
+          element={<Profile />}
+          handle={{ title: "Profile" }}
         />
         <Route
           path="/projects/:type/:projectId"

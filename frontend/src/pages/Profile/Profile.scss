@@ -1,0 +1,73 @@
+.c-profile {
+  .header {
+    display: flex;
+    gap: 27px;
+    padding-bottom: 26px;
+    border-bottom: 1px solid var(--main-line);
+    margin-bottom: 26px;
+    &-avatar {
+      position: relative;
+      width: 100px;
+      &-img {
+        max-width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 50px;
+      }
+      &-icon {
+        position: absolute;
+        right: 0px;
+        bottom: 0px;
+      }
+    }
+    &-information {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      &__name {
+        color: var(--button-normal);
+        font-size: var(--text-2xl);
+        font-weight: var(--font-semibold);
+        line-height: 29px;
+        // letter-spacing: -1px;
+      }
+      &__email {
+        color: #434345;
+        font-size: var(--text-sm);
+        font-weight: var(--font-normal);
+        line-height: 22px;
+      }
+      &__box-nationality {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+        .nationality,
+        .languages {
+          display: flex;
+          gap: 6px;
+          align-items: center;
+          span {
+            color: #434345;
+            font-size: var(--text-sm);
+            font-weight: var(--font-normal);
+            line-height: 22px;
+          }
+        }
+      }
+    }
+  }
+  .body {
+    display: flex;
+    gap: 32px;
+    .left,
+    .right {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+  }
+  .btn {
+    min-width: 100px;
+  }
+}

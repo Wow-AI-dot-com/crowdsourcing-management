@@ -103,6 +103,7 @@ const Payment = () => {
         onClose={() => setIsConfirm(false)}
         onClickCancel={() => setIsConfirm(false)}
         onClickRemove={removeConfirm}
+        title="Are you certain you want to delete this payment method?"
       />
       <AddPayment
         open={isAddPayment}
