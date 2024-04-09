@@ -5,6 +5,8 @@ import IconCameraProfile from "@/assets/icons/IconCameraProfile";
 import IconEarthProfile from "@/assets/icons/IconEarthProfile";
 import IconLanguagesProfile from "@/assets/icons/IconLanguagesProfile";
 import InputBase from "@/components/InputBase/InputBase";
+import IconUploadProfile from "@/assets/icons/IconUploadProfile";
+import Upload from "@/components/Upload/Upload";
 
 export default function Profile() {
   const arrayLanguages = ["Vietnamese", " English"];
@@ -70,14 +72,25 @@ export default function Profile() {
             <InputBase label="Second language" listOption={listOption} />
             <InputBase label="Proficiency level" listOption={listOption} />
           </div>
-          <div>
-            <span>Attach your CV</span>
+          <div className="upload-cv">
+            <span className="upload-cv__title">Attach your CV</span>
+            <div className="upload-cv__input">
+              <Upload />
+            </div>
           </div>
         </div>
       </div>
-      <Button type="success" className="btn">
-        Save
-      </Button>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "flex-end",
+          minWidth: "100px",
+        }}
+      >
+        <Button type="success" className="btn-profile">
+          Save
+        </Button>
+      </div>
     </div>
   );
 }
