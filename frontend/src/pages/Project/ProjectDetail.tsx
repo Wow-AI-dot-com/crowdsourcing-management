@@ -15,7 +15,7 @@ export default function ProjectDetail() {
   const [formSignConsent, setFormSignConsent] = useState(false);
   const [confirmModal, setConfirmModal] = useState(false);
   const [alertSuccessful, setAlertSuccessful] = useState(false);
-  const [addPayment, setAddPayment] = useState(true);
+  const [addPayment, setAddPayment] = useState(false);
   const param = useParams();
 
   const clickBtnApply = () => {
@@ -59,6 +59,7 @@ export default function ProjectDetail() {
         onClose={() => setConfirmModal(false)}
         onClickCancel={() => setConfirmModal(false)}
         onClickRemove={confirmRemove}
+        title="Are you certain you want to cancel this project?"
       />
       <div className="containerProjectDetail--box">
         <div className="header">

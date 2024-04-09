@@ -1,7 +1,7 @@
 .container--asset-label {
   display: flex;
   height: 95px;
-  //   max-width: 161px;
+  min-width: 161px;
   padding: var(--padding-p-6) 32px;
   flex-direction: column;
   justify-content: center;
