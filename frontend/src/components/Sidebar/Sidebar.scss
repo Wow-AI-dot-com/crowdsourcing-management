@@ -46,6 +46,7 @@
       font-weight: var(--font-medium);
       font-size: var(--text-sm);
       padding: 11px 6px;
+      width: 100%;
       &.active {
         > svg {
           transform: rotate(-90deg);

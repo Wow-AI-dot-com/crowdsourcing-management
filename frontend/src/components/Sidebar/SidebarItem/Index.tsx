@@ -75,11 +75,7 @@ const MemoizedSidebarItem = (props: ISidebarItemProps) => {
             {item.icon}
             {isExpand ? item.label : null}
           </div>
-          {item?.children &&
-          isExpand &&
-          isActive(item.path, item.activeChecker) ? (
-            <IconArrowLeft />
-          ) : null}
+          {item?.children && isExpand ? <IconArrowLeft /> : null}
         </div>
       </li>
       {isShowSidebarItems && (
