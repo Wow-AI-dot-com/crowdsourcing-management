@@ -23,6 +23,7 @@ import Profile from "@Pages/Profile/Profile";
 import ProfileTranslation from "@Pages/Profile/ProfileTranslation";
 import ProfileSettings from "@Pages/Profile/ProfileSettings";
 import CreateProject from "./pages/Project/CreateProject";
+import ProjectEmailTemplate from "./pages/Project/ProjectEmailTemplate";
 
 const Providers = composeProviders([
   { provider: LoaderProvider },
@@ -99,6 +100,11 @@ const router = createBrowserRouter(
           path="/projects/create"
           element={<CreateProject />}
           handle={{ title: "Create a new project" }}
+        />
+        <Route
+          path="/projects/email-template"
+          element={<ProjectEmailTemplate />}
+          handle={{ title: "Projects" }}
         />
         <Route
           path="/projects/:type"
