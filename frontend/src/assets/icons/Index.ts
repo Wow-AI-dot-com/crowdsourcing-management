@@ -53,6 +53,7 @@ import IconMessage from "./IconMessage";
 import IconTrashEmailTemplate from "./IconTrashEmailTemplate";
 import IconPlusEmailTemplate from "./IconPlusEmailTemplate";
 import IconApproveEmail from "./IconApproveEmail";
+import IconMatchingUser from "./IconMatchingUser";
 
 export {
   IconClear,
@@ -111,4 +112,5 @@ export {
   IconTrashEmailTemplate,
   IconPlusEmailTemplate,
   IconApproveEmail,
+  IconMatchingUser,
 };

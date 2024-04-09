@@ -4,6 +4,7 @@ import {
   IconHeadPhone,
   IconGlobal,
   IconProfile,
+  IconMatchingUser,
 } from "@Assets/icons/Index";
 import { SIDEBAR_ITEM_LABELS } from "../../constants/projectConstants";
 import { useAuth } from "@Providers/AuthProvider";
@@ -66,7 +67,6 @@ const sidebarItems: SidebarItem[] = [
         path: "/projects/draft-email",
         label: SIDEBAR_ITEM_LABELS.DRAFT_EMAIL,
       },
-
     ],
   },
   {
@@ -101,6 +101,12 @@ const sidebarItems: SidebarItem[] = [
     icon: <IconHeadPhone />,
     label: SIDEBAR_ITEM_LABELS.SUPPORT,
   },
+  {
+    path: "/matching-users",
+    icon: <IconMatchingUser />,
+    label: SIDEBAR_ITEM_LABELS.MATCHING_USERS,
+  },
+
   // { path: "/computes/", icon: <IconYourCompute />, label: SIDEBAR_ITEM_LABELS.COMPUTES },
   // { path: "/computes-supplier/", icon: <IconYourCompute />, label: SIDEBAR_ITEM_LABELS.COMPUTES_SUPPLIER },
   // { path: "/models-seller", icon: <IconModelSeller />, label: SIDEBAR_ITEM_LABELS.MODELS_SELLER },

@@ -21,9 +21,7 @@ export const SIDEBAR_ITEM_LABELS = {
   FORM_TEMPLATE: "Form Template",
   SENT_EMAIL: "Sent Email",
   DRAFT_EMAIL: "Draft Email",
-
-
- 
+  MATCHING_USERS: "Matching users",
 
   // bot sidebar
   ADMIN: "Admin",
