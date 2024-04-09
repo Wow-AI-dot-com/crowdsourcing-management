@@ -4,13 +4,14 @@ import "./AlertSuccessful.scss";
 
 export interface TypeAlertSuccessful {
   open: boolean;
+  title: string;
 }
 
-export default function AlertSuccessful({ open }: TypeAlertSuccessful) {
+export default function AlertSuccessful({ open, title }: TypeAlertSuccessful) {
   return open ? (
     <div className={`container--alert-successful`}>
       <IconAlertSuccessful />
-      <span>The project is canceled successfully</span>
+      <span>{title}</span>
     </div>
   ) : null;
 }
