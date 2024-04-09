@@ -22,6 +22,7 @@ import Payment from "@Pages/Payment";
 import Profile from "@Pages/Profile/Profile";
 import ProfileTranslation from "@Pages/Profile/ProfileTranslation";
 import ProfileSettings from "@Pages/Profile/ProfileSettings";
+import ProjectEmailTemplate from "./pages/Project/ProjectEmailTemplate";
 
 const Providers = composeProviders([
   { provider: LoaderProvider },
@@ -94,6 +95,11 @@ const router = createBrowserRouter(
       <Route element={<UserLayout />}>
         <Route path="/" element={<PageHome />} />
         {/* project */}
+        <Route
+          path="/projects/email-template"
+          element={<ProjectEmailTemplate />}
+          handle={{ title: "Projects" }}
+        />
         <Route
           path="/projects/:type"
           element={<ProjectList />}

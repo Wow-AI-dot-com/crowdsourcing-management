@@ -49,6 +49,10 @@ import IconUploadProfile from "./IconUploadProfile";
 import IconPlusProfileTranslation from "./IconPlusProfileTranslation";
 import IconTrashProfileSettings from "./IconTrashProfileSettings";
 import IconSearch from "./iconSearch";
+import IconMessage from "./IconMessage";
+import IconTrashEmailTemplate from "./IconTrashEmailTemplate";
+import IconPlusEmailTemplate from "./IconPlusEmailTemplate";
+import IconApproveEmail from "./IconApproveEmail";
 
 export {
   IconClear,
@@ -103,4 +107,8 @@ export {
   IconPlusProfileTranslation,
   IconTrashProfileSettings,
   IconSearch,
+  IconMessage,
+  IconTrashEmailTemplate,
+  IconPlusEmailTemplate,
+  IconApproveEmail,
 };
