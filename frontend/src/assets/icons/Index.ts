@@ -48,6 +48,7 @@ import IconLanguagesProfile from "./IconLanguagesProfile";
 import IconUploadProfile from "./IconUploadProfile";
 import IconPlusProfileTranslation from "./IconPlusProfileTranslation";
 import IconTrashProfileSettings from "./IconTrashProfileSettings";
+import IconSearch from "./iconSearch";
 
 export {
   IconClear,
@@ -101,4 +102,5 @@ export {
   IconUploadProfile,
   IconPlusProfileTranslation,
   IconTrashProfileSettings,
+  IconSearch,
 };
