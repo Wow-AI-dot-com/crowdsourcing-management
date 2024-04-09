@@ -23,7 +23,6 @@ export type TInputBaseProps = {
   isMultipleLine?: boolean;
   readonly?: boolean;
   customRightItem?: ReactNode;
-  isSelect?: boolean;
   listOption?: typeArrayOption[];
 };
 

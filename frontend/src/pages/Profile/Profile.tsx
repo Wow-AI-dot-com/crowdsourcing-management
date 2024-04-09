@@ -75,7 +75,7 @@ export default function Profile() {
           <div className="upload-cv">
             <span className="upload-cv__title">Attach your CV</span>
             <div className="upload-cv__input">
-              <Upload />
+              <Upload describe="JPG, GIF or PNG. Max size of 800K" />
             </div>
           </div>
         </div>

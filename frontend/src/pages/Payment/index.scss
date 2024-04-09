@@ -13,7 +13,29 @@
       .asset-list {
         margin-top: 24px;
         border-radius: var(--radius-rounded-xxl);
-        border: 1px solid var(--main-Line);
+        border: 1px solid var(--main-line);
+      }
+      .wrap-search-input {
+        padding: 16px 0 0 16px;
+        .search-asset-input {
+          border: 1px solid var(--main-line);
+          border-radius: var(--radius-rounded-lg);
+          background-color: var(--color-outline-theme_light-base_em);
+          display: flex;
+          align-items: center;
+          width: 220px;
+          padding: 10px;
+          margin-bottom: 24px;
+          gap: 10px;
+          input {
+            border: none;
+            outline: none;
+            background-color: transparent;
+          }
+        }
+      }
+      .pagination-bottom {
+        margin-bottom: 16px;
       }
     }
     .right {

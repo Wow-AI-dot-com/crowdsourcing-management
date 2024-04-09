@@ -46,6 +46,7 @@ import IconCameraProfile from "./IconCameraProfile";
 import IconEarthProfile from "./IconEarthProfile";
 import IconLanguagesProfile from "./IconLanguagesProfile";
 import IconUploadProfile from "./IconUploadProfile";
+import IconSearch from "./iconSearch";
 
 export {
   IconClear,
@@ -97,4 +98,5 @@ export {
   IconEarthProfile,
   IconLanguagesProfile,
   IconUploadProfile,
+  IconSearch,
 };
