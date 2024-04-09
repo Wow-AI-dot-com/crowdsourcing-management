@@ -19,7 +19,9 @@ import UserLayout from "./layouts/UserLayout";
 import ProjectList from "./pages/Project/ProjectList";
 import ProjectDetail from "@Pages/Project/ProjectDetail";
 import Payment from "@Pages/Payment";
-import Profile from "./pages/Profile/Profile";
+import Profile from "@Pages/Profile/Profile";
+import ProfileTranslation from "@Pages/Profile/ProfileTranslation";
+import ProfileSettings from "@Pages/Profile/ProfileSettings";
 
 const Providers = composeProviders([
   { provider: LoaderProvider },
@@ -91,15 +93,11 @@ const router = createBrowserRouter(
       </Route>
       <Route element={<UserLayout />}>
         <Route path="/" element={<PageHome />} />
+        {/* project */}
         <Route
           path="/projects/:type"
           element={<ProjectList />}
           handle={{ title: "Projects" }}
-        />
-        <Route
-          path="/profile"
-          element={<Profile />}
-          handle={{ title: "Profile" }}
         />
         <Route
           path="/projects/:type/:projectId"
@@ -110,6 +108,22 @@ const router = createBrowserRouter(
           path="/projects/:type/:projectId/payment"
           element={<Payment />}
           handle={{ title: "Payment" }}
+        />
+        {/* profile */}
+        <Route
+          path="/profile/information"
+          element={<Profile />}
+          handle={{ title: "Profile Personal" }}
+        />
+        <Route
+          path="/profile/translation"
+          element={<ProfileTranslation />}
+          handle={{ title: "Profile Translation" }}
+        />
+        <Route
+          path="/profile/settings"
+          element={<ProfileSettings />}
+          handle={{ title: "Profile Settings" }}
         />
       </Route>
     </Route>

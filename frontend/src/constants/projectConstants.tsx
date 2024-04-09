@@ -13,6 +13,12 @@ export const SIDEBAR_ITEM_LABELS = {
   PROJECT_AVAILABLE: "Available projects",
   PROJECT_MY_PROJECT: "My Projects",
   PROJECT_APPLIED: "Applied",
+  PROFILE_INFORMATION: " Personal Infomation",
+  PROFILE_TRANSLATION: "Personal Translation",
+  PROFILE_SETTING: "Personal Setting",
+
+
+ 
 
   // bot sidebar
   ADMIN: "Admin",

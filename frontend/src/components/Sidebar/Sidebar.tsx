@@ -27,7 +27,7 @@ export type SidebarItem = BaseItem & {
 
 const sidebarItems: SidebarItem[] = [
   {
-    path: "",
+    path: "/projects/available",
     icon: <IconBook />,
     label: SIDEBAR_ITEM_LABELS.YOUR_PROJECTS,
     activeChecker: (path: string) => {
@@ -49,9 +49,26 @@ const sidebarItems: SidebarItem[] = [
     ],
   },
   {
-    path: "/profile",
+    path: "/profile/information",
     icon: <IconProfile />,
     label: SIDEBAR_ITEM_LABELS.PROFILE,
+    activeChecker: (path: string) => {
+      return path.startsWith("/profile");
+    },
+    children: [
+      {
+        path: "/profile/information",
+        label: SIDEBAR_ITEM_LABELS.PROFILE_INFORMATION,
+      },
+      {
+        path: "/profile/translation",
+        label: SIDEBAR_ITEM_LABELS.PROFILE_TRANSLATION,
+      },
+      {
+        path: "/profile/settings",
+        label: SIDEBAR_ITEM_LABELS.PROFILE_SETTING,
+      },
+    ],
   },
   {
     path: "/network",
