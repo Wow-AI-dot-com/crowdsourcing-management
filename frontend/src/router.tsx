@@ -22,6 +22,7 @@ import Payment from "@Pages/Payment";
 import Profile from "@Pages/Profile/Profile";
 import ProfileTranslation from "@Pages/Profile/ProfileTranslation";
 import ProfileSettings from "@Pages/Profile/ProfileSettings";
+import CreateProject from "./pages/Project/CreateProject";
 
 const Providers = composeProviders([
   { provider: LoaderProvider },
@@ -94,6 +95,11 @@ const router = createBrowserRouter(
       <Route element={<UserLayout />}>
         <Route path="/" element={<PageHome />} />
         {/* project */}
+        <Route
+          path="/projects/create"
+          element={<CreateProject />}
+          handle={{ title: "Create a new project" }}
+        />
         <Route
           path="/projects/:type"
           element={<ProjectList />}

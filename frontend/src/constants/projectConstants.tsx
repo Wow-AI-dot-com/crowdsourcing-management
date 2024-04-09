@@ -16,7 +16,7 @@ export const SIDEBAR_ITEM_LABELS = {
   PROFILE_INFORMATION: " Personal Infomation",
   PROFILE_TRANSLATION: "Personal Translation",
   PROFILE_SETTING: "Personal Setting",
-  CREATE_PROJECT: "Create Project",
+  CREATE_PROJECT: "Create a new project",
   EMAIL_TEMPLATE: "Email Template",
   FORM_TEMPLATE: "Form Template",
   SENT_EMAIL: "Sent Email",
