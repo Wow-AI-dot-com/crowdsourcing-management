@@ -1,0 +1,39 @@
+.c-profile-translation {
+  padding: var(--padding-p-6);
+  &__box {
+    display: flex;
+    gap: 19px;
+    flex-direction: column;
+    padding: 41px 30px;
+    border: 1px solid #cbd4e1;
+    margin-bottom: var(--margin-m-6);
+    border-radius: var(--radius-rounded-xl);
+    &-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      span {
+        font-size: var(--text-xl);
+        font-weight: var(--font-medium);
+        line-height: var(--leading-6);
+        letter-spacing: -1px;
+        color: #202020;
+      }
+    }
+    &-input {
+      display: flex;
+      gap: 24px;
+    }
+  }
+  &__btn {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    .title {
+      color: #f7f7f8;
+      font-size: var(--text-sm);
+      font-weight: var(--font-semibold);
+      line-height: var(--leading-6);
+    }
+  }
+}

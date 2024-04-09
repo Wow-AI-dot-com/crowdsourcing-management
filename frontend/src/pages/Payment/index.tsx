@@ -10,6 +10,8 @@ import Button from "@/components/Button/Button";
 import AddPayment from "../Project/FormAddPayment/AddPayment";
 import ConfirmModal from "@/components/Modal/ConfirmModal";
 import Notification from "./Notification";
+import { IconSearch } from "@Assets/icons/Index";
+import Pagination from "@/components/Pagination/Pagination";
 
 const FAKE_DATA = [
   {
@@ -118,12 +120,27 @@ const Payment = () => {
             <AssetLabel name="Balence" value="$ 16,500" color="purple" />
           </div>
           <div className="asset-list">
+            <div className="wrap-search-input">
+              <div className="search-asset-input">
+                <IconSearch />
+                <input placeholder="Search asset" />
+              </div>
+            </div>
             <Table
               columns={columns as any}
               data={FAKE_DATA}
               selected={selectedRow}
               onSelect={(data) => setSelectedRow(data)}
             />
+            <div className="pagination-bottom">
+              <Pagination
+                page={1}
+                pageSize={20}
+                total={100}
+                setPage={() => null}
+                target={"projects"}
+              />
+            </div>
           </div>
         </div>
         <div className="right">

@@ -46,6 +46,27 @@ const sidebarItems: SidebarItem[] = [
         path: "/projects/applied",
         label: SIDEBAR_ITEM_LABELS.PROJECT_APPLIED,
       },
+      {
+        path: "/projects/create",
+        label: SIDEBAR_ITEM_LABELS.CREATE_PROJECT,
+      },
+      {
+        path: "/projects/email-template",
+        label: SIDEBAR_ITEM_LABELS.EMAIL_TEMPLATE,
+      },
+      {
+        path: "/projects/form-template",
+        label: SIDEBAR_ITEM_LABELS.FORM_TEMPLATE,
+      },
+      {
+        path: "/projects/sent-email",
+        label: SIDEBAR_ITEM_LABELS.SENT_EMAIL,
+      },
+      {
+        path: "/projects/draft-email",
+        label: SIDEBAR_ITEM_LABELS.DRAFT_EMAIL,
+      },
+
     ],
   },
   {
