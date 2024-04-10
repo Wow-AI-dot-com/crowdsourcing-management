@@ -70,8 +70,13 @@ export default function ProjectEmailTemplate() {
       <AlertSuccessful
         open={isAlertSuccess}
         title="Email is deleted successfully"
+        autoHide={() => setIsAlertSuccess(false)}
       />
-      <AlertSuccessful open={isAlertSave} title="Email is added successfully" />
+      <AlertSuccessful
+        open={isAlertSave}
+        title="Email is added successfully"
+        autoHide={() => setIsAlertSave(false)}
+      />
       <div className="p-email-template__box">
         <div className="p-email-template__box-header">
           <div className="left">

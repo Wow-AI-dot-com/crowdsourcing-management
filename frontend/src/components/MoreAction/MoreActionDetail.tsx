@@ -8,9 +8,11 @@ export interface TypeListItemDetail {
 }
 export interface TypeMoreActionDetail {
   listItemDetail: TypeListItemDetail[];
+  onClick: (id: number) => void;
 }
 export default function MoreActionDetail({
   listItemDetail,
+  onClick,
 }: TypeMoreActionDetail) {
   const detailRef = useRef(null);
   const [isDetail, setIsDetail] = useState(false);
@@ -23,14 +25,27 @@ export default function MoreActionDetail({
   useOnClickOutside(detailRef, handleClickOutside);
 
   return (
-    <div className="m-action" onClick={() => setIsDetail(true)}>
-      <div className="m-action__ellipse"></div>
-      <div className="m-action__ellipse"></div>
-      <div className="m-action__ellipse"></div>
+    <div className="m-action">
+      <div onClick={() => setIsDetail(true)} className="wrap-dots">
+        <div className="m-action__ellipse"></div>
+        <div className="m-action__ellipse"></div>
+        <div className="m-action__ellipse"></div>
+      </div>
+
       {isDetail ? (
         <div className="m-action-detail" ref={detailRef}>
           {listItemDetail.map((m) => {
-            return <div className="m-action-detail__item">{m.name}</div>;
+            return (
+              <div
+                className="m-action-detail__item"
+                onClick={() => {
+                  onClick(m.id);
+                  setIsDetail(false);
+                }}
+              >
+                {m.name}
+              </div>
+            );
           })}
         </div>
       ) : null}
