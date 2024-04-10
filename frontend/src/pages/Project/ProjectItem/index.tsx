@@ -22,7 +22,7 @@ function ProjectItem(props: TypeItemProject) {
   return (
     <div className="containerProjectItem" onClick={() => onClick(id)}>
       <div>
-        <div className="header">
+        <div className="header-project-item">
           <div className="svgHeader">
             <IconImageProject />
           </div>
