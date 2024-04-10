@@ -1,7 +1,4 @@
 import "./CreateProject.scss";
-import IconCircleSuccess from "@/assets/icons/IconCircleSuccess";
-import IconNextStep from "@/assets/icons/IconNextStep";
-import IconCircleChecked from "@/assets/icons/IconCircleChecked";
 import InputBase from "@/components/InputBase/InputBase";
 import Checkbox from "@/components/Checkbox/Checkbox";
 import Upload from "@/components/Upload/Upload";
@@ -12,6 +9,7 @@ import HtmlEditor from "@/components/HtmlEditor/HtmlEditor";
 import IconClockCreatePJ from "@/assets/icons/IconClockCreatePJ";
 import IconCalendarCreatePJ from "@/assets/icons/IconCalendarCreatePJ";
 import IconDownload from "@/assets/icons/IconDownload";
+import Step from "@/components/Step/Step";
 
 const listOption = [
     { id: 1, name: "Data collection" },
@@ -20,22 +18,7 @@ const listOption = [
 const CreateProject = () => {
     return (
         <div className="create-project">
-            <div className="menu-step">
-                <div className="menu-step__tab menu-step__tab--active">
-                    <IconCircleSuccess />
-                    <span>1. Project detail</span>
-                </div>
-                <IconNextStep />
-                <div className="menu-step__tab">
-                    <IconCircleChecked />
-                    <span>2. Registration form</span>
-                </div>
-                <IconNextStep />
-                <div className="menu-step__tab">
-                    <IconCircleChecked />
-                    <span>3. Email</span>
-                </div>
-            </div>
+            <Step isActive className='menu-step__tab' parentClass='menu-step' />
             <div className="create-container__wrapper">
                 <div className="project-name">
                     <InputBase label="Project’s name" placeholder="Input text" />
@@ -45,20 +28,24 @@ const CreateProject = () => {
                 </div>
 
                 <div className="project-timeline">
-                    <div className="project-timeline--block">
-                        <div className="project-timeline--block__title">
-                            <IconClockCreatePJ />
-                            One-time task
+                    <label id="checkOneTime">
+                        <div className="project-timeline--block">
+                            <div className="project-timeline--block__title">
+                                <IconClockCreatePJ />
+                                One-time task
+                            </div>
+                            <input name="tickInputRadio" type="radio" id="checkOneTime" />
                         </div>
-                        <input name="tickInputRadio" type="radio" id="bankTransfer" />
-                    </div>
-                    <div className="project-timeline--block">
-                        <div className="project-timeline--block__title">
-                            <IconCalendarCreatePJ />
-                            Long term task
+                    </label>
+                    <label id="checkLongTerm">
+                        <div className="project-timeline--block">
+                            <div className="project-timeline--block__title">
+                                <IconCalendarCreatePJ />
+                                Long term task
+                            </div>
+                            <input name="tickInputRadio" type="radio" id="checkLongTerm" />
                         </div>
-                        <input name="tickInputRadio" type="radio" id="bankTransfer" />
-                    </div>
+                    </label>
                 </div>
 
                 <div className="project-category">
@@ -86,7 +73,7 @@ const CreateProject = () => {
 
                 <div className="project-description">
                     <div className="project-description__title">
-                        <span>Job discription</span>
+                        <span>Job description</span>
                         <HtmlEditor />
                     </div>
                 </div>
