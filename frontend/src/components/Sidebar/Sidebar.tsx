@@ -92,6 +92,24 @@ const sidebarItems: SidebarItem[] = [
     ],
   },
   {
+    path: "/user-management",
+    icon: <IconProfile />,
+    label: SIDEBAR_ITEM_LABELS.USER_MANAGEMENT,
+    activeChecker: (path: string) => {
+      return path.startsWith("/user-management");
+    },
+    children: [
+      {
+        path: "/user-management/user-listing",
+        label: SIDEBAR_ITEM_LABELS.USER_LISTING,
+      },
+      {
+        path: "/user-management/tab-file",
+        label: SIDEBAR_ITEM_LABELS.TAB_FILE,
+      },
+    ],
+  },
+  {
     path: "/network",
     icon: <IconGlobal />,
     label: SIDEBAR_ITEM_LABELS.NETWORK,

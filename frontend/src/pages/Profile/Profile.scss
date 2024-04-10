@@ -1,27 +1,27 @@
 .c-profile {
   padding: var(--padding-p-6);
-  .header {
+  .header-profile {
     display: flex;
     gap: 27px;
     padding-bottom: 26px;
     border-bottom: 1px solid var(--main-line);
     margin-bottom: 26px;
-    &-avatar {
+    .header-avatar {
       position: relative;
       width: 100px;
-      &-img {
+      .header-avatar-img {
         max-width: 100px;
         height: 100px;
         object-fit: cover;
         border-radius: 50px;
       }
-      &-icon {
+      .header-avatar-icon {
         position: absolute;
         right: 0px;
         bottom: 0px;
       }
     }
-    &-information {
+    .header-information {
       display: flex;
       flex-direction: column;
       gap: 10px;
@@ -57,7 +57,7 @@
       }
     }
   }
-  .body {
+  .body-profile {
     border-bottom: 1px solid var(--main-line);
     padding-bottom: 26px;
     display: flex;

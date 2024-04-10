@@ -11,7 +11,7 @@ import { Editor } from "@tinymce/tinymce-react";
 import Dropdown from "@/components/Dropdown/Dropdown";
 import IconApproveEmail from "@/assets/icons/IconApproveEmail";
 import ConfirmModal from "@/components/Modal/ConfirmModal";
-import AlertSuccessful from "./AlertSuccessful";
+import AlertSuccessful from "../../components/Alert/AlertSuccessful";
 export default function ProjectEmailTemplate() {
   const [isFormCreate, setIsFormCreate] = useState(false);
   const [isAlertSuccess, setIsAlertSuccess] = useState(false);
@@ -29,17 +29,19 @@ export default function ProjectEmailTemplate() {
       <Modal
         open={isFormCreate}
         iconTitle={
-          <div className="icon-modal">
+          <div className="icon-modal-email-template">
             <IconMessage />
           </div>
         }
         onClose={() => setIsFormCreate(false)}
-        title={<div className="title-modal">Send Automatic Email</div>}
+        title={
+          <div className="title-modal-email-template">Send Automatic Email</div>
+        }
       >
         <div>
-          <div className="header">
+          <div className="header-modal-email-template">
             <div className="left">
-              Subject: <input className="input-modal" />
+              Subject: <input className="input-modal-email-template" />
             </div>
             <div className="right">
               <div>{}</div>
@@ -47,7 +49,7 @@ export default function ProjectEmailTemplate() {
               <div>BCC</div>
             </div>
           </div>
-          <div className="c-dropdow">
+          <div className="c-dropdow-modal-email-template">
             <Dropdown
               className="dropdow"
               label="Approve email"
@@ -55,10 +57,10 @@ export default function ProjectEmailTemplate() {
               icon={<IconApproveEmail />}
             ></Dropdown>
           </div>
-          <div className="c-editor">
+          <div className="c-editor-modal-email-template">
             <Editor></Editor>
           </div>
-          <div className="btn-modal">
+          <div className="btn-modal-email-template">
             <Button className="btn" onClick={clickBtnModal}>
               Save
             </Button>

@@ -129,17 +129,13 @@
               align-items: center;
               @media screen and (max-width: 1440px) {
                 align-items: baseline;
-
                 flex-direction: column;
                 svg {
                   display: none;
                 }
               }
-              @media screen and (max-width: 1024px) {
-                align-items: baseline;
-                svg {
-                  display: none;
-                }
+              @media screen and (max-width: 767px) {
+                align-items: center;
               }
             }
             &--name {

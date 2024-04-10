@@ -5,6 +5,7 @@
     display: flex;
     align-items: center;
     gap: 7px;
+    position: relative;
     &.title {
       color: #434345;
       font-size: var(--text-sm);
@@ -12,8 +13,21 @@
       line-height: var(--leading-4);
     }
     .itemDropdown {
-      padding: 5px 10px;
-      border-bottom: 1.5px solid;
+      padding: 7px 16px;
+      min-width: 110px;
+      cursor: pointer;
+      border-bottom: 1.5px solid #d6d8e7;
+      &:hover {
+        background-color: var(--main-line);
+      }
+      &:hover:first-child {
+        border-top-right-radius: var(--radius-rounded-xl);
+        border-top-left-radius: var(--radius-rounded-xl);
+      }
+      &:hover:last-child {
+        border-bottom-right-radius: var(--radius-rounded-xl);
+        border-bottom-left-radius: var(--radius-rounded-xl);
+      }
     }
     .itemDropdown:last-child {
       border: 0px;
