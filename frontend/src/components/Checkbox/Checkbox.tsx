@@ -8,6 +8,7 @@ type TCheckboxProps = {
   size?: "sm" | "md" | "lg";
   onChange?: (checked: boolean) => void;
   fieldName?: string;
+  classNameLabel?: string;
 };
 
 const Checkbox: React.FC<TCheckboxProps> = ({
@@ -17,6 +18,7 @@ const Checkbox: React.FC<TCheckboxProps> = ({
   disabled = false,
   size = "lg",
   onChange,
+  classNameLabel=''
 }) => {
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     onChange?.(event.target.checked);
@@ -24,7 +26,7 @@ const Checkbox: React.FC<TCheckboxProps> = ({
 
   return (
     <div className="c-checkbox">
-      <label className="c-checkbox__label">
+      <label className={`c-checkbox__label ${classNameLabel}`}>
         <input
           name={fieldName}
           type="checkbox"

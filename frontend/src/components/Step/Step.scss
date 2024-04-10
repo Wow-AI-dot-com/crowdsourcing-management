@@ -1,0 +1,45 @@
+.menu-step {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    padding: 14px 20px;
+    flex-direction: row;
+    justify-content: space-around;
+    &__tab {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 75px;
+      padding: 8px 12px;
+      gap: 6px;
+      border-radius: 24px;
+      border: solid 1px var(--main-line);
+      background-color: var(--main-bg);
+      color: var(--main-label);
+      font-size: var(--text-xs);
+      font-weight: var(--font-medium);
+      line-height: var(--leading-4);
+      cursor: pointer;
+      &--active {
+        color: var(--button-normal);
+        border: solid 1px var(--button-normal);
+        background: var(--color-primary-50);
+      }
+      @media screen and (max-width: 768px) {
+        min-width: auto;
+        span {
+          display: inline-block;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+        }
+      }
+    }
+    @media screen and (max-width: 768px) {
+      gap: 5px;
+      overflow: auto;
+    }
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
