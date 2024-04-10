@@ -6,7 +6,7 @@ import Apply from "@Pages//Project/FormApply/apply";
 import SignConsent from "./FormSignConsent/SignConsent";
 import { useParams } from "react-router-dom";
 import ConfirmModal from "@/components/Modal/ConfirmModal";
-import AlertSuccessful from "./AlertSuccessful";
+import AlertSuccessful from "../../components/Alert/AlertSuccessful";
 import AssetLabel from "./AssetLabel";
 import AddPayment from "./FormAddPayment/AddPayment";
 
@@ -62,7 +62,7 @@ export default function ProjectDetail() {
         title="Are you certain you want to cancel this project?"
       />
       <div className="containerProjectDetail--box">
-        <div className="header">
+        <div className="header-project-detail">
           <div className="header__project-name">Project Name</div>
           <div className="header__price">
             <div className="header__price-information">

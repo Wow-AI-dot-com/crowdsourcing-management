@@ -17,7 +17,7 @@ export default function Profile() {
 
   return (
     <div className="c-profile">
-      <div className="header">
+      <div className="header-profile">
         <div className="header-avatar">
           <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPfO37MK81JIyR1ptwqr_vYO3w4VR-iC2wqQ&s"
@@ -43,7 +43,7 @@ export default function Profile() {
           </div>
         </div>
       </div>
-      <div className="body">
+      <div className="body-profile">
         <div className="left">
           <InputBase label="First Name" placeholder="Input text" />
           <InputBase label="Last name" placeholder="Input text" />

@@ -23,6 +23,7 @@ import Profile from "@Pages/Profile/Profile";
 import ProfileTranslation from "@Pages/Profile/ProfileTranslation";
 import ProfileSettings from "@Pages/Profile/ProfileSettings";
 import ProjectEmailTemplate from "./pages/Project/ProjectEmailTemplate";
+import UserListing from "./pages/UserManagement/UserListing";
 
 const Providers = composeProviders([
   { provider: LoaderProvider },
@@ -130,6 +131,11 @@ const router = createBrowserRouter(
           path="/profile/settings"
           element={<ProfileSettings />}
           handle={{ title: "Profile Settings" }}
+        />
+        <Route
+          path="/user-management/user-listing"
+          element={<UserListing />}
+          handle={{ title: "User Listing" }}
         />
       </Route>
     </Route>

@@ -1,0 +1,24 @@
+.content-modal {
+  min-width: 612px;
+}
+.modal-create-sheet {
+  display: flex;
+  gap: var(--margin-m-4);
+  flex-direction: column;
+}
+
+.u-user-listing {
+  padding: var(--padding-p-6);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  &__btn {
+    display: flex;
+    justify-content: flex-end;
+  }
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+}

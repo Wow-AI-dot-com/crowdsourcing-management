@@ -48,6 +48,7 @@
     textarea,
     input,
     select {
+      min-width: 100%;
       padding: 8px 40px 8px 12px;
       border-radius: var(--radius-rounded-lg);
       border: 1px solid var(--main-line);

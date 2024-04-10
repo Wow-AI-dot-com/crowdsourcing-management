@@ -22,6 +22,9 @@ export const SIDEBAR_ITEM_LABELS = {
   SENT_EMAIL: "Sent Email",
   DRAFT_EMAIL: "Draft Email",
   MATCHING_USERS: "Matching users",
+  USER_MANAGEMENT: "User management",
+  USER_LISTING: "User Listing",
+  TAB_FILE: "Tab file",
 
   // bot sidebar
   ADMIN: "Admin",
