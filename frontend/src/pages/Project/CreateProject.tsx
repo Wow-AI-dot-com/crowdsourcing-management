@@ -10,15 +10,37 @@ import IconClockCreatePJ from "@/assets/icons/IconClockCreatePJ";
 import IconCalendarCreatePJ from "@/assets/icons/IconCalendarCreatePJ";
 import IconDownload from "@/assets/icons/IconDownload";
 import Step from "@/components/Step/Step";
+import { useState } from "react";
 
 const listOption = [
     { id: 1, name: "Data collection" },
 ];
 
+const listStep = [
+    { name: "Project detail" },
+    { name: "Registration form" },
+    { name: "Email" },
+];
+
 const CreateProject = () => {
+    const [currentStep, setCurrentStep] = useState(1);
+
     return (
         <div className="create-project">
-            <Step isActive className='menu-step__tab' parentClass='menu-step' />
+            <div className='menu-step'>
+                {
+                    listStep.map((step, index) => {
+                        const { name = '' } = step
+                        const setNumber = index + 1
+                        const isLastStep = index !== listStep.length - 1;
+                        const isActive = currentStep === setNumber
+
+                        return (
+                            <Step onClick={() => setCurrentStep(setNumber)} isLastStep={isLastStep} isActive={isActive} stepName={name} stepNumber={setNumber} />
+                        )
+                    })
+                }
+            </div>
             <div className="create-container__wrapper">
                 <div className="project-name">
                     <InputBase label="Project’s name" placeholder="Input text" />

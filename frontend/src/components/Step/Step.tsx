@@ -2,31 +2,30 @@ import IconCircleChecked from "@/assets/icons/IconCircleChecked"
 import IconCircleSuccess from "@/assets/icons/IconCircleSuccess"
 import IconNextStep from "@/assets/icons/IconNextStep"
 import "./Step.scss";
+import { useState } from "react";
 
 type TStep = {
-    isActive?: boolean;
-    className?: string;
-    parentClass?: string;
+    isActive: boolean;
+    stepName: string;
+    isLastStep: boolean;
+    stepNumber:number;
+    onClick: (
+        value: number,
+    ) => void;
 };
 
-export default function Step({ isActive, className, parentClass }: TStep) {
+export default function Step({ isActive, stepName, isLastStep, stepNumber, onClick = () => { } }: TStep) {
+
     return (
-        <div className={parentClass}>
-            <div className={`${className} menu-step__tab${isActive && '--active'}`}>
-                <IconCircleSuccess />
-                <span>1. Project detail</span>
+        <>
+            <div onClick={() => onClick(stepNumber)} className={`menu-step__tab menu-step__tab${isActive && '--active'}`}>
+                {
+                    isActive ? <IconCircleSuccess /> : <IconCircleChecked />
+                }
+                <span>{`${stepNumber}. ${stepName}`}</span>
             </div>
-            <IconNextStep />
-            <div className={className}>
-                <IconCircleChecked />
-                <span>2. Registration form</span>
-            </div>
-            <IconNextStep />
-            <div className={className}>
-                <IconCircleChecked />
-                <span>3. Email</span>
-            </div>
-        </div>
+            {isLastStep && <IconNextStep />}
+        </>
     )
-    
+
 }
