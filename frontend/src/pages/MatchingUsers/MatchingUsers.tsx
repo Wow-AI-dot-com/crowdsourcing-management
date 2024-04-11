@@ -104,32 +104,43 @@ const FAKE_USERS = [
   },
 ];
 
-const arrListSelect = [
-  { id: 1, name: "User" },
-  { id: 2, name: "Select" },
-];
-
 const MatchingUsers = () => {
   const [isOpenLanguage, setIsOpenLanguage] = useState(false);
   const [isOpenNation, setIsOpenNation] = useState(false);
   const [selectedUsers, setSelectedUsers] = useState<number[]>([]);
-  const [modalCreate, setModalCreate] = useState(false);
+  const [modalInvite, setModalInvite] = useState(false);
+  const [modalConfirmInviteAll, setModalConfirmInviteAll] = useState(false);
   const navigate = useNavigate();
   const path = useLocation().pathname;
 
   const handleSelectUser = (userId: number) => {
-    setSelectedUsers((currentSelected) =>
-      currentSelected.includes(userId)
-        ? currentSelected.filter((id) => id !== userId)
-        : [...currentSelected, userId]
-    );
+    setSelectedUsers((currentSelected) => {
+      const isAlreadySelected = currentSelected.includes(userId);
+      let newSelectedUsers = [];
+
+      if (isAlreadySelected) {
+        newSelectedUsers = currentSelected.filter((id) => id !== userId);
+      } else {
+        newSelectedUsers = [...currentSelected, userId];
+      }
+
+      if (newSelectedUsers.length === FAKE_USERS.length) {
+        setModalInvite(true);
+      } else if (modalInvite && newSelectedUsers.length < FAKE_USERS.length) {
+        setModalInvite(false);
+      }
+
+      return newSelectedUsers;
+    });
   };
+
 
   const handleSelectAll = (checked: boolean) => {
     if (checked) {
       setSelectedUsers(FAKE_USERS.map((user) => user.id));
+      setModalInvite(true)
     } else {
-      setSelectedUsers([]);
+      handleCloseModalInvite()
     }
   };
 
@@ -137,40 +148,81 @@ const MatchingUsers = () => {
     navigate(`${path}/user/${id}`)
   }
 
+  const handleCloseModalInvite = () => {
+    console.log(123);
+    setModalInvite(false)
+    setSelectedUsers([]);
+  }
+
+  const handleCloseModalInviteAll = () => {
+    setSelectedUsers([]);
+    setModalConfirmInviteAll(false)
+  }
+
   const isAllSelected = selectedUsers.length === FAKE_USERS.length;
 
   const handleSubmitModal = () => {
-    console.log("object");
+    if (isAllSelected) {
+      setModalInvite(false)
+      setModalConfirmInviteAll(true)
+    } else {
+      navigate(`${path}/email-template`)
+    }
+  };
+
+  const handleInviteEveryone = () => {
+    navigate(`${path}/email-template`)
+  };
+
+  const handleNotInviteEveryone = () => {
+    handleCloseModalInviteAll()
   };
 
   return (
     <div className="matching-users">
       <Modal
-        open={modalCreate}
+        open={modalInvite}
         title="Invite to project"
         submitText="Send Invitation"
         className="content-modal"
-        onClose={() => setModalCreate(false)}
+        onClose={handleCloseModalInvite}
         onSubmit={handleSubmitModal}
+        closeOnOverlayClick={modalInvite}
       >
         <div className="modal-invite">
-          <div className="box-info">
-            <img src={require(`@Assets/images/avt-user.png`)} alt="avt-user" />
-            <div className="box-info__content">
-              <p className="box-info__row">
-                <span className="box-info__row--name">Cristita Michael</span>
-                <IconLine />
-                <span className="box-info__row--type">Freelancer</span>
-              </p>
-              <p className="box-info__row--email">cristitamuchael@wow-ai.com </p>
+          {
+            !isAllSelected && <div className="box-info">
+              <img src={require(`@Assets/images/avt-user.png`)} alt="avt-user" />
+              <div className="box-info__content">
+                <p className="box-info__row">
+                  <span className="box-info__row--name">Cristita Michael</span>
+                  <IconLine />
+                  <span className="box-info__row--type">Freelancer</span>
+                </p>
+                <p className="box-info__row--email">cristitamuchael@wow-ai.com </p>
+              </div>
             </div>
-          </div>
+          }
           <InputBase
             label="Project’s ID"
             placeholder="Type here"
           />
         </div>
       </Modal>
+
+      <Modal
+        open={modalConfirmInviteAll}
+        title="Are you certain you want to invite all of the selected people?"
+        submitText="Yes"
+        className="content-modal"
+        onClose={handleCloseModalInviteAll}
+        onSubmit={handleInviteEveryone}
+        cancelText='No'
+        onCancel={handleNotInviteEveryone}
+        closeOnOverlayClick={modalConfirmInviteAll}
+      >
+      </Modal>
+
       <div className="matching-users__filter">
         <div className="matching-users__filter-search">
           <Checkbox
@@ -256,7 +308,7 @@ const MatchingUsers = () => {
                     <p>Profile</p>
                   </div>
                   <div
-                    onClick={() => setModalCreate(true)} className="content-rows--action__invite">
+                    onClick={() => setModalInvite(true)} className="content-rows--action__invite">
                     <p>Invite to Aplly</p>
                   </div>
                 </div>

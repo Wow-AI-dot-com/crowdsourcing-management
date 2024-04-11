@@ -8,6 +8,7 @@ import "./UserDetail.scss";
 import IconLine from "@/assets/icons/IconLine";
 import Modal from "@/components/Modal/Modal";
 import { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const arrayLanguages = ["Vietnamese", " English"];
 
@@ -17,20 +18,22 @@ const listOption = [
 ];
 
 const UserDetail = () => {
-  const [modalCreate, setModalCreate] = useState(false);
+  const [modalInvite, setModalInvite] = useState(false);
+  const navigate = useNavigate();
+  const path = useLocation().pathname;
 
   const handleSubmitModal = () => {
-    console.log("object");
+      navigate(`/matching-users/email-template`);
   };
 
   return (
     <div className="c-profile">
       <Modal
-        open={modalCreate}
+        open={modalInvite}
         title="Invite to project"
         submitText="Send Invitation"
         className="content-modal"
-        onClose={() => setModalCreate(false)}
+        onClose={() => setModalInvite(false)}
         onSubmit={handleSubmitModal}
       >
         <div className="modal-invite">
@@ -98,7 +101,7 @@ const UserDetail = () => {
           }}
         >
           <Button
-            onClick={() => setModalCreate(true)}
+            onClick={() => setModalInvite(true)}
             type="success"
             className="btn-profile btn-invite"
           >
