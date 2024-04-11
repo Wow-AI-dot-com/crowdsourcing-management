@@ -22,10 +22,11 @@ import Payment from "@Pages/Payment";
 import Profile from "@Pages/Profile/Profile";
 import ProfileTranslation from "@Pages/Profile/ProfileTranslation";
 import ProfileSettings from "@Pages/Profile/ProfileSettings";
-import CreateProject from "./pages/Project/CreateProject";
-import ProjectEmailTemplate from "./pages/Project/ProjectEmailTemplate";
 import MatchingUsers from "./pages/MatchingUsers/MatchingUsers";
-import UserListing from "./pages/UserManagement/UserListing";
+import CreateProject from "@Pages/Project/CreateProject";
+import ProjectEmailTemplate from "@Pages/Project/ProjectEmailTemplate";
+import UserListing from "@Pages/UserManagement/UserListing";
+import UserManagementDetail from "@Pages/UserManagement/UserManagementDetail";
 
 const Providers = composeProviders([
   { provider: LoaderProvider },
@@ -147,6 +148,11 @@ const router = createBrowserRouter(
         <Route
           path="/user-management/user-listing"
           element={<UserListing />}
+          handle={{ title: "User Listing" }}
+        />
+        <Route
+          path="/user-management/user-listing/:id"
+          element={<UserManagementDetail />}
           handle={{ title: "User Listing" }}
         />
       </Route>
