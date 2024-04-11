@@ -1,0 +1,11 @@
+.project-template-form-item {
+  border-radius: var(--radius-rounded-xl);
+  border: 1px solid var(--main-line);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px 24px;
+  &:hover {
+    border: 1px solid var(--button-normal);
+  }
+}
