@@ -75,34 +75,41 @@ const CreateProject = () => {
           <div className="project-category--wrapper">
             <div className="project-category--wrapper__columns">
               <Checkbox
+                size="sm"
                 label="Image collection"
                 classNameLabel="label-category"
               />
               <Checkbox
+                size="sm"
                 label="Audio collection"
                 classNameLabel="label-category"
               />
               <Checkbox
+                size="sm"
                 label="Video collection"
                 classNameLabel="label-category"
               />
             </div>
             <div className="project-category--wrapper__columns">
               <Checkbox
+                size="sm"
                 label="Text collection"
                 classNameLabel="label-category"
               />
               <Checkbox
+                size="sm"
                 label="OTS datasets collection"
                 classNameLabel="label-category"
               />
               <Checkbox
+                size="sm"
                 label="Other data collection"
                 classNameLabel="label-category"
               />
             </div>
             <div className="project-category--wrapper__columns">
               <Checkbox
+                size="sm"
                 label="Document collection"
                 classNameLabel="label-category"
               />
