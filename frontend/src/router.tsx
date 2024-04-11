@@ -27,6 +27,7 @@ import CreateProject from "@Pages/Project/CreateProject";
 import ProjectEmailTemplate from "@Pages/Project/ProjectEmailTemplate";
 import UserListing from "@Pages/UserManagement/UserListing";
 import UserManagementDetail from "@Pages/UserManagement/UserManagementDetail";
+import UserDetail from "./pages/MatchingUsers/UserDetail";
 
 const Providers = composeProviders([
   { provider: LoaderProvider },
@@ -154,6 +155,11 @@ const router = createBrowserRouter(
           path="/user-management/user-listing/:id"
           element={<UserManagementDetail />}
           handle={{ title: "User Listing" }}
+        />
+        <Route
+          path="/matching-users/user/:id"
+          element={<UserDetail />}
+          handle={{ title: "Profile Information" }}
         />
       </Route>
     </Route>

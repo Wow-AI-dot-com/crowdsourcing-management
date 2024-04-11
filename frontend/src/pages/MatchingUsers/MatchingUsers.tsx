@@ -7,6 +7,7 @@ import IconSearch from "@/assets/icons/iconSearch";
 import IconLine from "@/assets/icons/IconLine";
 import Pagination from "@/components/Pagination/Pagination";
 import { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const FAKE_USERS = [
   {
@@ -16,6 +17,7 @@ const FAKE_USERS = [
     skills: "Adobe Inc., CorelDRAW, Drawing...",
     position: "Project Management",
     address: "English, Vietnamese / United States",
+    avt: 'avt-user.png'
   },
   {
     id: 2,
@@ -24,6 +26,7 @@ const FAKE_USERS = [
     skills: "Adobe Inc., CorelDRAW, Drawing...",
     position: "Project Management",
     address: "English, Vietnamese / United States",
+    avt: 'avt-user.png'
   },
   {
     id: 3,
@@ -32,6 +35,7 @@ const FAKE_USERS = [
     skills: "Adobe Inc., CorelDRAW, Drawing...",
     position: "Project Management",
     address: "English, Vietnamese / United States",
+    avt: 'avt-user.png'
   },
   {
     id: 4,
@@ -40,6 +44,7 @@ const FAKE_USERS = [
     skills: "Adobe Inc., CorelDRAW, Drawing...",
     position: "Project Management",
     address: "English, Vietnamese / United States",
+    avt: 'avt-user.png'
   },
   {
     id: 5,
@@ -48,6 +53,7 @@ const FAKE_USERS = [
     skills: "Adobe Inc., CorelDRAW, Drawing...",
     position: "Project Management",
     address: "English, Vietnamese / United States",
+    avt: 'avt-user.png'
   },
   {
     id: 6,
@@ -56,6 +62,7 @@ const FAKE_USERS = [
     skills: "Adobe Inc., CorelDRAW, Drawing...",
     position: "Project Management",
     address: "English, Vietnamese / United States",
+    avt: 'avt-user.png'
   },
   {
     id: 7,
@@ -64,6 +71,7 @@ const FAKE_USERS = [
     skills: "Adobe Inc., CorelDRAW, Drawing...",
     position: "Project Management",
     address: "English, Vietnamese / United States",
+    avt: 'avt-user.png'
   },
   {
     id: 8,
@@ -72,6 +80,7 @@ const FAKE_USERS = [
     skills: "Adobe Inc., CorelDRAW, Drawing...",
     position: "Project Management",
     address: "English, Vietnamese / United States",
+    avt: 'avt-user.png'
   },
   {
     id: 9,
@@ -80,6 +89,7 @@ const FAKE_USERS = [
     skills: "Adobe Inc., CorelDRAW, Drawing...",
     position: "Project Management",
     address: "English, Vietnamese / United States",
+    avt: 'avt-user.png'
   },
   {
     id: 10,
@@ -88,6 +98,7 @@ const FAKE_USERS = [
     skills: "Adobe Inc., CorelDRAW, Drawing...",
     position: "Project Management",
     address: "English, Vietnamese / United States",
+    avt: 'avt-user.png'
   },
 ];
 
@@ -95,6 +106,8 @@ const MatchingUsers = () => {
   const [isOpenLanguage, setIsOpenLanguage] = useState(false);
   const [isOpenNation, setIsOpenNation] = useState(false);
   const [selectedUsers, setSelectedUsers] = useState<number[]>([]);
+  const navigate = useNavigate();
+  const path = useLocation().pathname;
 
   const handleSelectUser = (userId: number) => {
     setSelectedUsers((currentSelected) =>
@@ -111,6 +124,10 @@ const MatchingUsers = () => {
       setSelectedUsers([]);
     }
   };
+
+  const handleOpenUser = (id: any) => {
+    navigate(`${path}/user/${id}`)
+  }
 
   const isAllSelected = selectedUsers.length === FAKE_USERS.length;
 
@@ -171,7 +188,7 @@ const MatchingUsers = () => {
                 <div className="content-rows--info">
                   <div className="content-rows--info__avt">
                     <img
-                      src={require("@Assets/images/avt-user.png")}
+                      src={require(`@Assets/images/${user.avt}`)}
                       alt="Logo"
                     />
                   </div>
@@ -196,7 +213,9 @@ const MatchingUsers = () => {
                   </div>
                 </div>
                 <div className="content-rows--action">
-                  <div className="content-rows--action__profile">
+                  <div
+                    onClick={() => handleOpenUser(user.id)}
+                    className="content-rows--action__profile">
                     <p>Profile</p>
                   </div>
                   <div className="content-rows--action__invite">
