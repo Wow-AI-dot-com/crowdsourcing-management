@@ -8,6 +8,8 @@ import IconLine from "@/assets/icons/IconLine";
 import Pagination from "@/components/Pagination/Pagination";
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import Modal from "@/components/Modal/Modal";
+import InputBase from "@/components/InputBase/InputBase";
 
 const FAKE_USERS = [
   {
@@ -102,10 +104,16 @@ const FAKE_USERS = [
   },
 ];
 
+const arrListSelect = [
+  { id: 1, name: "User" },
+  { id: 2, name: "Select" },
+];
+
 const MatchingUsers = () => {
   const [isOpenLanguage, setIsOpenLanguage] = useState(false);
   const [isOpenNation, setIsOpenNation] = useState(false);
   const [selectedUsers, setSelectedUsers] = useState<number[]>([]);
+  const [modalCreate, setModalCreate] = useState(false);
   const navigate = useNavigate();
   const path = useLocation().pathname;
 
@@ -131,8 +139,38 @@ const MatchingUsers = () => {
 
   const isAllSelected = selectedUsers.length === FAKE_USERS.length;
 
+  const handleSubmitModal = () => {
+    console.log("object");
+  };
+
   return (
     <div className="matching-users">
+      <Modal
+        open={modalCreate}
+        title="Invite to project"
+        submitText="Send Invitation"
+        className="content-modal"
+        onClose={() => setModalCreate(false)}
+        onSubmit={handleSubmitModal}
+      >
+        <div className="modal-invite">
+          <div className="box-info">
+            <img src={require(`@Assets/images/avt-user.png`)} alt="avt-user" />
+            <div className="box-info__content">
+              <p className="box-info__row">
+                <span className="box-info__row--name">Cristita Michael</span>
+                <IconLine />
+                <span className="box-info__row--type">Freelancer</span>
+              </p>
+              <p className="box-info__row--email">cristitamuchael@wow-ai.com </p>
+            </div>
+          </div>
+          <InputBase
+            label="Project’s ID"
+            placeholder="Type here"
+          />
+        </div>
+      </Modal>
       <div className="matching-users__filter">
         <div className="matching-users__filter-search">
           <Checkbox
@@ -198,7 +236,6 @@ const MatchingUsers = () => {
                         {user.name}
                       </p>
                       <IconLine />
-
                       <span className="content-rows--info__detail--position">
                         {user.type}
                       </span>
@@ -218,7 +255,8 @@ const MatchingUsers = () => {
                     className="content-rows--action__profile">
                     <p>Profile</p>
                   </div>
-                  <div className="content-rows--action__invite">
+                  <div
+                    onClick={() => setModalCreate(true)} className="content-rows--action__invite">
                     <p>Invite to Aplly</p>
                   </div>
                 </div>
