@@ -24,8 +24,8 @@ export default function IconDebit() {
         fill="#EA1D25"
       />
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M36.346 19.03V19.37H36.286V19.03H36.146V18.96H36.496V19.03H36.346ZM37.026 18.96V19.37H36.956V19.06L36.846 19.33H36.766L36.646 19.06V19.37H36.576V18.96H36.676L36.806 19.25L36.926 18.96H37.026Z"
         fill="#F69E1E"
       />

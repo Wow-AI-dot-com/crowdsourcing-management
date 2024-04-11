@@ -16,9 +16,9 @@ export default function IconArrowLearnMore() {
       <path
         d="M5.25 12.75L12 6M12 6L6 6.00001M12 6V12"
         stroke="#27BE69"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
