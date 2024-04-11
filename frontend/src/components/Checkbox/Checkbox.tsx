@@ -2,7 +2,7 @@ import React, { ChangeEvent } from "react";
 import "./Checkbox.scss";
 
 type TCheckboxProps = {
-  label: string;
+  label?: string;
   checked?: boolean;
   disabled?: boolean;
   size?: "sm" | "md" | "lg";
@@ -18,7 +18,7 @@ const Checkbox: React.FC<TCheckboxProps> = ({
   disabled = false,
   size = "lg",
   onChange,
-  classNameLabel=''
+  classNameLabel = "",
 }) => {
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     onChange?.(event.target.checked);

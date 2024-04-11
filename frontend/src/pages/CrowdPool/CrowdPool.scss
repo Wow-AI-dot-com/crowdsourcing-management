@@ -1,0 +1,45 @@
+.c-pool {
+  padding: var(--padding-p-6);
+  &__header {
+    display: flex;
+    margin-bottom: 40px;
+    justify-content: space-between;
+    &-left {
+      display: flex;
+      align-items: center;
+      gap: var(--margin-m-4);
+      &-label {
+        color: var(--color-base-black);
+        font-size: var(--text-sm);
+        font-weight: var(--font-medium);
+        line-height: var(--leading-6);
+      }
+      &-input {
+        position: relative;
+        .input {
+          color: var(--color-neutral-500);
+          z-index: 30;
+          border: 1px solid var(--main-line);
+          border-radius: var(--radius-rounded-lg);
+          padding: var(--padding-p-2) var(--padding-p-3) var(--padding-p-2) 38px;
+        }
+        .icon {
+          position: absolute;
+          top: 7px;
+          left: 12px;
+        }
+      }
+    }
+    &-right {
+      display: flex;
+      gap: 32px;
+    }
+  }
+  .list-project-crowdPool {
+    padding: 0 var(--padding-p-6);
+    display: flex;
+    gap: var(--margin-m-6);
+    flex-direction: column;
+    margin-bottom: 32px;
+  }
+}

@@ -55,6 +55,9 @@ import IconPlusEmailTemplate from "./IconPlusEmailTemplate";
 import IconApproveEmail from "./IconApproveEmail";
 import IconMatchingUser from "./IconMatchingUser";
 import IconFolderUserListing from "./IconFolderUserListing";
+import IconSidebarCrowdPool from "./IconSidebarCrowdPool";
+import IconMessageCrowdPool from "./IconMessageCrowdPool";
+import IconNationCrowdPool from "./IconNationCrowdPool";
 
 export {
   IconClear,
@@ -115,4 +118,7 @@ export {
   IconApproveEmail,
   IconMatchingUser,
   IconFolderUserListing,
+  IconSidebarCrowdPool,
+  IconMessageCrowdPool,
+  IconNationCrowdPool,
 };
