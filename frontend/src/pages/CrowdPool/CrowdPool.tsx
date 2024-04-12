@@ -1,60 +1,78 @@
-import IconMessageCrowdPool from "@/assets/icons/IconMessageCrowdPool";
-import IconNationCrowdPool from "@/assets/icons/IconNationCrowdPool";
+import {
+  IconMessageCrowdPool,
+  IconNationCrowdPool,
+  IconSearch,
+} from "@/assets/icons/Index";
 import Checkbox from "@/components/Checkbox/Checkbox";
 import Dropdown from "@/components/Dropdown/Dropdown";
-import InputBase from "@/components/InputBase/InputBase";
-import React, { useState } from "react";
-import "./CrowdPool.scss";
-import IconSearch from "@/assets/icons/iconSearch";
+import React, { ChangeEvent, useState } from "react";
 import ItemProjectCrowdPool from "./ItemProjectCrowdPool";
 import Pagination from "@/components/Pagination/Pagination";
+import "./CrowdPool.scss";
 
+const listItemProjectCrowdPool = [
+  {
+    id: 1,
+    languages: "Vietnamese, English",
+    nameUser: "Cristita Michael",
+    nameProject: "Project Manager",
+    content: "Project Manager |Adobe Inc., CorelDRAW, Drawing",
+  },
+  {
+    id: 2,
+    languages: "Vietnamese, English",
+    nameUser: "Cristita Michael2",
+    nameProject: "Project Manager",
+    content: "Project Manager |Adobe Inc., CorelDRAW, Drawing",
+  },
+  {
+    id: 3,
+    languages: "Vietnamese, English",
+    nameUser: "Cristita Michael3",
+    nameProject: "Project Manager",
+    content: "Project Manager |Adobe Inc., CorelDRAW, Drawing",
+  },
+  {
+    id: 4,
+    languages: "Vietnamese, English",
+    nameUser: "Cristita Michael4",
+    nameProject: "Project Manager",
+    content: "Project Manager |Adobe Inc., CorelDRAW, Drawing",
+  },
+  {
+    id: 5,
+    languages: "Vietnamese, English",
+    nameUser: "Cristita Michael5",
+    nameProject: "Project Manager",
+    content: "Project Manager |Adobe Inc., CorelDRAW, Drawing",
+  },
+  {
+    id: 6,
+    languages: "Vietnamese, English",
+    nameUser: "Cristita Michael6",
+    nameProject: "Project Manager",
+    content: "Project Manager |Adobe Inc., CorelDRAW, Drawing",
+  },
+];
 export default function CrowdPool() {
   const [listItemChecked, setListItemChecked] = useState<number[]>([]);
-  const listItemProjectCrowdPool = [
-    {
-      id: 1,
-      nameUser: "Cristita Michael",
-      nameProject: "Project Manager",
-      content: "Project Manager |Adobe Inc., CorelDRAW, Drawing",
-    },
-    {
-      id: 2,
-      nameUser: "Cristita Michael2",
-      nameProject: "Project Manager",
-      content: "Project Manager |Adobe Inc., CorelDRAW, Drawing",
-    },
-    {
-      id: 3,
-      nameUser: "Cristita Michael3",
-      nameProject: "Project Manager",
-      content: "Project Manager |Adobe Inc., CorelDRAW, Drawing",
-    },
-    {
-      id: 4,
-      nameUser: "Cristita Michael4",
-      nameProject: "Project Manager",
-      content: "Project Manager |Adobe Inc., CorelDRAW, Drawing",
-    },
-    {
-      id: 5,
-      nameUser: "Cristita Michael5",
-      nameProject: "Project Manager",
-      content: "Project Manager |Adobe Inc., CorelDRAW, Drawing",
-    },
-    {
-      id: 6,
-      nameUser: "Cristita Michael6",
-      nameProject: "Project Manager",
-      content: "Project Manager |Adobe Inc., CorelDRAW, Drawing",
-    },
-  ];
-  const arrLanguage = ["VietNamese", "English"];
-  const actionCheck = (e: boolean, id: number) => {
+  const checkItemInputProject = (e: boolean, id: number) => {
     if (e) {
       setListItemChecked((state) => [...state, id]);
     } else {
-      // setListItemChecked((state) => [...state, state])
+      setListItemChecked(listItemChecked.filter((f) => f !== id));
+    }
+  };
+
+  const checkSelectAll = (e: boolean) => {
+    if (e) {
+      setListItemChecked(
+        listItemProjectCrowdPool.map((m) => {
+          return m.id;
+        })
+      );
+    } else {
+      setListItemChecked([]);
     }
   };
   return (
@@ -65,6 +83,7 @@ export default function CrowdPool() {
             size="sm"
             label="Select all"
             classNameLabel="c-pool__header-left-label"
+            onChange={(e) => checkSelectAll(e)}
             checked={listItemChecked.length === listItemProjectCrowdPool.length}
           />
           <div className="c-pool__header-left-input">
@@ -79,27 +98,35 @@ export default function CrowdPool() {
             iconPosition="left"
             label="Language"
             icon={<IconMessageCrowdPool />}
-            className=""
-          />
+            className="listDropdow"
+          >
+            {listItemProjectCrowdPool.map((m) => {
+              return <li>{m.nameUser}</li>;
+            })}
+          </Dropdown>
           <Dropdown
             iconPosition="left"
             label="Nation"
             icon={<IconNationCrowdPool />}
-            className=""
-          />
+            className="listDropdow"
+          >
+            {listItemProjectCrowdPool.map((m) => {
+              return <li>{m.nameUser}</li>;
+            })}
+          </Dropdown>
         </div>
       </div>
       <div className="list-project-crowdPool">
         {listItemProjectCrowdPool.map((m) => {
           return (
             <ItemProjectCrowdPool
-              checkInput={(e) => actionCheck(e, m.id)}
+              checkInput={(e) => checkItemInputProject(e, m.id)}
               checked={listItemChecked.includes(m.id)}
               key={m.id}
               content={m.content}
               nameUser={m.nameUser}
               nameProject={m.nameProject}
-              listLanguage={arrLanguage}
+              listLanguage={m.languages}
             />
           );
         })}

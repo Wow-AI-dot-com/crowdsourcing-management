@@ -9,9 +9,9 @@ export interface TypeItemProjectCrowdPool {
   nameUser: string;
   nameProject: string;
   content: string;
-  listLanguage: TypeListLanguage[];
+  listLanguage: string;
   checkInput?: (checked: boolean) => void;
-  checked?: boolean;
+  checked: boolean;
 }
 export default function ItemProjectCrowdPool({
   nameUser,
@@ -27,7 +27,7 @@ export default function ItemProjectCrowdPool({
         <Checkbox size="sm" onChange={checkInput} checked={checked} />
         <img
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPfO37MK81JIyR1ptwqr_vYO3w4VR-iC2wqQ&s"
-          alt=""
+          alt="avatar"
         />
         <div className="information">
           <div className="name">
@@ -38,7 +38,7 @@ export default function ItemProjectCrowdPool({
             <span className="content-text">{content}</span>
           </div>
           <div className="language">
-            <div>{listLanguage.toString()}</div> / <div>United States</div>
+            <div>{listLanguage}</div> / <div>United States</div>
           </div>
         </div>
       </div>

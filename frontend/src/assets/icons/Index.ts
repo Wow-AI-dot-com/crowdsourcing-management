@@ -37,7 +37,7 @@ import IconProfile from "./IconProfile";
 import IconAttackFile from "./IconAttackFile";
 import IconWarningModal from "./IconWarningModal";
 import IconAlertSuccessful from "./IconAlertSuccessful";
-import IconNotePayment from "./IconNotePayment";
+import IconEditPayment from "./IconEditPayment";
 import IconTrash from "./IconTrash";
 import IconDebit from "./IconDebit";
 import IconNotification from "./IconNotification";
@@ -100,7 +100,7 @@ export {
   IconAttackFile,
   IconWarningModal,
   IconAlertSuccessful,
-  IconNotePayment,
+  IconEditPayment,
   IconTrash,
   IconDebit,
   IconNotification,
