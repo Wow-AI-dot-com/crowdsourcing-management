@@ -1,16 +1,13 @@
 import Checkbox from "@/components/Checkbox/Checkbox";
 import "./MatchingUsers.scss";
-import IconLanguagesUsers from "@/assets/icons/IconLanguagesUsers";
-import IconNations from "@/assets/icons/IconNations";
-import IconArrowLeft from "@/assets/icons/IconArrowLeft";
-import IconSearch from "@/assets/icons/iconSearch";
-import IconLine from "@/assets/icons/IconLine";
 import Pagination from "@/components/Pagination/Pagination";
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Modal from "@/components/Modal/Modal";
 import InputBase from "@/components/InputBase/InputBase";
 import { FAKE_USERS, PATH_EMAIL_TEMPLATE, PATH_USER } from "@/constants/MatchingUsers";
+import { IconNations, IconLine, IconArrowLeft, IconLanguagesUsers, IconSearch } from "@Assets/icons/Index";
+
 
 const MatchingUsers = () => {
   const [isOpenLanguage, setIsOpenLanguage] = useState(false);
@@ -52,7 +49,7 @@ const MatchingUsers = () => {
   };
 
   const handleOpenUser = (id: any) => {
-    navigate(`${PATH_USER}${id}`)
+    navigate(`${PATH_USER}${id}`, { replace: true, state: { isMatchingUser: true } })
   }
 
   const handleCloseModalInvite = () => {

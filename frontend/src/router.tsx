@@ -29,7 +29,6 @@ import ProjectFormTemplate from "@Pages/Project/ProjectFormTemplate";
 import ProjectFormTemplateCreate from "@Pages/Project/ProjectFormTemplateCreate";
 import UserListing from "@Pages/UserManagement/UserListing";
 import UserManagementDetail from "@Pages/UserManagement/UserManagementDetail";
-import UserDetail from "./pages/MatchingUsers/UserDetail";
 import EmailTemplate from "./pages/MatchingUsers/EmailTemplate";
 import MyProjects from "./pages/MatchingUsers/MyProjectsUser";
 import MyProjectsUser from "./pages/MatchingUsers/MyProjectsUser";
@@ -176,7 +175,7 @@ const router = createBrowserRouter(
         />
         <Route
           path="/matching-users/user/:id"
-          element={<UserDetail />}
+          element={<Profile />}
           handle={{ title: "Profile Information" }}
         />
         <Route
