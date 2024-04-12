@@ -24,6 +24,8 @@ import ProfileTranslation from "@Pages/Profile/ProfileTranslation";
 import ProfileSettings from "@Pages/Profile/ProfileSettings";
 import CreateProject from "@Pages/Project/CreateProject";
 import ProjectEmailTemplate from "@Pages/Project/ProjectEmailTemplate";
+import ProjectFormTemplate from "@Pages/Project/ProjectFormTemplate";
+import ProjectFormTemplateCreate from "@Pages/Project/ProjectFormTemplateCreate";
 import UserListing from "@Pages/UserManagement/UserListing";
 import UserManagementDetail from "@Pages/UserManagement/UserManagementDetail";
 import CrowdPool from "./pages/CrowdPool/CrowdPool";
@@ -114,6 +116,19 @@ const router = createBrowserRouter(
           element={<ProjectEmailTemplate />}
           handle={{ title: "Projects" }}
         />
+
+        <Route
+          path="/projects/form-template"
+          element={<ProjectFormTemplate />}
+          handle={{ title: "Projects form template" }}
+        />
+
+        <Route
+          path="/projects/form-template/create"
+          element={<ProjectFormTemplateCreate />}
+          handle={{ title: "Projects form template create" }}
+        />
+
         <Route
           path="/projects/:type"
           element={<ProjectList />}

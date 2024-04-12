@@ -1,0 +1,60 @@
+.project-template-form-item {
+  border-radius: var(--radius-rounded-xl);
+  border: 1px solid var(--main-line);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px 24px;
+  box-shadow: 0px 6px 12px 0px #2525251a;
+
+  &:hover {
+    border: 1px solid var(--button-normal);
+  }
+  .left-part {
+    display: flex;
+    gap: var(--margin-m-4);
+    align-items: center;
+    .name {
+      font-size: 14px;
+      font-family: 500;
+    }
+    .created-date {
+      font-size: 12px;
+      margin-top: 8px;
+    }
+  }
+  .right-part {
+    display: flex;
+    gap: var(--margin-m-3);
+    .icon {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      border: 1px solid var(--main-selected);
+      border-radius: var(--radius-rounded-base);
+      &.edit {
+        &:hover {
+          background-color: var(--button-normal);
+          svg {
+            path {
+              fill: #ffffff;
+            }
+          }
+        }
+      }
+      &.delete {
+        &:hover {
+          background-color: var(--color-base-dangerous);
+          svg {
+            path {
+              stroke: #ffffff;
+            }
+          }
+        }
+      }
+    }
+  }
+}
