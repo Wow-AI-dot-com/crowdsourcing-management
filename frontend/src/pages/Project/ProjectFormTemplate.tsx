@@ -1,16 +1,8 @@
-import IconMessage from "@/assets/icons/IconMessage";
-import IconNotePayment from "@/assets/icons/IconNotePayment";
-import IconTrashProfileSettings from "@/assets/icons/IconTrashProfileSettings";
 import React, { useState } from "react";
 import "./ProjectFormTemplate.scss";
-import IconTrashEmailTemplate from "@/assets/icons/IconTrashEmailTemplate";
 import Button from "@/components/Button/Button";
+import { useLocation, useNavigate } from "react-router-dom";
 import IconPlusEmailTemplate from "@/assets/icons/IconPlusEmailTemplate";
-import Modal from "@/components/Modal/Modal";
-import { Editor } from "@tinymce/tinymce-react";
-import Dropdown from "@/components/Dropdown/Dropdown";
-import IconApproveEmail from "@/assets/icons/IconApproveEmail";
-import ConfirmModal from "@/components/Modal/ConfirmModal";
 import AlertSuccessful from "../../components/Alert/AlertSuccessful";
 import ProjectTemplateFormItem from "./components/ProjectTemplateFormItem";
 
@@ -21,17 +13,11 @@ const LIST_FORM_TEMPLATE = [
 ];
 
 export default function ProjectFormTemplate() {
-  const [isFormCreate, setIsFormCreate] = useState(false);
+  const navigate = useNavigate();
+  const path = useLocation().pathname;
   const [isAlertSuccess, setIsAlertSuccess] = useState(false);
   const [isAlertSave, setIsAlertSave] = useState(false);
 
-  const clickTrash = () => {
-    setIsAlertSuccess(true);
-  };
-  const clickBtnModal = () => {
-    setIsFormCreate(false);
-    setIsAlertSave(true);
-  };
   return (
     <div className="p-form-template">
       <AlertSuccessful
@@ -50,7 +36,7 @@ export default function ProjectFormTemplate() {
           <ProjectTemplateFormItem
             {...item}
             onDelete={() => null}
-            onEdit={() => null}
+            onEdit={(id) => navigate(`${path}/${item.id}`)}
           />
         ))}
       </div>
@@ -61,6 +47,7 @@ export default function ProjectFormTemplate() {
           icon={<IconPlusEmailTemplate />}
           type="secondary"
           className="button"
+          onClick={() => navigate(`${path}/create`)}
         >
           Add more form
         </Button>

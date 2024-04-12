@@ -24,19 +24,17 @@ const ProjectTemplateFormItem = ({
   return (
     <div className="project-template-form-item">
       <div className="left-part">
-        <div>
           <IconFormTemplate />
-          <div>
-            <div>{name}</div>
-            <div>Created {createdDate}</div>
-          </div>
+          <div className="text-content">
+            <div className="name">{name}</div>
+            <div className="created-date">Created {createdDate}</div>
         </div>
       </div>
       <div className="right-part">
-        <div onClick={() => onEdit(id)}>
+        <div onClick={() => onEdit(id)} className="icon edit">
           <IconNotePayment />
         </div>
-        <div onClick={() => onDelete(id)}>
+        <div onClick={() => onDelete(id)} className="icon delete">
           <IconTrashEmailTemplate />
         </div>
       </div>
