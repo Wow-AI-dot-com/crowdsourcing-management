@@ -14,8 +14,35 @@
       display: flex;
       gap: var(--margin-m-4);
       align-items: center;
-      div {
+      .icon {
         cursor: pointer;
+        height: 40px;
+        width: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid var(--main-selected);
+        border-radius: var(--radius-rounded-base);
+        &.edit {
+          &:hover {
+            background-color: var(--button-normal);
+            svg {
+              path {
+                fill: #ffffff;
+              }
+            }
+          }
+        }
+        &.delete {
+          &:hover {
+            background-color: var(--color-base-dangerous);
+            svg {
+              path {
+                stroke: #ffffff;
+              }
+            }
+          }
+        }
       }
     }
     .left {

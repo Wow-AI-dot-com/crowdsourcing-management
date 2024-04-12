@@ -31,10 +31,10 @@ export default function Index({
           <span>Approve Email</span>
         </div>
         <div className="right">
-          <div onClick={clickIconEdit}>
+          <div className="icon edit" onClick={clickIconEdit}>
             <IconEditPayment />
           </div>
-          <div onClick={clickIconTrash}>
+          <div className="icon delete" onClick={clickIconTrash}>
             <IconTrashEmailTemplate />
           </div>
         </div>

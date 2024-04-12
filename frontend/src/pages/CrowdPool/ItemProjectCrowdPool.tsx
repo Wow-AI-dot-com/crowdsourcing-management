@@ -12,6 +12,8 @@ export interface TypeItemProjectCrowdPool {
   listLanguage: string;
   checkInput?: (checked: boolean) => void;
   checked: boolean;
+  clickProfile?: () => void;
+  clickInvite: () => void;
 }
 export default function ItemProjectCrowdPool({
   nameUser,
@@ -20,6 +22,8 @@ export default function ItemProjectCrowdPool({
   listLanguage,
   checkInput,
   checked,
+  clickInvite,
+  clickProfile,
 }: TypeItemProjectCrowdPool) {
   return (
     <div className="item-project-crowdPool">
@@ -43,10 +47,10 @@ export default function ItemProjectCrowdPool({
         </div>
       </div>
       <div className="right">
-        <Button type="secondary" className="btn-profile">
+        <Button type="secondary" className="btn-profile" onClick={clickProfile}>
           Profile
         </Button>
-        <Button>Invite to Apply</Button>
+        <Button onClick={clickInvite}>Invite to Apply</Button>
       </div>
     </div>
   );
