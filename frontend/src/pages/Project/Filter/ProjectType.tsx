@@ -1,32 +1,21 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
 import "./ProjectType.scss";
+import ListItemTypeProject from "../ListItemTypeProject/ListItemTypeProject";
 
 const ListNameItemProject = [
-  { id: "available", name: "Available" },
-  { id: "my-project", name: "Applied" },
-  { id: "applied", name: "My Projects" },
+  { id: 1, name: "Available" },
+  { id: 2, name: "Applied" },
+  { id: 3, name: "My Projects" },
 ];
-export const ProjectType = () => {
-  const navigate = useNavigate();
-  const [isActive, setIsActive] = React.useState("available");
-  const ClickActive = (type: string) => {
-    setIsActive(type);
-    navigate("/projects/" + type);
-  };
+
+const LIST_TYPE_PROJECT = [
+  { id: 1, name: "My Projects" },
+  { id: 2, name: "Shared With Me" },
+];
+
+export const ProjectType = ({ isProjectsUser = false }) => {
   return (
     <div className="containerProjectType">
-      {ListNameItemProject.map((m) => {
-        return (
-          <div
-            className={`projectTypeItem ${isActive === m.id ? "active" : ""}`}
-            onClick={() => ClickActive(m.id)}
-            key={m.id}
-          >
-            {m.name}
-          </div>
-        );
-      })}
+      <ListItemTypeProject data={isProjectsUser ? LIST_TYPE_PROJECT : ListNameItemProject} isProjectsUser={isProjectsUser } />
     </div>
   );
 };

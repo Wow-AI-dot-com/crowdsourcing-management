@@ -50,10 +50,12 @@ const FAKE_PROJECTS = [
     price: "0.01 per task",
   },
 ];
-const ProjectList = () => {
+const ProjectList = ({ isProjectsUser = false }) => {
   const userLayout = useUserLayout();
   const navigate = useNavigate();
   const params = useParams();
+  console.log(params);
+  
   React.useEffect(() => {
     userLayout.setBreadcrumbs([{ label: "Projects" }]);
 
@@ -74,7 +76,7 @@ const ProjectList = () => {
   return (
     <div className="containerProjectList">
       <div className="headerProject">
-        <ProjectType />
+        <ProjectType isProjectsUser={isProjectsUser} />
         <ProjectAttribute />
       </div>
       <div className="listItemProject">

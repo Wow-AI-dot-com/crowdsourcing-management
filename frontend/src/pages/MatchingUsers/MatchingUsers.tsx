@@ -10,99 +10,7 @@ import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Modal from "@/components/Modal/Modal";
 import InputBase from "@/components/InputBase/InputBase";
-
-const FAKE_USERS = [
-  {
-    id: 1,
-    name: "Cristita Michael",
-    type: "Freelancer",
-    skills: "Adobe Inc., CorelDRAW, Drawing...",
-    position: "Project Management",
-    address: "English, Vietnamese / United States",
-    avt: 'avt-user.png'
-  },
-  {
-    id: 2,
-    name: "Cristita Michael",
-    type: "Freelancer",
-    skills: "Adobe Inc., CorelDRAW, Drawing...",
-    position: "Project Management",
-    address: "English, Vietnamese / United States",
-    avt: 'avt-user.png'
-  },
-  {
-    id: 3,
-    name: "Cristita Michael",
-    type: "Freelancer",
-    skills: "Adobe Inc., CorelDRAW, Drawing...",
-    position: "Project Management",
-    address: "English, Vietnamese / United States",
-    avt: 'avt-user.png'
-  },
-  {
-    id: 4,
-    name: "Cristita Michael",
-    type: "Freelancer",
-    skills: "Adobe Inc., CorelDRAW, Drawing...",
-    position: "Project Management",
-    address: "English, Vietnamese / United States",
-    avt: 'avt-user.png'
-  },
-  {
-    id: 5,
-    name: "Cristita Michael",
-    type: "Freelancer",
-    skills: "Adobe Inc., CorelDRAW, Drawing...",
-    position: "Project Management",
-    address: "English, Vietnamese / United States",
-    avt: 'avt-user.png'
-  },
-  {
-    id: 6,
-    name: "Cristita Michael",
-    type: "Freelancer",
-    skills: "Adobe Inc., CorelDRAW, Drawing...",
-    position: "Project Management",
-    address: "English, Vietnamese / United States",
-    avt: 'avt-user.png'
-  },
-  {
-    id: 7,
-    name: "Cristita Michael",
-    type: "Freelancer",
-    skills: "Adobe Inc., CorelDRAW, Drawing...",
-    position: "Project Management",
-    address: "English, Vietnamese / United States",
-    avt: 'avt-user.png'
-  },
-  {
-    id: 8,
-    name: "Cristita Michael",
-    type: "Freelancer",
-    skills: "Adobe Inc., CorelDRAW, Drawing...",
-    position: "Project Management",
-    address: "English, Vietnamese / United States",
-    avt: 'avt-user.png'
-  },
-  {
-    id: 9,
-    name: "Cristita Michael",
-    type: "Freelancer",
-    skills: "Adobe Inc., CorelDRAW, Drawing...",
-    position: "Project Management",
-    address: "English, Vietnamese / United States",
-    avt: 'avt-user.png'
-  },
-  {
-    id: 10,
-    name: "Cristita Michael",
-    type: "Freelancer",
-    skills: "Adobe Inc., CorelDRAW, Drawing...",
-    position: "Project Management",
-    address: "English, Vietnamese / United States",
-    avt: 'avt-user.png'
-  },
-];
+import { FAKE_USERS, PATH_EMAIL_TEMPLATE, PATH_USER } from "@/constants/MatchingUsers";
 
 const MatchingUsers = () => {
   const [isOpenLanguage, setIsOpenLanguage] = useState(false);
@@ -134,7 +42,6 @@ const MatchingUsers = () => {
     });
   };
 
-
   const handleSelectAll = (checked: boolean) => {
     if (checked) {
       setSelectedUsers(FAKE_USERS.map((user) => user.id));
@@ -145,18 +52,17 @@ const MatchingUsers = () => {
   };
 
   const handleOpenUser = (id: any) => {
-    navigate(`${path}/user/${id}`)
+    navigate(`${PATH_USER}${id}`)
   }
 
   const handleCloseModalInvite = () => {
-    console.log(123);
     setModalInvite(false)
     setSelectedUsers([]);
   }
 
   const handleCloseModalInviteAll = () => {
-    setSelectedUsers([]);
     setModalConfirmInviteAll(false)
+    setSelectedUsers([]);
   }
 
   const isAllSelected = selectedUsers.length === FAKE_USERS.length;
@@ -166,12 +72,12 @@ const MatchingUsers = () => {
       setModalInvite(false)
       setModalConfirmInviteAll(true)
     } else {
-      navigate(`${path}/email-template`)
+      navigate(`${PATH_EMAIL_TEMPLATE}`)
     }
   };
 
   const handleInviteEveryone = () => {
-    navigate(`${path}/email-template`)
+    navigate(`${PATH_EMAIL_TEMPLATE}`)
   };
 
   const handleNotInviteEveryone = () => {
@@ -265,45 +171,46 @@ const MatchingUsers = () => {
       <div className="matching-users__wrapper">
         <div className="content">
           {FAKE_USERS.map((user) => {
+            const { id, avt, name, type, position, skills, address } = user
             return (
-              <div key={user.id} className="content-rows">
+              <div key={id} className="content-rows">
                 <div className="content-rows--select">
                   <Checkbox
                     size="sm"
                     label=""
-                    checked={selectedUsers.includes(user.id)}
-                    onChange={() => handleSelectUser(user.id)}
+                    checked={selectedUsers.includes(id)}
+                    onChange={() => handleSelectUser(id)}
                   />
                 </div>
                 <div className="content-rows--info">
                   <div className="content-rows--info__avt">
                     <img
-                      src={require(`@Assets/images/${user.avt}`)}
+                      src={require(`@Assets/images/${avt}`)}
                       alt="Logo"
                     />
                   </div>
                   <div className="content-rows--info__detail">
                     <div className="name-wrap">
                       <p className="content-rows--info__detail--name">
-                        {user.name}
+                        {name}
                       </p>
                       <IconLine />
                       <span className="content-rows--info__detail--position">
-                        {user.type}
+                        {type}
                       </span>
                     </div>
 
                     <p className="content-rows--info__detail--skill">
-                      {user.position} | {user.skills}
+                      {position} | {skills}
                     </p>
                     <p className="content-rows--info__detail--address">
-                      {user.address}
+                      {address}
                     </p>
                   </div>
                 </div>
                 <div className="content-rows--action">
                   <div
-                    onClick={() => handleOpenUser(user.id)}
+                    onClick={() => handleOpenUser(id)}
                     className="content-rows--action__profile">
                     <p>Profile</p>
                   </div>

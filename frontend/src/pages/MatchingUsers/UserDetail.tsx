@@ -8,22 +8,15 @@ import "./UserDetail.scss";
 import IconLine from "@/assets/icons/IconLine";
 import Modal from "@/components/Modal/Modal";
 import { useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-
-const arrayLanguages = ["Vietnamese", " English"];
-
-const listOption = [
-  { id: 1, name: "VietName" },
-  { id: 2, name: "US" },
-];
+import { useNavigate } from "react-router-dom";
+import { PATH_EMAIL_TEMPLATE, LIST_LANGUAGES, LIST_NATION } from "@/constants/MatchingUsers";
 
 const UserDetail = () => {
   const [modalInvite, setModalInvite] = useState(false);
   const navigate = useNavigate();
-  const path = useLocation().pathname;
 
   const handleSubmitModal = () => {
-      navigate(`/matching-users/email-template`);
+    navigate(`${PATH_EMAIL_TEMPLATE}`)
   };
 
   return (
@@ -87,7 +80,7 @@ const UserDetail = () => {
               </div>
               <div className="languages">
                 <IconLanguagesProfile />
-                <span>{arrayLanguages.toString()}</span>
+                <span>{LIST_LANGUAGES.toString()}</span>
               </div>
             </div>
           </div>
@@ -129,15 +122,15 @@ const UserDetail = () => {
           <InputBase
             label="Nation"
             placeholder="Input text"
-            listOption={listOption}
+            listOption={LIST_NATION}
           />
           <div style={{ display: "flex", gap: "24px" }}>
-            <InputBase label="First language" listOption={listOption} />
-            <InputBase label="Proficiency level" listOption={listOption} />
+            <InputBase label="First language" listOption={LIST_NATION} />
+            <InputBase label="Proficiency level" listOption={LIST_NATION} />
           </div>
           <div style={{ display: "flex", gap: "24px" }}>
-            <InputBase label="Second language" listOption={listOption} />
-            <InputBase label="Proficiency level" listOption={listOption} />
+            <InputBase label="Second language" listOption={LIST_NATION} />
+            <InputBase label="Proficiency level" listOption={LIST_NATION} />
           </div>
           <div className="upload-cv">
             <span className="upload-cv__title">Attach your CV</span>
