@@ -55,6 +55,7 @@ import IconPlusEmailTemplate from "./IconPlusEmailTemplate";
 import IconApproveEmail from "./IconApproveEmail";
 import IconMatchingUser from "./IconMatchingUser";
 import IconFolderUserListing from "./IconFolderUserListing";
+import IconFormTemplate from "./IconFormTemplate";
 
 export {
   IconClear,
@@ -115,4 +116,5 @@ export {
   IconApproveEmail,
   IconMatchingUser,
   IconFolderUserListing,
+  IconFormTemplate,
 };
