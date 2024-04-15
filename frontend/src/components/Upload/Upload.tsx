@@ -3,7 +3,7 @@ import { IconClear, IconUploadFileSm } from "@Assets/icons/Index";
 import "./Upload.scss";
 
 type TUploadProps = {
-  filePreview?:  string;
+  filePreview?: string;
   iconUpload?: JSX.Element;
   name?: string;
   accept?: "image/*" | ".csv" | ".pdf" | ".doc" | ".docx";
@@ -11,18 +11,26 @@ type TUploadProps = {
   onUpload?: (data: File | string, base64: string) => void;
   clearFile?: () => void;
   describe?: string;
+  isDownLoad?: boolean;
+  handleClickDownLoad?: () => void;
 };
 
 const MemoizedUpload = (props: TUploadProps) => {
   const {
+    isDownLoad,
     filePreview,
-    iconUpload = <IconUploadFileSm />,
+    iconUpload = (
+      <div className={` ${isDownLoad ? "rotate-icon" : ""}`}>
+        <IconUploadFileSm />
+      </div>
+    ),
     name,
     accept = "image/*",
     isUploadSuccess,
     clearFile,
     onUpload,
     describe,
+    handleClickDownLoad,
   } = props;
   const [file, setFile] = useState<File | null>(null);
   const [previewURL, setPreviewURL] = useState<string | null>(null);
@@ -81,7 +89,8 @@ const MemoizedUpload = (props: TUploadProps) => {
 
   return (
     <div
-      className="c-upload"
+      className={`c-upload ${isDownLoad ? "is-download" : ""}`}
+      onClick={isDownLoad ? handleClickDownLoad : undefined}
       onDrop={handleDrop}
       onDragOver={handleDragOver}
       onDragEnter={handleDragOver}
@@ -97,6 +106,19 @@ const MemoizedUpload = (props: TUploadProps) => {
             <button className="c-upload--clear" onClick={clearImage}>
               <IconClear />
             </button>
+          </div>
+        </div>
+      ) : isDownLoad ? (
+        <div className="c-download">
+          {iconUpload}
+          <div className="c-download-content">
+            <div>
+              <span className="c-download-content__clickHere">Click here</span>{" "}
+              <span>to download CV</span>
+            </div>
+            {describe && (
+              <span className="c-download-content__describe">{describe}</span>
+            )}
           </div>
         </div>
       ) : (

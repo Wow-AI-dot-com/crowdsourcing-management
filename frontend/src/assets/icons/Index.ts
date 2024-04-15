@@ -37,7 +37,7 @@ import IconProfile from "./IconProfile";
 import IconAttackFile from "./IconAttackFile";
 import IconWarningModal from "./IconWarningModal";
 import IconAlertSuccessful from "./IconAlertSuccessful";
-import IconNotePayment from "./IconNotePayment";
+import IconEditPayment from "./IconEditPayment";
 import IconTrash from "./IconTrash";
 import IconDebit from "./IconDebit";
 import IconNotification from "./IconNotification";
@@ -55,6 +55,9 @@ import IconPlusEmailTemplate from "./IconPlusEmailTemplate";
 import IconApproveEmail from "./IconApproveEmail";
 import IconMatchingUser from "./IconMatchingUser";
 import IconFolderUserListing from "./IconFolderUserListing";
+import IconSidebarCrowdPool from "./IconSidebarCrowdPool";
+import IconMessageCrowdPool from "./IconMessageCrowdPool";
+import IconNationCrowdPool from "./IconNationCrowdPool";
 import IconFormTemplate from "./IconFormTemplate";
 import IconAddCircle from "./IconAddCircle";
 import IconSmallCaps from "./IconSmallCaps";
@@ -104,7 +107,7 @@ export {
   IconAttackFile,
   IconWarningModal,
   IconAlertSuccessful,
-  IconNotePayment,
+  IconEditPayment,
   IconTrash,
   IconDebit,
   IconNotification,
@@ -122,6 +125,9 @@ export {
   IconApproveEmail,
   IconMatchingUser,
   IconFolderUserListing,
+  IconSidebarCrowdPool,
+  IconMessageCrowdPool,
+  IconNationCrowdPool,
   IconFormTemplate,
   IconAddCircle,
   IconSmallCaps,

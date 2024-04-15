@@ -1,5 +1,7 @@
 // Upload
-
+.rotate-icon {
+  transform: rotate(180deg);
+}
 .c-upload {
   height: 205px;
   display: flex;
@@ -13,6 +15,38 @@
   background-color: var(--color-neutral-white-100);
   position: relative;
 
+  &.is-download {
+    cursor: pointer;
+  }
+
+  .c-download {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    &-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      div {
+        color: #272e35;
+        font-size: var(--text-sm);
+        font-weight: var(--font-normal);
+        line-height: 18px;
+        .c-download-content__clickHere {
+          color: #27be69;
+        }
+      }
+      &__describe {
+        color: var(--Content-Secondary, #555f6d);
+
+        font-size: var(--text-xs);
+        font-weight: var(--font-normal);
+        line-height: 15px;
+      }
+    }
+  }
   &--action {
     display: flex;
     align-items: center;
