@@ -12,20 +12,55 @@ import IconDownload from "@/assets/icons/IconDownload";
 import Step from "@/components/Step/Step";
 import { useState } from "react";
 
-const listOption = [{ id: 1, name: "Data collection" },
-  { id: 2, name: "Annotation Projects" },
-  { id: 3, name: "Transcription" },
-  { id: 4, name: "Crowd sourcing" },
-];
-
 const listStep = [
   { name: "Project detail", id: 1 },
   { name: "Registration form", id: 2 },
   { name: "Email", id: 3 },
 ];
 
+interface Option {
+  id: number;
+  name: string;
+}
+
+interface CheckboxOption {
+  label: string;
+  id: number;
+}
+
+const listOption: Option[] = [
+  { id: 1, name: "Data collection" },
+  { id: 2, name: "Annotation Projects" },
+  { id: 3, name: "Transcription" },
+  { id: 4, name: "Crowd sourcing" },
+];
+
+const categoryCheckboxes: Record<string, CheckboxOption[]> = {
+  "Data collection": [
+    { label: "Image collection", id: 1 },
+    { label: "Audio collection", id: 2 },
+    { label: "Video collection", id: 3 },
+    { label: "Document collection", id: 4 },
+    { label: "Text collection", id: 5 },
+    { label: "OTS datasets collection", id: 6 },
+    { label: "Other data collection", id: 7 }
+  ],
+  "Annotation Projects": [
+    { label: "Image Annotation", id: 1 },
+    { label: "Text annotation", id: 2 },
+    { label: "Video annotation", id: 3 }
+  ],
+  "Transcription": [
+    { label: "Audio transcription", id: 1 },
+    { label: "Video transcription", id: 2 },
+    { label: "Image transcription", id: 3 }
+  ],
+};
+
+
 const CreateProject = () => {
   const [currentStep, setCurrentStep] = useState(1);
+  const [selectedCategory, setSelectedCategory] = useState<string | null>('Data collection');
 
   function generateUid() {
     const now = new Date();
@@ -87,49 +122,21 @@ const CreateProject = () => {
           <InputBase
             listOption={listOption}
             label="Project category"
-            placeholder="Input text"
+            placeholder="Select category"
+            onChange={(e) => {
+              setSelectedCategory(e.target.value)
+            }}
           />
           <div className="project-category--wrapper">
             <div className="project-category--wrapper__columns">
-              <Checkbox
-                size="sm"
-                label="Image collection"
-                classNameLabel="label-category"
-              />
-              <Checkbox
-                size="sm"
-                label="Audio collection"
-                classNameLabel="label-category"
-              />
-              <Checkbox
-                size="sm"
-                label="Video collection"
-                classNameLabel="label-category"
-              />
-            </div>
-            <div className="project-category--wrapper__columns">
-              <Checkbox
-                size="sm"
-                label="Text collection"
-                classNameLabel="label-category"
-              />
-              <Checkbox
-                size="sm"
-                label="OTS datasets collection"
-                classNameLabel="label-category"
-              />
-              <Checkbox
-                size="sm"
-                label="Other data collection"
-                classNameLabel="label-category"
-              />
-            </div>
-            <div className="project-category--wrapper__columns">
-              <Checkbox
-                size="sm"
-                label="Document collection"
-                classNameLabel="label-category"
-              />
+              {selectedCategory && selectedCategory !=='Crowd sourcing' && categoryCheckboxes[selectedCategory].map((checkbox) => (
+                <Checkbox
+                  key={checkbox.id}
+                  size="sm"
+                  label={checkbox.label}
+                  classNameLabel="label-category"
+                />
+              ))}
             </div>
           </div>
         </div>
