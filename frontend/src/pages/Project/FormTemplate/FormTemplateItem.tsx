@@ -7,6 +7,7 @@ const FormTemplateItem = () => {
   const [values, setValues] = React.useState({
     title: "",
     description: "",
+    typeQuestion: "short-answer",
   });
 
   const onSetValues = (field: string, value: string) => {
@@ -15,7 +16,7 @@ const FormTemplateItem = () => {
       [field]: value,
     });
   };
-
+  console.log(values);
   const onChangeTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
     onSetValues(e.target.name, e.target.value);
   };
@@ -32,7 +33,13 @@ const FormTemplateItem = () => {
         onchangeDescription={onchangeDescription}
         onchangeTitle={onChangeTitle}
       /> */}
-      <CreateQuestion />
+      <CreateQuestion
+        onChangeTypeQuestion={(e) => {
+          setValues((state) => ({ ...state, typeQuestion: e.target.value }));
+          console.log(e);
+        }}
+        typeQuestion={values.typeQuestion}
+      />
     </div>
   );
 };

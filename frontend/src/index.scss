@@ -25,3 +25,11 @@ label {
 p {
   margin: 0;
 }
+
+input,
+button,
+select,
+label {
+  font-family: inherit;
+  font-size: inherit;
+}
