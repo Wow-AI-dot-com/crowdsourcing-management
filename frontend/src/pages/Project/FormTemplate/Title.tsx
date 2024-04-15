@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
+import TextAreaAutoHeight from "./TextAreaAutoHeight";
+import SimpleEditor from "@Components/HtmlEditor/SimpleEditor";
 import "./Title.scss";
 
 type TitleProps = {
   title: string;
   onchangeTitle: (e: React.ChangeEvent<HTMLInputElement>) => void;
   description: string;
-  onchangeDescription: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onchangeDescription: (e: any) => void;
 };
 
 const Title = ({
@@ -26,12 +28,14 @@ const Title = ({
         />
       </div>
       <div className="description">
-        <input
-          name="description"
-          className="input-text"
-          value={description}
-          onChange={onchangeDescription}
+        <SimpleEditor
           placeholder="Description"
+          value={description}
+          onChange={(text) =>
+            onchangeDescription({
+              target: { name: "description", value: text },
+            })
+          }
         />
       </div>
     </div>
