@@ -52,14 +52,13 @@
       padding: 8px 40px 8px 12px;
       border-radius: var(--radius-rounded-lg);
       border: 1px solid var(--main-line);
-      opacity: 0.5;
       background-color: var(--main-bg);
       width: 100%;
       box-sizing: border-box;
       font-size: var(--text-sm);
       line-height: var(--leading-5);
       letter-spacing: 0.75px;
-      color: #111;
+      color: rgba($color: #000000, $alpha: 0.9);
       &.select {
         padding: 9px 40px 9px 12px;
       }
@@ -75,11 +74,11 @@
 
       &:active,
       &:focus {
-        border-color: #111;
-        outline-color: #111;
-        outline: unset;
+        outline: none;
         background: var(--main-bg);
-        opacity: 1;
+        &::placeholder {
+          color: #111;
+        }
       }
     }
   }

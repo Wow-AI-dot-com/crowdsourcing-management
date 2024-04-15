@@ -4,6 +4,7 @@ import Button from "@Components/Button/Button";
 import { useApi } from "@Providers/ApiProvider";
 import { useAuth } from "@Providers/AuthProvider";
 import "@/pages/Signup/Signup.scss";
+import InputBase from "@/components/InputBase/InputBase";
 import { createAlert } from "@Utils/createAlert";
 
 export default function Login() {
@@ -84,23 +85,25 @@ export default function Login() {
       </div>
       <div className="sign-up-right">
         <div className="sign-up-content">
-          <div className="sign-up-content__title">Sign In</div>
+          <div className="sign-up-content__title">Freelancer Sign In</div>
           {errorNode}
           {errorValidationNode}
-          <div className="sign-up-content__input">
-            <input
-              className="email"
-              placeholder="Email"
-              onChange={(ev) => handleInput(ev, "email")}
-              disabled={isSubmit}
-            />
-            <input
-              type="password"
-              className="password"
-              placeholder="Password"
-              onChange={(ev) => handleInput(ev, "password")}
-              disabled={isSubmit}
-            />
+          <div className="sign-up-content__input group-extend-input">
+            <div className="row-input">
+              <InputBase
+                placeholder="Email"
+                onChange={(ev) => handleInput(ev, "email")}
+                disabled={isSubmit}
+              />
+            </div>
+            <div className="row-input">
+              <InputBase
+                type="password"
+                placeholder="Password"
+                onChange={(ev) => handleInput(ev, "password")}
+                disabled={isSubmit}
+              />
+            </div>
           </div>
           <div className="sign-up-content__group-btn">
             <Button type="white" onClick={() => navigate("/user/signup")}>
@@ -114,18 +117,6 @@ export default function Login() {
               Sign In
             </Button>
           </div>
-          <div className="sign-up-content__or">Or</div>
-          <Button
-            type="white"
-            className="signup-google"
-            onClick={handleGoogleLogin}
-          >
-            <img
-              src={require("../../assets/images/icon_google.png")}
-              alt="icon google"
-            />
-            Sign In With Google
-          </Button>
         </div>
       </div>
     </div>

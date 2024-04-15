@@ -110,9 +110,9 @@ const sidebarItems: SidebarItem[] = [
     ],
   },
   {
-    path: "/network",
+    path: "/networking",
     icon: <IconGlobal />,
-    label: SIDEBAR_ITEM_LABELS.NETWORK,
+    label: SIDEBAR_ITEM_LABELS.NETWORKING,
   },
   {
     path: "/support",
