@@ -11,7 +11,6 @@ import Pagination from "@/components/Pagination/Pagination";
 import "./CrowdPool.scss";
 import ModalInviteCrowdPool from "./components/ModalInviteCrowdPool";
 import Table from "@/components/Table/Table";
-import { render } from "@testing-library/react";
 
 const FAKE_DATA = [
   {
@@ -38,6 +37,79 @@ const FAKE_DATA = [
     language2: "English",
     experience: "Project Manager",
   },
+  {
+    name: "Cristita Michael",
+    location: "Viet Nam",
+    email: "cristitamichael@gmail.com",
+    language1: "Vietnamese",
+    language2: "English",
+    experience: "Project Manager",
+  },
+  {
+    name: "Cristita Michael",
+    location: "Viet Nam",
+    email: "cristitamichael@gmail.com",
+    language1: "Vietnamese",
+    language2: "English",
+    experience: "Project Manager",
+  },
+  {
+    name: "Cristita Michael",
+    location: "Viet Nam",
+    email: "cristitamichael@gmail.com",
+    language1: "Vietnamese",
+    language2: "English",
+    experience: "Project Manager",
+  },
+  {
+    name: "Cristita Michael",
+    location: "Viet Nam",
+    email: "cristitamichael@gmail.com",
+    language1: "Vietnamese",
+    language2: "English",
+    experience: "Project Manager",
+  },
+  {
+    name: "Cristita Michael",
+    location: "Viet Nam",
+    email: "cristitamichael@gmail.com",
+    language1: "Vietnamese",
+    language2: "English",
+    experience: "Project Manager",
+  },
+  {
+    name: "Cristita Michael",
+    location: "Viet Nam",
+    email: "cristitamichael@gmail.com",
+    language1: "Vietnamese",
+    language2: "English",
+    experience: "Project Manager",
+  },
+  {
+    name: "Cristita Michael",
+    location: "Viet Nam",
+    email: "cristitamichael@gmail.com",
+    language1: "Vietnamese",
+    language2: "English",
+    experience: "Project Manager",
+  },
+  {
+    name: "Cristita Michael",
+    location: "Viet Nam",
+    email: "cristitamichael@gmail.com",
+    language1: "Vietnamese",
+    language2: "English",
+    experience: "Project Manager",
+  },
+  {
+    name: "Cristita Michael",
+    location: "Viet Nam",
+    email: "cristitamichael@gmail.com",
+    language1: "Vietnamese",
+    language2: "English",
+    experience: "Project Manager",
+  },
+  
 ];
 
 const columns = [
@@ -55,7 +127,7 @@ const columns = [
     label: "Experience",
     dataKey: "experience",
     renderer: (dataRow: any) => (
-      <div className="last-td">{dataRow.experience}</div>
+      <div className="role-col">{dataRow.experience}</div>
     ),
   },
 ];
@@ -64,7 +136,6 @@ export default function CrowdPool() {
   return (
     <div className="c-pool">
       <Table
-        // border
         columns={columns as any}
         data={FAKE_DATA}
         className="table"

@@ -27,7 +27,6 @@ export type TTableRow = {
   dataRow: any;
   rowKey: string;
   selected?: string[];
-  border?: boolean;
   onSelect?: (selected: string[]) => void;
 };
 
@@ -89,7 +88,6 @@ function TableRow({
   rowKey,
   selected,
   onSelect,
-  border,
 }: TTableRow) {
   const handleChecked = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!selected) {
@@ -124,7 +122,7 @@ function TableRow({
         if (c.renderer) {
           return (
             <td
-              className={`${classes} ${border ? "border-row" : ""}`}
+              className={`${classes}`}
               key={cellKey}
             >
               {c.renderer(dataRow)}
@@ -134,7 +132,7 @@ function TableRow({
           // @ts-ignore
           return (
             <td
-              className={`${classes} ${border ? "border-row" : ""}`}
+              className={`${classes}`}
               key={cellKey}
             >
               {(dataRow as any)[c.dataKey]}
@@ -207,7 +205,6 @@ export default function Table({
                 </tr>
               ) : (
                 <TableRow
-                  border={border}
                   key={"table-row-" + idx}
                   columns={columns}
                   dataRow={dataRow}
