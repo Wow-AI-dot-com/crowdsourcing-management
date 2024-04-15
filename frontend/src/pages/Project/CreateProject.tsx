@@ -12,7 +12,11 @@ import IconDownload from "@/assets/icons/IconDownload";
 import Step from "@/components/Step/Step";
 import { useState } from "react";
 
-const listOption = [{ id: 1, name: "Data collection" }];
+const listOption = [{ id: 1, name: "Data collection" },
+  { id: 2, name: "Annotation Projects" },
+  { id: 3, name: "Transcription" },
+  { id: 4, name: "Crowd sourcing" },
+];
 
 const listStep = [
   { name: "Project detail", id: 1 },
@@ -22,6 +26,19 @@ const listStep = [
 
 const CreateProject = () => {
   const [currentStep, setCurrentStep] = useState(1);
+
+  function generateUid() {
+    const now = new Date();
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
+    const seconds = now.getSeconds();
+    const paddedHours = hours.toString().padStart(2, '0');
+    const paddedMinutes = minutes.toString().padStart(2, '0');
+    const paddedSeconds = seconds.toString().padStart(2, '0');
+    const timeString = `${paddedHours}:${paddedMinutes}:${paddedSeconds}`;
+    const unitID = parseInt(timeString.replace(/:/g, ''), 10);
+    return unitID;
+  }
 
   return (
     <div className="create-project">
@@ -41,7 +58,7 @@ const CreateProject = () => {
         <div className="project-name">
           <InputBase label="Project’s name" placeholder="Input text" />
           <div className="project-name--field-id">
-            <span>ID: 123456</span>
+            <span>ID: {generateUid()}</span>
           </div>
         </div>
 
@@ -129,7 +146,7 @@ const CreateProject = () => {
             <span className="project-contract--contract-box__title">
               Contract for vendors
             </span>
-            <Upload describe="JPG, GIF or PNG. Max size of 800K" />
+            <Upload describe="PDF or Word. Max size of 500Mb" />
             <div className="project-contract--contract-box--download">
               <IconDownload />
               <span className="txt">Download contract template</span>
@@ -142,7 +159,17 @@ const CreateProject = () => {
               Upload all project-related docs here (for internal storage)
             </span>
             <div className="project-upload--upload-box__input">
-              <Upload describe="JPG, GIF or PNG. Max size of 800K" />
+              <Upload describe="PDF or Word. Max size of 500Mb" />
+            </div>
+          </div>
+        </div>
+        <div className="project-upload">
+          <div className="project-upload--upload-box">
+            <span>
+              Upload Guideline (but only show for users who pass the test)
+            </span>
+            <div className="project-upload--upload-box__input">
+              <Upload describe="PDF or Word. Max size of 500Mb" />
             </div>
           </div>
         </div>
@@ -155,15 +182,6 @@ const CreateProject = () => {
           <div className="project-rate__price">
             <InputBase placeholder="$20.00" />
             <span>/task</span>
-          </div>
-        </div>
-
-        <div className="project-terms">
-          <div>
-            <Checkbox
-              label="Terms & Consent"
-              classNameLabel="project-terms__label"
-            />
           </div>
         </div>
       </div>

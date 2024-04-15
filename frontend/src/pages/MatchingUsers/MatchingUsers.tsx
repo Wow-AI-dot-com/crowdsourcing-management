@@ -6,7 +6,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Modal from "@/components/Modal/Modal";
 import InputBase from "@/components/InputBase/InputBase";
 import { FAKE_USERS, PATH_EMAIL_TEMPLATE, PATH_USER } from "@/constants/MatchingUsers";
-import { IconNations, IconLine, IconArrowLeft, IconLanguagesUsers, IconSearch } from "@Assets/icons/Index";
+import { IconNations, IconLine, IconArrowLeft, IconLanguagesUsers, IconSearch, IconWarningModal } from "@Assets/icons/Index";
 
 
 const MatchingUsers = () => {
@@ -117,6 +117,7 @@ const MatchingUsers = () => {
         open={modalConfirmInviteAll}
         title="Are you certain you want to invite all of the selected people?"
         submitText="Yes"
+        iconTitle={<IconWarningModal />}
         className="content-modal"
         onClose={handleCloseModalInviteAll}
         onSubmit={handleInviteEveryone}
