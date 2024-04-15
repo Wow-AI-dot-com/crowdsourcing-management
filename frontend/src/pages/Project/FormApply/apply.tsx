@@ -3,6 +3,7 @@ import "./apply.scss";
 import Modal from "@/components/Modal/Modal";
 import InputBase from "@/components/InputBase/InputBase";
 import IconAttackFile from "@/assets/icons/IconAttackFile";
+import RadioSimpleProps from "@/components/RadioSimple";
 export interface typeArrayOption {
   id: number;
   name: string;
@@ -29,36 +30,43 @@ export default function Apply({ open, onClose, onSubmit }: ApplyProps) {
       submitText="Send"
     >
       <div className="container--apply">
-        <div className="container--apply__header">
-          <InputBase label="First Name" placeholder="First Name" />
-          <InputBase label="Last Name" placeholder="Last Name" />
-        </div>
-        <div className="container--apply__phone">
-          <InputBase label="Phone Number" placeholder="Phone Number" />
-        </div>
-        <div className="container--apply__email">
-          <InputBase label="Email *" placeholder="First Name" />
-        </div>
-        <div className="container--apply__information">
-          <InputBase
-            label="Nationality"
-            placeholder="Nationality"
-            listOption={arrayOption}
-          />
-          <InputBase
-            label="Language"
-            placeholder="Language"
-            listOption={arrayOption}
-          />
-        </div>
         <div className="container--apply__question">
           <InputBase label="Question number 1 ?" placeholder="Type here" />
         </div>
+        <div className="container--apply__question">
+          <InputBase label="Question number 2 ?" placeholder="Type here" />
+        </div>
+
+        <div className="container--apply__question">
+          <RadioSimpleProps
+            label="Question number 3 ?"
+            options={[
+              { id: 1, name: "Option 1" },
+              { id: 2, name: "Option 2" },
+              { id: 3, name: "Option 3" },
+            ]}
+            onChange={() => {}}
+            value=""
+            id="question3"
+          />
+        </div>
+
         <div className="container--apply__label">
-          <InputBase label="label" placeholder="Input text" isMultipleLine />
+          <InputBase
+            label="Question number 4 ?"
+            placeholder="Input text"
+            isMultipleLine
+          />
+        </div>
+        <div className="container--apply__information">
+          <InputBase
+            label="Question number 5 ?"
+            placeholder="Nationality"
+            listOption={arrayOption}
+          />
         </div>
         <div className="container--apply__file">
-          <span>Question number 1 ?</span>
+          <span>Question number 6 ?</span>
           <label htmlFor="attack-file" className="custom-file-upload">
             <IconAttackFile />
             Attack file
