@@ -114,7 +114,7 @@
     }
     //sign in, sign up
     .sign-up-content {
-      width: 323px;
+      width: 350px;
       text-align: center;
       position: absolute;
       top: 50%;
@@ -128,24 +128,12 @@
       }
       &__input {
         margin: 30px 0 20px;
-        input {
+        input,
+        select {
           font-size: var(--text-sm);
           color: var(--main-label);
-          height: 56px;
+          height: 44px;
           padding: 0 15px;
-          width: calc(100% - 32px);
-          outline: none;
-          border: 1px solid var(--main-line);
-          &.email {
-            border-radius: 12px 12px 0 0;
-          }
-          &.password {
-            border-radius: 0 0 12px 12px;
-            border-top: none;
-          }
-          &.password_signup {
-            border-top: none;
-          }
         }
         .error {
           text-align: left;
@@ -157,30 +145,53 @@
           line-height: 18px;
         }
       }
+      .group-extend-input {
+        .row-input {
+          display: flex;
+          align-items: center;
+          input,
+          select {
+            border-radius: 0;
+          }
+          .c-input-base__field {
+            &:not(:last-child) {
+              select {
+                border-right: none;
+              }
+            }
+          }
+
+          &:not(:last-child) {
+            input,
+            select {
+              border-bottom: none;
+            }
+          }
+          &:first-child {
+            input,
+            select {
+              border-radius: var(--radius-rounded-lg) var(--radius-rounded-lg) 0
+                0;
+            }
+          }
+          &:last-child {
+            input,
+            select {
+              border-radius: 0 0 var(--radius-rounded-lg)
+                var(--radius-rounded-lg);
+            }
+          }
+        }
+      }
+      .text-link {
+        margin-top: 22px;
+        margin-bottom: 22px;
+        text-align: left;
+      }
       &__or {
-        color: var(--main-line);
-        margin: 30px 0;
-        font-size: var(--text-sm);
-        font-weight: var(--font-medium);
-        position: relative;
-        &::before {
-          content: "";
-          position: absolute;
-          left: 0;
-          top: 8px;
-          width: 88px;
-          height: 1px;
-          background-color: var(--main-line);
-        }
-        &::after {
-          content: "";
-          position: absolute;
-          right: 0;
-          top: 8px;
-          width: 88px;
-          height: 1px;
-          background-color: var(--main-line);
-        }
+        border-bottom: 1px dashed var(--main-line);
+        margin-top: 30px;
+        margin-bottom: 30px;
       }
       .signup-google {
         background-color: var(--main-bg);
