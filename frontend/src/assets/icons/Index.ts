@@ -56,6 +56,11 @@ import IconApproveEmail from "./IconApproveEmail";
 import IconMatchingUser from "./IconMatchingUser";
 import IconFolderUserListing from "./IconFolderUserListing";
 import IconFormTemplate from "./IconFormTemplate";
+import IconAddCircle from "./IconAddCircle";
+import IconSmallCaps from "./IconSmallCaps";
+import IconGalleryAdd from "./IconGalleryAdd";
+import IconVideoAdd from "./IconVideoAdd";
+import IconRowVertical from "./IconRowVertical";
 
 export {
   IconClear,
@@ -117,4 +122,9 @@ export {
   IconMatchingUser,
   IconFolderUserListing,
   IconFormTemplate,
+  IconAddCircle,
+  IconSmallCaps,
+  IconGalleryAdd,
+  IconVideoAdd,
+  IconRowVertical,
 };
