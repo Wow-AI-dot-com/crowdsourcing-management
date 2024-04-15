@@ -7,7 +7,7 @@ import IconPrice from "@Assets/icons/IconPrice";
 const ListAttribute = [
   { id: 1, name: "Annotation", icon: <IconDeleteAnnotation /> },
   { id: 2, name: "Long Term", icon: <IconLongTerm /> },
-  { id: 3, name: "Price", icon: <IconPrice isWhite={false} /> },
+  // { id: 3, name: "Price", icon: <IconPrice isWhite={false} /> },
 ];
 export const ProjectAttribute = () => {
   return (

@@ -10,6 +10,7 @@ export interface TypeConfirmModal {
   onClickCancel: () => void;
   onClickRemove: () => void;
   title: string;
+  content?: string;
 }
 
 export default function ConfirmModal({
@@ -18,6 +19,7 @@ export default function ConfirmModal({
   onClickCancel,
   onClickRemove,
   title,
+  content,
 }: TypeConfirmModal) {
   return (
     <Modal
@@ -27,10 +29,8 @@ export default function ConfirmModal({
       className="container-confirm-modal"
       title={title}
     >
-      <div className="confirm-title">
-        Everything in Tetrisly contains Auto Layout. Moreover, we’ve redefined
-        all variants and we have created brand-new components.
-      </div>
+      {content && <div className="confirm-title">{content}</div>}
+
       <div className="confirm__btn">
         <Button
           className="confirm__btn-cancel"
@@ -44,7 +44,7 @@ export default function ConfirmModal({
           type="hot"
           onClick={onClickRemove}
         >
-          Remove
+          Submit
         </Button>
       </div>
     </Modal>

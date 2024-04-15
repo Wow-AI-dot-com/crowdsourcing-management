@@ -59,7 +59,8 @@ export default function ProjectDetail() {
         onClose={() => setConfirmModal(false)}
         onClickCancel={() => setConfirmModal(false)}
         onClickRemove={confirmRemove}
-        title="Are you certain you want to cancel this project?"
+        title="Are you certain you want to withdraw
+        from this project?"
       />
       <div className="containerProjectDetail--box">
         <div className="header-project-detail">
@@ -79,15 +80,14 @@ export default function ProjectDetail() {
                 Apply
               </Button>
             ) : param.type === "applied" ? (
-              <Button
-                type="secondary"
-                size="small"
-                className="header__btn--cancel"
-                onClick={clickBtnCancel}
-              >
+              <Button type="hot" size="small" onClick={clickBtnCancel}>
                 Cancel
               </Button>
-            ) : param.type === "my-project" ? null : null}
+            ) : (
+              <Button size="small" onClick={clickBtnCancel}>
+                Guideline
+              </Button>
+            )}
           </div>
         </div>
         <div>

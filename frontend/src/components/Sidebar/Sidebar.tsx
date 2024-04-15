@@ -6,6 +6,7 @@ import {
   IconProfile,
   IconMatchingUser,
   IconSidebarCrowdPool,
+  IconInvoices,
 } from "@Assets/icons/Index";
 import { SIDEBAR_ITEM_LABELS } from "../../constants/projectConstants";
 import { useAuth } from "@Providers/AuthProvider";
@@ -111,9 +112,14 @@ const sidebarItems: SidebarItem[] = [
     ],
   },
   {
-    path: "/network",
+    path: "/invoices",
+    icon: <IconInvoices />,
+    label: SIDEBAR_ITEM_LABELS.INVOICES,
+  },
+  {
+    path: "/networking",
     icon: <IconGlobal />,
-    label: SIDEBAR_ITEM_LABELS.NETWORK,
+    label: SIDEBAR_ITEM_LABELS.NETWORKING,
   },
   {
     path: "/support",
