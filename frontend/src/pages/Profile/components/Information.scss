@@ -1,35 +1,29 @@
-.c-profile {
-  padding: var(--padding-p-6);
-
-  .line {
-    width: 100%;
-    margin: 26px 0;
-    border-bottom: 1px solid var(--main-line);
-    margin-bottom: 26px;
-    .hide-btn {
-      display: flex;
-      gap: 27px;
-    }
-    .show-btn {
-      display: flex;
-      gap: 27px;
-    }
-    .header-avatar {
+.p-information {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .left {
+    display: flex;
+    gap: 27px;
+    // padding-bottom: 26px;
+    // border-bottom: 1px solid var(--main-line);
+    // margin-bottom: 26px;
+    .avatar {
       position: relative;
       width: 100px;
-      .header-avatar-img {
+      .avatar-img {
         max-width: 100px;
         height: 100px;
         object-fit: cover;
         border-radius: 50px;
       }
-      .header-avatar-icon {
+      .avatar-icon {
         position: absolute;
         right: 0px;
         bottom: 0px;
       }
     }
-    .header-information {
+    .information {
       display: flex;
       flex-direction: column;
       gap: 10px;
@@ -64,33 +58,5 @@
         }
       }
     }
-    &.wrapper {
-      display: flex;
-      gap: 0;
-      justify-content: space-between;
-    }
-  }
-  .c-btn {
-    display: flex;
-    justify-content: flex-end;
-    .btn-profile {
-      display: flex;
-      justify-content: center;
-      min-width: 100px;
-      margin-top: 26px;
-    }
-  }
-  .upload-cv__input {
-    margin-top: 6px;
-  }
-
-  .btn-invite {
-    background: #5050ff;
-    color: #f4f5f9;
-    box-shadow: 0px 1px 2px -1px rgba(17, 12, 34, 0.08);
-    border: none;
-    font-size: 14px;
-    font-weight: 600;
-    line-height: 24px;
   }
 }

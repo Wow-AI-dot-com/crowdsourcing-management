@@ -5,6 +5,8 @@ import {
   IconGlobal,
   IconProfile,
   IconMatchingUser,
+  IconSidebarCrowdPool,
+  IconInvoices,
 } from "@Assets/icons/Index";
 import { SIDEBAR_ITEM_LABELS } from "../../constants/projectConstants";
 import { useAuth } from "@Providers/AuthProvider";
@@ -110,6 +112,11 @@ const sidebarItems: SidebarItem[] = [
     ],
   },
   {
+    path: "/invoices",
+    icon: <IconInvoices />,
+    label: SIDEBAR_ITEM_LABELS.INVOICES,
+  },
+  {
     path: "/networking",
     icon: <IconGlobal />,
     label: SIDEBAR_ITEM_LABELS.NETWORKING,
@@ -123,6 +130,11 @@ const sidebarItems: SidebarItem[] = [
     path: "/matching-users",
     icon: <IconMatchingUser />,
     label: SIDEBAR_ITEM_LABELS.MATCHING_USERS,
+  },
+  {
+    path: "/crowd-pool",
+    icon: <IconSidebarCrowdPool />,
+    label: SIDEBAR_ITEM_LABELS.CROWD_POOL,
   },
 
   // { path: "/computes/", icon: <IconYourCompute />, label: SIDEBAR_ITEM_LABELS.COMPUTES },

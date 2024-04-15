@@ -1,0 +1,45 @@
+.c-modal-invite-crowdPool {
+  display: flex;
+  gap: var(--margin-m-4);
+  flex-direction: column;
+  .information-user {
+    display: flex;
+    align-items: center;
+    gap: var(--margin-m-4);
+    img {
+      height: 74px;
+      width: 74px;
+      object-fit: cover;
+      border-radius: 50px;
+    }
+    .box-name {
+      display: flex;
+      align-items: center;
+      gap: var(--margin-m-2);
+      .name {
+        color: var(--main-title);
+        font-size: var(--text-base);
+        line-height: var(--leading-6);
+        font-weight: var(--font-semibold);
+      }
+      .name-project {
+        color: var(--main-label);
+        font-size: var(--text-base);
+        font-weight: var(--font-medium);
+        line-height: var(--leading-5);
+        &::before {
+          content: "";
+          border-left: 1px solid var(--main-line);
+          margin-right: var(--margin-m-2);
+        }
+      }
+    }
+    .email {
+      color: var(--main-label);
+      margin-top: 2px;
+      font-weight: var(--font-normal);
+      font-size: var(--font-xs);
+      line-height: 18px;
+    }
+  }
+}

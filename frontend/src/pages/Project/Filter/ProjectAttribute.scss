@@ -5,13 +5,8 @@
     display: flex;
     align-items: center;
     gap: 7px;
-    position: relative;
-    &.title {
-      color: #434345;
-      font-size: var(--text-sm);
-      font-weight: var(--font-medium);
-      line-height: var(--leading-4);
-    }
+    // position: relative;
+
     .itemDropdown {
       padding: 7px 16px;
       min-width: 110px;

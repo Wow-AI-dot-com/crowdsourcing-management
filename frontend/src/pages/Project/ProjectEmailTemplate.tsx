@@ -1,17 +1,19 @@
 import IconMessage from "@/assets/icons/IconMessage";
-import IconNotePayment from "@/assets/icons/IconNotePayment";
-import IconTrashProfileSettings from "@/assets/icons/IconTrashProfileSettings";
+import IconNotePayment from "@/assets/icons/IconEditPayment";
+import {
+  IconTrashProfileSettings,
+  IconTrashEmailTemplate,
+  IconPlusEmailTemplate,
+} from "@/assets/icons/Index";
 import React, { useState } from "react";
 import "./ProjectEmailTemplate.scss";
-import IconTrashEmailTemplate from "@/assets/icons/IconTrashEmailTemplate";
 import Button from "@/components/Button/Button";
-import IconPlusEmailTemplate from "@/assets/icons/IconPlusEmailTemplate";
 import Modal from "@/components/Modal/Modal";
 import { Editor } from "@tinymce/tinymce-react";
 import Dropdown from "@/components/Dropdown/Dropdown";
 import IconApproveEmail from "@/assets/icons/IconApproveEmail";
-import ConfirmModal from "@/components/Modal/ConfirmModal";
 import AlertSuccessful from "../../components/Alert/AlertSuccessful";
+import ItemEmailTemplate from "./ItemEmailTemplate/ItemEmailTemplate";
 export default function ProjectEmailTemplate() {
   const [isFormCreate, setIsFormCreate] = useState(false);
   const [isAlertSuccess, setIsAlertSuccess] = useState(false);
@@ -77,36 +79,14 @@ export default function ProjectEmailTemplate() {
         title="Email is added successfully"
         autoHide={() => setIsAlertSave(false)}
       />
-      <div className="p-email-template__box">
-        <div className="p-email-template__box-header">
-          <div className="left">
-            <div className="icon">
-              <IconMessage />
-            </div>
-            <span>Approve Email</span>
-          </div>
-          <div className="right">
-            <div onClick={() => setIsFormCreate(true)}>
-              <IconNotePayment />
-            </div>
-            <div onClick={clickTrash}>
-              <IconTrashEmailTemplate />
-            </div>
-          </div>
-        </div>
-        <div className="p-email-template__box-body">
-          Subject: <span>Reaching Out</span>
-        </div>
-        <div className="p-email-template__box-footer">
-          <div className="title">
-            Hey <span className="text">First Name ,</span>
-          </div>
-          <span>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum...
-          </span>
-        </div>
-      </div>
+      <ItemEmailTemplate
+        subject="Reaching Out"
+        name="sdfasd"
+        content="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum..."
+        clickIconEdit={() => setIsFormCreate(true)}
+        clickIconTrash={clickTrash}
+      />
+
       <div className="p-email-template__btn">
         <Button
           iconPosition="right"

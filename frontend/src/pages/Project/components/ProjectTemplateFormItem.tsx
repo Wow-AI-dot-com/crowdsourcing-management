@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  IconNotePayment,
+  IconEditPayment,
   IconTrashEmailTemplate,
   IconFormTemplate,
 } from "@Assets/icons/Index";
@@ -24,15 +24,15 @@ const ProjectTemplateFormItem = ({
   return (
     <div className="project-template-form-item">
       <div className="left-part">
-          <IconFormTemplate />
-          <div className="text-content">
-            <div className="name">{name}</div>
-            <div className="created-date">Created {createdDate}</div>
+        <IconFormTemplate />
+        <div className="text-content">
+          <div className="name">{name}</div>
+          <div className="created-date">Created {createdDate}</div>
         </div>
       </div>
       <div className="right-part">
         <div onClick={() => onEdit(id)} className="icon edit">
-          <IconNotePayment />
+          <IconEditPayment />
         </div>
         <div onClick={() => onDelete(id)} className="icon delete">
           <IconTrashEmailTemplate />

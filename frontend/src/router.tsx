@@ -32,6 +32,8 @@ import UserManagementDetail from "@Pages/UserManagement/UserManagementDetail";
 import EmailTemplate from "./pages/MatchingUsers/EmailTemplate";
 import MyProjects from "./pages/MatchingUsers/MyProjectsUser";
 import MyProjectsUser from "./pages/MatchingUsers/MyProjectsUser";
+import CrowdPool from "./pages/CrowdPool/CrowdPool";
+import Invoices from "@Pages/Invoices";
 
 const Providers = composeProviders([
   { provider: LoaderProvider },
@@ -103,6 +105,11 @@ const router = createBrowserRouter(
       </Route>
       <Route element={<UserLayout />}>
         <Route path="/" element={<PageHome />} />
+        <Route
+          path="/crowd-pool"
+          element={<CrowdPool />}
+          handle={{ title: "Crowd pool" }}
+        />
         {/* project */}
         <Route
           path="/projects/create"
@@ -187,6 +194,11 @@ const router = createBrowserRouter(
           path="/matching-users/my-projects/:type"
           element={<MyProjectsUser />}
           handle={{ title: "My Projects" }}
+        />
+        <Route
+          path="/invoices"
+          element={<Invoices />}
+          handle={{ title: "Invoices" }}
         />
       </Route>
     </Route>

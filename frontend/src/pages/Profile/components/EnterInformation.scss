@@ -1,0 +1,17 @@
+.body-profile {
+  border-bottom: 1px solid var(--main-line);
+  padding-bottom: 26px;
+  display: flex;
+  gap: 32px;
+  .left,
+  .right {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    .input-pair {
+      display: flex;
+      gap: var(--padding-p-6);
+    }
+  }
+}
