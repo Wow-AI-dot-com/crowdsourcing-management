@@ -2,7 +2,6 @@ import "./ProjectType.scss";
 import ListItemTypeProject from "../ListItemTypeProject/ListItemTypeProject";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { PATH_MY_PROJECTS } from "@/constants/MatchingUsers";
 
 const ListNameItemProject = [
   { id: "available", name: "Available" },
