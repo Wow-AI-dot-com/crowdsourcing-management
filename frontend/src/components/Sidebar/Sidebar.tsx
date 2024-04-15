@@ -5,6 +5,7 @@ import {
   IconGlobal,
   IconProfile,
   IconMatchingUser,
+  IconInvoices,
 } from "@Assets/icons/Index";
 import { SIDEBAR_ITEM_LABELS } from "../../constants/projectConstants";
 import { useAuth } from "@Providers/AuthProvider";
@@ -108,6 +109,11 @@ const sidebarItems: SidebarItem[] = [
         label: SIDEBAR_ITEM_LABELS.TAB_FILE,
       },
     ],
+  },
+  {
+    path: "/invoices",
+    icon: <IconInvoices />,
+    label: SIDEBAR_ITEM_LABELS.INVOICES,
   },
   {
     path: "/networking",

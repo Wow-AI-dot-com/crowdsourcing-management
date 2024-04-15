@@ -23,6 +23,7 @@ export const SIDEBAR_ITEM_LABELS = {
   DRAFT_EMAIL: "Draft Email",
   MATCHING_USERS: "Matching users",
   USER_MANAGEMENT: "User management",
+  INVOICES: "Invoices",
   USER_LISTING: "User Listing",
   TAB_FILE: "Tab file",
 
