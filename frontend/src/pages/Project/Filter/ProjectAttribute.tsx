@@ -17,7 +17,7 @@ export const ProjectAttribute = () => {
           <div className="boxProjectAttribute" key={m.id}>
             <Dropdown iconPosition="left" icon={m.icon} label={m.name}>
               {ListAttribute.map((m) => {
-                return <li> {m.name}</li>;
+                return <li key={m.id}>{m.name}</li>;
               })}
             </Dropdown>
           </div>

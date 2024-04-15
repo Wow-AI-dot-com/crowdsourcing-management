@@ -27,6 +27,7 @@ export type TTableRow = {
   dataRow: any;
   rowKey: string;
   selected?: string[];
+  border?: boolean;
   onSelect?: (selected: string[]) => void;
 };
 
@@ -36,6 +37,7 @@ export type TTable = {
   className?: string;
   skeleton?: boolean;
   headHidden?: boolean;
+  border?: boolean;
   selected?: string[];
   onSelect?: (selected: string[]) => void;
 };
@@ -81,7 +83,14 @@ export function TableActions({ actions }: TTableActions) {
   );
 }
 
-function TableRow({ columns, dataRow, rowKey, selected, onSelect }: TTableRow) {
+function TableRow({
+  columns,
+  dataRow,
+  rowKey,
+  selected,
+  onSelect,
+  border,
+}: TTableRow) {
   const handleChecked = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!selected) {
       return;
@@ -114,14 +123,20 @@ function TableRow({ columns, dataRow, rowKey, selected, onSelect }: TTableRow) {
 
         if (c.renderer) {
           return (
-            <td className={classes} key={cellKey}>
+            <td
+              className={`${classes} ${border ? "border-row" : ""}`}
+              key={cellKey}
+            >
               {c.renderer(dataRow)}
             </td>
           );
         } else if (c.dataKey && Object.hasOwn(dataRow, c.dataKey)) {
           // @ts-ignore
           return (
-            <td className={classes} key={cellKey}>
+            <td
+              className={`${classes} ${border ? "border-row" : ""}`}
+              key={cellKey}
+            >
               {(dataRow as any)[c.dataKey]}
             </td>
           );
@@ -139,6 +154,7 @@ export default function Table({
   className,
   skeleton,
   headHidden,
+  border,
   selected,
   onSelect,
 }: TTable) {
@@ -168,7 +184,9 @@ export default function Table({
               {columns.map((c, idx) => (
                 <th
                   key={"table-th0-" + idx}
-                  className={ALIGNS_MAP[c.align ?? "LEFT"]}
+                  className={`${ALIGNS_MAP[c.align ?? "LEFT"]} ${
+                    border ? "border" : ""
+                  }`}
                 >
                   {c.label}
                 </th>
@@ -189,6 +207,7 @@ export default function Table({
                 </tr>
               ) : (
                 <TableRow
+                  border={border}
                   key={"table-row-" + idx}
                   columns={columns}
                   dataRow={dataRow}
