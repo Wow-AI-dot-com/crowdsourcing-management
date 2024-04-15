@@ -33,100 +33,103 @@ const EmailTemplate = () => {
   };
 
   return (
-    <div className="email-template">
-      {FAKE_EMAIL_TEMPLATE.map((email) => {
-        const { id, title, subject, firstName, content } = email;
-        return (
-          <div
-            onClick={() => setCurrentEmail(id)}
-            key={id}
-            className={`email-template--box ${
-              currentEmail === id ? "active" : ""
-            }`}
-          >
-            <div className="email-template--box__title">
-              <div className="ellipse">
-                <IconEmailTemplate />
+    <>
+      <div className="email-template">
+        {FAKE_EMAIL_TEMPLATE.map((email) => {
+          const { id, title, subject, firstName, content } = email;
+          return (
+            <div
+              onClick={() => setCurrentEmail(id)}
+              key={id}
+              className={`email-template--box ${
+                currentEmail === id ? "active" : ""
+              }`}
+            >
+              <div className="email-template--box__title">
+                <div className="ellipse">
+                  <IconEmailTemplate />
+                </div>
+                <p>{title}</p>
               </div>
-              <p>{title}</p>
+              <div className="email-template--box__subject">
+                <p>
+                  Subject: <span>{subject}</span>
+                </p>
+              </div>
+              <div className="email-template--box__content">
+                <p>
+                  Hey <span>{firstName}</span>,
+                  <br />
+                  {content}
+                </p>
+              </div>
             </div>
-            <div className="email-template--box__subject">
-              <p>
-                Subject: <span>{subject}</span>
-              </p>
-            </div>
-            <div className="email-template--box__content">
-              <p>
-                Hey <span>{firstName}</span>,
-                <br />
-                {content}
-              </p>
-            </div>
-          </div>
-        );
-      })}
+          );
+        })}
 
-      <div className="email-template--footer">
-        <Button
-          className="email-template--footer__btn"
-          iconPosition="right"
-          icon={<IconPlusEmailTemplate />}
-          onClick={() => {
-            setIsAddMoreEmail(true);
-          }}
-        >
-          Add more email
-        </Button>
-      </div>
-
-      <Modal
-        open={isAddMoreEmail}
-        iconTitle={
-          <div className="icon-modal-email-template">
-            <IconMessage />
-          </div>
-        }
-        onClose={() => setIsAddMoreEmail(false)}
-        title={
-          <div className="title-modal-email-template">Send Automatic Email</div>
-        }
-      >
-        <div>
-          <div className="header-modal-email-template">
-            <div className="left">
-              Subject: <input className="input-modal-email-template" />
-            </div>
-            <div className="right">
-              <div>{}</div>
-              <div>CC</div>
-              <div>BCC</div>
-            </div>
-          </div>
-          <div className="c-dropdow-modal-email-template">
-            <Dropdown
-              className="dropdow"
-              label="Approve email"
-              iconPosition="left"
-              icon={<IconApproveEmail />}
-            ></Dropdown>
-          </div>
-          <div className="c-editor-modal-email-template">
-            <Editor></Editor>
-          </div>
-          <div className="btn-modal-email-template">
-            <Button className="btn" onClick={clickBtnModal}>
-              Save
-            </Button>
-          </div>
+        <div className="email-template--footer">
+          <Button
+            className="email-template--footer__btn"
+            iconPosition="right"
+            icon={<IconPlusEmailTemplate />}
+            onClick={() => {
+              setIsAddMoreEmail(true);
+            }}
+          >
+            Add more email
+          </Button>
         </div>
-      </Modal>
 
-      <AlertSuccessful
-        open={isAlertSave}
-        title="Email is added successfully"
-        autoHide={() => setIsAlertSave(false)}
-      />
+        <Modal
+          open={isAddMoreEmail}
+          iconTitle={
+            <div className="icon-modal-email-template">
+              <IconMessage />
+            </div>
+          }
+          onClose={() => setIsAddMoreEmail(false)}
+          title={
+            <div className="title-modal-email-template">
+              Send Automatic Email
+            </div>
+          }
+        >
+          <div>
+            <div className="header-modal-email-template">
+              <div className="left">
+                Subject: <input className="input-modal-email-template" />
+              </div>
+              <div className="right">
+                <div></div>
+                <div>CC</div>
+                <div>BCC</div>
+              </div>
+            </div>
+            <div className="c-dropdow-modal-email-template">
+              <Dropdown
+                className="dropdow"
+                label="Approve email"
+                iconPosition="left"
+                icon={<IconApproveEmail />}
+              ></Dropdown>
+            </div>
+            <div className="c-editor-modal-email-template">
+              <Editor></Editor>
+            </div>
+            <div className="btn-modal-email-template">
+              <Button className="btn" onClick={clickBtnModal}>
+                Save
+              </Button>
+            </div>
+          </div>
+        </Modal>
 
+        <AlertSuccessful
+          open={isAlertSave}
+          title="Email is added successfully"
+          autoHide={() => setIsAlertSave(false)}
+        />
+      </div>
       <div className="footer">
         <div className="footer--back">
           <IconBack />
@@ -139,7 +142,7 @@ const EmailTemplate = () => {
           </Button>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

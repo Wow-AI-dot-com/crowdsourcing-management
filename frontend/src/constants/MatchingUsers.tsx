@@ -125,9 +125,9 @@ export const LIST_NATION = [
     { id: 2, name: "US" },
 ];
 
-export const DEFAULT_TYPE_PROJECTS = 1
+export const DEFAULT_TYPE_PROJECTS = '/my-projects'
 
-export const PATH_MY_PROJECTS = '/matching-users/my-projects/'
+export const PATH_MY_PROJECTS = '/matching-users/my-projects'
 
 export const PATH_EMAIL_TEMPLATE = '/matching-users/email-template'
 
