@@ -7,6 +7,7 @@
     align-items: center;
     gap: 14px;
     height: 100%;
+    position: relative;
     cursor: pointer;
 
     &__text {
@@ -33,7 +34,6 @@
     border-radius: var(--radius-rounded-xxl);
     background: var(--main-bg);
     margin-top: 11px;
-    right: 0px;
     z-index: 998;
     width: max-content;
     border: 1px solid #d6d8e7;
@@ -51,6 +51,22 @@
 
       li {
         list-style: none;
+        min-width: 110px;
+        cursor: pointer;
+        border-bottom: 1px solid #d6d8e7;
+        padding: var(--padding-p-2) var(--padding-p-3);
+        &:last-child {
+          border-bottom: 0px;
+          border-bottom-left-radius: var(--radius-rounded-xxl);
+          border-bottom-right-radius: var(--radius-rounded-xxl);
+        }
+        &:first-child {
+          border-top-left-radius: var(--radius-rounded-xxl);
+          border-top-right-radius: var(--radius-rounded-xxl);
+        }
+        &:hover {
+          background-color: var(--main-line);
+        }
       }
     }
 

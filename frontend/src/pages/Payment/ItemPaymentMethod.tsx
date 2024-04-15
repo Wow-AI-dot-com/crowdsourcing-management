@@ -1,4 +1,4 @@
-import IconNotePayment from "@/assets/icons/IconNotePayment";
+import IconNotePayment from "@/assets/icons/IconEditPayment";
 import IconTrash from "@/assets/icons/IconTrash";
 import React from "react";
 import "./ItemPaymentMethod.scss";

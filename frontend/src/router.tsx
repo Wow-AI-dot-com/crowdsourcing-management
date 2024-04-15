@@ -28,6 +28,7 @@ import ProjectFormTemplate from "@Pages/Project/ProjectFormTemplate";
 import ProjectFormTemplateCreate from "@Pages/Project/ProjectFormTemplateCreate";
 import UserListing from "@Pages/UserManagement/UserListing";
 import UserManagementDetail from "@Pages/UserManagement/UserManagementDetail";
+import CrowdPool from "./pages/CrowdPool/CrowdPool";
 import Invoices from "@Pages/Invoices";
 
 const Providers = composeProviders([
@@ -100,6 +101,11 @@ const router = createBrowserRouter(
       </Route>
       <Route element={<UserLayout />}>
         <Route path="/" element={<PageHome />} />
+        <Route
+          path="/crowd-pool"
+          element={<CrowdPool />}
+          handle={{ title: "Crowd pool" }}
+        />
         {/* project */}
         <Route
           path="/projects/create"

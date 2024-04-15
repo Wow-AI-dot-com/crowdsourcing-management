@@ -1,7 +1,6 @@
 import React from "react";
 import "./Notification.scss";
 import IconNotification from "@/assets/icons/IconNotification";
-import Button from "@/components/Button/Button";
 import { Link } from "react-router-dom";
 import IconArrowRight from "@/assets/icons/IconArrowRight";
 import IconClose from "@/assets/icons/IconClose";

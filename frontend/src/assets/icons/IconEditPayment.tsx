@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function IconNotePayment() {
+export default function IconEditPayment() {
   return (
     <svg
       width="24"
