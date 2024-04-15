@@ -2,7 +2,7 @@ export const SIDEBAR_ITEM_LABELS = {
   // top sidebar
   YOUR_PROJECTS: "Project list",
   PROFILE: "Profile",
-  NETWORK: "Network",
+  NETWORKING: "Networking",
   SUPPORT: "Support",
   ORGANIZATIONS: "Organizations",
   COMPUTES: "Computes",
@@ -23,6 +23,7 @@ export const SIDEBAR_ITEM_LABELS = {
   DRAFT_EMAIL: "Draft Email",
   MATCHING_USERS: "Matching users",
   USER_MANAGEMENT: "User management",
+  INVOICES: "Invoices",
   USER_LISTING: "User Listing",
   TAB_FILE: "Tab file",
 

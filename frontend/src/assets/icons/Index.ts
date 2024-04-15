@@ -61,6 +61,7 @@ import IconSmallCaps from "./IconSmallCaps";
 import IconGalleryAdd from "./IconGalleryAdd";
 import IconVideoAdd from "./IconVideoAdd";
 import IconRowVertical from "./IconRowVertical";
+import IconInvoices from "./IconInvoices";
 
 export {
   IconClear,
@@ -127,4 +128,5 @@ export {
   IconGalleryAdd,
   IconVideoAdd,
   IconRowVertical,
+  IconInvoices,
 };

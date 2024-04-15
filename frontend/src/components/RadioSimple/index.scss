@@ -1,0 +1,26 @@
+.radio-group-simple {
+  .wrap-list-radio {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 4px;
+  }
+  input {
+    margin: 0;
+    padding: 0;
+    width: 12px;
+    height: 12px;
+  }
+
+  .c-input-radio-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  label {
+    line-height: 1em;
+    font-size: 13px;
+    position: relative;
+    top: 1px;
+  }
+}

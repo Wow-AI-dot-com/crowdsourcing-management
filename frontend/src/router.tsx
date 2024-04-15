@@ -28,6 +28,7 @@ import ProjectFormTemplate from "@Pages/Project/ProjectFormTemplate";
 import ProjectFormTemplateCreate from "@Pages/Project/ProjectFormTemplateCreate";
 import UserListing from "@Pages/UserManagement/UserListing";
 import UserManagementDetail from "@Pages/UserManagement/UserManagementDetail";
+import Invoices from "@Pages/Invoices";
 
 const Providers = composeProviders([
   { provider: LoaderProvider },
@@ -163,6 +164,11 @@ const router = createBrowserRouter(
           path="/user-management/user-listing/:id"
           element={<UserManagementDetail />}
           handle={{ title: "User Listing" }}
+        />
+        <Route
+          path="/invoices"
+          element={<Invoices />}
+          handle={{ title: "Invoices" }}
         />
       </Route>
     </Route>

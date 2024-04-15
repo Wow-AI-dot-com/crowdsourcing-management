@@ -4,6 +4,7 @@ import { useAuth } from "@Providers/AuthProvider";
 import { createAlert } from "@Utils/createAlert";
 import { ReactNode, useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import InputBase from "@/components/InputBase/InputBase";
 import "./Signup.scss";
 
 export const SIGN_UP = "SIGN_UP";
@@ -102,37 +103,108 @@ export default function Signup() {
       </div>
       <div className="sign-up-right">
         <div className="sign-up-content">
-          <div className="sign-up-content__title">Sign Up</div>
+          <div className="sign-up-content__title">Freelancer Sign Up</div>
           {errorNode}
-          <div className="sign-up-content__input">
-            <input
-              type="text"
-              placeholder="Email"
-              className="email"
-              value={email}
-              onChange={(event) =>
-                setData({ ...data, email: event.target.value })
-              }
-            />
-            <input
-              type="password"
-              placeholder="Password"
-              className="password_signup"
-              value={pass}
-              onChange={(event) =>
-                setData({ ...data, pass: event.target.value })
-              }
-            />
-            <input
-              type="password"
-              placeholder="Confirm Password"
-              className="password"
-              value={confirmPass}
-              onChange={(event) =>
-                setData({ ...data, confirmPass: event.target.value })
-              }
-            />
+          <div className="sign-up-content__input group-extend-input">
+            <div className="row-input">
+              <InputBase
+                type="text"
+                placeholder="Name"
+                value={email}
+                onChange={(event) =>
+                  setData({ ...data, email: event.target.value })
+                }
+              />
+            </div>
+            <div className="row-input">
+              <InputBase
+                type="text"
+                placeholder="Email"
+                value={email}
+                onChange={(event) =>
+                  setData({ ...data, email: event.target.value })
+                }
+              />
+            </div>
+            <div className="row-input">
+              <InputBase
+                type="password"
+                placeholder="Password"
+                value={pass}
+                onChange={(event) =>
+                  setData({ ...data, pass: event.target.value })
+                }
+              />
+            </div>
+            <div className="row-input">
+              <InputBase
+                type="password"
+                placeholder="Confirm Password"
+                value={confirmPass}
+                onChange={(event) =>
+                  setData({ ...data, confirmPass: event.target.value })
+                }
+              />
+            </div>
           </div>
+          <div className="sign-up-content__or" />
+          <div className="group-extend-input">
+            <div className="row-input">
+              <InputBase
+                listOption={[
+                  { id: 0, name: "National" },
+                  { id: 1, name: "United Kingdom" },
+                  { id: 2, name: "Viet Nam" },
+                ]}
+              />
+            </div>
+            <div className="row-input">
+              <InputBase
+                listOption={[
+                  { id: 0, name: "National" },
+                  { id: 1, name: "United Kingdom" },
+                  { id: 2, name: "Viet Nam" },
+                ]}
+              />
+              <InputBase
+                listOption={[
+                  { id: 0, name: "National" },
+                  { id: 1, name: "United Kingdom" },
+                  { id: 2, name: "Viet Nam" },
+                ]}
+              />
+            </div>
+            <div className="row-input">
+              <InputBase
+                listOption={[
+                  { id: 0, name: "National" },
+                  { id: 1, name: "United Kingdom" },
+                  { id: 2, name: "Viet Nam" },
+                ]}
+              />
+              <InputBase
+                listOption={[
+                  { id: 0, name: "National" },
+                  { id: 1, name: "United Kingdom" },
+                  { id: 2, name: "Viet Nam" },
+                ]}
+              />
+            </div>
+            <div className="row-input">
+              <InputBase
+                listOption={[
+                  { id: 0, name: "National" },
+                  { id: 1, name: "United Kingdom" },
+                  { id: 2, name: "Viet Nam" },
+                ]}
+              />
+            </div>
+          </div>
+          <div className="text-link">
+            Please make sure to only choose agency if you have a valid tax ID
+            for your entity
+          </div>
+
           <div className="sign-up-content__group-btn">
             <Button type="white" onClick={() => navigate("/user/login")}>
               Sign In
@@ -145,19 +217,6 @@ export default function Signup() {
               Sign Up
             </Button>
           </div>
-          <div className="sign-up-content__or">Or</div>
-          <Button
-            type="white"
-            size="large"
-            className="signup-google"
-            onClick={handleSignupGoogle}
-          >
-            <img
-              src={require("@Assets/images/icon_google.png")}
-              alt="icon google"
-            />
-            Sign Up With Google
-          </Button>
         </div>
       </div>
     </div>
