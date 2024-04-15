@@ -1,0 +1,15 @@
+.create-form-question{
+    .top-question{
+        display: flex;
+        gap:20px;
+        .left-title-question{
+            flex-grow: 1;
+        }
+        .right-title-question{
+            display: flex;
+            align-items: center;
+            gap:20px
+        }
+    }
+
+}

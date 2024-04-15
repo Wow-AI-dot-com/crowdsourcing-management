@@ -1,7 +1,7 @@
 import React from "react";
 import Title from "./Title";
 import "./FormTemplateItem.scss";
-import { fi } from "date-fns/locale";
+import CreateQuestion from "./CreateQuestion";
 
 const FormTemplateItem = () => {
   const [values, setValues] = React.useState({
@@ -26,12 +26,13 @@ const FormTemplateItem = () => {
 
   return (
     <div id="form-template-item">
-      <Title
+      {/* <Title
         title={values.title}
         description={values.description}
         onchangeDescription={onchangeDescription}
         onchangeTitle={onChangeTitle}
-      />
+      /> */}
+      <CreateQuestion />
     </div>
   );
 };

@@ -1,5 +1,4 @@
 import React, { useRef, useEffect } from "react";
-import TextAreaAutoHeight from "./TextAreaAutoHeight";
 import SimpleEditor from "@Components/HtmlEditor/SimpleEditor";
 import "./Title.scss";
 
