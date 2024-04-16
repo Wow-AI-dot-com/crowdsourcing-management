@@ -10,8 +10,11 @@ import Button from "@/components/Button/Button";
 import AddPayment from "../Project/FormAddPayment/AddPayment";
 import ConfirmModal from "@/components/Modal/ConfirmModal";
 import Notification from "./Notification";
-import { IconSearch } from "@Assets/icons/Index";
+import { IconBitCoin, IconPrice, IconSearch } from "@Assets/icons/Index";
 import Pagination from "@/components/Pagination/Pagination";
+import ModalWithDraw from "./components/ModalWithDraw";
+import Modal from "@/components/Modal/Modal";
+import ModalSuccessful from "./components/ModalSuccessful";
 
 const FAKE_DATA = [
   {
@@ -73,6 +76,8 @@ const Payment = () => {
   const [isAddPayment, setIsAddPayment] = useState(false);
   const [isConfirm, setIsConfirm] = useState(false);
   const [isNotification, setNotification] = useState(false);
+  const [isWithDraw, setIsWithDraw] = useState(false);
+  const [modalSuccessful, setModalSuccessful] = useState(false);
 
   const onClickNote = () => {
     console.log("object");
@@ -90,11 +95,23 @@ const Payment = () => {
     console.log("object");
   };
   const ClickWithDraw = () => {
-    setNotification(true);
+    setIsWithDraw(false);
+    setModalSuccessful(true);
   };
 
   return (
     <div id="project-payment">
+      <ModalSuccessful
+        open={modalSuccessful}
+        clickDone={() => setModalSuccessful(false)}
+        clickSkip={() => setModalSuccessful(false)}
+      />
+      <ModalWithDraw
+        open={isWithDraw}
+        clickBack={() => setIsWithDraw(false)}
+        clickWithDraw={ClickWithDraw}
+        onClose={() => setIsWithDraw(false)}
+      />
       <Notification
         price={"asd"}
         open={isNotification}
@@ -114,19 +131,9 @@ const Payment = () => {
       />
       <div className="project-payment-container">
         <div className="left">
-          <div className="asset-label">
-            <AssetLabel name="Total Earning" value="$ 16,500" color="blue" />
-            <AssetLabel name="Invoices" value="$ 16,500" color="pink" />
-            <AssetLabel name="Balence" value="$ 16,500" color="purple" />
-          </div>
           <div className="asset-list">
-            <div className="wrap-search-input">
-              <div className="search-asset-input">
-                <IconSearch />
-                <input placeholder="Search asset" />
-              </div>
-            </div>
             <Table
+              onSearching
               columns={columns as any}
               data={FAKE_DATA}
               selected={selectedRow}
@@ -144,45 +151,26 @@ const Payment = () => {
           </div>
         </div>
         <div className="right">
-          <div className="right__title">Payment method</div>
-          <div className="right__list-item-payment">
-            <ItemPaymentMethod
-              bankName="CHASE"
-              bankNumber={12049828300}
-              onClickNote={onClickNote}
-              onClickTrash={onClickTrash}
-            />
-          </div>
-          <div className="right__add-payment" onClick={onClickAddPayment}>
-            <IconPlus />
-            <span>Add new payment</span>
-          </div>
-          <div className="right__withdraw">
-            <div className="right__withdraw-title">Withdraw</div>
-            <div className="right__withdraw-debit">
-              <div className="right__withdraw-debit-title">
-                <IconDebit />
-                <span>Debit</span>
-              </div>
-              <div className="right__withdraw-debit-money">
-                <span className="right__withdraw-debit-money-label">
-                  $ 10,680
-                </span>
-                <Dropdown></Dropdown>
-              </div>
+          <AssetLabel name="Total Earning" value="$ 16,500" color="blue" />
+          <div className="line"></div>
+          <div className="address-wallet">
+            <div className="icon">
+              <IconBitCoin />
             </div>
-            <div className="right__withdraw-amount">
-              <div className="right__withdraw-amount-information">
-                <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPfO37MK81JIyR1ptwqr_vYO3w4VR-iC2wqQ&s"
-                  alt=""
-                />
-                <span>Enter the amount</span>
-              </div>
-              <div className="right__withdraw-amount-money">$ 800.00</div>
+            <div className="address-wallet__money">
+              <span className="money">$49,329.77</span>
+              <span className="title">Your address wallet</span>
             </div>
-            <Button onClick={ClickWithDraw}>
-              <div className="right-btn">WithDraw</div>
+          </div>
+          <div className="c-btn">
+            <Button
+              iconPosition="left"
+              icon={<IconPrice />}
+              type="white"
+              onClick={() => setIsWithDraw(true)}
+              className="btn-withdraw"
+            >
+              Withdraw
             </Button>
           </div>
         </div>

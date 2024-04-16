@@ -63,6 +63,8 @@ import IconLanguagesUsers from "./IconLanguagesUsers";
 import IconNations from "./IconNations";
 import IconLine from "./IconLine";
 import IconInvoices from "./IconInvoices";
+import IconBitCoin from "./IconBitCoin";
+import IconQR from "./IconQR";
 
 export {
   IconClear,
@@ -131,4 +133,6 @@ export {
   IconNations,
   IconLine,
   IconInvoices,
+  IconBitCoin,
+  IconQR,
 };
