@@ -82,13 +82,7 @@ export function TableActions({ actions }: TTableActions) {
   );
 }
 
-function TableRow({
-  columns,
-  dataRow,
-  rowKey,
-  selected,
-  onSelect,
-}: TTableRow) {
+function TableRow({ columns, dataRow, rowKey, selected, onSelect }: TTableRow) {
   const handleChecked = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!selected) {
       return;
@@ -121,20 +115,14 @@ function TableRow({
 
         if (c.renderer) {
           return (
-            <td
-              className={`${classes}`}
-              key={cellKey}
-            >
+            <td className={`${classes}`} key={cellKey}>
               {c.renderer(dataRow)}
             </td>
           );
         } else if (c.dataKey && Object.hasOwn(dataRow, c.dataKey)) {
           // @ts-ignore
           return (
-            <td
-              className={`${classes}`}
-              key={cellKey}
-            >
+            <td className={`${classes}`} key={cellKey}>
               {(dataRow as any)[c.dataKey]}
             </td>
           );
@@ -152,7 +140,6 @@ export default function Table({
   className,
   skeleton,
   headHidden,
-  border,
   selected,
   onSelect,
 }: TTable) {
@@ -182,9 +169,7 @@ export default function Table({
               {columns.map((c, idx) => (
                 <th
                   key={"table-th0-" + idx}
-                  className={`${ALIGNS_MAP[c.align ?? "LEFT"]} ${
-                    border ? "border" : ""
-                  }`}
+                  className={`${ALIGNS_MAP[c.align ?? "LEFT"]}`}
                 >
                   {c.label}
                 </th>
