@@ -1,8 +1,7 @@
 import React, { CSSProperties, ReactNode, useMemo, useState } from "react";
 import IconClear from "@Assets/icons/IconClear";
 import "./InputBase.scss";
-import { typeOptions } from "@testing-library/user-event/dist/type/typeImplementation";
-import { typeArrayOption } from "@/pages/Project/FormApply/apply";
+import { OptionsType } from "@/pages/Project/FormApply/apply";
 
 export type TInputBaseProps = {
   autoFocus?: boolean;
@@ -23,7 +22,7 @@ export type TInputBaseProps = {
   isMultipleLine?: boolean;
   readonly?: boolean;
   customRightItem?: ReactNode;
-  listOption?: typeArrayOption[];
+  listOption?: OptionsType[];
 };
 
 const MemoizedInputBase: React.FC<TInputBaseProps> = ({

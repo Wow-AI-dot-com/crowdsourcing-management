@@ -4,8 +4,10 @@ import InputBase from "@/components/InputBase/InputBase";
 import SimpleEditor from "@Components/HtmlEditor/SimpleEditor";
 import { IconDelete, IconCopy } from "@Assets/icons/Index";
 import Switch from "@/components/Switch/Switch";
+import CreateMultipleChoice from "./CreateMultipleChoice";
 
 import "./CreateQuestion.scss";
+import { QuestionType } from "./FormTemplateItem";
 
 const TYPE_QUESTION = [
   {
@@ -28,14 +30,14 @@ const TYPE_QUESTION = [
     id: "dropdown",
     name: "Dropdown",
   },
-  {
-    id: "linear-scale",
-    name: "Linear scale",
-  },
-  {
-    id: "file-upload",
-    name: "File upload",
-  },
+  // {
+  //   id: "linear-scale",
+  //   name: "Linear scale",
+  // },
+  // {
+  //   id: "file-upload",
+  //   name: "File upload",
+  // },
   {
     id: "date",
     name: "Date",
@@ -49,11 +51,21 @@ const TYPE_QUESTION = [
 type CreateQuestionProps = {
   onChangeTypeQuestion: (e: React.ChangeEvent<HTMLInputElement>) => void;
   typeQuestion: string;
+  onAddImage: () => void;
+  removeOption: (value: number | string) => void;
+  addOption: () => void;
+  onUpdateOption: (name: string, id: number | string) => void;
+  question: QuestionType;
 };
 
 const CreateQuestion = ({
   onChangeTypeQuestion,
   typeQuestion,
+  onAddImage,
+  removeOption,
+  addOption,
+  onUpdateOption,
+  question,
 }: CreateQuestionProps) => {
   const renderContentQuestion = () => {
     switch (typeQuestion) {
@@ -80,7 +92,16 @@ const CreateQuestion = ({
           </div>
         );
       case "multiple-choice":
-        return <div>multiple-choice</div>;
+        return (
+          <div>
+            <CreateMultipleChoice
+              options={question.options}
+              removeOption={removeOption}
+              addOption={addOption}
+              onUpdateOption={onUpdateOption}
+            />
+          </div>
+        );
       case "checkbox":
         return <div>checkbox</div>;
       case "dropdown":
@@ -125,7 +146,9 @@ const CreateQuestion = ({
           <SimpleEditor placeholder="Question title" />
         </div>
         <div className="right-title-question">
-          <IconGalleryAdd />
+          <div onClick={onAddImage} className="add-image">
+            <IconGalleryAdd />
+          </div>
           <InputBase
             listOption={TYPE_QUESTION}
             onChange={onChangeTypeQuestion}

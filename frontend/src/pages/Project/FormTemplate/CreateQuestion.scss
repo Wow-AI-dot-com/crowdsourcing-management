@@ -10,6 +10,12 @@
       align-items: center;
       gap: 20px;
     }
+    .add-image {
+      cursor: pointer;
+      &:hover {
+        opacity: 0.7;
+      }
+    }
   }
   .content-question {
     margin-top: 20px;

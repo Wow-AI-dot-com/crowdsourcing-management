@@ -1,0 +1,12 @@
+.create-multiple-choice {
+  .option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    .duplicate {
+      color: red;
+      border-bottom: 1px solid red !important;
+    }
+  }
+}

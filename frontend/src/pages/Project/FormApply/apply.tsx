@@ -4,7 +4,7 @@ import Modal from "@/components/Modal/Modal";
 import InputBase from "@/components/InputBase/InputBase";
 import IconAttackFile from "@/assets/icons/IconAttackFile";
 import RadioSimpleProps from "@/components/RadioSimple";
-export interface typeArrayOption {
+export interface OptionsType {
   id: number | string;
   name: string;
 }
