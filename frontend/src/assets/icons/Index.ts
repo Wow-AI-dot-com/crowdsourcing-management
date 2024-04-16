@@ -59,6 +59,9 @@ import IconSidebarCrowdPool from "./IconSidebarCrowdPool";
 import IconMessageCrowdPool from "./IconMessageCrowdPool";
 import IconNationCrowdPool from "./IconNationCrowdPool";
 import IconFormTemplate from "./IconFormTemplate";
+import IconLanguagesUsers from "./IconLanguagesUsers";
+import IconNations from "./IconNations";
+import IconLine from "./IconLine";
 import IconInvoices from "./IconInvoices";
 
 export {
@@ -124,5 +127,8 @@ export {
   IconMessageCrowdPool,
   IconNationCrowdPool,
   IconFormTemplate,
+  IconLanguagesUsers,
+  IconNations,
+  IconLine,
   IconInvoices,
 };

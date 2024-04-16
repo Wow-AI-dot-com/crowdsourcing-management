@@ -5,6 +5,70 @@
     width: 100%;
     margin: 26px 0;
     border-bottom: 1px solid var(--main-line);
+    margin-bottom: 26px;
+    .hide-btn {
+      display: flex;
+      gap: 27px;
+    }
+    .show-btn {
+      display: flex;
+      gap: 27px;
+    }
+    .header-avatar {
+      position: relative;
+      width: 100px;
+      .header-avatar-img {
+        max-width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 50px;
+      }
+      .header-avatar-icon {
+        position: absolute;
+        right: 0px;
+        bottom: 0px;
+      }
+    }
+    .header-information {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      &__name {
+        color: var(--button-normal);
+        font-size: var(--text-2xl);
+        font-weight: var(--font-semibold);
+        line-height: 29px;
+        // letter-spacing: -1px;
+      }
+      &__email {
+        color: #434345;
+        font-size: var(--text-sm);
+        font-weight: var(--font-normal);
+        line-height: 22px;
+      }
+      &__box-nationality {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+        .nationality,
+        .languages {
+          display: flex;
+          gap: 6px;
+          align-items: center;
+          span {
+            color: #434345;
+            font-size: var(--text-sm);
+            font-weight: var(--font-normal);
+            line-height: 22px;
+          }
+        }
+      }
+    }
+    &.wrapper {
+      display: flex;
+      gap: 0;
+      justify-content: space-between;
+    }
   }
   .c-btn {
     display: flex;
@@ -18,5 +82,15 @@
   }
   .upload-cv__input {
     margin-top: 6px;
+  }
+
+  .btn-invite {
+    background: #5050ff;
+    color: #f4f5f9;
+    box-shadow: 0px 1px 2px -1px rgba(17, 12, 34, 0.08);
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 24px;
   }
 }
