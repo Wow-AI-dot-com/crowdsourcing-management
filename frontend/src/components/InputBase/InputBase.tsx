@@ -159,7 +159,7 @@ const MemoizedInputBase: React.FC<TInputBaseProps> = ({
             readOnly={readonly}
           />
         )}
-        {query.length > 0 && allowClear && (
+        {query.length > 0 && !listOption && allowClear && (
           <div className="c-input-base__action">
             <button onClick={() => setQuery("")}>
               <IconClear />

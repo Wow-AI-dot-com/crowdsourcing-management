@@ -61,7 +61,7 @@ export default function ModalWithDraw({
         </div>
         <div className="c-amount">
           <InputBase label="Withdrawal Amount" placeholder="Type something" />
-          <button className="button">
+          <button className="c-amount__button">
             <span className="axb">AXB</span>
             <span className="max">Max</span>
           </button>
