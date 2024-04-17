@@ -1,8 +1,9 @@
 import InputBase from "@/components/InputBase/InputBase";
 import Upload from "@/components/Upload/Upload";
-import React from "react";
 import "./EnterInformation.scss";
 import Checkbox from "@/components/Checkbox/Checkbox";
+import { IconEditThick } from "@/assets/icons/Index";
+import { Link } from "react-router-dom";
 
 const listOption = [
   { id: 1, name: "VietName" },
@@ -42,10 +43,12 @@ export default function EnterInformation({
           placeholder="Input text"
           listOption={listAgree}
         />
-        <InputBase
-          placeholder="Do you have experience with translation tasks?"
-          listOption={listAgree}
-        />
+        <div className="translate-input-link">
+          <div>Do you have experience with translation tasks?</div>
+          <Link to="/profile/translation">
+            <IconEditThick />
+          </Link>
+        </div>
         <div className="are-you">
           <div className="are-you-title">Are you:</div>
           <div className="are-you-checkbox">

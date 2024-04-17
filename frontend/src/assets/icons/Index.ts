@@ -65,6 +65,7 @@ import IconLine from "./IconLine";
 import IconInvoices from "./IconInvoices";
 import IconBitCoin from "./IconBitCoin";
 import IconQR from "./IconQR";
+import IconEditThick from "./IconEditThick";
 
 export {
   IconClear,
@@ -135,4 +136,5 @@ export {
   IconInvoices,
   IconBitCoin,
   IconQR,
+  IconEditThick,
 };

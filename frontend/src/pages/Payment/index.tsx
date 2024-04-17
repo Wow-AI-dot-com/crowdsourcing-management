@@ -133,7 +133,7 @@ const Payment = () => {
         <div className="left">
           <div className="asset-list">
             <Table
-              onSearching
+              onSearching={(e) => console.log(e.target.value)}
               columns={columns as any}
               data={FAKE_DATA}
               selected={selectedRow}

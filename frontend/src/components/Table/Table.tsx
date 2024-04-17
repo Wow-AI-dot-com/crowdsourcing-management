@@ -5,7 +5,6 @@ import IconEdit from "@Assets/icons/IconEdit";
 import IconExport from "@Assets/icons/IconExport";
 import SkeletonBox from "../SkeletonBox/SkeletonBox";
 import IconPlusSquare from "@Assets/icons/IconPlusSquare";
-import InputBase from "../InputBase/InputBase";
 import IconSearch from "@/assets/icons/iconSearch";
 
 export type TTableActions = {
@@ -41,7 +40,7 @@ export type TTable = {
   border?: boolean;
   selected?: string[];
   onSelect?: (selected: string[]) => void;
-  onSearching?: boolean;
+  onSearching?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 const ALIGNS_MAP = {
@@ -161,7 +160,7 @@ export default function Table({
         <div className="c-table__input">
           <div className="box">
             <IconSearch />
-            <input placeholder="Search asset" />
+            <input placeholder="Search asset" onChange={onSearching} />
           </div>
         </div>
       ) : null}

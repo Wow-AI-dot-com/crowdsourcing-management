@@ -5,9 +5,19 @@ import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Modal from "@/components/Modal/Modal";
 import InputBase from "@/components/InputBase/InputBase";
-import { FAKE_USERS, PATH_EMAIL_TEMPLATE, PATH_USER } from "@/constants/MatchingUsers";
-import { IconNations, IconLine, IconArrowLeft, IconLanguagesUsers, IconSearch, IconWarningModal } from "@Assets/icons/Index";
-
+import {
+  FAKE_USERS,
+  PATH_EMAIL_TEMPLATE,
+  PATH_USER,
+} from "@/constants/MatchingUsers";
+import {
+  IconNations,
+  IconLine,
+  IconArrowLeft,
+  IconLanguagesUsers,
+  IconSearch,
+  IconWarningModal,
+} from "@Assets/icons/Index";
 
 const MatchingUsers = () => {
   const [isOpenLanguage, setIsOpenLanguage] = useState(false);
@@ -42,43 +52,46 @@ const MatchingUsers = () => {
   const handleSelectAll = (checked: boolean) => {
     if (checked) {
       setSelectedUsers(FAKE_USERS.map((user) => user.id));
-      setModalInvite(true)
+      setModalInvite(true);
     } else {
-      handleCloseModalInvite()
+      handleCloseModalInvite();
     }
   };
 
-  const handleOpenUser = (id: any) => {
-    navigate(`${PATH_USER}${id}`, { replace: true, state: { isMatchingUser: true } })
-  }
+  const handleOpenUser = (id: number) => {
+    navigate(`${PATH_USER}${id}`, {
+      replace: true,
+      state: { isMatchingUser: true },
+    });
+  };
 
   const handleCloseModalInvite = () => {
-    setModalInvite(false)
+    setModalInvite(false);
     setSelectedUsers([]);
-  }
+  };
 
   const handleCloseModalInviteAll = () => {
-    setModalConfirmInviteAll(false)
+    setModalConfirmInviteAll(false);
     setSelectedUsers([]);
-  }
+  };
 
   const isAllSelected = selectedUsers.length === FAKE_USERS.length;
 
   const handleSubmitModal = () => {
     if (isAllSelected) {
-      setModalInvite(false)
-      setModalConfirmInviteAll(true)
+      setModalInvite(false);
+      setModalConfirmInviteAll(true);
     } else {
-      navigate(`${PATH_EMAIL_TEMPLATE}`)
+      navigate(`${PATH_EMAIL_TEMPLATE}`);
     }
   };
 
   const handleInviteEveryone = () => {
-    navigate(`${PATH_EMAIL_TEMPLATE}`)
+    navigate(`${PATH_EMAIL_TEMPLATE}`);
   };
 
   const handleNotInviteEveryone = () => {
-    handleCloseModalInviteAll()
+    handleCloseModalInviteAll();
   };
 
   return (
@@ -93,23 +106,25 @@ const MatchingUsers = () => {
         closeOnOverlayClick={modalInvite}
       >
         <div className="modal-invite">
-          {
-            !isAllSelected && <div className="box-info">
-              <img src={require(`@Assets/images/avt-user.png`)} alt="avt-user" />
+          {!isAllSelected && (
+            <div className="box-info">
+              <img
+                src={require(`@Assets/images/avt-user.png`)}
+                alt="avt-user"
+              />
               <div className="box-info__content">
                 <p className="box-info__row">
                   <span className="box-info__row--name">Cristita Michael</span>
                   <IconLine />
                   <span className="box-info__row--type">Freelancer</span>
                 </p>
-                <p className="box-info__row--email">cristitamuchael@wow-ai.com </p>
+                <p className="box-info__row--email">
+                  cristitamuchael@wow-ai.com{" "}
+                </p>
               </div>
             </div>
-          }
-          <InputBase
-            label="Project’s ID"
-            placeholder="Type here"
-          />
+          )}
+          <InputBase label="Project’s ID" placeholder="Type here" />
         </div>
       </Modal>
 
@@ -121,11 +136,10 @@ const MatchingUsers = () => {
         className="content-modal"
         onClose={handleCloseModalInviteAll}
         onSubmit={handleInviteEveryone}
-        cancelText='No'
+        cancelText="No"
         onCancel={handleNotInviteEveryone}
         closeOnOverlayClick={modalConfirmInviteAll}
-      >
-      </Modal>
+      ></Modal>
 
       <div className="matching-users__filter">
         <div className="matching-users__filter-search">
@@ -169,7 +183,7 @@ const MatchingUsers = () => {
       <div className="matching-users__wrapper">
         <div className="content">
           {FAKE_USERS.map((user) => {
-            const { id, avt, name, type, position, skills, address } = user
+            const { id, avt, name, type, position, skills, address } = user;
             return (
               <div key={id} className="content-rows">
                 <div className="content-rows--select">
@@ -182,16 +196,11 @@ const MatchingUsers = () => {
                 </div>
                 <div className="content-rows--info">
                   <div className="content-rows--info__avt">
-                    <img
-                      src={require(`@Assets/images/${avt}`)}
-                      alt="Logo"
-                    />
+                    <img src={require(`@Assets/images/${avt}`)} alt="Logo" />
                   </div>
                   <div className="content-rows--info__detail">
                     <div className="name-wrap">
-                      <p className="content-rows--info__detail--name">
-                        {name}
-                      </p>
+                      <p className="content-rows--info__detail--name">{name}</p>
                       <IconLine />
                       <span className="content-rows--info__detail--position">
                         {type}
@@ -209,11 +218,14 @@ const MatchingUsers = () => {
                 <div className="content-rows--action">
                   <div
                     onClick={() => handleOpenUser(id)}
-                    className="content-rows--action__profile">
+                    className="content-rows--action__profile"
+                  >
                     <p>Profile</p>
                   </div>
                   <div
-                    onClick={() => setModalInvite(true)} className="content-rows--action__invite">
+                    onClick={() => setModalInvite(true)}
+                    className="content-rows--action__invite"
+                  >
                     <p>Invite to Aplly</p>
                   </div>
                 </div>
