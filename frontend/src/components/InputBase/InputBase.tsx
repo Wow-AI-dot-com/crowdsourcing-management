@@ -128,9 +128,14 @@ const MemoizedInputBase: React.FC<TInputBaseProps> = ({
             {query}
           </textarea>
         ) : listOption ? (
-            <select className="select" onChange={(e) => handleInputChange(
-              e as unknown as React.ChangeEvent<HTMLInputElement>
-            )}>
+          <select
+            className="select"
+            onChange={(e) =>
+              handleInputChange(
+                e as unknown as React.ChangeEvent<HTMLInputElement>
+              )
+            }
+          >
             {listOption?.map((m) => {
               return (
                 <option value={m.name} key={m.id}>
@@ -155,7 +160,7 @@ const MemoizedInputBase: React.FC<TInputBaseProps> = ({
             readOnly={readonly}
           />
         )}
-        {query.length > 0 && allowClear && (
+        {query.length > 0 && !listOption && allowClear && (
           <div className="c-input-base__action">
             <button onClick={() => setQuery("")}>
               <IconClear />

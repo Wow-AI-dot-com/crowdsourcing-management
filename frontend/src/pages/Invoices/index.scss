@@ -1,3 +1,48 @@
 #invoices {
+  display: flex;
+  gap: 24px;
+  flex-direction: column;
   padding: var(--padding-p-6);
+  .table-date {
+    color: var(--main-title);
+    font-size: var(--text-xs);
+    font-weight: var(--font-medium);
+    line-height: 16px;
+  }
+  .table-time {
+    color: #ffbf0f;
+    font-size: var(--text-xs);
+    font-weight: var(--font-normal);
+    line-height: 15px;
+  }
+  .table-attached-invoice {
+    color: var(--button-normal);
+    font-size: var(--text-xs);
+    text-decoration: underline;
+  }
+  .done,
+  .pending,
+  .fail {
+    font-size: var(--text-xs);
+    font-weight: var(--font-semibold);
+    line-height: var(--leading-4);
+  }
+  .done {
+    color: #0a9c55;
+  }
+  .fail {
+    color: var(--color-base-dangerous);
+  }
+  .pending {
+    color: #ffbf0f;
+  }
+  .c-invoices-btn {
+    display: flex;
+    justify-content: flex-end;
+    .btn-invoices {
+      background-color: var(--color-primary-50);
+      border: 1px solid var(--color-primary-100);
+      box-shadow: 0px 1px 2px -1px #110c2214;
+    }
+  }
 }

@@ -43,13 +43,14 @@
   }
   .c-amount {
     position: relative;
-    .button {
+    &__button {
       position: absolute;
       gap: 4px;
       display: flex;
       top: 30px;
       right: 10px;
       border: none;
+      cursor: pointer;
       background-color: transparent;
       .axb,
       .max {
