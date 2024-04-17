@@ -84,8 +84,8 @@ const sidebarItems: SidebarItem[] = [
         label: SIDEBAR_ITEM_LABELS.PROFILE_INFORMATION,
       },
       {
-        path: "/profile/translation",
-        label: SIDEBAR_ITEM_LABELS.PROFILE_TRANSLATION,
+        path: "/profile/balance",
+        label: SIDEBAR_ITEM_LABELS.PROFILE_BALANCE,
       },
       {
         path: "/profile/settings",

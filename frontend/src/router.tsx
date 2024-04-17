@@ -22,12 +22,16 @@ import Payment from "@Pages/Payment";
 import Profile from "@Pages/Profile/Profile";
 import ProfileTranslation from "@Pages/Profile/ProfileTranslation";
 import ProfileSettings from "@Pages/Profile/ProfileSettings";
+import MatchingUsers from "./pages/MatchingUsers/MatchingUsers";
 import CreateProject from "@Pages/Project/CreateProject";
 import ProjectEmailTemplate from "@Pages/Project/ProjectEmailTemplate";
 import ProjectFormTemplate from "@Pages/Project/ProjectFormTemplate";
 import ProjectFormTemplateCreate from "@Pages/Project/ProjectFormTemplateCreate";
 import UserListing from "@Pages/UserManagement/UserListing";
 import UserManagementDetail from "@Pages/UserManagement/UserManagementDetail";
+import EmailTemplate from "./pages/MatchingUsers/EmailTemplate";
+import MyProjects from "./pages/MatchingUsers/MyProjectsUser";
+import MyProjectsUser from "./pages/MatchingUsers/MyProjectsUser";
 import CrowdPool from "./pages/CrowdPool/CrowdPool";
 import Invoices from "@Pages/Invoices";
 
@@ -140,16 +144,16 @@ const router = createBrowserRouter(
           element={<ProjectDetail />}
           handle={{ title: "Projects" }}
         />
-        <Route
-          path="/projects/:type/:projectId/payment"
-          element={<Payment />}
-          handle={{ title: "Payment" }}
-        />
         {/* profile */}
         <Route
           path="/profile/information"
           element={<Profile />}
-          handle={{ title: "Profile Personal" }}
+          handle={{ title: "My profile" }}
+        />
+        <Route
+          path="/profile/balance"
+          element={<Payment />}
+          handle={{ title: "My Balance" }}
         />
         <Route
           path="/profile/translation"
@@ -159,7 +163,12 @@ const router = createBrowserRouter(
         <Route
           path="/profile/settings"
           element={<ProfileSettings />}
-          handle={{ title: "Profile Settings" }}
+          handle={{ title: "Settings" }}
+        />
+        <Route
+          path="/matching-users"
+          element={<MatchingUsers />}
+          handle={{ title: "Matching Users" }}
         />
         <Route
           path="/user-management/user-listing"
@@ -170,6 +179,21 @@ const router = createBrowserRouter(
           path="/user-management/user-listing/:id"
           element={<UserManagementDetail />}
           handle={{ title: "User Listing" }}
+        />
+        <Route
+          path="/matching-users/user/:id"
+          element={<Profile />}
+          handle={{ title: "Profile Information" }}
+        />
+        <Route
+          path="/matching-users/email-template"
+          element={<EmailTemplate />}
+          handle={{ title: "Choose email template" }}
+        />
+        <Route
+          path="/matching-users/my-projects/:type"
+          element={<MyProjectsUser />}
+          handle={{ title: "My Projects" }}
         />
         <Route
           path="/invoices"

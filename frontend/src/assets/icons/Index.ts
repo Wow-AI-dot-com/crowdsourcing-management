@@ -64,7 +64,13 @@ import IconSmallCaps from "./IconSmallCaps";
 import IconGalleryAdd from "./IconGalleryAdd";
 import IconVideoAdd from "./IconVideoAdd";
 import IconRowVertical from "./IconRowVertical";
+import IconLanguagesUsers from "./IconLanguagesUsers";
+import IconNations from "./IconNations";
+import IconLine from "./IconLine";
 import IconInvoices from "./IconInvoices";
+import IconBitCoin from "./IconBitCoin";
+import IconQR from "./IconQR";
+import IconEditThick from "./IconEditThick";
 
 export {
   IconClear,
@@ -134,5 +140,11 @@ export {
   IconGalleryAdd,
   IconVideoAdd,
   IconRowVertical,
+  IconLanguagesUsers,
+  IconNations,
+  IconLine,
   IconInvoices,
+  IconBitCoin,
+  IconQR,
+  IconEditThick,
 };

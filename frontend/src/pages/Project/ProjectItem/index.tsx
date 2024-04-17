@@ -10,17 +10,15 @@ interface TypeItemProject {
   isOneTime: boolean;
   title: string;
   information: string;
-  onclickButton: (id: number, e: any) => void;
   onClick: (id: number) => void;
   price: string;
   id: number;
 }
 
 function ProjectItem(props: TypeItemProject) {
-  const { isOneTime, title, information, onclickButton, price, id, onClick } =
-    props;
+  const { isOneTime, title, information, price, id, onClick } = props;
   return (
-    <div className="containerProjectItem" onClick={() => onClick(id)}>
+    <div className="containerProjectItem">
       <div>
         <div className="header-project-item">
           <div className="svgHeader">
@@ -49,7 +47,7 @@ function ProjectItem(props: TypeItemProject) {
       </div>
       <Button
         type="gray"
-        onClick={(e) => onclickButton(id, e)}
+        onClick={() => onClick(id)}
         icon={<IconPrice />}
         iconPosition="left"
         isBlock

@@ -5,6 +5,7 @@ import IconEdit from "@Assets/icons/IconEdit";
 import IconExport from "@Assets/icons/IconExport";
 import SkeletonBox from "../SkeletonBox/SkeletonBox";
 import IconPlusSquare from "@Assets/icons/IconPlusSquare";
+import IconSearch from "@/assets/icons/iconSearch";
 
 export type TTableActions = {
   actions: {
@@ -39,6 +40,7 @@ export type TTable = {
   border?: boolean;
   selected?: string[];
   onSelect?: (selected: string[]) => void;
+  onSearching?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 const ALIGNS_MAP = {
@@ -82,13 +84,7 @@ export function TableActions({ actions }: TTableActions) {
   );
 }
 
-function TableRow({
-  columns,
-  dataRow,
-  rowKey,
-  selected,
-  onSelect,
-}: TTableRow) {
+function TableRow({ columns, dataRow, rowKey, selected, onSelect }: TTableRow) {
   const handleChecked = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!selected) {
       return;
@@ -121,20 +117,14 @@ function TableRow({
 
         if (c.renderer) {
           return (
-            <td
-              className={`${classes}`}
-              key={cellKey}
-            >
+            <td className={`${classes}`} key={cellKey}>
               {c.renderer(dataRow)}
             </td>
           );
         } else if (c.dataKey && Object.hasOwn(dataRow, c.dataKey)) {
           // @ts-ignore
           return (
-            <td
-              className={`${classes}`}
-              key={cellKey}
-            >
+            <td className={`${classes}`} key={cellKey}>
               {(dataRow as any)[c.dataKey]}
             </td>
           );
@@ -152,9 +142,9 @@ export default function Table({
   className,
   skeleton,
   headHidden,
-  border,
   selected,
   onSelect,
+  onSearching,
 }: TTable) {
   const onSelectedAll = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.checked) {
@@ -166,6 +156,15 @@ export default function Table({
 
   return (
     <div className={`c-table__wrapper ${className ? className : ""}`}>
+      {onSearching ? (
+        <div className="c-table__input">
+          <div className="box">
+            <IconSearch />
+            <input placeholder="Search asset" onChange={onSearching} />
+          </div>
+        </div>
+      ) : null}
+
       <table className="c-table">
         {!headHidden && (
           <thead>
@@ -182,9 +181,7 @@ export default function Table({
               {columns.map((c, idx) => (
                 <th
                   key={"table-th0-" + idx}
-                  className={`${ALIGNS_MAP[c.align ?? "LEFT"]} ${
-                    border ? "border" : ""
-                  }`}
+                  className={`${ALIGNS_MAP[c.align ?? "LEFT"]}`}
                 >
                   {c.label}
                 </th>

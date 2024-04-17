@@ -1,16 +1,13 @@
-import React from "react";
 import "./Profile.scss";
 import Button from "@/components/Button/Button";
-import IconCameraProfile from "@/assets/icons/IconCameraProfile";
-import IconEarthProfile from "@/assets/icons/IconEarthProfile";
-import IconLanguagesProfile from "@/assets/icons/IconLanguagesProfile";
-import InputBase from "@/components/InputBase/InputBase";
-import IconUploadProfile from "@/assets/icons/IconUploadProfile";
-import Upload from "@/components/Upload/Upload";
 import Information from "./components/Information";
 import EnterInformation from "./components/EnterInformation";
+import { useLocation } from "react-router-dom";
 
 export default function Profile() {
+  const location = useLocation();
+  const isMatchingUserScreen = location?.state?.isMatchingUser || false;
+
   return (
     <div className="c-profile">
       <Information
@@ -20,14 +17,18 @@ export default function Profile() {
         language="VietNamese, English"
         nation="VietNam"
         occupation="Freelancer"
+        isButton={isMatchingUserScreen}
       />
       <div className="line"></div>
       <EnterInformation />
-      <div className="c-btn">
-        <Button type="success" className="btn-profile">
-          Save
-        </Button>
-      </div>
+      {
+        !isMatchingUserScreen && <div className="c-btn">
+          <Button type="success" className="btn-profile">
+            Save
+          </Button>
+        </div>
+      }
+
     </div>
   );
 }

@@ -99,4 +99,43 @@
   * + &__body {
     margin-top: var(--margin-m-4);
   }
+
+  .modal-invite {
+    .box-info {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+      p {
+        margin: 0;
+      }
+      &__content {
+        display: block;
+      }
+      &__row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        &--name {
+          color: var(--main-title);
+          font-size: var(--text-base);
+          font-weight: var(--font-semibold);
+          line-height: var(--leading-6);
+        }
+        &--type {
+          color: var(--main-label);
+          font-size: var(--text-base);
+          font-weight: var(--font-medium);
+          line-height: var(--leading-base);
+          letter-spacing: -0.16px;
+        }
+        &--email {
+          color: var(--main-label);
+          font-size: var(--text-sm);
+          font-weight: var(--font-normal);
+          line-height: var(--leading-base);
+        }
+      }
+    }
+  }
 }
