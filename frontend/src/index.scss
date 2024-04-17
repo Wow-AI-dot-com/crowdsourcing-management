@@ -21,3 +21,17 @@ label {
 .text-link {
   color: var(--button-normal);
 }
+
+p {
+  margin: 0;
+}
+
+input,
+button,
+select,
+label {
+  font-family: inherit;
+  font-size: inherit;
+  margin: 0;
+  padding: 0;
+}

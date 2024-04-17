@@ -12,7 +12,7 @@ const IconCalendarCreatePJ = ({ ...props }) => {
         d="M6.37646 1.75977V4.00165"
         stroke="#40405B"
         strokeWidth="1.12094"
-        stroke-miterlimit="10"
+        strokeMiterlimit="10"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
@@ -20,7 +20,7 @@ const IconCalendarCreatePJ = ({ ...props }) => {
         d="M12.3545 1.75977V4.00165"
         stroke="#40405B"
         strokeWidth="1.12094"
-        stroke-miterlimit="10"
+        strokeMiterlimit="10"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
@@ -28,7 +28,7 @@ const IconCalendarCreatePJ = ({ ...props }) => {
         d="M3.01367 7.05859H15.7177"
         stroke="#40405B"
         strokeWidth="1.12094"
-        stroke-miterlimit="10"
+        strokeMiterlimit="10"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
@@ -36,7 +36,7 @@ const IconCalendarCreatePJ = ({ ...props }) => {
         d="M16.0909 6.61733V12.9693C16.0909 15.2112 14.97 16.7058 12.3545 16.7058H6.37612C3.76059 16.7058 2.63965 15.2112 2.63965 12.9693V6.61733C2.63965 4.37545 3.76059 2.88086 6.37612 2.88086H12.3545C14.97 2.88086 16.0909 4.37545 16.0909 6.61733Z"
         stroke="#40405B"
         strokeWidth="1.12094"
-        stroke-miterlimit="10"
+        strokeMiterlimit="10"
         strokeLinecap="round"
         strokeLinejoin="round"
       />

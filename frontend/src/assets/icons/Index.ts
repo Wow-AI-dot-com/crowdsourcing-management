@@ -59,6 +59,11 @@ import IconSidebarCrowdPool from "./IconSidebarCrowdPool";
 import IconMessageCrowdPool from "./IconMessageCrowdPool";
 import IconNationCrowdPool from "./IconNationCrowdPool";
 import IconFormTemplate from "./IconFormTemplate";
+import IconAddCircle from "./IconAddCircle";
+import IconSmallCaps from "./IconSmallCaps";
+import IconGalleryAdd from "./IconGalleryAdd";
+import IconVideoAdd from "./IconVideoAdd";
+import IconRowVertical from "./IconRowVertical";
 import IconLanguagesUsers from "./IconLanguagesUsers";
 import IconNations from "./IconNations";
 import IconLine from "./IconLine";
@@ -130,6 +135,11 @@ export {
   IconMessageCrowdPool,
   IconNationCrowdPool,
   IconFormTemplate,
+  IconAddCircle,
+  IconSmallCaps,
+  IconGalleryAdd,
+  IconVideoAdd,
+  IconRowVertical,
   IconLanguagesUsers,
   IconNations,
   IconLine,
