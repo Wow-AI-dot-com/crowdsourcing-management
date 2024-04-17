@@ -14,7 +14,6 @@ import Upload from "@/components/Upload/Upload";
 import Modal from "@/components/Modal/Modal";
 import { IdType, OptionsType } from "@/pages/Project/FormApply/apply";
 import CreateQuestion from "./CreateQuestion";
-import { set } from "date-fns";
 
 const RIGHT_TOOL_ITEMS = [
   {
@@ -62,6 +61,7 @@ type FormTemplate = {
 };
 
 const FormTemplateCreate = () => {
+  const rightToolRef = React.useRef<HTMLDivElement>(null);
   const [showUpload, setShowUpload] = React.useState(false);
   const [templateForm, setTemplateForm] = React.useState<FormTemplate>({
     title: "",
@@ -163,7 +163,27 @@ const FormTemplateCreate = () => {
     questionId: IdType,
     name: string,
     id: number | string
-  ) => {};
+  ) => {
+    const question = templateForm.questions.find(
+      (question) => question.id === questionId
+    );
+    if (!question) {
+      return;
+    }
+    setTemplateForm((state) => ({
+      ...state,
+      questions: state.questions.map((question) =>
+        question.id === questionId
+          ? {
+              ...question,
+              options: question.options.map((option) =>
+                option.id === id ? { ...option, name } : option
+              ),
+            }
+          : question
+      ),
+    }));
+  };
 
   const onChangeTypeQuestion = (
     questionId: IdType,
@@ -179,7 +199,16 @@ const FormTemplateCreate = () => {
       ...state,
       questions: state.questions.map((question) =>
         question.id === questionId
-          ? { ...question, typeQuestion: e.target.value }
+          ? {
+              ...question,
+              typeQuestion: e.target.value,
+              options: TYPE_QUESTION_HAVE_OPTIONS.includes(e.target.value)
+                ? [
+                    { name: "option 1", id: randomString() },
+                    { name: "option 2", id: randomString() },
+                  ]
+                : [],
+            }
           : question
       ),
     }));
@@ -187,6 +216,64 @@ const FormTemplateCreate = () => {
 
   const onAddImage = () => {
     setShowUpload(true);
+  };
+
+  const onDeleteQuestion = (questionId: IdType) => {
+    setTemplateForm((state) => ({
+      ...state,
+      questions: state.questions.filter(
+        (question) => question.id !== questionId
+      ),
+    }));
+  };
+
+  const onChangeRequired = (questionId: IdType, checked: boolean) => {
+    setTemplateForm((state) => ({
+      ...state,
+      questions: state.questions.map((question) =>
+        question.id === questionId
+          ? { ...question, isRequired: checked }
+          : question
+      ),
+    }));
+  };
+
+  const onDuplicateQuestion = (questionId: IdType) => {
+    const question = templateForm.questions.find(
+      (question) => question.id === questionId
+    );
+    if (!question) {
+      return;
+    }
+    setTemplateForm((state) => ({
+      ...state,
+      questions: [
+        ...state.questions,
+        { ...question, id: randomString(), title: `${question.title} copy` },
+      ],
+    }));
+  };
+
+  const onChangeQuestionTitle = (questionId: IdType, e: string) => {
+    setTemplateForm((state) => ({
+      ...state,
+      questions: state.questions.map((question) =>
+        question.id === questionId ? { ...question, title: e } : question
+      ),
+    }));
+  };
+
+  const updatePositionRightTool = (position: number, questionId: IdType) => {
+    if (rightToolRef.current) {
+      const isLastQuestion =
+        templateForm.questions[templateForm.questions.length - 1].id ===
+        questionId;
+      if (isLastQuestion) {
+        rightToolRef.current.style.top = "0px";
+      } else {
+        rightToolRef.current.style.top = `${position}px`;
+      }
+    }
   };
 
   return (
@@ -201,7 +288,7 @@ const FormTemplateCreate = () => {
         onchangeTitle={onChangeTitle}
       />
 
-      {templateForm.questions.map((question) => (
+      {templateForm.questions.map((question, index) => (
         <CreateQuestion
           onChangeTypeQuestion={onChangeTypeQuestion}
           typeQuestion={question.typeQuestion}
@@ -212,10 +299,15 @@ const FormTemplateCreate = () => {
           question={question}
           key={question.id}
           title={question.title}
+          onDeleteQuestion={onDeleteQuestion}
+          onChangeRequired={onChangeRequired}
+          onDuplicateQuestion={onDuplicateQuestion}
+          onChangeQuestionTitle={onChangeQuestionTitle}
+          updatePositionRightTool={updatePositionRightTool}
         />
       ))}
 
-      <div className="right-tool">
+      <div className="right-tool" ref={rightToolRef}>
         {RIGHT_TOOL_ITEMS.map((item) => (
           <RightToolItem
             key={item.id}

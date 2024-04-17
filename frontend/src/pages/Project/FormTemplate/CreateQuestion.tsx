@@ -60,6 +60,11 @@ type CreateQuestionProps = {
   onUpdateOption: (questionId: IdType, name: string, id: IdType) => void;
   question: QuestionType;
   title: string;
+  onDeleteQuestion: (questionId: IdType) => void;
+  onChangeRequired: (questionId: IdType, checked: boolean) => void;
+  onDuplicateQuestion: (questionId: IdType) => void;
+  onChangeQuestionTitle: (questionId: IdType, e: string) => void;
+  updatePositionRightTool: (position: number, questionId: IdType) => void;
 };
 
 const CreateQuestion = ({
@@ -70,7 +75,14 @@ const CreateQuestion = ({
   addOption,
   onUpdateOption,
   question,
+  onDeleteQuestion,
+  onChangeRequired,
+  onDuplicateQuestion,
+  title,
+  onChangeQuestionTitle,
+  updatePositionRightTool,
 }: CreateQuestionProps) => {
+  const questionRef = React.useRef<HTMLDivElement>(null);
   const renderContentQuestion = () => {
     switch (typeQuestion) {
       case "short-answer":
@@ -105,6 +117,7 @@ const CreateQuestion = ({
               onUpdateOption={onUpdateOption}
               type="multiple-choice"
               questionId={question.id}
+              onClick={() => getPositionOfQuestion()}
             />
           </div>
         );
@@ -118,6 +131,7 @@ const CreateQuestion = ({
               onUpdateOption={onUpdateOption}
               type="checkbox"
               questionId={question.id}
+              onClick={() => getPositionOfQuestion()}
             />
           </div>
         );
@@ -131,6 +145,7 @@ const CreateQuestion = ({
               onUpdateOption={onUpdateOption}
               type="dropdown"
               questionId={question.id}
+              onClick={() => getPositionOfQuestion()}
             />
           </div>
         );
@@ -167,11 +182,31 @@ const CreateQuestion = ({
     }
   };
 
+  const getPositionOfQuestion = () => {
+    if (!questionRef?.current) {
+      updatePositionRightTool(0, question.id);
+      return;
+    }
+    updatePositionRightTool(questionRef.current.offsetTop, question.id);
+    return;
+  };
+
   return (
-    <div className="create-form-question">
+    <div
+      className="create-form-question"
+      ref={questionRef}
+      onClick={() => getPositionOfQuestion()}
+    >
       <div className="top-question">
         <div className="left-title-question">
-          <SimpleEditor placeholder="Question title" />
+          <SimpleEditor
+            placeholder="Question title"
+            value={title}
+            onChange={(e) => {
+              onChangeQuestionTitle(question.id, e);
+              getPositionOfQuestion();
+            }}
+          />
         </div>
         <div className="right-title-question">
           <div onClick={onAddImage} className="add-image">
@@ -179,20 +214,36 @@ const CreateQuestion = ({
           </div>
           <InputBase
             listOption={TYPE_QUESTION}
-            onChange={(e) => onChangeTypeQuestion(question.id, e)}
+            onChange={(e) => {
+              onChangeTypeQuestion(question.id, e);
+              getPositionOfQuestion();
+            }}
           />
         </div>
       </div>
       <div className="content-question">{renderContentQuestion()}</div>
       <div className="actions">
-        <div className="action-item">
+        <div
+          className="action-item"
+          onClick={() => onDeleteQuestion(question.id)}
+        >
           <IconDelete width={20} />
         </div>
-        <div className="action-item">
+        <div
+          className="action-item"
+          onClick={() => onDuplicateQuestion(question.id)}
+        >
           <IconCopy width={20} />
         </div>
         <div className="action-item">
-          <Switch label="Required" />
+          <Switch
+            label="Required"
+            checked={question.isRequired}
+            onChange={(checked) => {
+              onChangeRequired(question.id, checked);
+              getPositionOfQuestion();
+            }}
+          />
         </div>
       </div>
     </div>

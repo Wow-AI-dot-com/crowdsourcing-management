@@ -6,6 +6,7 @@ type SimpleEditorProps = {
   onChange?: (v: string) => void;
   value?: string;
   placeholder?: string;
+  onClick?: () => void;
 };
 const SimpleEditor = ({ onChange, value, placeholder }: SimpleEditorProps) => {
   const content = React.useRef<string>(value ?? "");

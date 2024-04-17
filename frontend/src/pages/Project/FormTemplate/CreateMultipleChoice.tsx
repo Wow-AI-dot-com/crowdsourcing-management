@@ -13,6 +13,7 @@ type CreateMultipleChoiceProps = {
   onUpdateOption: (questionId: IdType, name: string, id: IdType) => void;
   type: string;
   questionId: IdType;
+  onClick: () => void;
 };
 
 const CreateMultipleChoice = ({
@@ -22,9 +23,10 @@ const CreateMultipleChoice = ({
   onUpdateOption,
   type,
   questionId,
+  onClick,
 }: CreateMultipleChoiceProps) => {
   return (
-    <div className="create-multiple-choice">
+    <div className="create-multiple-choice" onClick={onClick}>
       {options.map((option, index) => (
         <CreateOption
           key={option.id}
@@ -33,7 +35,7 @@ const CreateMultipleChoice = ({
           onUpdateOption={(name: string, optionId: IdType) =>
             onUpdateOption(questionId, name, optionId)
           }
-          showDelete={options.length === 1}
+          showDelete={options.length > 1}
           index={index}
           options={options}
           type={type}
