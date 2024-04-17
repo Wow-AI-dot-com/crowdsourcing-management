@@ -4,12 +4,15 @@ import "./CreateMultipleChoice.scss";
 import { IconPlusEmailTemplate } from "@/assets/icons/Index";
 import Button from "@/components/Button/Button";
 import CreateOption from "./CreateOption";
+import { IdType } from "@/pages/Project/FormApply/apply";
 
 type CreateMultipleChoiceProps = {
   options: OptionsType[];
-  removeOption: (value: number | string) => void;
-  addOption: () => void;
-  onUpdateOption: (name: string, id: number | string) => void;
+  removeOption: (questionId: IdType, value: IdType) => void;
+  addOption: (questionId: IdType) => void;
+  onUpdateOption: (questionId: IdType, name: string, id: IdType) => void;
+  type: string;
+  questionId: IdType;
 };
 
 const CreateMultipleChoice = ({
@@ -17,6 +20,8 @@ const CreateMultipleChoice = ({
   removeOption,
   addOption,
   onUpdateOption,
+  type,
+  questionId,
 }: CreateMultipleChoiceProps) => {
   return (
     <div className="create-multiple-choice">
@@ -24,11 +29,14 @@ const CreateMultipleChoice = ({
         <CreateOption
           key={option.id}
           option={option}
-          removeOption={removeOption}
-          onUpdateOption={onUpdateOption}
+          removeOption={(optionId) => removeOption(questionId, optionId)}
+          onUpdateOption={(name: string, optionId: IdType) =>
+            onUpdateOption(questionId, name, optionId)
+          }
           showDelete={options.length === 1}
           index={index}
           options={options}
+          type={type}
         />
       ))}
       <div className="option">
@@ -37,7 +45,7 @@ const CreateMultipleChoice = ({
           icon={<IconPlusEmailTemplate />}
           type="secondary"
           className="button"
-          onClick={addOption}
+          onClick={() => addOption(questionId)}
           size="small"
         >
           Add more option

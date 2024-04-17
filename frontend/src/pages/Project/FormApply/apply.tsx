@@ -4,8 +4,10 @@ import Modal from "@/components/Modal/Modal";
 import InputBase from "@/components/InputBase/InputBase";
 import IconAttackFile from "@/assets/icons/IconAttackFile";
 import RadioSimpleProps from "@/components/RadioSimple";
+
+export type IdType = number | string;
 export interface OptionsType {
-  id: number | string;
+  id: IdType;
   name: string;
 }
 

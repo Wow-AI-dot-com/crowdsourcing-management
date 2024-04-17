@@ -1,6 +1,9 @@
 #form-template-create {
   max-width: 640px;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
   .right-tool {
     display: flex;
     flex-direction: column;

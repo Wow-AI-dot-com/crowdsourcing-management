@@ -37,6 +37,7 @@ export default function ProjectFormTemplate() {
             {...item}
             onDelete={() => null}
             onEdit={(id) => navigate(`${path}/${item.id}`)}
+            key={item.id}
           />
         ))}
       </div>

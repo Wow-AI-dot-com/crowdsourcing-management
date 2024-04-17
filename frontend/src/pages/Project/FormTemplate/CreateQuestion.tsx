@@ -5,9 +5,9 @@ import SimpleEditor from "@Components/HtmlEditor/SimpleEditor";
 import { IconDelete, IconCopy } from "@Assets/icons/Index";
 import Switch from "@/components/Switch/Switch";
 import CreateMultipleChoice from "./CreateMultipleChoice";
-
 import "./CreateQuestion.scss";
-import { QuestionType } from "./FormTemplateItem";
+import { QuestionType } from "./FormTemplateCreate";
+import { IdType } from "@/pages/Project/FormApply/apply";
 
 const TYPE_QUESTION = [
   {
@@ -49,13 +49,17 @@ const TYPE_QUESTION = [
 ];
 
 type CreateQuestionProps = {
-  onChangeTypeQuestion: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChangeTypeQuestion: (
+    questionId: IdType,
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => void;
   typeQuestion: string;
   onAddImage: () => void;
-  removeOption: (value: number | string) => void;
-  addOption: () => void;
-  onUpdateOption: (name: string, id: number | string) => void;
+  removeOption: (questionId: IdType, value: IdType) => void;
+  addOption: (questionId: IdType) => void;
+  onUpdateOption: (questionId: IdType, name: string, id: IdType) => void;
   question: QuestionType;
+  title: string;
 };
 
 const CreateQuestion = ({
@@ -99,13 +103,37 @@ const CreateQuestion = ({
               removeOption={removeOption}
               addOption={addOption}
               onUpdateOption={onUpdateOption}
+              type="multiple-choice"
+              questionId={question.id}
             />
           </div>
         );
       case "checkbox":
-        return <div>checkbox</div>;
+        return (
+          <div>
+            <CreateMultipleChoice
+              options={question.options}
+              removeOption={removeOption}
+              addOption={addOption}
+              onUpdateOption={onUpdateOption}
+              type="checkbox"
+              questionId={question.id}
+            />
+          </div>
+        );
       case "dropdown":
-        return <div>dropdown</div>;
+        return (
+          <div>
+            <CreateMultipleChoice
+              options={question.options}
+              removeOption={removeOption}
+              addOption={addOption}
+              onUpdateOption={onUpdateOption}
+              type="dropdown"
+              questionId={question.id}
+            />
+          </div>
+        );
       case "linear-scale":
         return <div>linear-scale</div>;
       case "file-upload":
@@ -151,7 +179,7 @@ const CreateQuestion = ({
           </div>
           <InputBase
             listOption={TYPE_QUESTION}
-            onChange={onChangeTypeQuestion}
+            onChange={(e) => onChangeTypeQuestion(question.id, e)}
           />
         </div>
       </div>

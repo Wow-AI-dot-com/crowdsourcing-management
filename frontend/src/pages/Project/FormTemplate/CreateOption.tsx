@@ -2,15 +2,16 @@ import React, { useRef } from "react";
 import { OptionsType } from "../FormApply/apply";
 import { IconClear } from "@/assets/icons/Index";
 import useOnClickOutside from "@Hooks/useOnClickOutside";
-import { on } from "events";
+import { IdType } from "@/pages/Project/FormApply/apply";
 
 type CreateOptionProps = {
   options: OptionsType[];
   option: OptionsType;
-  removeOption: (value: number | string) => void;
-  onUpdateOption: (name: string, id: number | string) => void;
+  removeOption: (value: IdType) => void;
+  onUpdateOption: (name: string, id: IdType) => void;
   showDelete: boolean;
   index: number;
+  type: string;
 };
 
 const CreateOption = ({
@@ -20,6 +21,7 @@ const CreateOption = ({
   showDelete,
   index,
   options,
+  type,
 }: CreateOptionProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const [isDuplicate, setIsDuplicate] = React.useState(false);
@@ -54,9 +56,22 @@ const CreateOption = ({
     onUpdateOption(e.target.value, option.id);
   };
 
+  const renderType = () => {
+    switch (type) {
+      case "multiple-choice":
+        return <input type="radio" disabled />;
+      case "checkbox":
+        return <input type="checkbox" disabled />;
+      case "dropdown":
+        return <div>{index + 1}.&nbsp;</div>;
+      default:
+        return <div>{index + 1}.&nbsp;</div>;
+    }
+  };
+
   return (
     <div key={option.id} className="option">
-      <input type="radio" value={option.id} disabled />
+      {renderType()}
       <input
         className={`input-text ${isDuplicate ? "duplicate" : ""}`}
         name="title"
