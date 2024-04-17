@@ -12,6 +12,27 @@
     border-radius: 12px 12px 0 0;
   }
 
+  &__input {
+    margin-bottom: var(--margin-m-6);
+    padding: var(--padding-p-4) 0px 0 var(--padding-p-4);
+    .box {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      max-width: 300px;
+      width: 100%;
+      padding: 10px 12px 10px 12px;
+      background-color: var(--main-selected);
+      border-radius: var(--radius-rounded-lg);
+      input {
+        outline: none;
+        border: none;
+        width: 100%;
+        background: transparent;
+      }
+    }
+  }
+
   &__cell {
     &--nowrap {
       white-space: nowrap;
@@ -94,7 +115,6 @@
       }
     }
   }
-
 
   tr {
     &:not(:last-child) {

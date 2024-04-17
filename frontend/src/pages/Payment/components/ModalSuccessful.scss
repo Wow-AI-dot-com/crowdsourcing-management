@@ -1,0 +1,27 @@
+.c-modal-successful {
+  .content-modal-successful {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-direction: column;
+    &__title {
+      color: var(--color-base-green);
+      font-size: 24px;
+      font-weight: var(--font-medium);
+      line-height: 30px;
+      letter-spacing: -0.01em;
+    }
+    &__btn-done {
+      min-width: 182px;
+    }
+    &__btn-skip {
+      color: #4e4b66;
+      font-size: var(--text-sm);
+      font-weight: var(--font-semibold);
+      line-height: var(--leading-6);
+      border: none;
+      cursor: pointer;
+      background-color: transparent;
+    }
+  }
+}

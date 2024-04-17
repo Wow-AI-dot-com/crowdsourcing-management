@@ -144,16 +144,16 @@ const router = createBrowserRouter(
           element={<ProjectDetail />}
           handle={{ title: "Projects" }}
         />
-        <Route
-          path="/projects/:type/:projectId/payment"
-          element={<Payment />}
-          handle={{ title: "Payment" }}
-        />
         {/* profile */}
         <Route
           path="/profile/information"
           element={<Profile />}
-          handle={{ title: "Profile Personal" }}
+          handle={{ title: "My profile" }}
+        />
+        <Route
+          path="/profile/balance"
+          element={<Payment />}
+          handle={{ title: "My Balance" }}
         />
         <Route
           path="/profile/translation"
@@ -163,7 +163,7 @@ const router = createBrowserRouter(
         <Route
           path="/profile/settings"
           element={<ProfileSettings />}
-          handle={{ title: "Profile Settings" }}
+          handle={{ title: "Settings" }}
         />
         <Route
           path="/matching-users"

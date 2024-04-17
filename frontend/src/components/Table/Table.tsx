@@ -5,6 +5,7 @@ import IconEdit from "@Assets/icons/IconEdit";
 import IconExport from "@Assets/icons/IconExport";
 import SkeletonBox from "../SkeletonBox/SkeletonBox";
 import IconPlusSquare from "@Assets/icons/IconPlusSquare";
+import IconSearch from "@/assets/icons/iconSearch";
 
 export type TTableActions = {
   actions: {
@@ -39,6 +40,7 @@ export type TTable = {
   border?: boolean;
   selected?: string[];
   onSelect?: (selected: string[]) => void;
+  onSearching?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 const ALIGNS_MAP = {
@@ -142,6 +144,7 @@ export default function Table({
   headHidden,
   selected,
   onSelect,
+  onSearching,
 }: TTable) {
   const onSelectedAll = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.checked) {
@@ -153,6 +156,15 @@ export default function Table({
 
   return (
     <div className={`c-table__wrapper ${className ? className : ""}`}>
+      {onSearching ? (
+        <div className="c-table__input">
+          <div className="box">
+            <IconSearch />
+            <input placeholder="Search asset" onChange={onSearching} />
+          </div>
+        </div>
+      ) : null}
+
       <table className="c-table">
         {!headHidden && (
           <thead>

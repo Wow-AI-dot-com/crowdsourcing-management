@@ -55,7 +55,7 @@ const ProjectList = ({ isProjectsUser = false }) => {
   const navigate = useNavigate();
   const params = useParams();
   console.log(params);
-  
+
   React.useEffect(() => {
     userLayout.setBreadcrumbs([{ label: "Projects" }]);
 
@@ -66,11 +66,6 @@ const ProjectList = ({ isProjectsUser = false }) => {
 
   const handleOnclick = (id: number) => {
     navigate(`/projects/${params.type}/${id}`);
-  };
-
-  const handleOnClickButton = (id: number, e: any) => {
-    e.stopPropagation();
-    navigate(`/projects/${params.type}/${id}/payment`);
   };
 
   return (
@@ -89,7 +84,6 @@ const ProjectList = ({ isProjectsUser = false }) => {
                 isOneTime={m.status}
                 title={m.title}
                 information={m.information}
-                onclickButton={handleOnClickButton}
                 price={m.price}
                 id={m.id}
               />

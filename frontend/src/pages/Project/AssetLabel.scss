@@ -1,12 +1,12 @@
 .container--asset-label {
   display: flex;
-  height: 95px;
+  height: 70px;
   min-width: 161px;
   padding: var(--padding-p-6) 32px;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  gap: 19px;
+  gap: 6px;
   flex: 1 0 0;
   border-radius: var(--radius-rounded-xl);
   .container--asset-label__name {
