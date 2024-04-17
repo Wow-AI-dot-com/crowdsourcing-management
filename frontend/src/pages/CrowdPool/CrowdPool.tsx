@@ -11,6 +11,7 @@ import Pagination from "@/components/Pagination/Pagination";
 import "./CrowdPool.scss";
 import ModalInviteCrowdPool from "./components/ModalInviteCrowdPool";
 import Table from "@/components/Table/Table";
+import { useUserLayout } from "@/layouts/UserLayout";
 
 const FAKE_DATA = [
   {
@@ -109,7 +110,6 @@ const FAKE_DATA = [
     language2: "English",
     experience: "Project Manager",
   },
-  
 ];
 
 const columns = [
@@ -133,13 +133,17 @@ const columns = [
 ];
 
 export default function CrowdPool() {
+  const userLayout = useUserLayout();
+  React.useEffect(() => {
+    userLayout.setBreadcrumbs([{ label: "Crowd Pool" }]);
+
+    return () => {
+      userLayout.clearBreadcrumbs();
+    };
+  }, [userLayout]);
   return (
     <div className="c-pool">
-      <Table
-        columns={columns as any}
-        data={FAKE_DATA}
-        className="table"
-      />
+      <Table columns={columns as any} data={FAKE_DATA} className="table" />
     </div>
   );
 }

@@ -14,10 +14,19 @@ import Dropdown from "@/components/Dropdown/Dropdown";
 import IconApproveEmail from "@/assets/icons/IconApproveEmail";
 import AlertSuccessful from "../../components/Alert/AlertSuccessful";
 import ItemEmailTemplate from "./ItemEmailTemplate/ItemEmailTemplate";
+import { useUserLayout } from "@/layouts/UserLayout";
 export default function ProjectEmailTemplate() {
   const [isFormCreate, setIsFormCreate] = useState(false);
   const [isAlertSuccess, setIsAlertSuccess] = useState(false);
   const [isAlertSave, setIsAlertSave] = useState(false);
+  const userLayout = useUserLayout();
+  React.useEffect(() => {
+    userLayout.setBreadcrumbs([{ label: "Email Template" }]);
+
+    return () => {
+      userLayout.clearBreadcrumbs();
+    };
+  }, [userLayout]);
 
   const clickTrash = () => {
     setIsAlertSuccess(true);

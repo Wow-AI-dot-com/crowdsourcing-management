@@ -10,7 +10,8 @@ import IconClockCreatePJ from "@/assets/icons/IconClockCreatePJ";
 import IconCalendarCreatePJ from "@/assets/icons/IconCalendarCreatePJ";
 import IconDownload from "@/assets/icons/IconDownload";
 import Step from "@/components/Step/Step";
-import { useState } from "react";
+import React, { useState } from "react";
+import { useUserLayout } from "@/layouts/UserLayout";
 
 const listStep = [
   { name: "Project detail", id: 1 },
@@ -43,35 +44,44 @@ const categoryCheckboxes: Record<string, CheckboxOption[]> = {
     { label: "Document collection", id: 4 },
     { label: "Text collection", id: 5 },
     { label: "OTS datasets collection", id: 6 },
-    { label: "Other data collection", id: 7 }
+    { label: "Other data collection", id: 7 },
   ],
   "Annotation Projects": [
     { label: "Image Annotation", id: 1 },
     { label: "Text annotation", id: 2 },
-    { label: "Video annotation", id: 3 }
+    { label: "Video annotation", id: 3 },
   ],
-  "Transcription": [
+  Transcription: [
     { label: "Audio transcription", id: 1 },
     { label: "Video transcription", id: 2 },
-    { label: "Image transcription", id: 3 }
+    { label: "Image transcription", id: 3 },
   ],
 };
 
-
 const CreateProject = () => {
   const [currentStep, setCurrentStep] = useState(1);
-  const [selectedCategory, setSelectedCategory] = useState<string | null>('Data collection');
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(
+    "Data collection"
+  );
+  const userLayout = useUserLayout();
+  React.useEffect(() => {
+    userLayout.setBreadcrumbs([{ label: "Create a new project" }]);
+
+    return () => {
+      userLayout.clearBreadcrumbs();
+    };
+  }, [userLayout]);
 
   function generateUid() {
     const now = new Date();
     const hours = now.getHours();
     const minutes = now.getMinutes();
     const seconds = now.getSeconds();
-    const paddedHours = hours.toString().padStart(2, '0');
-    const paddedMinutes = minutes.toString().padStart(2, '0');
-    const paddedSeconds = seconds.toString().padStart(2, '0');
+    const paddedHours = hours.toString().padStart(2, "0");
+    const paddedMinutes = minutes.toString().padStart(2, "0");
+    const paddedSeconds = seconds.toString().padStart(2, "0");
     const timeString = `${paddedHours}:${paddedMinutes}:${paddedSeconds}`;
-    const unitID = parseInt(timeString.replace(/:/g, ''), 10);
+    const unitID = parseInt(timeString.replace(/:/g, ""), 10);
     return unitID;
   }
 
@@ -124,19 +134,21 @@ const CreateProject = () => {
             label="Project category"
             placeholder="Select category"
             onChange={(e) => {
-              setSelectedCategory(e.target.value)
+              setSelectedCategory(e.target.value);
             }}
           />
           <div className="project-category--wrapper">
             <div className="project-category--wrapper__columns">
-              {selectedCategory && selectedCategory !=='Crowd sourcing' && categoryCheckboxes[selectedCategory].map((checkbox) => (
-                <Checkbox
-                  key={checkbox.id}
-                  size="sm"
-                  label={checkbox.label}
-                  classNameLabel="label-category"
-                />
-              ))}
+              {selectedCategory &&
+                selectedCategory !== "Crowd sourcing" &&
+                categoryCheckboxes[selectedCategory].map((checkbox) => (
+                  <Checkbox
+                    key={checkbox.id}
+                    size="sm"
+                    label={checkbox.label}
+                    classNameLabel="label-category"
+                  />
+                ))}
             </div>
           </div>
         </div>

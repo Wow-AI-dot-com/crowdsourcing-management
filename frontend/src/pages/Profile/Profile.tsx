@@ -3,11 +3,20 @@ import Button from "@/components/Button/Button";
 import Information from "./components/Information";
 import EnterInformation from "./components/EnterInformation";
 import { useLocation } from "react-router-dom";
+import { useUserLayout } from "@/layouts/UserLayout";
+import React from "react";
 
 export default function Profile() {
   const location = useLocation();
   const isMatchingUserScreen = location?.state?.isMatchingUser || false;
+  const userLayout = useUserLayout();
+  React.useEffect(() => {
+    userLayout.setBreadcrumbs([{ label: "Personal Infomation" }]);
 
+    return () => {
+      userLayout.clearBreadcrumbs();
+    };
+  }, [userLayout]);
   return (
     <div className="c-profile">
       <Information
@@ -21,14 +30,13 @@ export default function Profile() {
       />
       <div className="line"></div>
       <EnterInformation />
-      {
-        !isMatchingUserScreen && <div className="c-btn">
+      {!isMatchingUserScreen && (
+        <div className="c-btn">
           <Button type="success" className="btn-profile">
             Save
           </Button>
         </div>
-      }
-
+      )}
     </div>
   );
 }

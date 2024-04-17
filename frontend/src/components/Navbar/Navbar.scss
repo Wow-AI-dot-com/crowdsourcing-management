@@ -211,16 +211,18 @@
       height: 32px;
     }
 
-    &-edit,
-    &-book {
+    &-edit {
       border: 1px solid var(--main-line);
     }
 
-    &-book {
+    &-bell {
       color: var(--main-title);
+      min-width: 24px;
+      height: 24px;
+      border: none;
+      padding: 0px;
     }
 
-    &-book,
     &-cancel {
       flex-direction: row-reverse;
       box-shadow: 0px 1px 2px -1px rgba(17, 12, 34, 0.08);

@@ -15,6 +15,7 @@ import Pagination from "@/components/Pagination/Pagination";
 import ModalWithDraw from "./components/ModalWithDraw";
 import Modal from "@/components/Modal/Modal";
 import ModalSuccessful from "./components/ModalSuccessful";
+import { useUserLayout } from "@/layouts/UserLayout";
 
 const FAKE_DATA = [
   {
@@ -78,6 +79,14 @@ const Payment = () => {
   const [isNotification, setNotification] = useState(false);
   const [isWithDraw, setIsWithDraw] = useState(false);
   const [modalSuccessful, setModalSuccessful] = useState(false);
+  const userLayout = useUserLayout();
+  React.useEffect(() => {
+    userLayout.setBreadcrumbs([{ label: "My Payment" }]);
+
+    return () => {
+      userLayout.clearBreadcrumbs();
+    };
+  }, [userLayout]);
 
   const onClickNote = () => {
     console.log("object");

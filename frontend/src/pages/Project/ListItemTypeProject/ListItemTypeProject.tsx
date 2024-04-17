@@ -1,23 +1,28 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-interface ItemTypeProject {
-    id: string;
-    name: string;
-    ClickActive: () => void;
-    isActive: boolean;
+export interface ItemTypeProject {
+  id: string;
+  name: string;
+  clickActive: () => void;
+  isActive: boolean | undefined;
 }
 
-const ListItemTypeProject = ({ id, name, isActive, ClickActive }: ItemTypeProject) => {
-    return (
-        <div
-            className={`projectTypeItem ${isActive  ? "active" : ""}`}
-            onClick={ClickActive}
-            key={id}
-        >
-            {name}
-        </div>
-    );
-}
+const ListItemTypeProject = ({
+  id,
+  name,
+  isActive,
+  clickActive,
+}: ItemTypeProject) => {
+  return (
+    <div
+      className={`projectTypeItem ${isActive ? "active" : ""}`}
+      onClick={clickActive}
+      key={id}
+    >
+      {name}
+    </div>
+  );
+};
 
-export default ListItemTypeProject
+export default ListItemTypeProject;

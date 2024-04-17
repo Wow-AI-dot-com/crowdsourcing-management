@@ -3,35 +3,36 @@ import ListItemTypeProject from "../ListItemTypeProject/ListItemTypeProject";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const ListNameItemProject = [
-  { id: "available", name: "Available" },
-  { id: "applied", name: "Applied" },
-  { id: "my-projects", name: "My Projects" },
-];
+export interface TypeNames {
+  id: string;
+  name: string;
+}
+export interface TypeProjectType {
+  isProjectsUser: boolean;
+  ListItemName: TypeNames[];
+  clickActive: (type: string) => void;
+  active: string | undefined;
+}
 
 const LIST_TYPE_PROJECT = [
   { id: "my-projects", name: "My Projects" },
   { id: "shared-with-me", name: "Shared With Me" },
 ];
 
-export const ProjectType = ({ isProjectsUser = false }) => {
-  const [isActive, setIsActive] = useState(LIST_TYPE_PROJECT[0].id);
-  const navigate = useNavigate();
-  const ClickActive = (type: string) => {
-    setIsActive(type);
-    navigate(
-      `${isProjectsUser ? '/matching-users/my-projects/' : "/projects/"}${type}`
-    );
-  };
-
+export const ProjectType = ({
+  ListItemName,
+  clickActive,
+  active,
+}: TypeProjectType) => {
   return (
     <div className="containerProjectType">
-      {ListNameItemProject.map((type) => (
+      {ListItemName.map((type) => (
         <ListItemTypeProject
-          ClickActive={() => ClickActive(type.id)}
+          key={type.id}
+          clickActive={() => clickActive(type.id)}
           id={type.id}
           name={type.name}
-          isActive={isActive === type.id}
+          isActive={active === type.id}
         />
       ))}
     </div>
