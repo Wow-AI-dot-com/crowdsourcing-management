@@ -12,53 +12,21 @@ import IconDownload from "@/assets/icons/IconDownload";
 import Step from "@/components/Step/Step";
 import React, { useState } from "react";
 import { useUserLayout } from "@/layouts/UserLayout";
+import { useNavigate } from "react-router-dom";
+import CreateProjectDetail from "./CreateProject/CreateProjectDetail";
+import MandatoryRequirements from "./CreateProject/MandatoryRequirements";
+import RegistrationForm from "./CreateProject/RegistrationForm";
+import CreateProjectEmail from "./CreateProject/CreateProjectEmail";
 
 const listStep = [
   { name: "Project detail", id: 1 },
-  { name: "Registration form", id: 2 },
-  { name: "Email", id: 3 },
+  { name: "User detail", id: 2 },
+  { name: "Registration form", id: 3 },
+  { name: "Email", id: 4 },
 ];
-
-interface Option {
-  id: number;
-  name: string;
-}
-
-interface CheckboxOption {
-  label: string;
-  id: number;
-}
-
-const listOption: Option[] = [
-  { id: 1, name: "Data collection" },
-  { id: 2, name: "Annotation Projects" },
-  { id: 3, name: "Transcription" },
-  { id: 4, name: "Crowd sourcing" },
-];
-
-const categoryCheckboxes: Record<string, CheckboxOption[]> = {
-  "Data collection": [
-    { label: "Image collection", id: 1 },
-    { label: "Audio collection", id: 2 },
-    { label: "Video collection", id: 3 },
-    { label: "Document collection", id: 4 },
-    { label: "Text collection", id: 5 },
-    { label: "OTS datasets collection", id: 6 },
-    { label: "Other data collection", id: 7 },
-  ],
-  "Annotation Projects": [
-    { label: "Image Annotation", id: 1 },
-    { label: "Text annotation", id: 2 },
-    { label: "Video annotation", id: 3 },
-  ],
-  Transcription: [
-    { label: "Audio transcription", id: 1 },
-    { label: "Video transcription", id: 2 },
-    { label: "Image transcription", id: 3 },
-  ],
-};
 
 const CreateProject = () => {
+  const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(1);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(
     "Data collection"
@@ -72,17 +40,31 @@ const CreateProject = () => {
     };
   }, [userLayout]);
 
-  function generateUid() {
-    const now = new Date();
-    const hours = now.getHours();
-    const minutes = now.getMinutes();
-    const seconds = now.getSeconds();
-    const paddedHours = hours.toString().padStart(2, "0");
-    const paddedMinutes = minutes.toString().padStart(2, "0");
-    const paddedSeconds = seconds.toString().padStart(2, "0");
-    const timeString = `${paddedHours}:${paddedMinutes}:${paddedSeconds}`;
-    const unitID = parseInt(timeString.replace(/:/g, ""), 10);
-    return unitID;
+  const handleClickBack = () => {
+    if (currentStep === 1) {
+      return;
+    }
+    setCurrentStep((state) => state - 1);
+  };
+
+  const handleClickNext = () => {
+    setCurrentStep((state) => state + 1);
+  };
+
+  function renderContent() {
+    switch (currentStep) {
+      case 1:
+        return <CreateProjectDetail />;
+
+      case 2:
+        return <MandatoryRequirements />;
+      case 3:
+        return <RegistrationForm />;
+      case 4:
+        return <CreateProjectEmail />;
+      default:
+        break;
+    }
   }
 
   return (
@@ -99,119 +81,14 @@ const CreateProject = () => {
           />
         ))}
       </div>
-      <div className="create-container__wrapper">
-        <div className="project-name">
-          <InputBase label="Project’s name" placeholder="Input text" />
-          <div className="project-name--field-id">
-            <span>ID: {generateUid()}</span>
-          </div>
-        </div>
-
-        <div className="project-timeline">
-          <label id="checkOneTime">
-            <div className="project-timeline--block">
-              <div className="project-timeline--block__title">
-                <IconClockCreatePJ />
-                One-time task
-              </div>
-              <input name="tickInputRadio" type="radio" id="checkOneTime" />
-            </div>
-          </label>
-          <label id="checkLongTerm">
-            <div className="project-timeline--block">
-              <div className="project-timeline--block__title">
-                <IconCalendarCreatePJ />
-                Long term task
-              </div>
-              <input name="tickInputRadio" type="radio" id="checkLongTerm" />
-            </div>
-          </label>
-        </div>
-
-        <div className="project-category">
-          <InputBase
-            listOption={listOption}
-            label="Project category"
-            placeholder="Select category"
-            onChange={(e) => {
-              setSelectedCategory(e.target.value);
-            }}
-          />
-          <div className="project-category--wrapper">
-            <div className="project-category--wrapper__columns">
-              {selectedCategory &&
-                selectedCategory !== "Crowd sourcing" &&
-                categoryCheckboxes[selectedCategory].map((checkbox) => (
-                  <Checkbox
-                    key={checkbox.id}
-                    size="sm"
-                    label={checkbox.label}
-                    classNameLabel="label-category"
-                  />
-                ))}
-            </div>
-          </div>
-        </div>
-
-        <div className="project-description">
-          <div className="project-description__title">
-            <span>Job description</span>
-            <HtmlEditor />
-          </div>
-        </div>
-
-        <div className="project-contract">
-          <div className="project-contract--contract-box">
-            <span className="project-contract--contract-box__title">
-              Contract for vendors
-            </span>
-            <Upload describe="PDF or Word. Max size of 500Mb" />
-            <div className="project-contract--contract-box--download">
-              <IconDownload />
-              <span className="txt">Download contract template</span>
-            </div>
-          </div>
-        </div>
-        <div className="project-upload">
-          <div className="project-upload--upload-box">
-            <span>
-              Upload all project-related docs here (for internal storage)
-            </span>
-            <div className="project-upload--upload-box__input">
-              <Upload describe="PDF or Word. Max size of 500Mb" />
-            </div>
-          </div>
-        </div>
-        <div className="project-upload">
-          <div className="project-upload--upload-box">
-            <span>
-              Upload Guideline (but only show for users who pass the test)
-            </span>
-            <div className="project-upload--upload-box__input">
-              <Upload describe="PDF or Word. Max size of 500Mb" />
-            </div>
-          </div>
-        </div>
-
-        <div className="project-rate">
-          <div className="project-rate__title">
-            <p>Rate Unit</p>
-            <span>Total amount the applier will see</span>
-          </div>
-          <div className="project-rate__price">
-            <InputBase placeholder="$20.00" />
-            <span>/task</span>
-          </div>
-        </div>
-      </div>
-
+      {renderContent()}
       <div className="footer">
-        <div className="footer--back">
+        <div className="footer--back" onClick={handleClickBack}>
           <IconBack />
           <span>Back</span>
         </div>
         <div className="footer--next">
-          <Button size="small" className="btn-next">
+          <Button size="small" className="btn-next" onClick={handleClickNext}>
             Next
             <IconNext />
           </Button>
