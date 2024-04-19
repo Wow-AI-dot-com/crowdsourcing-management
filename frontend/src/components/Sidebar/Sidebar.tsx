@@ -65,14 +65,6 @@ const sidebarItems: SidebarItem[] = [
         path: "/projects/form-template",
         label: SIDEBAR_ITEM_LABELS.FORM_TEMPLATE,
       },
-      {
-        path: "/projects/sent-email",
-        label: SIDEBAR_ITEM_LABELS.SENT_EMAIL,
-      },
-      {
-        path: "/projects/draft-email",
-        label: SIDEBAR_ITEM_LABELS.DRAFT_EMAIL,
-      },
     ],
   },
   {

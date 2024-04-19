@@ -1,12 +1,35 @@
 import InputBase from "@/components/InputBase/InputBase";
 import Upload from "@/components/Upload/Upload";
 import "./EnterInformation.scss";
-import Checkbox from "@/components/Checkbox/Checkbox";
 import { IconEditThick } from "@/assets/icons/Index";
 import { Link, useLocation } from "react-router-dom";
+import { useState } from "react";
+import RadioSimple from "@/components/RadioSimple";
+import Modal from "@/components/Modal/Modal";
+import { Document, Page, pdfjs } from "react-pdf";
+import pdf from "@/assets/documents/W-8BEN.pdf";
+import "react-pdf/dist/esm/Page/AnnotationLayer.css";
+import "react-pdf/dist/Page/TextLayer.css";
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
+
+const listAgree = [
+  { id: 1, name: "No" },
+  { id: 2, name: "Yes" },
+];
+const listAreYou = [
+  {
+    id: 1,
+    name: "A non-USA individual",
+  },
+  { id: 2, name: "USA individual/ entity" },
+  {
+    id: 3,
+    name: "Non-USA entity (only choose this if you have a valid tax ID)",
+  },
+];
 
 const listOption = [
-  { id: 1, name: "VietName" },
+  { id: 1, name: "VietNamese" },
   { id: 2, name: "US" },
 ];
 export interface TypeEnterInformation {
@@ -17,23 +40,22 @@ export default function EnterInformation({
 }: TypeEnterInformation) {
   const location = useLocation();
   const isMatchingUsers = location?.state?.isMatchingUser || false;
-  const listAgree = [
-    { id: 1, name: "No" },
-    { id: 2, name: "Yes" },
-  ];
-  const listAreYou = [
-    {
-      id: 1,
-      name: "A non-USA individual",
-    },
-    { id: 2, name: "USA individual/ entity" },
-    {
-      id: 3,
-      name: "Non-USA entity (only choose this if you have a valid tax ID)",
-    },
-  ];
+  const [taxId, setTaxId] = useState("");
+  const [showPdf, setShowPdf] = useState(false);
+
   return (
     <div className={`enter-information ${!isMatchingUsers ? "line" : ""}`}>
+      <Modal
+        open={showPdf}
+        title="W-8BEN Form"
+        onClose={() => setShowPdf(false)}
+        submitText="Send"
+        onSubmit={() => setShowPdf(false)}
+      >
+        <Document file={`http://localhost:8000/${pdf}`}>
+          <Page pageNumber={1} scale={1.5} />
+        </Document>
+      </Modal>
       <div className="body-profile">
         <div className="left">
           <InputBase label="Name" placeholder="Input text" />
@@ -56,19 +78,16 @@ export default function EnterInformation({
           ) : null}
 
           <div className={`are-you${isMatchingUsers ? "-hide" : ""}`}>
-            <div className="are-you-title">Are you:</div>
-            <div className="are-you-checkbox">
-              {listAreYou.map((m) => {
-                return (
-                  <div className="are-you-checkbox-item" key={m.id}>
-                    <Checkbox size="sm" />{" "}
-                    <div key={m.id} className="are-you-checkbox-item__name">
-                      {m.name}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
+            <RadioSimple
+              options={listAreYou}
+              label="Are you:"
+              value={taxId}
+              id="taxId"
+              onChange={(value) => {
+                setTaxId(value);
+                setShowPdf(true);
+              }}
+            />
           </div>
         </div>
         <div className="right">

@@ -51,6 +51,7 @@ export type QuestionType = {
   typeQuestion: string;
   options: OptionsType[];
   isRequired?: boolean;
+  isEdit: boolean;
 };
 
 type FormTemplate = {
@@ -78,6 +79,7 @@ const FormTemplateCreate = () => {
           id: randomString(),
           typeQuestion: "short-answer",
           options: [],
+          isEdit: true,
         };
         setTemplateForm((state) => ({
           ...state,
@@ -263,17 +265,36 @@ const FormTemplateCreate = () => {
     }));
   };
 
-  const updatePositionRightTool = (position: number, questionId: IdType) => {
+  const updatePositionRightTool = (
+    position: number,
+    questionId: IdType,
+    isDelete?: boolean
+  ) => {
     if (rightToolRef.current) {
       const isLastQuestion =
         templateForm.questions[templateForm.questions.length - 1].id ===
         questionId;
-      if (isLastQuestion) {
+      if (isLastQuestion && isDelete) {
         rightToolRef.current.style.top = "0px";
       } else {
         rightToolRef.current.style.top = `${position}px`;
       }
     }
+  };
+
+  const changeEditQuestion = (questionId: IdType, isEdit: boolean) => {
+    setTemplateForm((state) => ({
+      ...state,
+      questions: state.questions.map((question) => {
+        if (question.id === questionId && question.title !== "") {
+          return { ...question, isEdit };
+        }
+        if (question.title !== "" && question.isEdit) {
+          return { ...question, isEdit: false };
+        }
+        return question;
+      }),
+    }));
   };
 
   return (
@@ -286,6 +307,12 @@ const FormTemplateCreate = () => {
         description={templateForm.description}
         onchangeDescription={onchangeDescription}
         onchangeTitle={onChangeTitle}
+        onClick={() => {
+          if (rightToolRef.current) {
+            rightToolRef.current.style.top = "0px";
+          }
+          changeEditQuestion("", false);
+        }}
       />
 
       {templateForm.questions.map((question, index) => (
@@ -304,6 +331,7 @@ const FormTemplateCreate = () => {
           onDuplicateQuestion={onDuplicateQuestion}
           onChangeQuestionTitle={onChangeQuestionTitle}
           updatePositionRightTool={updatePositionRightTool}
+          changeEditQuestion={changeEditQuestion}
         />
       ))}
 
