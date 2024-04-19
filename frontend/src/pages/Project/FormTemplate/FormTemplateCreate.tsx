@@ -289,7 +289,7 @@ const FormTemplateCreate = () => {
         if (question.id === questionId && question.title !== "") {
           return { ...question, isEdit };
         }
-        if (question.title !== "") {
+        if (question.title !== "" && question.isEdit) {
           return { ...question, isEdit: false };
         }
         return question;
@@ -311,6 +311,7 @@ const FormTemplateCreate = () => {
           if (rightToolRef.current) {
             rightToolRef.current.style.top = "0px";
           }
+          changeEditQuestion("", false);
         }}
       />
 

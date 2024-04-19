@@ -42,7 +42,7 @@ export default function EnterInformation({
   const isMatchingUsers = location?.state?.isMatchingUser || false;
   const [taxId, setTaxId] = useState("");
   const [showPdf, setShowPdf] = useState(false);
-  console.log(pdf);
+
   return (
     <div className={`enter-information ${!isMatchingUsers ? "line" : ""}`}>
       <Modal

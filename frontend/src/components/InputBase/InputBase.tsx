@@ -137,7 +137,7 @@ const MemoizedInputBase: React.FC<TInputBaseProps> = ({
           >
             {listOption?.map((m) => {
               return (
-                <option value={m.name} key={m.id}>
+                <option value={m.id} key={m.id}>
                   {m.name}
                 </option>
               );

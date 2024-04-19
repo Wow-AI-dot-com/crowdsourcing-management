@@ -8,8 +8,6 @@ import CreateMultipleChoice from "./CreateMultipleChoice";
 import "./CreateQuestion.scss";
 import { QuestionType } from "./FormTemplateCreate";
 import { IdType } from "@/pages/Project/FormApply/apply";
-import useOnClickOutside from "@Hooks/useOnClickOutside";
-import { set } from "date-fns";
 
 const TYPE_QUESTION = [
   {
