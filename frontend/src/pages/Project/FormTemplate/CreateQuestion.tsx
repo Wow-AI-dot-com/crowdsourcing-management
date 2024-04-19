@@ -8,6 +8,8 @@ import CreateMultipleChoice from "./CreateMultipleChoice";
 import "./CreateQuestion.scss";
 import { QuestionType } from "./FormTemplateCreate";
 import { IdType } from "@/pages/Project/FormApply/apply";
+import useOnClickOutside from "@Hooks/useOnClickOutside";
+import { set } from "date-fns";
 
 const TYPE_QUESTION = [
   {
@@ -64,7 +66,12 @@ type CreateQuestionProps = {
   onChangeRequired: (questionId: IdType, checked: boolean) => void;
   onDuplicateQuestion: (questionId: IdType) => void;
   onChangeQuestionTitle: (questionId: IdType, e: string) => void;
-  updatePositionRightTool: (position: number, questionId: IdType) => void;
+  updatePositionRightTool: (
+    position: number,
+    questionId: IdType,
+    isDelete?: boolean
+  ) => void;
+  changeEditQuestion: (position: IdType, value: boolean) => void;
 };
 
 const CreateQuestion = ({
@@ -81,6 +88,7 @@ const CreateQuestion = ({
   title,
   onChangeQuestionTitle,
   updatePositionRightTool,
+  changeEditQuestion,
 }: CreateQuestionProps) => {
   const questionRef = React.useRef<HTMLDivElement>(null);
   const renderContentQuestion = () => {
@@ -118,6 +126,7 @@ const CreateQuestion = ({
               type="multiple-choice"
               questionId={question.id}
               onClick={() => getPositionOfQuestion()}
+              isEdit={question.isEdit}
             />
           </div>
         );
@@ -132,6 +141,7 @@ const CreateQuestion = ({
               type="checkbox"
               questionId={question.id}
               onClick={() => getPositionOfQuestion()}
+              isEdit={question.isEdit}
             />
           </div>
         );
@@ -146,6 +156,7 @@ const CreateQuestion = ({
               type="dropdown"
               questionId={question.id}
               onClick={() => getPositionOfQuestion()}
+              isEdit={question.isEdit}
             />
           </div>
         );
@@ -182,14 +193,24 @@ const CreateQuestion = ({
     }
   };
 
-  const getPositionOfQuestion = () => {
-    if (!questionRef?.current) {
-      updatePositionRightTool(0, question.id);
-      return;
-    }
-    updatePositionRightTool(questionRef.current.offsetTop, question.id);
-    return;
+  const getPositionOfQuestion = (isDelete?: boolean) => {
+    changeEditQuestion(question.id, true);
+    setTimeout(() => {
+      if (!questionRef?.current) {
+        updatePositionRightTool(0, question.id);
+        return;
+      }
+      updatePositionRightTool(
+        questionRef.current.offsetTop,
+        question.id,
+        isDelete
+      );
+    }, 100);
   };
+  // useOnClickOutside(
+  //   questionRef,
+  //   () => question.isEdit && changeEditQuestion(question.id, false)
+  // );
 
   return (
     <div
@@ -199,53 +220,65 @@ const CreateQuestion = ({
     >
       <div className="top-question">
         <div className="left-title-question">
-          <SimpleEditor
-            placeholder="Question title"
-            value={title}
-            onChange={(e) => {
-              onChangeQuestionTitle(question.id, e);
-              getPositionOfQuestion();
-            }}
-          />
+          {question.isEdit ? (
+            <SimpleEditor
+              placeholder="Question title"
+              value={title}
+              onChange={(e) => {
+                onChangeQuestionTitle(question.id, e);
+                getPositionOfQuestion();
+              }}
+            />
+          ) : (
+            <div dangerouslySetInnerHTML={{ __html: title }} />
+          )}
         </div>
-        <div className="right-title-question">
-          <div onClick={onAddImage} className="add-image">
-            <IconGalleryAdd />
+        {question.isEdit && (
+          <div className="right-title-question">
+            <div onClick={onAddImage} className="add-image">
+              <IconGalleryAdd />
+            </div>
+            <InputBase
+              listOption={TYPE_QUESTION}
+              onChange={(e) => {
+                onChangeTypeQuestion(question.id, e);
+                getPositionOfQuestion();
+              }}
+            />
           </div>
-          <InputBase
-            listOption={TYPE_QUESTION}
-            onChange={(e) => {
-              onChangeTypeQuestion(question.id, e);
-              getPositionOfQuestion();
-            }}
-          />
-        </div>
+        )}
       </div>
       <div className="content-question">{renderContentQuestion()}</div>
-      <div className="actions">
-        <div
-          className="action-item"
-          onClick={() => onDeleteQuestion(question.id)}
-        >
-          <IconDelete width={20} />
-        </div>
-        <div
-          className="action-item"
-          onClick={() => onDuplicateQuestion(question.id)}
-        >
-          <IconCopy width={20} />
-        </div>
-        <div className="action-item">
-          <Switch
-            label="Required"
-            checked={question.isRequired}
-            onChange={(checked) => {
-              onChangeRequired(question.id, checked);
-              getPositionOfQuestion();
+      {question.isEdit && (
+        <div className="actions">
+          <div
+            className="action-item"
+            onClick={(e) => {
+              e.stopPropagation();
+              onDeleteQuestion(question.id);
+              getPositionOfQuestion(true);
             }}
-          />
+          >
+            <IconDelete width={20} />
+          </div>
+          <div
+            className="action-item"
+            onClick={() => onDuplicateQuestion(question.id)}
+          >
+            <IconCopy width={20} />
+          </div>
+          <div className="action-item">
+            <Switch
+              label="Required"
+              checked={question.isRequired}
+              onChange={(checked) => {
+                onChangeRequired(question.id, checked);
+                getPositionOfQuestion();
+              }}
+            />
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

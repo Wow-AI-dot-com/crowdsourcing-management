@@ -7,6 +7,7 @@ type TitleProps = {
   onchangeTitle: (e: React.ChangeEvent<HTMLInputElement>) => void;
   description: string;
   onchangeDescription: (e: any) => void;
+  onClick: () => void;
 };
 
 const Title = ({
@@ -14,9 +15,10 @@ const Title = ({
   onchangeTitle,
   description,
   onchangeDescription,
+  onClick,
 }: TitleProps) => {
   return (
-    <div id="title-form-template">
+    <div id="title-form-template" onClick={onClick}>
       <div className="title">
         <input
           className="input-text"
@@ -35,6 +37,7 @@ const Title = ({
               target: { name: "description", value: text },
             })
           }
+          onClick={onClick}
         />
       </div>
     </div>

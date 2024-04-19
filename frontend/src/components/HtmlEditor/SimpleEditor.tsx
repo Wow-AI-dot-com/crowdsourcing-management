@@ -8,7 +8,12 @@ type SimpleEditorProps = {
   placeholder?: string;
   onClick?: () => void;
 };
-const SimpleEditor = ({ onChange, value, placeholder }: SimpleEditorProps) => {
+const SimpleEditor = ({
+  onChange,
+  value,
+  placeholder,
+  onClick,
+}: SimpleEditorProps) => {
   const content = React.useRef<string>(value ?? "");
 
   return (
@@ -53,6 +58,7 @@ const SimpleEditor = ({ onChange, value, placeholder }: SimpleEditorProps) => {
         onChange={(_, editor) => {
           onChange?.(editor.getContent());
         }}
+        onClick={onClick}
       />
     </div>
   );

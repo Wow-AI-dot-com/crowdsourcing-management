@@ -14,6 +14,7 @@ type CreateMultipleChoiceProps = {
   type: string;
   questionId: IdType;
   onClick: () => void;
+  isEdit: boolean;
 };
 
 const CreateMultipleChoice = ({
@@ -24,6 +25,7 @@ const CreateMultipleChoice = ({
   type,
   questionId,
   onClick,
+  isEdit,
 }: CreateMultipleChoiceProps) => {
   return (
     <div className="create-multiple-choice" onClick={onClick}>
@@ -41,18 +43,20 @@ const CreateMultipleChoice = ({
           type={type}
         />
       ))}
-      <div className="option">
-        <Button
-          iconPosition="right"
-          icon={<IconPlusEmailTemplate />}
-          type="secondary"
-          className="button"
-          onClick={() => addOption(questionId)}
-          size="small"
-        >
-          Add more option
-        </Button>
-      </div>
+      {isEdit && (
+        <div className="option">
+          <Button
+            iconPosition="right"
+            icon={<IconPlusEmailTemplate />}
+            type="secondary"
+            className="button"
+            onClick={() => addOption(questionId)}
+            size="small"
+          >
+            Add more option
+          </Button>
+        </div>
+      )}
     </div>
   );
 };
