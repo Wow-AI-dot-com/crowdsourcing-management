@@ -32,12 +32,17 @@ const listGender = [
 
 export default function MandatoryRequirements() {
   const [modalSelectLanguage, setModalSelectLanguage] = useState(false);
+  const [listLanguage, setListLanguage] = useState<string[]>([]);
+  const handleSubmit = (listActive: string[]) => {
+    setListLanguage(listActive);
+    setModalSelectLanguage(false);
+  };
   return (
     <div className="c-mandatory-requirements">
       <ModalSelectLanguage
         open={modalSelectLanguage}
         close={() => setModalSelectLanguage(false)}
-        submit={() => setModalSelectLanguage(false)}
+        submit={handleSubmit}
       />
       <div className="c-mandatory-requirements__body">
         <div className="c-mandatory-requirements__body-title">
@@ -45,20 +50,21 @@ export default function MandatoryRequirements() {
         </div>
         <div className="c-mandatory-requirements__body-top">
           <InputBase label="Location" placeholder="Type country code" />
-          <div className="input-pair">
-            <InputBase label="Language 1" placeholder="Type language code" />
-            <InputBase
-              label="Proficiency level"
-              listOption={proficiencyLevel}
-            />
-          </div>
-          <div className="input-pair">
-            <InputBase label="Language 2" placeholder="Type language code" />
-            <InputBase
-              label="Proficiency level"
-              listOption={proficiencyLevel}
-            />
-          </div>
+          {listLanguage.map((m) => {
+            return (
+              <div className="input-pair" key={m}>
+                <InputBase
+                  label={`Language ${listLanguage.indexOf(m) + 1}`}
+                  placeholder="Type language code"
+                  value={m}
+                />
+                <InputBase
+                  label="Proficiency level"
+                  listOption={proficiencyLevel}
+                />
+              </div>
+            );
+          })}
         </div>
         <div className="c-mandatory-requirements__body-bottom">
           <div>

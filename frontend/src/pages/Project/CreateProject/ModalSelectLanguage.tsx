@@ -12,19 +12,19 @@ const listLanguage = [
 export interface TypeModalSelectLanguage {
   open: boolean;
   close: () => void;
-  submit: () => void;
+  submit: (listActive: string[]) => void;
 }
 export default function ModalSelectLanguage({
   open,
   close,
   submit,
 }: TypeModalSelectLanguage) {
-  const [listActive, setListActive] = useState<number[]>([]);
-  const handleClickActive = (id: number) => {
-    if (listActive.find((f) => f === id) === undefined) {
-      setListActive((state) => [...state, id]);
+  const [listActive, setListActive] = useState<string[]>([]);
+  const handleClickActive = (name: string) => {
+    if (!listActive.includes(name)) {
+      setListActive((state) => [...state, name]);
     } else {
-      setListActive(listActive.filter((f) => f !== id));
+      setListActive(listActive.filter((f) => f !== name));
     }
   };
 
@@ -33,7 +33,7 @@ export default function ModalSelectLanguage({
       open={open}
       title="Languages"
       onClose={close}
-      onSubmit={submit}
+      onSubmit={() => submit(listActive)}
       submitText="Submit"
       className="modal-select-language"
     >
@@ -42,9 +42,9 @@ export default function ModalSelectLanguage({
           return (
             <div
               className={`c-modal-select-language__item${
-                listActive.includes(m.id) ? "-active" : ""
+                listActive.includes(m.name) ? "-active" : ""
               }`}
-              onClick={() => handleClickActive(m.id)}
+              onClick={() => handleClickActive(m.name)}
               key={m.id}
             >
               {m.name}

@@ -55,7 +55,6 @@ const CreateProject = () => {
     switch (currentStep) {
       case 1:
         return <CreateProjectDetail />;
-
       case 2:
         return <MandatoryRequirements />;
       case 3:
