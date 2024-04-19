@@ -5,11 +5,11 @@ import Upload from "@/components/Upload/Upload";
 import { useLocation } from "react-router-dom";
 
 export type TProfileForm = {
-    isMatchingUserScreen?: boolean;
-}
-export default function ProfileForm({ isMatchingUserScreen }: TProfileForm ) {
+  isMatchingUserScreen?: boolean;
+};
+export default function ProfileForm({ isMatchingUserScreen }: TProfileForm) {
   const listOption = [
-    { id: 1, name: "VietName" },
+    { id: 1, name: "VietNamese" },
     { id: 2, name: "US" },
   ];
 
@@ -51,8 +51,8 @@ export default function ProfileForm({ isMatchingUserScreen }: TProfileForm ) {
             </div>
           </div>
         </div>
-          </div>
-          
+      </div>
+
       {!isMatchingUserScreen && (
         <div
           style={{

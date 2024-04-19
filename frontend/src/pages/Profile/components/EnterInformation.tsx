@@ -5,6 +5,12 @@ import { IconEditThick } from "@/assets/icons/Index";
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import RadioSimple from "@/components/RadioSimple";
+import Modal from "@/components/Modal/Modal";
+import { Document, Page, pdfjs } from "react-pdf";
+import pdf from "@/assets/documents/W-8BEN.pdf";
+import "react-pdf/dist/esm/Page/AnnotationLayer.css";
+import "react-pdf/dist/Page/TextLayer.css";
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
 const listAgree = [
   { id: 1, name: "No" },
@@ -23,7 +29,7 @@ const listAreYou = [
 ];
 
 const listOption = [
-  { id: 1, name: "VietName" },
+  { id: 1, name: "VietNamese" },
   { id: 2, name: "US" },
 ];
 export interface TypeEnterInformation {
@@ -36,9 +42,20 @@ export default function EnterInformation({
   const isMatchingUsers = location?.state?.isMatchingUser || false;
   const [taxId, setTaxId] = useState("");
   const [showPdf, setShowPdf] = useState(false);
-
+  console.log(pdf);
   return (
     <div className={`enter-information ${!isMatchingUsers ? "line" : ""}`}>
+      <Modal
+        open={showPdf}
+        title="W-8BEN Form"
+        onClose={() => setShowPdf(false)}
+        submitText="Send"
+        onSubmit={() => setShowPdf(false)}
+      >
+        <Document file={`http://localhost:8000/${pdf}`}>
+          <Page pageNumber={1} scale={1.5} />
+        </Document>
+      </Modal>
       <div className="body-profile">
         <div className="left">
           <InputBase label="Name" placeholder="Input text" />

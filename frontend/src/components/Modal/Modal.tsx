@@ -1,4 +1,10 @@
-import React, { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import React, {
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { createPortal } from "react-dom";
 import { IconClear } from "@Assets/icons/Index";
 import Button, { TButtonProps } from "../Button/Button";
@@ -46,7 +52,7 @@ const Modal: React.FC<TModalProps> = ({
   const contentRef = useRef<HTMLDivElement | null>(null);
   const cancelBtnRef = useRef<HTMLDivElement | null>(null);
   const [hasScrollbar, setHasScrollbar] = useState(false);
-  
+
   const handleClose = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     const targetTagName = (event.target as HTMLElement)?.tagName.toLowerCase();
     if (targetTagName !== "button" && !closeOnOverlayClick) {
