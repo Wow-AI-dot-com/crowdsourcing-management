@@ -80,7 +80,12 @@ export default function ProjectDetail() {
                 Apply
               </Button>
             ) : param.type === "applied" ? (
-              <Button type="hot" size="small" onClick={clickBtnCancel}>
+              <Button
+                type="hot"
+                size="small"
+                className="header__btn--cancel"
+                onClick={clickBtnCancel}
+              >
                 Cancel
               </Button>
             ) : (

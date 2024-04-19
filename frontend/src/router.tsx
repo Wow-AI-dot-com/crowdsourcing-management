@@ -34,6 +34,7 @@ import MyProjects from "./pages/MatchingUsers/MyProjectsUser";
 import MyProjectsUser from "./pages/MatchingUsers/MyProjectsUser";
 import CrowdPool from "./pages/CrowdPool/CrowdPool";
 import Invoices from "@Pages/Invoices";
+import ProjectDocuments from "./pages/Project/ProjectDocuments";
 
 const Providers = composeProviders([
   { provider: LoaderProvider },
@@ -114,6 +115,11 @@ const router = createBrowserRouter(
         <Route
           path="/projects/create"
           element={<CreateProject />}
+          handle={{ title: "Create a new project" }}
+        />
+        <Route
+          path="/projects/completed-project"
+          element={<ProjectDocuments />}
           handle={{ title: "Create a new project" }}
         />
         <Route

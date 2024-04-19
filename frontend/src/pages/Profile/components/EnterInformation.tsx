@@ -60,7 +60,7 @@ export default function EnterInformation({
             <div className="are-you-checkbox">
               {listAreYou.map((m) => {
                 return (
-                  <div className="are-you-checkbox-item">
+                  <div className="are-you-checkbox-item" key={m.id}>
                     <Checkbox size="sm" />{" "}
                     <div key={m.id} className="are-you-checkbox-item__name">
                       {m.name}

@@ -27,6 +27,7 @@ export const SIDEBAR_ITEM_LABELS = {
   USER_LISTING: "User Listing",
   TAB_FILE: "Tab file",
   CROWD_POOL: "Crowd pool",
+  COMPLETED_PROJECT: "Completed projects",
 
   // bot sidebar
   ADMIN: "Admin",

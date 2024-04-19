@@ -37,6 +37,7 @@ export default function MoreActionDetail({
           {listItemDetail.map((m) => {
             return (
               <div
+                key={m.id}
                 className="m-action-detail__item"
                 onClick={() => {
                   onClick(m.id);

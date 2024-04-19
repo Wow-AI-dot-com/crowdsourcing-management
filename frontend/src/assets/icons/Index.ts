@@ -72,6 +72,10 @@ import IconBitCoin from "./IconBitCoin";
 import IconQR from "./IconQR";
 import IconEditThick from "./IconEditThick";
 import IconBell from "./IconBell";
+import IconFolderProjectDocuments from "./IconFolderProjectDocuments";
+import IconFileProjectDocuments from "./IconFileProjectDocuments";
+import IconImageProjectDocuments from "./IconImageProjectDocuments";
+import IconBack from "./IconBack";
 
 export {
   IconClear,
@@ -149,4 +153,8 @@ export {
   IconQR,
   IconEditThick,
   IconBell,
+  IconFolderProjectDocuments,
+  IconFileProjectDocuments,
+  IconImageProjectDocuments,
+  IconBack,
 };
