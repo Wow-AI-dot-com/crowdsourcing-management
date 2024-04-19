@@ -8,11 +8,21 @@ import Modal from "@/components/Modal/Modal";
 import InputBase from "@/components/InputBase/InputBase";
 import ConfirmModal from "@/components/Modal/ConfirmModal";
 import ConfirmSwitch from "./components/ConfirmSwitch";
+import { useUserLayout } from "@/layouts/UserLayout";
 
 const ProfileSettings = () => {
   const [isChangePassword, setIsChangePassword] = useState(false);
   const [isConfirmDelete, setIsConfirmDelete] = useState(false);
   const [isSwitch, setIsSwitch] = useState(false);
+  const userLayout = useUserLayout();
+  React.useEffect(() => {
+    userLayout.setBreadcrumbs([{ label: "Setting" }]);
+
+    return () => {
+      userLayout.clearBreadcrumbs();
+    };
+  }, [userLayout]);
+
   const clickRemoveDelete = () => {
     console.log("object");
   };

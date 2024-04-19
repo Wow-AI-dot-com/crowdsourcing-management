@@ -6,9 +6,19 @@ import Button from "@/components/Button/Button";
 import IconPlusProfileTranslation from "@/assets/icons/IconPlusProfileTranslation";
 import ConfirmModal from "@/components/Modal/ConfirmModal";
 import Switch from "@/components/Switch/Switch";
+import { useUserLayout } from "@/layouts/UserLayout";
 
 const ProfileTranslation = () => {
   const [isConfirm, setIsConFirm] = useState(false);
+  const userLayout = useUserLayout();
+  React.useEffect(() => {
+    userLayout.setBreadcrumbs([{ label: "Personal Infomation" }]);
+
+    return () => {
+      userLayout.clearBreadcrumbs();
+    };
+  }, [userLayout]);
+
   const clickRemove = () => {
     console.log("object");
   };

@@ -1,7 +1,7 @@
 import Checkbox from "@/components/Checkbox/Checkbox";
 import "./MatchingUsers.scss";
 import Pagination from "@/components/Pagination/Pagination";
-import { useState } from "react";
+import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Modal from "@/components/Modal/Modal";
 import InputBase from "@/components/InputBase/InputBase";
@@ -18,6 +18,7 @@ import {
   IconSearch,
   IconWarningModal,
 } from "@Assets/icons/Index";
+import { useUserLayout } from "@/layouts/UserLayout";
 
 const MatchingUsers = () => {
   const [isOpenLanguage, setIsOpenLanguage] = useState(false);
@@ -25,6 +26,16 @@ const MatchingUsers = () => {
   const [selectedUsers, setSelectedUsers] = useState<number[]>([]);
   const [modalInvite, setModalInvite] = useState(false);
   const [modalConfirmInviteAll, setModalConfirmInviteAll] = useState(false);
+
+  const userLayout = useUserLayout();
+  React.useEffect(() => {
+    userLayout.setBreadcrumbs([{ label: "Matching Users" }]);
+
+    return () => {
+      userLayout.clearBreadcrumbs();
+    };
+  }, [userLayout]);
+
   const navigate = useNavigate();
   const path = useLocation().pathname;
 

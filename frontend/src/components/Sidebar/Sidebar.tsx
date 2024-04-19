@@ -42,7 +42,7 @@ const sidebarItems: SidebarItem[] = [
         label: SIDEBAR_ITEM_LABELS.PROJECT_AVAILABLE,
       },
       {
-        path: "/projects/my-project",
+        path: "/projects/my-projects",
         label: SIDEBAR_ITEM_LABELS.PROJECT_MY_PROJECT,
       },
       {

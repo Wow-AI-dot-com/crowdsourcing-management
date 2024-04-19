@@ -5,6 +5,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import IconPlusEmailTemplate from "@/assets/icons/IconPlusEmailTemplate";
 import AlertSuccessful from "../../components/Alert/AlertSuccessful";
 import ProjectTemplateFormItem from "./components/ProjectTemplateFormItem";
+import { useUserLayout } from "@/layouts/UserLayout";
 
 const LIST_FORM_TEMPLATE = [
   { name: "Form template name 1", createdDate: "2021-09-01", id: 1 },
@@ -14,6 +15,14 @@ const LIST_FORM_TEMPLATE = [
 
 export default function ProjectFormTemplate() {
   const navigate = useNavigate();
+  const userLayout = useUserLayout();
+  React.useEffect(() => {
+    userLayout.setBreadcrumbs([{ label: "Form Template" }]);
+
+    return () => {
+      userLayout.clearBreadcrumbs();
+    };
+  }, [userLayout]);
   const path = useLocation().pathname;
   const [isAlertSuccess, setIsAlertSuccess] = useState(false);
   const [isAlertSave, setIsAlertSave] = useState(false);

@@ -1,0 +1,26 @@
+.modal-select-language {
+  min-width: 450px;
+}
+.c-modal-select-language__body {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  .c-modal-select-language__item {
+    cursor: pointer;
+    border: 1px solid var(--main-line);
+    border-radius: var(--radius-rounded-xxl);
+    padding: var(--padding-p-2) var(--padding-p-3);
+    &-active {
+      cursor: pointer;
+      border: 1px solid var(--main-line);
+      border-radius: var(--radius-rounded-xxl);
+      padding: var(--padding-p-2) var(--padding-p-3);
+      color: var(--button-normal);
+      border: 1px solid var(--button-normal);
+    }
+    &:hover {
+      color: var(--button-normal);
+      border: 1px solid var(--button-normal);
+    }
+  }
+}

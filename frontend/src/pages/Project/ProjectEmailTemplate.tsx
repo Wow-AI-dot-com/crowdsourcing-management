@@ -14,10 +14,20 @@ import Dropdown from "@/components/Dropdown/Dropdown";
 import IconApproveEmail from "@/assets/icons/IconApproveEmail";
 import AlertSuccessful from "../../components/Alert/AlertSuccessful";
 import ItemEmailTemplate from "./ItemEmailTemplate/ItemEmailTemplate";
+import { useUserLayout } from "@/layouts/UserLayout";
 export default function ProjectEmailTemplate() {
   const [isFormCreate, setIsFormCreate] = useState(false);
   const [isAlertSuccess, setIsAlertSuccess] = useState(false);
   const [isAlertSave, setIsAlertSave] = useState(false);
+  const [status, setStatus] = useState<boolean | undefined>();
+  const userLayout = useUserLayout();
+  React.useEffect(() => {
+    userLayout.setBreadcrumbs([{ label: "Email Template" }]);
+
+    return () => {
+      userLayout.clearBreadcrumbs();
+    };
+  }, [userLayout]);
 
   const clickTrash = () => {
     setIsAlertSuccess(true);
@@ -25,6 +35,14 @@ export default function ProjectEmailTemplate() {
   const clickBtnModal = () => {
     setIsFormCreate(false);
     setIsAlertSave(true);
+  };
+  const handleEditEmail = () => {
+    setIsFormCreate(true);
+    setStatus(true);
+  };
+  const handleAddMoreEmail = () => {
+    setStatus(false);
+    setIsFormCreate(true);
   };
   return (
     <div className="p-email-template">
@@ -64,7 +82,7 @@ export default function ProjectEmailTemplate() {
           </div>
           <div className="btn-modal-email-template">
             <Button className="btn" onClick={clickBtnModal}>
-              Save
+              {status ? "Save" : "Add"}
             </Button>
           </div>
         </div>
@@ -83,7 +101,7 @@ export default function ProjectEmailTemplate() {
         subject="Reaching Out"
         name="sdfasd"
         content="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum..."
-        clickIconEdit={() => setIsFormCreate(true)}
+        clickIconEdit={handleEditEmail}
         clickIconTrash={clickTrash}
       />
 
@@ -93,7 +111,7 @@ export default function ProjectEmailTemplate() {
           icon={<IconPlusEmailTemplate />}
           type="secondary"
           className="button"
-          onClick={() => setIsFormCreate(true)}
+          onClick={handleAddMoreEmail}
         >
           Add more email
         </Button>

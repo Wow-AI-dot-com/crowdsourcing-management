@@ -6,6 +6,7 @@ import "./UserListing.scss";
 import Modal from "@/components/Modal/Modal";
 import InputBase from "@/components/InputBase/InputBase";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useUserLayout } from "@/layouts/UserLayout";
 
 const arrayListItemUser = [
   {
@@ -48,6 +49,15 @@ const arrayListItemUser = [
 
 export default function UserListing() {
   const navigate = useNavigate();
+  const userLayout = useUserLayout();
+  React.useEffect(() => {
+    userLayout.setBreadcrumbs([{ label: "WorkSheet" }]);
+
+    return () => {
+      userLayout.clearBreadcrumbs();
+    };
+  }, [userLayout]);
+
   const path = useLocation().pathname;
   const [modalCreate, setModalCreate] = useState(false);
   const arrListSelect = [

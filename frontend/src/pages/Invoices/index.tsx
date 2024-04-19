@@ -4,6 +4,7 @@ import Table from "@/components/Table/Table";
 import Button from "@/components/Button/Button";
 import IconPlusEmailTemplate from "@/assets/icons/IconPlusEmailTemplate";
 import ModalInvoices from "./components/ModalInvoices";
+import { useUserLayout } from "@/layouts/UserLayout";
 
 const FAKE_DATA = [
   {
@@ -74,6 +75,15 @@ const columns = [
   },
 ];
 const Invoices = () => {
+  const userLayout = useUserLayout();
+  React.useEffect(() => {
+    userLayout.setBreadcrumbs([{ label: "Invoices" }]);
+
+    return () => {
+      userLayout.clearBreadcrumbs();
+    };
+  }, [userLayout]);
+
   const [modalInvoices, setModalInvoices] = useState(false);
   const modalInvoicesSubmit = () => {
     console.log("object");

@@ -5,6 +5,7 @@ import { ProjectType } from "./Filter/ProjectType";
 import "./ProjectList.scss";
 import ProjectItem from "./ProjectItem";
 import { useNavigate, useParams } from "react-router-dom";
+import ListItemTypeProject from "./ListItemTypeProject/ListItemTypeProject";
 const FAKE_PROJECTS = [
   {
     id: 1,
@@ -50,11 +51,17 @@ const FAKE_PROJECTS = [
     price: "0.01 per task",
   },
 ];
+
+const ListNameItemProject = [
+  { id: "available", name: "Available" },
+  { id: "applied", name: "Applied" },
+  { id: "my-projects", name: "My Projects" },
+];
+
 const ProjectList = ({ isProjectsUser = false }) => {
   const userLayout = useUserLayout();
   const navigate = useNavigate();
   const params = useParams();
-  console.log(params);
 
   React.useEffect(() => {
     userLayout.setBreadcrumbs([{ label: "Projects" }]);
@@ -68,10 +75,21 @@ const ProjectList = ({ isProjectsUser = false }) => {
     navigate(`/projects/${params.type}/${id}`);
   };
 
+  const clickActive = (type: string) => {
+    navigate(
+      `${isProjectsUser ? "/matching-users/my-projects/" : "/projects/"}${type}`
+    );
+  };
+
   return (
     <div className="containerProjectList">
       <div className="headerProject">
-        <ProjectType isProjectsUser={isProjectsUser} />
+        <ProjectType
+          active={params.type}
+          isProjectsUser={isProjectsUser}
+          ListItemName={ListNameItemProject}
+          clickActive={(type) => clickActive(type)}
+        />
         <ProjectAttribute />
       </div>
       <div className="listItemProject">

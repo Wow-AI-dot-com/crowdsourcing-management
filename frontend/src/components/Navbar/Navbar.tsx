@@ -15,6 +15,7 @@ import {
   IconBook,
   IconEdit,
   IconClose,
+  IconBell,
 } from "@Assets/icons/Index";
 // import { any } from "../../layouts/UserLayout";
 import Breadcrumbs from "../Breadcrumbs/Breadcrumbs";
@@ -184,13 +185,11 @@ const MemoizedNavbar = (props: TProps) => {
           {!isLayoutEmpty && (
             <div className="c-navbar__actions">
               <Button
-                className="c-navbar__icon-book"
+                className="c-navbar__icon-bell"
                 type="secondary"
-                icon={<IconBook />}
+                icon={<IconBell />}
                 onClick={() => navigate("/document")}
-              >
-                Tutorial
-              </Button>
+              ></Button>
               {props.actions && props.actions.length > 0 && (
                 <ul className="c-navbar__actions-items">
                   <NavbarActions data={props.actions} />
