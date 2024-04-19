@@ -1,9 +1,26 @@
 import InputBase from "@/components/InputBase/InputBase";
 import Upload from "@/components/Upload/Upload";
 import "./EnterInformation.scss";
-import Checkbox from "@/components/Checkbox/Checkbox";
 import { IconEditThick } from "@/assets/icons/Index";
 import { Link, useLocation } from "react-router-dom";
+import { useState } from "react";
+import RadioSimple from "@/components/RadioSimple";
+
+const listAgree = [
+  { id: 1, name: "No" },
+  { id: 2, name: "Yes" },
+];
+const listAreYou = [
+  {
+    id: 1,
+    name: "A non-USA individual",
+  },
+  { id: 2, name: "USA individual/ entity" },
+  {
+    id: 3,
+    name: "Non-USA entity (only choose this if you have a valid tax ID)",
+  },
+];
 
 const listOption = [
   { id: 1, name: "VietName" },
@@ -17,21 +34,9 @@ export default function EnterInformation({
 }: TypeEnterInformation) {
   const location = useLocation();
   const isMatchingUsers = location?.state?.isMatchingUser || false;
-  const listAgree = [
-    { id: 1, name: "No" },
-    { id: 2, name: "Yes" },
-  ];
-  const listAreYou = [
-    {
-      id: 1,
-      name: "A non-USA individual",
-    },
-    { id: 2, name: "USA individual/ entity" },
-    {
-      id: 3,
-      name: "Non-USA entity (only choose this if you have a valid tax ID)",
-    },
-  ];
+  const [taxId, setTaxId] = useState("");
+  const [showPdf, setShowPdf] = useState(false);
+
   return (
     <div className={`enter-information ${!isMatchingUsers ? "line" : ""}`}>
       <div className="body-profile">
@@ -56,19 +61,16 @@ export default function EnterInformation({
           ) : null}
 
           <div className={`are-you${isMatchingUsers ? "-hide" : ""}`}>
-            <div className="are-you-title">Are you:</div>
-            <div className="are-you-checkbox">
-              {listAreYou.map((m) => {
-                return (
-                  <div className="are-you-checkbox-item">
-                    <Checkbox size="sm" />{" "}
-                    <div key={m.id} className="are-you-checkbox-item__name">
-                      {m.name}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
+            <RadioSimple
+              options={listAreYou}
+              label="Are you:"
+              value={taxId}
+              id="taxId"
+              onChange={(value) => {
+                setTaxId(value);
+                setShowPdf(true);
+              }}
+            />
           </div>
         </div>
         <div className="right">
