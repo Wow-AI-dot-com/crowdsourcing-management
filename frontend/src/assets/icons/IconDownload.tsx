@@ -73,7 +73,7 @@ const IconDownload: React.FC<TSvg> = ({ ...props }) => {
         rx="190"
         stroke="#14142A"
         strokeWidth="20"
-        stroke-dasharray="40 40"
+        strokeDasharray="40 40"
       />
       <defs>
         <filter

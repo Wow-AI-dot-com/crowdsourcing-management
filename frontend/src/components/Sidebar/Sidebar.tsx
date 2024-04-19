@@ -54,6 +54,10 @@ const sidebarItems: SidebarItem[] = [
         label: SIDEBAR_ITEM_LABELS.CREATE_PROJECT,
       },
       {
+        path: "/projects/completed-project",
+        label: SIDEBAR_ITEM_LABELS.COMPLETED_PROJECT,
+      },
+      {
         path: "/projects/email-template",
         label: SIDEBAR_ITEM_LABELS.EMAIL_TEMPLATE,
       },

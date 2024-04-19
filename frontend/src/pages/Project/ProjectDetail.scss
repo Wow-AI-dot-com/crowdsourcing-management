@@ -46,7 +46,9 @@
         color: var(--Button-normal, #5050ff);
       }
       .header__btn--cancel {
-        color: red;
+        color: var(--color-base-dangerous);
+        background-color: transparent;
+        border: 1px solid var(--color-base-dangerous);
       }
       .alert {
         top: 10px;
