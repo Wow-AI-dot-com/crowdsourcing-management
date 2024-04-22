@@ -98,7 +98,10 @@ const FAKE_DATA = [
 export default function ProjectDocuments() {
   const userLayout = useUserLayout();
   React.useEffect(() => {
-    userLayout.setBreadcrumbs([{ label: "Compleyed Projects" }]);
+    userLayout.setBreadcrumbs([
+      { label: "Compleyed Projects" },
+      { label: "Project Documents" },
+    ]);
 
     return () => {
       userLayout.clearBreadcrumbs();

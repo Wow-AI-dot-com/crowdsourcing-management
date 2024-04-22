@@ -191,6 +191,14 @@
     background: var(--main-line);
   }
 
+  &__breadcrumbs {
+    &-items {
+      .c-navbar__breadcrumbs-item:not(:first-child) {
+        color: var(--button-normal);
+      }
+    }
+  }
+
   &__icon {
     &-edit,
     &-hamburger {
