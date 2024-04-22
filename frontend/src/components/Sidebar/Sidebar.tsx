@@ -54,7 +54,7 @@ const sidebarItems: SidebarItem[] = [
         label: SIDEBAR_ITEM_LABELS.CREATE_PROJECT,
       },
       {
-        path: "/projects/completed-project",
+        path: "/projects/completed",
         label: SIDEBAR_ITEM_LABELS.COMPLETED_PROJECT,
       },
       {

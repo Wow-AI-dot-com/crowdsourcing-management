@@ -118,11 +118,6 @@ const router = createBrowserRouter(
           handle={{ title: "Create a new project" }}
         />
         <Route
-          path="/projects/completed-project"
-          element={<ProjectDocuments />}
-          handle={{ title: "Create a new project" }}
-        />
-        <Route
           path="/projects/email-template"
           element={<ProjectEmailTemplate />}
           handle={{ title: "Projects" }}
@@ -149,6 +144,11 @@ const router = createBrowserRouter(
           path="/projects/:type/:projectId"
           element={<ProjectDetail />}
           handle={{ title: "Projects" }}
+        />
+        <Route
+          path="/projects/:type/:projectId/documents"
+          element={<ProjectDocuments />}
+          handle={{ title: "Create a new project" }}
         />
         {/* profile */}
         <Route

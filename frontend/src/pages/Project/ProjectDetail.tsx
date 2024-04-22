@@ -4,7 +4,7 @@ import IconPrice from "@/assets/icons/IconPrice";
 import Button from "@/components/Button/Button";
 import Apply from "@Pages//Project/FormApply/apply";
 import SignConsent from "./FormSignConsent/SignConsent";
-import { useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import ConfirmModal from "@/components/Modal/ConfirmModal";
 import AlertSuccessful from "../../components/Alert/AlertSuccessful";
 import AssetLabel from "./AssetLabel";
@@ -17,6 +17,8 @@ export default function ProjectDetail() {
   const [alertSuccessful, setAlertSuccessful] = useState(false);
   const [addPayment, setAddPayment] = useState(false);
   const param = useParams();
+  const navigate = useNavigate();
+  const pathName = useLocation().pathname;
 
   const clickBtnApply = () => {
     setFormApply(true);
@@ -40,6 +42,62 @@ export default function ProjectDetail() {
 
   const addPaymentSubmit = () => {
     console.log("object");
+  };
+
+  const renderButtons = () => {
+    switch (param.type) {
+      case "available":
+        return (
+          <Button
+            type="secondary"
+            size="small"
+            className="header__btn--apply"
+            onClick={clickBtnApply}
+          >
+            Apply
+          </Button>
+        );
+      case "applied":
+        return (
+          <Button
+            type="hot"
+            size="small"
+            className="header__btn--cancel"
+            onClick={clickBtnCancel}
+          >
+            Cancel
+          </Button>
+        );
+      case "guideline":
+        return (
+          <Button size="small" onClick={clickBtnCancel}>
+            Guideline
+          </Button>
+        );
+
+      case "my-projects":
+        return (
+          <Button
+            size="small"
+            onClick={() => navigate(`${pathName}/guideline`)}
+          >
+            Guideline
+          </Button>
+        );
+
+      case "completed":
+        return (
+          <Button
+            size="small"
+            onClick={() => navigate(`${pathName}/documents`)}
+          >
+            Documents
+          </Button>
+        );
+
+      default:
+        break;
+    }
   };
 
   return (
@@ -70,29 +128,7 @@ export default function ProjectDetail() {
               <IconPrice />
               36.15 cents/task
             </div>
-            {param.type === "available" ? (
-              <Button
-                type="secondary"
-                size="small"
-                className="header__btn--apply"
-                onClick={clickBtnApply}
-              >
-                Apply
-              </Button>
-            ) : param.type === "applied" ? (
-              <Button
-                type="hot"
-                size="small"
-                className="header__btn--cancel"
-                onClick={clickBtnCancel}
-              >
-                Cancel
-              </Button>
-            ) : (
-              <Button size="small" onClick={clickBtnCancel}>
-                Guideline
-              </Button>
-            )}
+            {renderButtons()}
           </div>
         </div>
         <div>

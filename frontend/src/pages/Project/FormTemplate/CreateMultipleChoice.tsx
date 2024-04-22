@@ -5,6 +5,7 @@ import { IconPlusEmailTemplate } from "@/assets/icons/Index";
 import Button from "@/components/Button/Button";
 import CreateOption from "./CreateOption";
 import { IdType } from "@/pages/Project/FormApply/apply";
+import InputBase from "@/components/InputBase/InputBase";
 
 type CreateMultipleChoiceProps = {
   options: OptionsType[];
@@ -29,20 +30,25 @@ const CreateMultipleChoice = ({
 }: CreateMultipleChoiceProps) => {
   return (
     <div className="create-multiple-choice" onClick={onClick}>
-      {options.map((option, index) => (
-        <CreateOption
-          key={option.id}
-          option={option}
-          removeOption={(optionId) => removeOption(questionId, optionId)}
-          onUpdateOption={(name: string, optionId: IdType) =>
-            onUpdateOption(questionId, name, optionId)
-          }
-          showDelete={options.length > 1}
-          index={index}
-          options={options}
-          type={type}
-        />
-      ))}
+      {!isEdit ? (
+        <InputBase listOption={options} />
+      ) : (
+        options.map((option, index) => (
+          <CreateOption
+            key={option.id}
+            option={option}
+            removeOption={(optionId) => removeOption(questionId, optionId)}
+            onUpdateOption={(name: string, optionId: IdType) =>
+              onUpdateOption(questionId, name, optionId)
+            }
+            showDelete={options.length > 1}
+            index={index}
+            options={options}
+            type={type}
+          />
+        ))
+      )}
+
       {isEdit && (
         <div className="option">
           <Button
