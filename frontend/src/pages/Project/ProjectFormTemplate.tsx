@@ -17,7 +17,10 @@ export default function ProjectFormTemplate() {
   const navigate = useNavigate();
   const userLayout = useUserLayout();
   React.useEffect(() => {
-    userLayout.setBreadcrumbs([{ label: "Form Template" }]);
+    userLayout.setBreadcrumbs([
+      { label: "Projects" },
+      { label: "Form Template" },
+    ]);
 
     return () => {
       userLayout.clearBreadcrumbs();

@@ -16,7 +16,7 @@ const ProfileSettings = () => {
   const [isSwitch, setIsSwitch] = useState(false);
   const userLayout = useUserLayout();
   React.useEffect(() => {
-    userLayout.setBreadcrumbs([{ label: "Setting" }]);
+    userLayout.setBreadcrumbs([{ label: "Profile" }, { label: "Setting" }]);
 
     return () => {
       userLayout.clearBreadcrumbs();

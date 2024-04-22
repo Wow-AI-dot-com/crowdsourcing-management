@@ -2,7 +2,7 @@ import "./Profile.scss";
 import Button from "@/components/Button/Button";
 import Information from "./components/Information";
 import EnterInformation from "./components/EnterInformation";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useUserLayout } from "@/layouts/UserLayout";
 import React from "react";
 
@@ -10,13 +10,29 @@ export default function Profile() {
   const location = useLocation();
   const isMatchingUserScreen = location?.state?.isMatchingUser || false;
   const userLayout = useUserLayout();
+  const param = useParams();
+  const navigate = useNavigate();
   React.useEffect(() => {
-    userLayout.setBreadcrumbs([{ label: "Personal Infomation" }]);
+    switch (location.pathname) {
+      case "/profile/information":
+        return userLayout.setBreadcrumbs([
+          { label: "Profile" },
+          { label: "My Profile" },
+        ]);
+      case "/matching-users/user/" + param.id:
+        return userLayout.setBreadcrumbs([
+          {
+            label: "Matching users",
+            onClick: () => navigate("/matching-users"),
+          },
+          { label: "Profile" },
+        ]);
+    }
 
     return () => {
       userLayout.clearBreadcrumbs();
     };
-  }, [userLayout]);
+  }, [userLayout, location.pathname, param.id, navigate]);
   return (
     <div className="c-profile">
       <Information

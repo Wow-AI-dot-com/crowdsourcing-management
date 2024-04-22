@@ -15,19 +15,27 @@ import IconApproveEmail from "@/assets/icons/IconApproveEmail";
 import AlertSuccessful from "../../components/Alert/AlertSuccessful";
 import ItemEmailTemplate from "./ItemEmailTemplate/ItemEmailTemplate";
 import { useUserLayout } from "@/layouts/UserLayout";
+import { useLocation } from "react-router-dom";
 export default function ProjectEmailTemplate() {
   const [isFormCreate, setIsFormCreate] = useState(false);
   const [isAlertSuccess, setIsAlertSuccess] = useState(false);
   const [isAlertSave, setIsAlertSave] = useState(false);
   const [status, setStatus] = useState<boolean | undefined>();
   const userLayout = useUserLayout();
+  const location = useLocation();
   React.useEffect(() => {
-    userLayout.setBreadcrumbs([{ label: "Email Template" }]);
-
-    return () => {
-      userLayout.clearBreadcrumbs();
-    };
-  }, [userLayout]);
+    if (location.pathname === "/projects/create") {
+      userLayout.setBreadcrumbs([
+        { label: "Projects" },
+        { label: "Create a new project" },
+      ]);
+    } else {
+      userLayout.setBreadcrumbs([
+        { label: "Projects" },
+        { label: "Email Template" },
+      ]);
+    }
+  }, [userLayout, location.pathname]);
 
   const clickTrash = () => {
     setIsAlertSuccess(true);

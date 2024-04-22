@@ -12,7 +12,7 @@ import IconDownload from "@/assets/icons/IconDownload";
 import Step from "@/components/Step/Step";
 import React, { useState } from "react";
 import { useUserLayout } from "@/layouts/UserLayout";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import CreateProjectDetail from "./CreateProject/CreateProjectDetail";
 import MandatoryRequirements from "./CreateProject/MandatoryRequirements";
 import RegistrationForm from "./CreateProject/RegistrationForm";
@@ -27,13 +27,17 @@ const listStep = [
 
 const CreateProject = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [currentStep, setCurrentStep] = useState(1);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(
     "Data collection"
   );
   const userLayout = useUserLayout();
   React.useEffect(() => {
-    userLayout.setBreadcrumbs([{ label: "Create a new project" }]);
+    userLayout.setBreadcrumbs([
+      { label: "Projects" },
+      { label: "Create a new project" },
+    ]);
 
     return () => {
       userLayout.clearBreadcrumbs();

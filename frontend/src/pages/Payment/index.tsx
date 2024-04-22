@@ -16,6 +16,7 @@ import ModalWithDraw from "./components/ModalWithDraw";
 import Modal from "@/components/Modal/Modal";
 import ModalSuccessful from "./components/ModalSuccessful";
 import { useUserLayout } from "@/layouts/UserLayout";
+import { useLocation } from "react-router-dom";
 
 const FAKE_DATA = [
   {
@@ -73,6 +74,7 @@ const columns = [
 ];
 
 const Payment = () => {
+  const location = useLocation();
   const [selectedRow, setSelectedRow] = useState<string[]>([]);
   const [isAddPayment, setIsAddPayment] = useState(false);
   const [isConfirm, setIsConfirm] = useState(false);
@@ -81,12 +83,19 @@ const Payment = () => {
   const [modalSuccessful, setModalSuccessful] = useState(false);
   const userLayout = useUserLayout();
   React.useEffect(() => {
-    userLayout.setBreadcrumbs([{ label: "My Payment" }]);
+    if (location.pathname === "/profile/balance") {
+      userLayout.setBreadcrumbs([
+        { label: "Profile" },
+        { label: "My Payment" },
+      ]);
+    } else {
+      userLayout.setBreadcrumbs([{ label: "My Payment" }]);
+    }
 
     return () => {
       userLayout.clearBreadcrumbs();
     };
-  }, [userLayout]);
+  }, [userLayout, location.pathname]);
 
   const onClickNote = () => {
     console.log("object");

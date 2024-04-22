@@ -4,7 +4,7 @@ import { ProjectAttribute } from "./Filter/ProjectAttribute";
 import { ProjectType } from "./Filter/ProjectType";
 import "./ProjectList.scss";
 import ProjectItem from "./ProjectItem";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import ListItemTypeProject from "./ListItemTypeProject/ListItemTypeProject";
 const FAKE_PROJECTS = [
   {
@@ -59,17 +59,35 @@ const ListNameItemProject = [
 ];
 
 const ProjectList = ({ isProjectsUser = false }) => {
+  const location = useLocation();
   const userLayout = useUserLayout();
   const navigate = useNavigate();
   const params = useParams();
+  const handleName = (type: string) => {
+    switch (type) {
+      case "/projects/available":
+        return "Available";
+      case "/projects/applied":
+        return "Applied";
+      case "/projects/my-projects":
+        return "My Projects";
+      case "/projects/completed":
+        return "Completed Projects";
+      default:
+        return "";
+    }
+  };
 
   React.useEffect(() => {
-    userLayout.setBreadcrumbs([{ label: "Projects" }]);
+    userLayout.setBreadcrumbs([
+      { label: "Projects" },
+      { label: handleName(location.pathname) },
+    ]);
 
     return () => {
       userLayout.clearBreadcrumbs();
     };
-  }, [userLayout]);
+  }, [userLayout, location.pathname]);
 
   const handleOnclick = (id: number) => {
     navigate(`/projects/${params.type}/${id}`);

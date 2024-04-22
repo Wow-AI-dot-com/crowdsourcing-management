@@ -7,6 +7,7 @@ import {
   IconBack,
 } from "@/assets/icons/Index";
 import { useUserLayout } from "@/layouts/UserLayout";
+import { useNavigate } from "react-router-dom";
 
 const FAKE_DATA = [
   {
@@ -96,17 +97,21 @@ const FAKE_DATA = [
 ];
 
 export default function ProjectDocuments() {
+  const navigate = useNavigate();
   const userLayout = useUserLayout();
   React.useEffect(() => {
     userLayout.setBreadcrumbs([
-      { label: "Compleyed Projects" },
+      {
+        label: "Completed Projects",
+        onClick: () => navigate("/projects/completed"),
+      },
       { label: "Project Documents" },
     ]);
 
     return () => {
       userLayout.clearBreadcrumbs();
     };
-  }, [userLayout]);
+  }, [userLayout, navigate]);
   const handleIcon = (value: string) => {
     switch (value) {
       case "file":
