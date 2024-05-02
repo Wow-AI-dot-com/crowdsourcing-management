@@ -6,6 +6,7 @@ import { ReactNode, useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import InputBase from "@/components/InputBase/InputBase";
 import "./Signup.scss";
+import SelectDropdown from "@/components/Dropdown/SelectDropdown";
 
 export const SIGN_UP = "SIGN_UP";
 export const ROLES = "ROLES";
@@ -150,8 +151,8 @@ export default function Signup() {
           <div className="sign-up-content__or" />
           <div className="group-extend-input">
             <div className="row-input">
-              <InputBase
-                listOption={[
+              <SelectDropdown
+                children={[
                   { id: 0, name: "National" },
                   { id: 1, name: "United Kingdom" },
                   { id: 2, name: "Viet Nam" },
