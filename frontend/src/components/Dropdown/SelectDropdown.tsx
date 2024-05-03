@@ -9,43 +9,31 @@ import "./SelectDropdown.scss";
 import IconArrowLeft from "@/assets/icons/IconArrowLeft";
 import useOnClickOutside from "@/hooks/useOnClickOutside";
 import IconArrowLearnMore from "@/assets/icons/IconArrowLearnMore";
-
-export interface TypeChildren {
-  id: number;
-  name: string;
-}
-
+import { OptionsType } from "@/pages/Project/FormApply/apply";
+import { IdType } from "@/pages/Project/FormApply/apply";
 type TypeSelectDropdown = {
-  children: TypeChildren[];
+  options: OptionsType[];
   className?: string;
   icon?: ReactNode;
   iconPosition?: string;
-  onClick?: (value: TypeChildren | null) => void;
+  value?: IdType;
+  placeholder?: string;
+  onChange?: (value: IdType) => void;
 };
 
 export default function SelectDropdown({
-  children,
-  className,
+  options,
+  className = "",
   icon,
   iconPosition,
-  onClick,
+  value,
+  placeholder,
+  onChange,
 }: TypeSelectDropdown) {
   const [isShowSelect, setIsShowSelect] = useState<boolean>(false);
-  const [valueLabel, setValueLabel] = useState<string>("");
-  const [height, setHeight] = useState<number>(0);
+  const [Label, setLabel] = useState<IdType | null>(null);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
   const dlRef = useRef<HTMLDivElement | null>(null);
-  const MAX_HEIGHT_DROPDOWN = 400;
-
-  useEffect(() => {
-    if (dropdownRef.current && isShowSelect) {
-      const dList = dlRef.current;
-
-      if (dList) {
-        setHeight(dList.clientHeight);
-      }
-    }
-  }, [isShowSelect]);
 
   const handleClickOutside = useCallback(() => {
     if (!dropdownRef.current || !isShowSelect) return false;
@@ -56,13 +44,15 @@ export default function SelectDropdown({
   const clickExtend = () => {
     setIsShowSelect(!isShowSelect);
   };
-  const handleClickOption = (value: TypeChildren) => {
-    setValueLabel(value.name);
-    onClick?.(value);
+
+  const handleClickOption = (value: IdType) => {
+    setLabel(value);
+    onChange?.(value);
   };
+
   return (
     <div
-      className={`select-dropdown-wrapper ${className ? className : ""}`}
+      className={`select-dropdown-wrapper ${className}`}
       onClick={clickExtend}
       ref={dropdownRef}
     >
@@ -70,7 +60,11 @@ export default function SelectDropdown({
         <div className="select-dropdown-content__label">
           {iconPosition === "left" && icon}
           <div className="label">
-            {valueLabel ? valueLabel : children[0].name}
+            {Label !== null
+              ? options.find((f) => f.id === Label)?.name
+              : value
+              ? options.find((f) => f.id === value)?.name
+              : placeholder}
           </div>
           {iconPosition === "right" && icon}
         </div>
@@ -83,19 +77,14 @@ export default function SelectDropdown({
         </div>
       </div>
       {isShowSelect && (
-        <div
-          className={`select-dropdown-list ${
-            height >= MAX_HEIGHT_DROPDOWN ? "scrollbar-y" : ""
-          }`}
-          ref={dlRef}
-        >
-          <ul className="list-options">
-            {children.map((m) => {
+        <div className={`select-dropdown-list `} ref={dlRef}>
+          <ul className={`list-options`}>
+            {options.map((m) => {
               return (
                 <li
                   className="option"
                   key={m.id}
-                  onClick={() => handleClickOption(m)}
+                  onClick={() => handleClickOption(m.id)}
                 >
                   {m.name}
                 </li>

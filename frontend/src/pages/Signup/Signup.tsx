@@ -11,6 +11,11 @@ import SelectDropdown from "@/components/Dropdown/SelectDropdown";
 export const SIGN_UP = "SIGN_UP";
 export const ROLES = "ROLES";
 
+const dataSelect = [
+  { id: 0, name: "National" },
+  { id: 1, name: "United Kingdom" },
+  { id: 2, name: "Viet Nam" },
+];
 export default function Signup() {
   const navigate = useNavigate();
   const api = useApi();
@@ -151,53 +156,32 @@ export default function Signup() {
           <div className="sign-up-content__or" />
           <div className="group-extend-input">
             <div className="row-input">
+              <SelectDropdown options={dataSelect} value={2} />
+            </div>
+            <div className="row-input">
               <SelectDropdown
-                children={[
-                  { id: 0, name: "National" },
-                  { id: 1, name: "United Kingdom" },
-                  { id: 2, name: "Viet Nam" },
-                ]}
+                options={dataSelect}
+                placeholder="First language"
+              />
+              <SelectDropdown
+                options={dataSelect}
+                placeholder="Proficiency level"
               />
             </div>
             <div className="row-input">
-              <InputBase
-                listOption={[
-                  { id: 0, name: "National" },
-                  { id: 1, name: "United Kingdom" },
-                  { id: 2, name: "Viet Nam" },
-                ]}
+              <SelectDropdown
+                options={dataSelect}
+                placeholder="Second languge"
               />
-              <InputBase
-                listOption={[
-                  { id: 0, name: "National" },
-                  { id: 1, name: "United Kingdom" },
-                  { id: 2, name: "Viet Nam" },
-                ]}
+              <SelectDropdown
+                options={dataSelect}
+                placeholder="Proficiency level"
               />
             </div>
             <div className="row-input">
-              <InputBase
-                listOption={[
-                  { id: 0, name: "National" },
-                  { id: 1, name: "United Kingdom" },
-                  { id: 2, name: "Viet Nam" },
-                ]}
-              />
-              <InputBase
-                listOption={[
-                  { id: 0, name: "National" },
-                  { id: 1, name: "United Kingdom" },
-                  { id: 2, name: "Viet Nam" },
-                ]}
-              />
-            </div>
-            <div className="row-input">
-              <InputBase
-                listOption={[
-                  { id: 0, name: "National" },
-                  { id: 1, name: "United Kingdom" },
-                  { id: 2, name: "Viet Nam" },
-                ]}
+              <SelectDropdown
+                options={dataSelect}
+                placeholder="Are you a freelancer or an agency?"
               />
             </div>
           </div>

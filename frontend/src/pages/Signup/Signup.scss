@@ -149,34 +149,32 @@
         .row-input {
           display: flex;
           align-items: center;
-          input,
-          select {
+          input {
             border-radius: 0;
           }
-          .c-input-base__field {
+          .select-dropdown-wrapper {
             &:not(:last-child) {
-              select {
-                border-right: none;
-              }
+              border-right: none;
             }
           }
 
           &:not(:last-child) {
             input,
-            select {
+            .select-dropdown-wrapper {
               border-bottom: none;
             }
           }
           &:first-child {
             input,
-            select {
+            .select-dropdown-wrapper {
               border-radius: var(--radius-rounded-lg) var(--radius-rounded-lg) 0
                 0;
+              border-bottom: none;
             }
           }
           &:last-child {
             input,
-            select {
+            .select-dropdown-wrapper {
               border-radius: 0 0 var(--radius-rounded-lg)
                 var(--radius-rounded-lg);
             }
