@@ -6,6 +6,7 @@ import Button from "@/components/Button/Button";
 import CreateOption from "./CreateOption";
 import { IdType } from "@/pages/Project/FormApply/apply";
 import InputBase from "@/components/InputBase/InputBase";
+import SelectDropdown from "@/components/Dropdown/SelectDropdown";
 
 type CreateMultipleChoiceProps = {
   options: OptionsType[];
@@ -31,7 +32,7 @@ const CreateMultipleChoice = ({
   return (
     <div className="create-multiple-choice" onClick={onClick}>
       {!isEdit ? (
-        <InputBase listOption={options} />
+        <SelectDropdown options={options} />
       ) : (
         options.map((option, index) => (
           <CreateOption

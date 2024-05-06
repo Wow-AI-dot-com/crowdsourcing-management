@@ -4,6 +4,7 @@ import Modal from "@/components/Modal/Modal";
 import InputBase from "@/components/InputBase/InputBase";
 import IconAttackFile from "@/assets/icons/IconAttackFile";
 import RadioSimpleProps from "@/components/RadioSimple";
+import SelectDropdown from "@/components/Dropdown/SelectDropdown";
 
 export type IdType = number | string;
 export interface OptionsType {
@@ -61,10 +62,10 @@ export default function Apply({ open, onClose, onSubmit }: ApplyProps) {
           />
         </div>
         <div className="container--apply__information">
-          <InputBase
+          <SelectDropdown
             label="Question number 5 ?"
             placeholder="Nationality"
-            listOption={arrayOption}
+            options={arrayOption}
           />
         </div>
         <div className="container--apply__file">

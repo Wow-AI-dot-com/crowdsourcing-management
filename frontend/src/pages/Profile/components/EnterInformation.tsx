@@ -10,6 +10,7 @@ import { Document, Page, pdfjs } from "react-pdf";
 import pdf from "@/assets/documents/W-8BEN.pdf";
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 import "react-pdf/dist/Page/TextLayer.css";
+import SelectDropdown from "@/components/Dropdown/SelectDropdown";
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
 const listAgree = [
@@ -59,14 +60,15 @@ export default function EnterInformation({
       <div className="body-profile">
         <div className="left">
           <InputBase label="Name" placeholder="Input text" />
-          <InputBase
+          <SelectDropdown
+            size="small"
             label="Do you have experience with data labeling such as image annotation, video annotation, etc?"
-            listOption={listAgree}
+            options={listAgree}
           />
-          <InputBase
+          <SelectDropdown
+            size="small"
             label="Do you have experience with audio transcription?"
-            placeholder="Input text"
-            listOption={listAgree}
+            options={listAgree}
           />
           {!isMatchingUsers ? (
             <div className="translate-input-link">
@@ -91,18 +93,30 @@ export default function EnterInformation({
           </div>
         </div>
         <div className="right">
-          <InputBase
-            label="Nation"
-            placeholder="Input text"
-            listOption={listOption}
-          />
+          <SelectDropdown size="small" label="Nation" options={listOption} />
           <div className="input-pair">
-            <InputBase label="First language" listOption={listOption} />
-            <InputBase label="Proficiency level" listOption={listOption} />
+            <SelectDropdown
+              size="small"
+              label="First language"
+              options={listOption}
+            />
+            <SelectDropdown
+              size="small"
+              label="Proficiency"
+              options={listOption}
+            />
           </div>
           <div className="input-pair">
-            <InputBase label="Second language" listOption={listOption} />
-            <InputBase label="Proficiency level" listOption={listOption} />
+            <SelectDropdown
+              size="small"
+              label="Second language"
+              options={listOption}
+            />
+            <SelectDropdown
+              size="small"
+              label="Proficiency level"
+              options={listOption}
+            />
           </div>
           <div className={`upload-cv${isMatchingUsers ? "-hide" : ""}`}>
             <span className="upload-cv__title">Attach your CV</span>

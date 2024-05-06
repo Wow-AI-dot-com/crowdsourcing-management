@@ -14,30 +14,30 @@ import { IdType } from "@/pages/Project/FormApply/apply";
 type TypeSelectDropdown = {
   options: OptionsType[];
   className?: string;
-  icon?: ReactNode;
-  iconPosition?: string;
   value?: IdType;
   placeholder?: string;
+  label?: string;
+  size?: "small" | "medium" | "large";
   onChange?: (value: IdType) => void;
 };
 
 export default function SelectDropdown({
   options,
   className = "",
-  icon,
-  iconPosition,
   value,
   placeholder,
+  label,
+  size = "medium",
   onChange,
 }: TypeSelectDropdown) {
   const [isShowSelect, setIsShowSelect] = useState<boolean>(false);
-  const [Label, setLabel] = useState<IdType | null>(null);
+  const [name, setName] = useState<IdType | undefined>(value);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
   const dlRef = useRef<HTMLDivElement | null>(null);
 
   const handleClickOutside = useCallback(() => {
     if (!dropdownRef.current || !isShowSelect) return false;
-    setIsShowSelect(false);
+    setIsShowSelect(!isShowSelect);
   }, [isShowSelect]);
   useOnClickOutside(dropdownRef, handleClickOutside);
 
@@ -45,28 +45,25 @@ export default function SelectDropdown({
     setIsShowSelect(!isShowSelect);
   };
 
-  const handleClickOption = (value: IdType) => {
-    setLabel(value);
-    onChange?.(value);
+  const handleClickOption = (e: IdType) => {
+    setName(e);
+    onChange?.(e);
+    setIsShowSelect(false);
   };
 
   return (
-    <div
-      className={`select-dropdown-wrapper ${className}`}
-      onClick={clickExtend}
-      ref={dropdownRef}
-    >
-      <div className="select-dropdown-content">
-        <div className="select-dropdown-content__label">
-          {iconPosition === "left" && icon}
-          <div className="label">
-            {Label !== null
-              ? options.find((f) => f.id === Label)?.name
-              : value
-              ? options.find((f) => f.id === value)?.name
-              : placeholder}
-          </div>
-          {iconPosition === "right" && icon}
+    <div className={`select-dropdown-wrapper `} ref={dropdownRef}>
+      {label ? <div className="select-dropdown-label">{label}</div> : null}
+      <div
+        className={`select-dropdown-content ${className} ${size}`}
+        onClick={clickExtend}
+      >
+        <div className="select-dropdown-content__name">
+          {name
+            ? options.find((f) => f.id === name)?.name
+            : placeholder
+            ? placeholder
+            : options[0].name}
         </div>
         <div
           className={`select-dropdown-content__arrow${

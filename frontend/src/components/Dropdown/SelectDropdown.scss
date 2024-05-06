@@ -1,48 +1,59 @@
 .select-dropdown-wrapper {
   width: 100%;
-  padding: 9px var(--padding-p-4);
   position: relative;
-  border: 1px solid var(--main-line);
-  cursor: pointer;
+  .select-dropdown-label {
+    color: var(--main-label);
+    font-size: var(--text-xs);
+    font-weight: var(--font-medium);
+    line-height: var(--leading-4);
+    margin: 0px 0px 4px 4px;
+  }
   .select-dropdown-content {
+    min-width: 150px;
+    cursor: pointer;
     display: flex;
     gap: 10px;
+    align-items: center;
     justify-content: space-between;
-    &__label {
+    border: 1px solid var(--main-line);
+    border-radius: var(--radius-rounded-xl);
+    &__name {
       display: flex;
-      align-items: center;
       gap: 14px;
-      .label {
-        // min-width: 115px;
-        color: var(--main-label);
-        font-size: var(--text-sm);
-        font-weight: var(--font-normal);
-        line-height: 17px;
-      }
+      color: var(--main-label);
+      font-size: var(--text-sm);
+      font-weight: var(--font-normal);
+      line-height: 18px;
     }
     &__arrow {
       display: flex;
       align-items: center;
+      &-normal,
+      & &-down {
+        display: flex;
+      }
       &-normal {
         transform: rotate(0deg);
         transition: all 0.1s ease-out;
-        svg {
-          height: 15px;
-        }
       }
       &-down {
         transform: rotate(-90deg);
         transition: all 0.1s ease-out;
-        svg {
-          height: 15px;
-        }
+        height: 18px;
       }
     }
+  }
+  .small {
+    padding: 9px var(--padding-p-3);
+    border-radius: 8px;
+  }
+  .medium {
+    padding: var(--padding-p-3) var(--padding-p-4);
   }
   .select-dropdown-list {
     position: absolute;
     z-index: 20;
-    top: 36px;
+    // top: 42px;
     left: -1px;
     width: calc(100% + 2px);
     .list-options {
@@ -56,7 +67,9 @@
       border-radius: var(--radius-rounded-xl);
       box-shadow: 0px 10px 20px 0px rgba(17, 17, 17, 0.08);
       .option {
+        cursor: pointer;
         display: flex;
+        line-height: var(--leading-5);
         justify-content: flex-start;
         padding: var(--padding-p-2) var(--padding-p-4);
         border-bottom: 1px solid var(--main-line);

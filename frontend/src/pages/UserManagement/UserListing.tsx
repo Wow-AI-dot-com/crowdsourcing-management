@@ -7,6 +7,7 @@ import Modal from "@/components/Modal/Modal";
 import InputBase from "@/components/InputBase/InputBase";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useUserLayout } from "@/layouts/UserLayout";
+import SelectDropdown from "@/components/Dropdown/SelectDropdown";
 
 const arrayListItemUser = [
   {
@@ -80,12 +81,17 @@ export default function UserListing() {
       >
         <div className="modal-create-sheet">
           <InputBase label="Sheer name" placeholder="Email" />
-          <InputBase
-            label="Project manager (PM)"
+
+          <SelectDropdown
+            options={arrListSelect}
             placeholder="Select PM"
-            listOption={arrListSelect}
+            label="Project manager (PM)"
           />
-          <InputBase label="Type of sheet" listOption={arrListSelect} />
+          <SelectDropdown
+            options={arrListSelect}
+            placeholder="Select PM"
+            label="Type of sheet"
+          />
           <InputBase
             label="Description"
             isMultipleLine

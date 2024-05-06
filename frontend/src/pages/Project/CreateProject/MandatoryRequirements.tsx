@@ -7,6 +7,7 @@ import IconBack from "@/assets/icons/IconBack";
 import IconNext from "@/assets/icons/IconNext";
 import ModalSelectLanguage from "./ModalSelectLanguage";
 import { useNavigate } from "react-router-dom";
+import SelectDropdown from "@/components/Dropdown/SelectDropdown";
 
 const proficiencyLevel = [
   {
@@ -58,10 +59,7 @@ export default function MandatoryRequirements() {
                   placeholder="Type language code"
                   value={m}
                 />
-                <InputBase
-                  label="Proficiency level"
-                  listOption={proficiencyLevel}
-                />
+                <SelectDropdown size="small" options={proficiencyLevel} />
               </div>
             );
           })}
@@ -78,18 +76,31 @@ export default function MandatoryRequirements() {
               Add more language
             </Button>
           </div>
-          <InputBase
+          <SelectDropdown
+            size="small"
             label="Audio Transcription experience"
-            listOption={listAgree}
+            options={listAgree}
           />
-          <InputBase label="Labeling experience" listOption={listAgree} />
-          <InputBase label="Translation experience" listOption={listAgree} />
-          <InputBase label="Voiceover artist" listOption={listAgree} />
+          <SelectDropdown
+            size="small"
+            label="Labeling experience"
+            options={listAgree}
+          />
+          <SelectDropdown
+            size="small"
+            label="Translation experience"
+            options={listAgree}
+          />
+          <SelectDropdown
+            size="small"
+            label="Voiceover artist"
+            options={listAgree}
+          />
           <div className="input-pair">
             <InputBase label="Age" placeholder="From" />
             <InputBase placeholder="To" />
           </div>
-          <InputBase label="Gender" listOption={listGender} />
+          <SelectDropdown size="small" label="Gender" options={listAgree} />
         </div>
       </div>
     </div>

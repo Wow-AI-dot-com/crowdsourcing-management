@@ -1,8 +1,10 @@
 import InputBase from "@/components/InputBase/InputBase";
 import Modal from "@/components/Modal/Modal";
 import Upload from "@/components/Upload/Upload";
-import React from "react";
+import React, { useState } from "react";
 import "./ModalInvoices.scss";
+import SelectDropdown from "@/components/Dropdown/SelectDropdown";
+import { IdType } from "@/pages/Project/FormApply/apply";
 
 const status = [
   { id: 1, name: "Done" },
@@ -19,6 +21,8 @@ export default function ModalInvoices({
   close,
   open,
 }: TypeModalInvoices) {
+  const [value, setValue] = useState<IdType>(1);
+
   return (
     <Modal
       open={open}
@@ -37,7 +41,13 @@ export default function ModalInvoices({
           <div>Attach Invoice</div>
           <Upload describe="JPG or PNG. Max size of 800K" />
         </div>
-        <InputBase label="Status" listOption={status} />
+        <SelectDropdown
+          options={status}
+          label="Status"
+          size="small"
+          value={value}
+          onChange={(e) => setValue(e)}
+        />
       </div>
     </Modal>
   );

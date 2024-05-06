@@ -1,3 +1,4 @@
+import SelectDropdown from "@/components/Dropdown/SelectDropdown";
 import "./Profile.scss";
 import Button from "@/components/Button/Button";
 import InputBase from "@/components/InputBase/InputBase";
@@ -31,18 +32,35 @@ export default function ProfileForm({ isMatchingUserScreen }: TProfileForm) {
           />
         </div>
         <div className="right">
-          <InputBase
+          <SelectDropdown
+            size="small"
+            options={listOption}
             label="Nation"
             placeholder="Input text"
-            listOption={listOption}
           />
           <div style={{ display: "flex", gap: "24px" }}>
-            <InputBase label="First language" listOption={listOption} />
-            <InputBase label="Proficiency level" listOption={listOption} />
+            <SelectDropdown
+              size="small"
+              options={listOption}
+              label="First language"
+            />
+            <SelectDropdown
+              size="small"
+              options={listOption}
+              label="Proficiency level"
+            />
           </div>
           <div style={{ display: "flex", gap: "24px" }}>
-            <InputBase label="Second language" listOption={listOption} />
-            <InputBase label="Proficiency level" listOption={listOption} />
+            <SelectDropdown
+              size="small"
+              options={listOption}
+              label="Second language"
+            />
+            <SelectDropdown
+              size="small"
+              options={listOption}
+              label="Proficiency level"
+            />
           </div>
           <div className="upload-cv">
             <span className="upload-cv__title">Attach your CV</span>

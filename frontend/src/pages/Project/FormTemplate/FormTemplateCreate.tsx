@@ -187,10 +187,7 @@ const FormTemplateCreate = () => {
     }));
   };
 
-  const onChangeTypeQuestion = (
-    questionId: IdType,
-    e: React.ChangeEvent<HTMLInputElement>
-  ) => {
+  const onChangeTypeQuestion = (questionId: IdType, value: string) => {
     const oldOptions = templateForm.questions.find(
       (question) => question.id === questionId
     );
@@ -203,8 +200,8 @@ const FormTemplateCreate = () => {
         question.id === questionId
           ? {
               ...question,
-              typeQuestion: e.target.value,
-              options: TYPE_QUESTION_HAVE_OPTIONS.includes(e.target.value)
+              typeQuestion: value,
+              options: TYPE_QUESTION_HAVE_OPTIONS.includes(value)
                 ? [
                     { name: "option 1", id: randomString() },
                     { name: "option 2", id: randomString() },

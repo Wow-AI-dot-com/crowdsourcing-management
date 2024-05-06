@@ -7,6 +7,7 @@ import InputBase from "@/components/InputBase/InputBase";
 import Upload from "@/components/Upload/Upload";
 import React, { useState } from "react";
 import "./CreateProjectDetail.scss";
+import SelectDropdown from "@/components/Dropdown/SelectDropdown";
 interface Option {
   id: number;
   name: string;
@@ -46,9 +47,9 @@ const categoryCheckboxes: Record<string, CheckboxOption[]> = {
 };
 
 export default function CreateProjectDetail() {
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(
-    "Data collection"
-  );
+  const [selectedCategory, setSelectedCategory] = useState<
+    string | number | null
+  >("Data collection");
   function generateUid() {
     const now = new Date();
     const hours = now.getHours();
@@ -92,19 +93,18 @@ export default function CreateProjectDetail() {
       </div>
 
       <div className="project-category">
-        <InputBase
-          listOption={listOption}
+        <SelectDropdown
+          size="small"
           label="Project category"
           placeholder="Select category"
-          onChange={(e) => {
-            setSelectedCategory(e.target.value);
-          }}
+          options={listOption}
+          onChange={(e) => setSelectedCategory(e)}
         />
         <div className="project-category--wrapper">
           <div className="project-category--wrapper__columns">
             {selectedCategory &&
               selectedCategory !== "Crowd sourcing" &&
-              categoryCheckboxes[selectedCategory].map((checkbox) => (
+              categoryCheckboxes[selectedCategory]?.map((checkbox) => (
                 <Checkbox
                   key={checkbox.id}
                   size="sm"

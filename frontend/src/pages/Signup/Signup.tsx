@@ -156,11 +156,12 @@ export default function Signup() {
           <div className="sign-up-content__or" />
           <div className="group-extend-input">
             <div className="row-input">
-              <SelectDropdown options={dataSelect} value={2} />
+              <SelectDropdown options={dataSelect} value={1} />
             </div>
             <div className="row-input">
               <SelectDropdown
                 options={dataSelect}
+                className="border-select"
                 placeholder="First language"
               />
               <SelectDropdown
@@ -171,6 +172,7 @@ export default function Signup() {
             <div className="row-input">
               <SelectDropdown
                 options={dataSelect}
+                className="border-select"
                 placeholder="Second languge"
               />
               <SelectDropdown

@@ -152,21 +152,21 @@
           input {
             border-radius: 0;
           }
-          .select-dropdown-wrapper {
-            &:not(:last-child) {
-              border-right: none;
-            }
+
+          .border-select {
+            border-right: none;
           }
 
           &:not(:last-child) {
             input,
-            .select-dropdown-wrapper {
+            .select-dropdown-content {
               border-bottom: none;
+              border-radius: 0px;
             }
           }
           &:first-child {
             input,
-            .select-dropdown-wrapper {
+            .select-dropdown-content {
               border-radius: var(--radius-rounded-lg) var(--radius-rounded-lg) 0
                 0;
               border-bottom: none;
@@ -174,7 +174,7 @@
           }
           &:last-child {
             input,
-            .select-dropdown-wrapper {
+            .select-dropdown-content {
               border-radius: 0 0 var(--radius-rounded-lg)
                 var(--radius-rounded-lg);
             }

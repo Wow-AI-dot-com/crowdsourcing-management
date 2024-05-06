@@ -8,6 +8,7 @@ import CreateMultipleChoice from "./CreateMultipleChoice";
 import "./CreateQuestion.scss";
 import { QuestionType } from "./FormTemplateCreate";
 import { IdType } from "@/pages/Project/FormApply/apply";
+import SelectDropdown from "@/components/Dropdown/SelectDropdown";
 
 const TYPE_QUESTION = [
   {
@@ -49,10 +50,7 @@ const TYPE_QUESTION = [
 ];
 
 type CreateQuestionProps = {
-  onChangeTypeQuestion: (
-    questionId: IdType,
-    e: React.ChangeEvent<HTMLInputElement>
-  ) => void;
+  onChangeTypeQuestion: (questionId: IdType, value: string) => void;
   typeQuestion: string;
   onAddImage: () => void;
   removeOption: (questionId: IdType, value: IdType) => void;
@@ -236,10 +234,11 @@ const CreateQuestion = ({
             <div onClick={onAddImage} className="add-image">
               <IconGalleryAdd />
             </div>
-            <InputBase
-              listOption={TYPE_QUESTION}
+            <SelectDropdown
+              size="small"
+              options={TYPE_QUESTION}
               onChange={(e) => {
-                onChangeTypeQuestion(question.id, e);
+                onChangeTypeQuestion(question.id, e.toString());
                 getPositionOfQuestion();
               }}
             />

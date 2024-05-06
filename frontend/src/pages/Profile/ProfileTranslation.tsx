@@ -7,6 +7,7 @@ import IconPlusProfileTranslation from "@/assets/icons/IconPlusProfileTranslatio
 import ConfirmModal from "@/components/Modal/ConfirmModal";
 import Switch from "@/components/Switch/Switch";
 import { useUserLayout } from "@/layouts/UserLayout";
+import SelectDropdown from "@/components/Dropdown/SelectDropdown";
 
 const ProfileTranslation = () => {
   const [isConfirm, setIsConFirm] = useState(false);
@@ -43,8 +44,8 @@ const ProfileTranslation = () => {
           </div>
         </div>
         <div className="c-profile-translation__box-input">
-          <InputBase listOption={arrayNation} label="From" />
-          <InputBase listOption={arrayNation} label="To" />
+          <SelectDropdown size="small" options={arrayNation} label="From" />
+          <SelectDropdown size="small" options={arrayNation} label="To" />
         </div>
         <Switch label="I can also do a reverse translation" />
       </div>

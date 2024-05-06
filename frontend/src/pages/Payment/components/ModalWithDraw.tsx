@@ -6,6 +6,8 @@ import Button from "@/components/Button/Button";
 import IconQR from "@/assets/icons/IconQR";
 import IconPrice from "@/assets/icons/IconPrice";
 import IconArrowLeft from "@/assets/icons/IconArrowLeft";
+import SelectDropdown from "@/components/Dropdown/SelectDropdown";
+import { IdType } from "@/pages/Project/FormApply/apply";
 
 const listNetWork = [
   { id: 1, name: "BNB" },
@@ -25,10 +27,10 @@ export default function ModalWithDraw({
   clickWithDraw,
   onClose,
 }: TypeModalWithDraw) {
-  const [valueOption, setValueOption] = useState("");
+  const [valueOption, setValueOption] = useState<IdType>("");
 
-  const onChangeSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setValueOption(e.target.value);
+  const onChangeSelect = (e: IdType) => {
+    setValueOption(e);
   };
   return (
     <Modal
@@ -45,13 +47,16 @@ export default function ModalWithDraw({
           </div>
         </div>
         <div>
-          <InputBase
+          <SelectDropdown
+            size="small"
             label="Network"
-            listOption={listNetWork}
-            onChange={onChangeSelect}
+            options={listNetWork}
+            onChange={(e) => onChangeSelect(e)}
           />
           <div className={`information-network`}>
-            <div className="title">{valueOption} Smart Chain</div>
+            <div className="title">
+              {listNetWork.find((f) => f.id === valueOption)?.name} Smart Chain
+            </div>
             <div className="information">
               <span>Free 1.00 USDT</span>
               <span>Minimum withdrawal 10 USDT</span>
