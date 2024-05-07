@@ -63,6 +63,7 @@ export default function Apply({ open, onClose, onSubmit }: ApplyProps) {
         </div>
         <div className="container--apply__information">
           <SelectDropdown
+            size="small"
             label="Question number 5 ?"
             placeholder="Nationality"
             options={arrayOption}

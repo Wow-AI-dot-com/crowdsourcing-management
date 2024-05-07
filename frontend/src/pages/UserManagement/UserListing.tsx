@@ -83,11 +83,13 @@ export default function UserListing() {
           <InputBase label="Sheer name" placeholder="Email" />
 
           <SelectDropdown
+            size="small"
             options={arrListSelect}
             placeholder="Select PM"
             label="Project manager (PM)"
           />
           <SelectDropdown
+            size="small"
             options={arrListSelect}
             placeholder="Select PM"
             label="Type of sheet"

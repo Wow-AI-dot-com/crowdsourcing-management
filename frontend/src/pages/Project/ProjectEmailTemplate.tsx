@@ -15,6 +15,23 @@ import IconApproveEmail from "@/assets/icons/IconApproveEmail";
 import AlertSuccessful from "../../components/Alert/AlertSuccessful";
 import ItemEmailTemplate from "./ItemEmailTemplate/ItemEmailTemplate";
 import { useUserLayout } from "@/layouts/UserLayout";
+
+const listEmailTemplate = [
+  {
+    id: 0,
+    name: "falsdnf",
+    subject: "Reaching Out",
+    content:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum...",
+  },
+  {
+    id: 1,
+    name: "falsdnf",
+    subject: "Reaching Out",
+    content:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum...",
+  },
+];
 export default function ProjectEmailTemplate() {
   const [isFormCreate, setIsFormCreate] = useState(false);
   const [isAlertSuccess, setIsAlertSuccess] = useState(false);
@@ -36,7 +53,7 @@ export default function ProjectEmailTemplate() {
     setIsFormCreate(false);
     setIsAlertSave(true);
   };
-  const handleEditEmail = () => {
+  const handleEditEmail = (id: number) => {
     setIsFormCreate(true);
     setStatus(true);
   };
@@ -97,13 +114,18 @@ export default function ProjectEmailTemplate() {
         title="Email is added successfully"
         autoHide={() => setIsAlertSave(false)}
       />
-      <ItemEmailTemplate
-        subject="Reaching Out"
-        name="sdfasd"
-        content="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum..."
-        clickIconEdit={handleEditEmail}
-        clickIconTrash={clickTrash}
-      />
+      {listEmailTemplate.map((m) => {
+        return (
+          <ItemEmailTemplate
+            id={m.id}
+            subject={m.subject}
+            name={m.name}
+            content={m.content}
+            clickIconEdit={handleEditEmail}
+            clickIconTrash={clickTrash}
+          />
+        );
+      })}
 
       <div className="p-email-template__btn">
         <Button

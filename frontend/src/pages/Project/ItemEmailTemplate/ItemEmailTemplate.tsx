@@ -7,14 +7,16 @@ import React from "react";
 import "./ItemEmailTemplate.scss";
 
 export interface TypeItemEmailTemplate {
+  id: number;
   subject: string;
   name: string;
   content: string;
-  clickIconEdit: () => void;
+  clickIconEdit: (id: number) => void;
   clickIconTrash: () => void;
 }
 
 export default function Index({
+  id,
   subject,
   name,
   content,
@@ -31,7 +33,7 @@ export default function Index({
           <span>Approve Email</span>
         </div>
         <div className="right">
-          <div className="icon edit" onClick={clickIconEdit}>
+          <div className="icon edit" onClick={() => clickIconEdit(id)}>
             <IconEditPayment />
           </div>
           <div className="icon delete" onClick={clickIconTrash}>

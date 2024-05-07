@@ -48,7 +48,7 @@ const categoryCheckboxes: Record<string, CheckboxOption[]> = {
 
 export default function CreateProjectDetail() {
   const [selectedCategory, setSelectedCategory] = useState<
-    string | number | null
+    string | number | null | undefined
   >("Data collection");
   function generateUid() {
     const now = new Date();
@@ -98,7 +98,10 @@ export default function CreateProjectDetail() {
           label="Project category"
           placeholder="Select category"
           options={listOption}
-          onChange={(e) => setSelectedCategory(e)}
+          onChange={(e) => {
+            const nameOption = listOption.find((f) => f.id === e)?.name;
+            setSelectedCategory(nameOption);
+          }}
         />
         <div className="project-category--wrapper">
           <div className="project-category--wrapper__columns">
